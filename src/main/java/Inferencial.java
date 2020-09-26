@@ -1,4 +1,3 @@
-import sun.net.www.content.text.plain;
 
 public class Inferencial {
     

@@ -1,14 +1,14 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Modelo {
     public Muestra Muestra;
-    public Arraylist<Inferencial> Inferencias;
+    public ArrayList<Inferencial> Inferencias;
     public Posterior Posterior;
     public String TipoDeModelo;
     public Informe Informe;
 
 
-    public Modelo(Muestra Muestra, Arraylist<Inferencial> Inferencias, Posterior Posterior, String TipoDeModelo, Informe Informe) {
+    public Modelo(Muestra Muestra, ArrayList<Inferencial> Inferencias, Posterior Posterior, String TipoDeModelo, Informe Informe) {
         this.Muestra = Muestra;
         this.Inferencias = Inferencias;
         this.Posterior = Posterior;

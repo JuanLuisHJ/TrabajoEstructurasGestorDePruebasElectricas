@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 public class Muestra {
     public ArrayList<Modelo> Modelos;
     public Descriptiva Descriptiva;
