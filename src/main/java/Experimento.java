@@ -1,4 +1,13 @@
+import java.util.*;
 public class Experimento {
-    String TipoDeExperimento;
-    int x;
+    public String TipoDeExperimento;
+    public Arraylist<Muestra> Muestras;
+    public String Metodo;
+
+
+    public Experimento(String TipoDeExperimento, Arraylist<Muestra> Muestras, String Metodo) {
+        this.TipoDeExperimento = TipoDeExperimento;
+        this.Muestras = Muestras;
+        this.Metodo = Metodo;
+    }     
 }
