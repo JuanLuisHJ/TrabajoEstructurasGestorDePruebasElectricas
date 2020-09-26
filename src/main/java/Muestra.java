@@ -6,11 +6,11 @@ public class Muestra {
     public Experimento Experimento;
     public boolean Independencia;
 
-    public Muestra(ArrayList<Modelo> Modelos, Descriptiva Descriptiva, Priori Priori, Experimento Experimento, boolean Independencia) {
+    public Muestra(ArrayList<Modelo> Modelos, Descriptiva Descriptiva, Priori Priori, Experimento experimento, boolean Independencia) {
         this.Modelos = Modelos;
         this.Descriptiva = Descriptiva;
         this.Priori = Priori;
-        this.Experimento = Experimento;
+        Experimento = experimento;
         this.Independencia = Independencia;
     }
 }
