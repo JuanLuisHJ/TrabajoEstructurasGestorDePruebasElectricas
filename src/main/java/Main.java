@@ -22,7 +22,7 @@ public class Main {
             System.out.println("0. Salir");
             String opcion = input.readLine();
             if (opcion.equals("1")){
-                Administracion.administrar();
+                Administracion.administrar(experimentos,muestras,modelos,informes,distribucionesapriori,distribucionposterior,descriptivas,inferenciales);
             }else if(opcion.equals("2")){
 
             }else if(opcion.equals("3")){
