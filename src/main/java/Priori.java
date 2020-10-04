@@ -1,5 +1,4 @@
-import java.util.*;
-
+import java.util.ArrayList;
 public class Priori {
     public ArrayList<Muestra> Muestras;
     public Posterior Posterior;
@@ -8,7 +7,7 @@ public class Priori {
     public String[] Parametros;
 
     public Priori(ArrayList<Muestra> Muestras, Posterior Posterior, boolean Informativa, String[] Parametros) {
-        this.Muestras = Muestras;
+        this.Muestras = new ArrayList<>();
         this.Posterior = Posterior;
         this.Informativa = Informativa;
         this.Parametros = Parametros;

@@ -1,3 +1,6 @@
+
+import java.io.IOException;
+import java.io.Writer;
 import java.util.*;
 public class Experimento {
     public String TipoDeExperimento;
@@ -9,5 +12,5 @@ public class Experimento {
         this.TipoDeExperimento = TipoDeExperimento;
         this.Muestras = Muestras;
         this.Metodo = Metodo;
-    }     
+    }
 }

@@ -1,6 +1,8 @@
 import java.util.*;
 import java.io.*;
 
+
+
 public class Main {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static ArrayList<Experimento> experimentos = new ArrayList<>();
@@ -16,7 +18,7 @@ public class Main {
         boolean condicion = true;
         while(condicion){
             System.out.println("1. Administración.");
-            System.out.println("2. Busqueda.");
+            System.out.println("2. Búsqueda.");
             System.out.println("3. Diagnóstico de inconsistencias.");
             System.out.println("4. Guardar.");
             System.out.println("0. Salir");
@@ -41,7 +43,7 @@ public class Main {
                     }else if (opcion.equals("N")){
                         break;
                     }else{
-                        System.out.println("El dato ingresado no es valido");
+                        System.out.println("Por favor, inregese 'Y' o 'N' para continuar");
                     }
                 }
             }
@@ -51,5 +53,9 @@ public class Main {
     public static void Ingresar(){
         System.out.println("Ingrese por favor su correo o contraseña");
     }
+    public static void DistribucionAPriori(){
+        
+    }
+
 
 }
