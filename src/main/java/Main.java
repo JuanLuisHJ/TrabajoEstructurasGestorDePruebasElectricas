@@ -13,6 +13,7 @@ public class Main {
     public static ArrayList<Posterior> distribucionposterior = new ArrayList<>();
     public static ArrayList<Descriptiva> descriptivas = new ArrayList<>();
     public static ArrayList<Inferencial> inferenciales = new ArrayList<>();
+    public static int [] IDs = new int[8];
     public static void main(String[] args) throws IOException {
 
         boolean condicion = true;
@@ -24,7 +25,7 @@ public class Main {
             System.out.println("0. Salir");
             String opcion = input.readLine();
             if (opcion.equals("1")){
-                Administracion.administrar(experimentos,muestras,modelos,informes,distribucionesapriori,distribucionposterior,descriptivas,inferenciales);
+                Administracion.administrar(experimentos,muestras,modelos,informes,distribucionesapriori,distribucionposterior,descriptivas,inferenciales,IDs);
             }else if(opcion.equals("2")){
 
             }else if(opcion.equals("3")){
