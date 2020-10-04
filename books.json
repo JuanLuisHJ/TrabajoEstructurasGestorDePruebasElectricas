@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Thinking in Java",
+    "isbn": "978-0131872486",
+    "year": 1998,
+    "authors": [
+      "Bruce Eckel"
+    ]
+  },
+  {
+    "title": "Head First Java",
+    "isbn": "0596009208",
+    "year": 2003,
+    "authors": [
+      "Kathy Sierra",
+      "Bert Bates"
+    ]
+  }
+]
