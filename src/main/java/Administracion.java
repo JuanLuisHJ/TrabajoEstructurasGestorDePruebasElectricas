@@ -60,7 +60,7 @@ public class Administracion {
         }else if(opcionA.equals("0")){
             return;
         }else{
-            System.out.println("Los datos ingresados no son validos");
+            System.out.println("La opción ingresada no es válida");
         }
     }
 }
