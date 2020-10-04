@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 
 public class Modelo {
-    public Muestra Muestra;
-    public ArrayList<Inferencial> Inferencias;
-    public Posterior Posterior;
+    public int ID;
+    public int Muestra;
+    public ArrayList<Integer> Inferencias;
+    public int Posterior;
     public String TipoDeModelo;
-    public Informe Informe;
+    public int Informe;
 
 
-    public Modelo(Muestra Muestra, ArrayList<Inferencial> Inferencias, Posterior Posterior, String TipoDeModelo, Informe Informe) {
+    public Modelo(int ID,int Muestra, int Posterior, String TipoDeModelo, int Informe) {
+        this.ID = ID;
         this.Muestra = Muestra;
-        this.Inferencias = Inferencias;
+        Inferencias = new ArrayList<>();
         this.Posterior = Posterior;
         this.TipoDeModelo = TipoDeModelo;
         this.Informe = Informe;

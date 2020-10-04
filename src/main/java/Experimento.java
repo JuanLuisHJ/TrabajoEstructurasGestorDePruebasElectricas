@@ -3,13 +3,15 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 public class Experimento {
-    public int ID;
+    public String Nombre;//UQ
+    public int ID;//UQ
     public String TipoDeExperimento;
-    public ArrayList<Muestra> Muestras;
+    public ArrayList<Integer> Muestras;
     public String Metodo;
 
 
-    public Experimento(int ID,String TipoDeExperimento, String Metodo) {
+    public Experimento(String Nombre,int ID,String TipoDeExperimento, String Metodo) {
+        this.Nombre = Nombre;
         this.ID = ID;
         this.TipoDeExperimento = TipoDeExperimento;
         Muestras = new ArrayList<>();

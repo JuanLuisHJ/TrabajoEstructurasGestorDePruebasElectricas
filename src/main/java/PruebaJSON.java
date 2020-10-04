@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class PruebaJSON{
             // create book object
             Book book = new Book("Thinking in Java", "978-0131872486", 1998,
                     new String[]{"Bruce Eckel"});
+
 
             // create Gson instance with pretty-print
             Gson gson = new GsonBuilder().setPrettyPrinting().create();

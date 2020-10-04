@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 public class Priori {
-    public ArrayList<Muestra> Muestras;
-    public Posterior Posterior;
+    public int ID;
+    public ArrayList<Integer> Muestras;
+    public int Posterior;
     public boolean Informativa;
 
     public String[] Parametros;
 
-    public Priori(ArrayList<Muestra> Muestras, Posterior Posterior, boolean Informativa, String[] Parametros) {
-        this.Muestras = new ArrayList<>();
+    public Priori(int ID,int Posterior, boolean Informativa, String[] Parametros) {
+        this.ID = ID;
+        Muestras = new ArrayList<>();
         this.Posterior = Posterior;
         this.Informativa = Informativa;
         this.Parametros = Parametros;

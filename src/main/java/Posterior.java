@@ -1,9 +1,11 @@
 public class Posterior {
-    public Priori Priori;
-    public Modelo Modelo;
+    public int ID;
+    public int Priori;
+    public int Modelo;
     public String[] Parametros;
 
-    public Posterior(Priori Priori, Modelo Modelo, String[] Parametros) {
+    public Posterior(int ID, int Priori, int Modelo, String[] Parametros) {
+        this.ID = ID;
         this.Priori = Priori;
         this.Modelo = Modelo;
         this.Parametros = Parametros;
