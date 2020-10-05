@@ -17,7 +17,7 @@ public class Administracion {
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             if (opcionA.equals("1")) {
-                admiExperimentos(experimentos);
+                MenuExperimento.munuExperiento(experimentos,IDs);
                 return;
             } else if (opcionA.equals("2")) {
 
@@ -38,32 +38,6 @@ public class Administracion {
                 break;
             } else {
                 System.out.println("Los datos ingresados no son validos");
-            }
-        }
-    }
-
-    public static void admiExperimentos(ArrayList<Experimento> experimentos) throws IOException {
-        while (true) {
-            System.out.println("1. Ver Experimento.");
-            System.out.println("2. Crear Experimento.");
-            System.out.println("3. Editar Experimento.");
-            System.out.println("4. Eliminar Experimento.");
-            System.out.println("0. Cancelar");
-            String opcionA = input.readLine();
-            if (opcionA.equals("1")) {
-                for (Experimento experimento : experimentos) {
-                    System.out.println(experimento);
-                }
-            } else if (opcionA.equals("2")) {
-
-            } else if (opcionA.equals("3")) {
-
-            } else if (opcionA.equals("4")) {
-
-            } else if (opcionA.equals("0")) {
-                return;
-            } else {
-                System.out.println("La opción ingresada no es válida");
             }
         }
     }
