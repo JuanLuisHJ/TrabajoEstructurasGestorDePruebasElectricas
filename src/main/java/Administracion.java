@@ -1,23 +1,22 @@
-import java.util.*;
 import java.io.*;
 
 public class Administracion {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void administrar(ArrayList<Experimento> experimentos, ArrayList<Muestra> muestras, ArrayList<Modelo> modelos, ArrayList<Informe> informes, ArrayList<Priori> distribucionesapriori, ArrayList<Posterior> distribucionposterior, ArrayList<Descriptiva> descriptivas, ArrayList<Inferencial> inferenciales, int[] IDs) throws IOException {
+    public static void administrar() throws IOException {
         while (true) {
-            System.out.println("1. Experimento.");
-            System.out.println("2. Muestra.");
-            System.out.println("3. Modelo.");
+            System.out.println("1. Laboratorios.");
+            System.out.println("2. Tipos de Pruebas.");
+            System.out.println("3. Elementos de Prueba.");
             System.out.println("4. Informe.");
-            System.out.println("5. Distribución a-priori.");
-            System.out.println("6. Distribución posterior.");
-            System.out.println("7. Descriptiva.");
-            System.out.println("8. Inferencial.");
+            System.out.println("5. Zonas.");
+            System.out.println("6. Dispositivos.");
+            System.out.println("7. Normas.");
+            System.out.println("8. Clases.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             if (opcionA.equals("1")) {
-                MenuExperimento.munuExperiento(experimentos,IDs);
+                MenuLaboratorio.munuLaboratorio();
                 return;
             } else if (opcionA.equals("2")) {
 
@@ -30,8 +29,8 @@ public class Administracion {
             } else if (opcionA.equals("6")) {
 
             } else if (opcionA.equals("7")) {
-                admiDescriptiva(descriptivas);
-                return;
+                //admiDescriptiva(descriptivas);
+                //return;
             } else if (opcionA.equals("8")) {
 
             } else if (opcionA.equals("0")) {
@@ -42,7 +41,7 @@ public class Administracion {
         }
     }
 
-    public static void admiDescriptiva(ArrayList<Descriptiva> descriptivas) throws IOException {
+    /*public static void admiDescriptiva(ArrayList<Descriptiva> descriptivas) throws IOException {
         while (true) {
             System.out.println("1. Ver Descriptiva.");
             System.out.println("2. Crear Descriptiva.");
@@ -198,6 +197,6 @@ public class Administracion {
                 System.out.println("La opción ingresada no es válida");
             }
         }
-    }
+    }*/
 }
 

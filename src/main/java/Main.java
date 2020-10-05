@@ -10,14 +10,14 @@ import java.io.*;
 public class Main {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static ArrayList<Usuario> Usuarios = new ArrayList<>();
-    public static ArrayList<Experimento> experimentos = new ArrayList<>();
-    public static ArrayList<Muestra> muestras = new ArrayList<>();
-    public static ArrayList<Modelo> modelos = new ArrayList<>();
+    public static ArrayList<Laboratorio> laboratorios = new ArrayList<>();
+    public static ArrayList<TipoPrueba> pruebas = new ArrayList<>();
+    public static ArrayList<ElementoPrueba> elementos = new ArrayList<>();
     public static ArrayList<Informe> informes = new ArrayList<>();
-    public static ArrayList<Priori> distribucionesapriori = new ArrayList<>();
-    public static ArrayList<Posterior> distribucionposterior = new ArrayList<>();
-    public static ArrayList<Descriptiva> descriptivas = new ArrayList<>();
-    public static ArrayList<Inferencial> inferenciales = new ArrayList<>();
+    public static ArrayList<Zona> zonas = new ArrayList<>();
+    public static ArrayList<Dispositivo> dispositivos = new ArrayList<>();
+    public static ArrayList<Norma> normas = new ArrayList<>();
+    public static ArrayList<Clase> clases = new ArrayList<>();
     public static int [] IDs = new int[8];
     public static void main(String[] args) throws IOException {
 
@@ -221,7 +221,7 @@ public class Main {
             System.out.println("0. Salir");
             String opcion = input.readLine();
             if (opcion.equals("1")){
-                Administracion.administrar(experimentos,muestras,modelos,informes,distribucionesapriori,distribucionposterior,descriptivas,inferenciales,IDs);
+                Administracion.administrar();
             }else if(opcion.equals("2")){
 
             }else if(opcion.equals("3")){
@@ -244,7 +244,7 @@ public class Main {
                     }
                 }
             }
-        }*/
+        }
     }
 
     /*public static void Ingresar(){
