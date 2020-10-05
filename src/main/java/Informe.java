@@ -2,18 +2,30 @@ import java.util.ArrayList;
 
 public class Informe {
     public int ID;
-    public int Modelo;
-    public ArrayList<String> Resultados;
-    public int NumeroDeGraficas;
-    public int Extension;
+    public int Elemento;
+    public boolean Resultado;
+    public String Comentarios;
+    public double Temperatura;
+    public double Humedad;
 
-
-    public Informe(int ID,int Modelo, ArrayList<String> Resultados, int NumeroDeGraficas, int Extension) {
+    public Informe(int ID, int elemento, boolean resultado, String comentarios, double temperatura, double humedad) {
         this.ID = ID;
-        this.Modelo = Modelo;
-        this.Resultados = Resultados;
-        this.NumeroDeGraficas = NumeroDeGraficas;
-        this.Extension = Extension;
+        Elemento = elemento;
+        Resultado = resultado;
+        Comentarios = comentarios;
+        Temperatura = temperatura;
+        Humedad = humedad;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Informe{" +
+                "ID=" + ID +
+                ", Elemento=" + Elemento +
+                ", Resultado=" + Resultado +
+                ", Comentarios='" + Comentarios + '\'' +
+                ", Temperatura=" + Temperatura +
+                ", Humedad=" + Humedad +
+                '}';
+    }
 }
