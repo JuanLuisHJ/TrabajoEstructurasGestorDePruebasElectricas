@@ -13,5 +13,15 @@ public class Usuario {
         this.Apellido = Apellido;
         this.Contraseña = Contraseña;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "Documento=" + Documento +
+                ", Correo='" + Correo + '\'' +
+                ", Nombre='" + Nombre + '\'' +
+                ", Apellido='" + Apellido + '\'' +
+                ", Contraseña='" + Contraseña + '\'' +
+                '}';
+    }
 }

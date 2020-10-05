@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class PruebaJSON{
+/*public class PruebaJSON{
     public static void main(String[] args){
 
         // ESTO CONVIERTE JAVA A JSON
@@ -182,4 +182,4 @@ public class PruebaJSON{
             ex.printStackTrace();
         }
     }
-}
+}*/
