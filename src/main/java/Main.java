@@ -1,8 +1,6 @@
 import java.util.*;
 import java.io.*;
 
-
-
 public class Main {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static ArrayList<Experimento> experimentos = new ArrayList<>();
