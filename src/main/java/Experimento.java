@@ -3,8 +3,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.*;
 public class Experimento {
-    public String Nombre;//UQ
-    public int ID;//UQ
+    public String Nombre;//UK
+    public int ID;//UK
     public String TipoDeExperimento;
     public ArrayList<Integer> Muestras;
     public String Metodo;
