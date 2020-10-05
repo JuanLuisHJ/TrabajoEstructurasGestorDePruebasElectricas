@@ -180,6 +180,7 @@ public class Main {
             }
             else if(seleccion.equals("0")){
                 break;
+                // falta relacionarlo con el menu
             }
             else{
                 System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"");
@@ -187,7 +188,7 @@ public class Main {
         }
 
 
-        boolean condicion = true;
+        /*boolean condicion = true;
         while(condicion){
             System.out.println("1. Administración.");
             System.out.println("2. Búsqueda.");
@@ -219,15 +220,15 @@ public class Main {
                     }
                 }
             }
-        }
+        }*/
     }
 
-    public static void Ingresar(){
+    /*public static void Ingresar(){
         System.out.println("Ingrese por favor su correo o contraseña");
     }
     public static void DistribucionAPriori(){
         
-    }
+    }*/
     public static void CargarDatos(){
         try {
             Gson gson = new Gson();
