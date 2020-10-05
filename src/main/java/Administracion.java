@@ -38,7 +38,6 @@ public class Administracion {
                 break;
             } else {
                 System.out.println("Los datos ingresados no son validos");
-                return;
             }
         }
     }
