@@ -1,3 +1,6 @@
+import Clases.Laboratorio;
+import Clases.TipoPrueba;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -6,10 +9,10 @@ public class MenuLaboratorio {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void munuLaboratorio() throws IOException {
         while(true){
-            System.out.println("1. Ver Laboratorio.");
-            System.out.println("2. Crear Laboratorio.");
-            System.out.println("3. Editar Laboratorio.");
-            System.out.println("4. Eliminar Laboratorio.");
+            System.out.println("1. Ver Clases.Laboratorio.");
+            System.out.println("2. Crear Clases.Laboratorio.");
+            System.out.println("3. Editar Clases.Laboratorio.");
+            System.out.println("4. Eliminar Clases.Laboratorio.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             boolean comparador;

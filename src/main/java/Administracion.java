@@ -7,12 +7,11 @@ public class Administracion {
         while (true) {
             System.out.println("1. Laboratorios.");
             System.out.println("2. Tipos de Pruebas.");
-            System.out.println("3. Elementos de Prueba.");
-            System.out.println("4. Informe.");
-            System.out.println("5. Zonas.");
-            System.out.println("6. Dispositivos.");
-            System.out.println("7. Normas.");
-            System.out.println("8. Clases.");
+            System.out.println("3. Elementos de Clases.Prueba.");
+            System.out.println("4. Clases.Informe.");
+            System.out.println("5. Dispositivos.");
+            System.out.println("6. Normas.");
+            System.out.println("7. Clases.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             if (opcionA.equals("1")) {
@@ -31,9 +30,7 @@ public class Administracion {
             } else if (opcionA.equals("7")) {
                 //admiDescriptiva(descriptivas);
                 //return;
-            } else if (opcionA.equals("8")) {
-
-            } else if (opcionA.equals("0")) {
+            }else if (opcionA.equals("0")) {
                 break;
             } else {
                 System.out.println("Los datos ingresados no son validos");

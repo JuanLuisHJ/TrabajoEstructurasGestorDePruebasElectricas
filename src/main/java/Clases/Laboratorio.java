@@ -1,27 +1,27 @@
+package Clases;
+
 import java.util.ArrayList;
 
 public class Laboratorio {
-    public int ID;
+    public int NIT;
     public String Nombre;
     public String Direccion;
-    public ArrayList<Integer> Pruebas;
-    public ArrayList<Integer> Zonas;
+    public ArrayList<String> TipoPruebas;
 
-    public Laboratorio(int ID, String nombre, String direccion) {
-        this.ID = ID;
+    public Laboratorio(int NIT, String nombre, String direccion) {
+        this.NIT = NIT;
         Nombre = nombre;
         Direccion = direccion;
-        Pruebas = new ArrayList<>();
-        Zonas = new ArrayList<>();
+        TipoPruebas = new ArrayList<>();
     }
 
     @Override
     public String toString() {
         return "Laboratotio{" +
-                "ID=" + ID +
+                "NIT=" + NIT +
                 ", Nombre='" + Nombre + '\'' +
                 ", Direccion='" + Direccion + '\'' +
-                ", Pruebas=" + Pruebas +
+                ", Tipo de Pruebas=" + TipoPruebas +
                 '}';
     }
 }

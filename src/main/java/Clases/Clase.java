@@ -1,18 +1,18 @@
+package Clases;
+
 import java.util.ArrayList;
 
 public class Clase {
-    public int ID;
     public String Nombre;
-    public ArrayList<Integer> ElementosPrueba;
-    public int Norma;
+    public ArrayList<Integer> Pruebas;
+    public String Norma;
     public double VoltajePrueba;
     public double CorrientePrueba;
     public double VoltajeMaximo;
     public double CorrienteMaxima;
     public double Tiempo;
 
-    public Clase(int ID, String nombre, int norma, double voltajePrueba, double corrientePrueba, double voltajeMaximo, double corrienteMaxima, double tiempo) {
-        this.ID = ID;
+    public Clase(String nombre, String norma, double voltajePrueba, double corrientePrueba, double voltajeMaximo, double corrienteMaxima, double tiempo) {
         Nombre = nombre;
         Norma = norma;
         VoltajePrueba = voltajePrueba;
@@ -20,16 +20,15 @@ public class Clase {
         VoltajeMaximo = voltajeMaximo;
         CorrienteMaxima = corrienteMaxima;
         Tiempo = tiempo;
-        ElementosPrueba = new ArrayList<>();
+        Pruebas = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return "Clase{" +
-                "ID=" + ID +
+        return "Clases.Clase{" +
                 ", Nombre='" + Nombre + '\'' +
-                ", ElementosPrueba=" + ElementosPrueba +
-                ", Norma=" + Norma +
+                ", Clases.Prueba=" + Pruebas +
+                ", Clases.Norma=" + Norma +
                 ", VoltajePrueba=" + VoltajePrueba +
                 ", CorrientePrueba=" + CorrientePrueba +
                 ", VoltajeMaximo=" + VoltajeMaximo +

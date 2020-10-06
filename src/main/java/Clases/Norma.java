@@ -1,27 +1,26 @@
+package Clases;
+
 import java.util.ArrayList;
 
 public class Norma {
-    public int ID;
     public String Nombre;
     public String Referencia;
-    public int Prueba;
+    public String TipoPrueba;
     public ArrayList<Integer> Clases;
 
-    public Norma(int ID, String nombre, String referencia, int prueba) {
-        this.ID = ID;
+    public Norma(String nombre, String referencia, String tipoprueba) {
         Nombre = nombre;
         Referencia = referencia;
-        Prueba = prueba;
+        TipoPrueba = tipoprueba;
         Clases = new ArrayList<>();
     }
 
     @Override
     public String toString() {
-        return "Norma{" +
-                "ID=" + ID +
+        return "Clases.Norma{" +
                 ", Nombre='" + Nombre + '\'' +
                 ", Referencia='" + Referencia + '\'' +
-                ", Prueba=" + Prueba +
+                ", Tipo de Clases.Prueba=" + TipoPrueba +
                 ", Clases=" + Clases +
                 '}';
     }

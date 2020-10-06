@@ -1,3 +1,4 @@
+import Clases.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.nio.file.Files;
@@ -9,13 +10,11 @@ public class Main {
     public static ArrayList<Usuario> Usuarios = new ArrayList<>();
     public static ArrayList<Laboratorio> laboratorios = new ArrayList<>();
     public static ArrayList<TipoPrueba> pruebas = new ArrayList<>();
-    public static ArrayList<ElementoPrueba> elementos = new ArrayList<>();
+    public static ArrayList<Prueba> elementos = new ArrayList<>();
     public static ArrayList<Informe> informes = new ArrayList<>();
-    public static ArrayList<Zona> zonas = new ArrayList<>();
     public static ArrayList<Dispositivo> dispositivos = new ArrayList<>();
     public static ArrayList<Norma> normas = new ArrayList<>();
     public static ArrayList<Clase> clases = new ArrayList<>();
-    public static int [] IDs = new int[8];
     public static void main(String[] args) throws IOException {
         CargarDatos();
         boolean acceso = false;
@@ -47,7 +46,7 @@ public class Main {
                         }
                     }
                     if (!encontrado) {
-                        System.out.println("Usuario con documento: \"" + documento + "\" no econtrado\n");
+                        System.out.println("Clases.Usuario con documento: \"" + documento + "\" no econtrado\n");
                     } else {
                         System.out.print("Ingrese contraseña: ");
                         String contraseña = input.readLine();
@@ -68,7 +67,7 @@ public class Main {
                         }
                     }
                     if (!encontrado) {
-                        System.out.println("Usuario con correo: \"" + ingreso + "\" no econtrado\n");
+                        System.out.println("Clases.Usuario con correo: \"" + ingreso + "\" no econtrado\n");
                     } else {
                         System.out.print("Ingrese contraseña: ");
                         String contraseña = input.readLine();

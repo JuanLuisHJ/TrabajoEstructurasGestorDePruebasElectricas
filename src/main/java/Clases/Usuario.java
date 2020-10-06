@@ -1,3 +1,5 @@
+package Clases;
+
 public class Usuario {
     public int Documento;
     public String Correo;
@@ -16,7 +18,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
+        return "Clases.Usuario{" +
                 "Documento=" + Documento +
                 ", Correo='" + Correo + '\'' +
                 ", Nombre='" + Nombre + '\'' +
