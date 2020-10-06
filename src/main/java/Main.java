@@ -189,43 +189,39 @@ public class Main {
             } else {
                 System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"");
             }
-        }
-        /*boolean condicion = true;
-        while(condicion){
-            System.out.println("1. Administración.");
-            System.out.println("2. Búsqueda.");
-            System.out.println("3. Diagnóstico de inconsistencias.");
-            System.out.println("4. Guardar.");
-            System.out.println("0. Salir");
-            String opcion = input.readLine();
-            if (opcion.equals("1")){
-                Administracion.administrar();
-            }else if(opcion.equals("2")){
+            while(acceso){
+                System.out.println("1. Administración.");
+                System.out.println("2. Búsqueda.");
+                System.out.println("3. Diagnóstico de inconsistencias.");
+                System.out.println("4. Guardar.");
+                System.out.println("0. Salir");
+                String opcion = input.readLine();
+                if (opcion.equals("1")){
+                    Administracion.administrar();
+                }else if(opcion.equals("2")){
 
-            }else if(opcion.equals("3")){
+                }else if(opcion.equals("3")){
 
-            }else if(opcion.equals("4")){
+                }else if(opcion.equals("4")){
 
-            }else if(opcion.equals("0")){
-                while(true){
-                    System.out.println("Al seleccionar esta opcion se perderan los cambios si no ha guardado");
-                    System.out.println("Y. Salir del programa");
-                    System.out.println("N. Permanecer en el programa");
-                    opcion = input.readLine();
-                    if (opcion.equals("Y")){
-                        condicion = false;
-                        break;
-                    }else if (opcion.equals("N")){
-                        break;
-                    }else{
-                        System.out.println("Por favor, inregese 'Y' o 'N' para continuar");
+                }else if(opcion.equals("0")){
+                    while(true){
+                        System.out.println("Al seleccionar esta opcion se perderan los cambios si no ha guardado");
+                        System.out.println("Y. Salir del programa");
+                        System.out.println("N. Permanecer en el programa");
+                        opcion = input.readLine();
+                        if (opcion.equalsIgnoreCase("y")){
+                            acceso = false;
+                            break;
+                        }else if (opcion.equalsIgnoreCase("n")){
+                            break;
+                        }else{
+                            System.out.println("Por favor, inregese 'Y' o 'N' para continuar");
+                        }
                     }
                 }
             }
         }
-    }
-
-   */
     }
     public static void CargarDatos(){
         try {
