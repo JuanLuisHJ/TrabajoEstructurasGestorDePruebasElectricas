@@ -156,9 +156,11 @@ public class MenuLaboratorio {
         boolean comparador;
         System.out.println("Ingrese el nombre del laboratorio");
         String nombreb = input.readLine();
+        if (nombreb.equals("")){
+            System.out.println("No se ingreso ningun nombre");
+            return false;
+        }
         int index = -1;
-        int index2 = -1;
-        int indexf;
         for (int i=0;i<Main.laboratorios.size();i++){
             if (nombreb.equalsIgnoreCase(Main.laboratorios.get(i).Nombre)) {
                 index = i;
@@ -221,6 +223,7 @@ public class MenuLaboratorio {
         Main.laboratorios.get(index).Direccion = nuevaDireccion;
         if (nuevoNIT != viejoNIT){
             Main.laboratorios.get(index).NIT = nuevoNIT;
+            Collections.sort(Main.laboratorios,new ComparadorNITLaboratorio());
             if (!Main.tipopruebas.isEmpty()){
                 for (TipoPrueba tipoprueba : Main.tipopruebas) {
                     if (tipoprueba.NitLaboratorio==viejoNIT){
@@ -240,16 +243,13 @@ public class MenuLaboratorio {
         }
         boolean comparador;
         System.out.println("Ingrese el ID del laboratorio");
-        int IDb = Integer.parseInt(input.readLine());
-        int index = -1;
-        int index2 = -1;
-        int indexf;
-        for (int i=0;i<Main.laboratorios.size();i++){
-            if (IDb == Main.laboratorios.get(i).ID) {
-                index = i;
-                break;
-            }
+        String nitb = input.readLine();
+        if (nitb.equals("")){
+            System.out.println("No se ingreso ninguna direccion");
+            return false;
         }
+        int NITb = Integer.parseInt(nitb);
+        int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
             System.out.println("No se encuentra el laboratorio con ese ID");
             return false;
@@ -271,31 +271,17 @@ public class MenuLaboratorio {
                 return false;
             }
         }
-        int viejoID = Main.laboratorios.get(index).ID;
-        System.out.println("ID: "+ Main.laboratorios.get(index).ID);
-        String nuevoid = input.readLine();
-        int nuevoID;
-        if (nuevoid.equals("")){
-            nuevoID = Main.laboratorios.get(index).ID;
+        int viejoNIT = Main.laboratorios.get(index).NIT;
+        System.out.println("NIT: "+ Main.laboratorios.get(index).NIT);
+        String nuevonit = input.readLine();
+        int nuevoNIT = Integer.parseInt(nuevonit);
+        if (nuevonit.equals("")){
+            nuevoNIT = Main.laboratorios.get(index).NIT;
         }else{
-            nuevoID = Integer.parseInt(nuevoid);
-            comparador = false;
-            for (Laboratorio laboratorio : Main.laboratorios) {
-                if (laboratorio.ID == nuevoID){
-                    comparador = true;
-                    break;
-                }
-            }
-            if (comparador){
-                System.out.println("El ID ya se encuentra en la base de datos");
-                for(int i=1;i<Main.laboratorios.get(Main.laboratorios.size()-1).ID;i++){
-                    if (Main.laboratorios.get(i).ID != i){
-                        index2 = i;
-                        break;
-                    }
-                }
-                nuevoID = index2;
-                System.out.println("Se asigno el ID: "+index2);
+            int comparadorN = Collections.binarySearch(Main.laboratorios,new Laboratorio(nuevoNIT,"",""),new ComparadorNITLaboratorio());
+            if (comparadorN >= 0){
+                System.out.println("El NIT ya se encuentra en la base de datos");
+                return false;
             }
         }
         System.out.println("Direccion del laboratorio: "+ Main.laboratorios.get(index).Direccion);
@@ -303,7 +289,6 @@ public class MenuLaboratorio {
         if (nuevaDireccion.equals("")){
             nuevaDireccion = Main.laboratorios.get(index).Direccion;
         }
-        Laboratorio nuevoLab = new Laboratorio(nuevoID,nuevoNombre,nuevaDireccion);
 
         while(true){
             System.out.println("Desea guardar los cambios.");
@@ -317,59 +302,20 @@ public class MenuLaboratorio {
             }
         }
 
-        if (nuevoID == Main.laboratorios.get(index).ID){
-            Main.laboratorios.get(index).Nombre = nuevoNombre;
-            Main.laboratorios.get(index).Direccion = nuevaDireccion;
-            return true;
-        }else{
-            if(index2 >= 0 && index > index2){
-                Main.laboratorios.add(index2,nuevoLab);
-                Main.laboratorios.remove(index+1);
-                indexf = index2;
-            }else if(index2 >= 0 && index < index2){
-                Main.laboratorios.add(index2,nuevoLab);
-                Main.laboratorios.remove(index);
-                indexf = index2 -1;
-            }else{
-                int index3 = -1;
-                for(int j=0; j<Main.laboratorios.size();j++){
-                    if(nuevoID<Main.laboratorios.get(j).ID){
-                        index3 = j;
-                        break;
-                    }
-                }
-                if (index3 < 0){
-                    Main.laboratorios.add(nuevoLab);
-                    Main.laboratorios.remove(index);
-                    indexf = Main.laboratorios.size()-1;
-                }else if(index3>index){
-                    Main.laboratorios.add(index3,nuevoLab);
-                    Main.laboratorios.remove(index);
-                    indexf = index3-1;
-                }else {
-                    Main.laboratorios.add(index3,nuevoLab);
-                    Main.laboratorios.remove(index+1);
-                    indexf = index3;
-                }
-            }
-            if(!Main.pruebas.isEmpty()){
-                for (TipoPrueba prueba : Main.pruebas) {
-                    if (prueba.Laboratorio == viejoID){
-                        prueba.Laboratorio = nuevoID;
-                        Main.laboratorios.get(indexf).Pruebas.add(prueba.ID);
+        Main.laboratorios.get(index).Nombre = nuevoNombre;
+        Main.laboratorios.get(index).Direccion = nuevaDireccion;
+        if (nuevoNIT != viejoNIT){
+            Main.laboratorios.get(index).NIT = nuevoNIT;
+            Collections.sort(Main.laboratorios,new ComparadorNITLaboratorio());
+            if (!Main.tipopruebas.isEmpty()){
+                for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                    if (tipoprueba.NitLaboratorio==viejoNIT){
+                        tipoprueba.NitLaboratorio = nuevoNIT;
                     }
                 }
             }
-            if(!Main.zonas.isEmpty()){
-                for (Zona zona : Main.zonas) {
-                    if (zona.Laboratorio == viejoID){
-                        zona.Laboratorio = nuevoID;
-                        Main.laboratorios.get(indexf).Zonas.add(zona.ID);
-                    }
-                }
-            }
-            return true;
         }
+        return true;
     }
 
     public static boolean EliminarLaboratorioN() throws IOException {
@@ -379,6 +325,10 @@ public class MenuLaboratorio {
         }
         System.out.println("Ingrese el nombre del laboratorio");
         String nombreb = input.readLine();
+        if (nombreb.equals("")){
+            System.out.println("No se ingreso ningun nombre");
+            return false;
+        }
         int index = -1;
         for (int i=0;i<Main.laboratorios.size();i++){
             if (nombreb.equalsIgnoreCase(Main.laboratorios.get(i).Nombre)) {
@@ -403,19 +353,12 @@ public class MenuLaboratorio {
             }
         }
 
-        int viejoID = Main.laboratorios.get(index).ID;
+        int viejoNIT = Main.laboratorios.get(index).NIT;
         Main.laboratorios.remove(index);
         if(!Main.pruebas.isEmpty()){
-            for (TipoPrueba prueba : Main.pruebas) {
-                if (prueba.Laboratorio == viejoID){
-                    prueba.Laboratorio = -1;
-                }
-            }
-        }
-        if(!Main.zonas.isEmpty()){
-            for (Zona zona : Main.zonas) {
-                if (zona.Laboratorio == viejoID){
-                    zona.Laboratorio = -1;
+            for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                if (tipoprueba.NitLaboratorio== viejoNIT){
+                    tipoprueba.NitLaboratorio = -1;
                 }
             }
         }
@@ -428,14 +371,13 @@ public class MenuLaboratorio {
             return true;
         }
         System.out.println("Ingrese el ID del laboratorio");
-        int IDb = Integer.parseInt(input.readLine());
-        int index = -1;
-        for (int i=0;i<Main.laboratorios.size();i++){
-            if (IDb == Main.laboratorios.get(i).ID) {
-                index = i;
-                break;
-            }
+        String nitb = input.readLine();
+        if (nitb.equals("")){
+            System.out.println("No se ingreso ninguna direccion");
+            return false;
         }
+        int NITb = Integer.parseInt(nitb);
+        int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
             System.out.println("No se encuentra el laboratorio con ese ID");
             return false;
@@ -453,19 +395,12 @@ public class MenuLaboratorio {
             }
         }
 
-        int viejoID = Main.laboratorios.get(index).ID;
+        int viejoNIT = Main.laboratorios.get(index).NIT;
         Main.laboratorios.remove(index);
         if(!Main.pruebas.isEmpty()){
-            for (TipoPrueba prueba : Main.pruebas) {
-                if (prueba.Laboratorio == viejoID){
-                    prueba.Laboratorio = -1;
-                }
-            }
-        }
-        if(!Main.zonas.isEmpty()){
-            for (Zona zona : Main.zonas) {
-                if (zona.Laboratorio == viejoID){
-                    zona.Laboratorio = -1;
+            for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                if (tipoprueba.NitLaboratorio== viejoNIT){
+                    tipoprueba.NitLaboratorio = -1;
                 }
             }
         }
