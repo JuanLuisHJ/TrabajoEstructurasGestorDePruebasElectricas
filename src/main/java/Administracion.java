@@ -27,10 +27,10 @@ public class Administracion {
             } else if (opcionA.equals("4")) {
 
             } else if (opcionA.equals("5")) {
-                MenuDispositivo.MenuDispositivo(Main.dispositivos);
+                MenuDispositivo.MenuDispositivo();
                 return;
             } else if (opcionA.equals("6")) {
-                MenuNorma.MenuNorma(Main.normas);
+                MenuNorma.MenuNorma();
             } else if (opcionA.equals("7")) {
 
             }else if (opcionA.equals("0")) {

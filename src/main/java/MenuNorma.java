@@ -9,7 +9,7 @@ import java.util.*;
 
 public class MenuNorma {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    public static void MenuNorma(ArrayList<Norma> normas) throws IOException {
+    public static void MenuNorma() throws IOException {
         while (true) {
             System.out.println("1. Ver Norma.");
             System.out.println("2. Crear Norma.");

@@ -7,7 +7,7 @@ import java.util.*;
 
 public class MenuDispositivo {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    public static void MenuDispositivo(ArrayList<Dispositivo> dispositivos) throws IOException {
+    public static void MenuDispositivo() throws IOException {
         while (true) {
             System.out.println("1. Ver Dispositivos.");
             System.out.println("2. Crear Dispositivo.");
