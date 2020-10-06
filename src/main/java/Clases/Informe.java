@@ -30,4 +30,12 @@ public class Informe {
                 ", Presion=" + Presion +
                 '}';
     }
+    public String PasoNoPaso(){
+        if (Resultado){
+            return "Pasó";
+        }
+        else{
+            return "No Pasó";
+        }
+    }
 }

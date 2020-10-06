@@ -25,7 +25,7 @@ public class Administracion {
             } else if (opcionA.equals("3")) {
 
             } else if (opcionA.equals("4")) {
-
+                MenuInformes.CRUDinforme();
             } else if (opcionA.equals("5")) {
                 MenuDispositivo.MenuDispositivo();
                 return;
