@@ -12,5 +12,19 @@
     "Nombre": "Mateo ",
     "Apellido": "Garzón Reyes",
     "Contraseña": "12345"
+  },
+  {
+    "Documento": 1037661668,
+    "Correo": "damunozmo@unal.edu.co",
+    "Nombre": "David",
+    "Apellido": "Muñoz Molina",
+    "Contraseña": "qwert"
+  },
+  {
+    "Documento": 123456789,
+    "Correo": "uncorreo@unal.edu.co",
+    "Nombre": "alguien",
+    "Apellido": "con un apellido",
+    "Contraseña": "contraseña"
   }
 ]
