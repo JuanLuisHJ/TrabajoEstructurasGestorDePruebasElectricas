@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class TipoPrueba {
     public String Nombre;
-    public String Norma;
+    public String RefNorma;
     public ArrayList<Integer> Pruebas;
     public int NitLaboratorio;
 
-    public TipoPrueba( String nombre, String norma, int laboratorio) {
+    public TipoPrueba( String nombre, String refnorma, int laboratorio) {
         Nombre = nombre;
-        Norma = norma;
+        RefNorma = refnorma;
         NitLaboratorio = laboratorio;
         Pruebas = new ArrayList<>();
     }
@@ -19,7 +19,7 @@ public class TipoPrueba {
     public String toString() {
         return "Clases.TipoPrueba{" +
                 ", Nombre='" + Nombre + '\'' +
-                ", Clases.Norma=" + Norma +
+                ", Clases.Norma=" + RefNorma +
                 ", Pruebas=" + Pruebas +
                 ", Clases.Laboratorio=" + NitLaboratorio +
                 '}';

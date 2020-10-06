@@ -20,7 +20,8 @@ public class Administracion {
                 MenuLaboratorio.munuLaboratorio();
                 return;
             } else if (opcionA.equals("2")) {
-
+                MenuTipoPrueba.munuTipoPrueba();
+                return;
             } else if (opcionA.equals("3")) {
 
             } else if (opcionA.equals("4")) {

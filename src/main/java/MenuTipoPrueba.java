@@ -1,76 +1,45 @@
 import Clases.Laboratorio;
+import Clases.Norma;
 import Clases.TipoPrueba;
 import Comparadores.ComparadorNITLaboratorio;
+import Comparadores.ComparadorNombreTipoPrueba;
+import Comparadores.ComparadorReferenciaNorma;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collections;
 
-public class MenuLaboratorio {
+public class MenuTipoPrueba {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    public static void munuLaboratorio() throws IOException {
+    public static void munuTipoPrueba() throws IOException {
         while(true){
-            System.out.println("1. Ver Laboratorio.");
-            System.out.println("2. Crear Laboratorio.");
-            System.out.println("3. Editar Laboratorio.");
-            System.out.println("4. Eliminar Laboratorio.");
+            System.out.println("1. Ver Tipos de prueba.");
+            System.out.println("2. Crear Tipos de prueba.");
+            System.out.println("3. Editar Tipos de prueba.");
+            System.out.println("4. Eliminar Tipos de prueba.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             boolean comparador;
             if (opcionA.equals("1")){
-                comparador = VerLaboratorio();
+                comparador = VerTipoPrueba();
                 if (comparador){
                     return;
                 }
             }else if(opcionA.equals("2")){
-                comparador = CrearLaboratorio();
+                comparador = CrearTipoPrueba();
                 if (comparador){
                     return;
                 }
             }else if(opcionA.equals("3")){
-                while (true){
-                    System.out.println("1. Seleccionar por nombre.");
-                    System.out.println("2. Seleccionar por ID.");
-                    System.out.println("0. Cancelar.");
-                    String opcionAE = input.readLine();
-                    if(opcionAE.equals("1")){
-                        comparador = EditarLaboratorioN();
-                        if (comparador){
-                            return;
-                        }
-                    }else if(opcionAE.equals("2")) {
-                        comparador = EditarLaboratorioID();
-                        if (comparador){
-                            return;
-                        }
-                    }else if(opcionAE.equals("0")){
-                        return;
-                    }else{
-                        System.out.println("La opción ingresada no es válida");
-                    }
+                comparador = EditarTipoPrueba();
+                if (comparador){
+                    return;
                 }
             }else if(opcionA.equals("4")){
-                while (true){
-                    System.out.println("1. Seleccionar por nombre.");
-                    System.out.println("2. Seleccionar por ID.");
-                    System.out.println("0. Cancelar.");
-                    String opcionAE = input.readLine();
-                    if(opcionAE.equals("1")){
-                        comparador = EliminarLaboratorioN();
-                        if (comparador){
-                            return;
-                        }
-                    }else if(opcionAE.equals("2")) {
-                        comparador = EliminarLaboratorioID();
-                        if (comparador){
-                            return;
-                        }
-                    }else if(opcionAE.equals("0")){
-                        return;
-                    }else{
-                        System.out.println("La opción ingresada no es válida");
-                    }
+                comparador = EliminarTipoPrueba();
+                if (comparador){
+                    return;
                 }
             }else if(opcionA.equals("0")){
                 return;
@@ -80,73 +49,76 @@ public class MenuLaboratorio {
         }
     }
 
-     public static boolean VerLaboratorio(){
+    public static boolean VerTipoPrueba(){
         if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en el sistema");
+            System.out.println("No hay tipos de prueba en el sistema");
             return false;
         }else{
-            for (Laboratorio laboratorio : Main.laboratorios) {
-                System.out.println(laboratorio);
+            for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                System.out.println(tipoprueba);
             }
             return true;
         }
-     }
+    }
 
-    public static boolean CrearLaboratorio() throws IOException {
+    public static boolean CrearTipoPrueba() throws IOException {
         int comparador;
-        System.out.println("Ingrese el nombre del laboratorio");
+        int indexN;
+        int indexL;
+        System.out.println("Ingrese el nombre del tipo de prueba");
         String nombre = input.readLine();
         if (nombre.equals("")){
             System.out.println("No se ingreso ningun nombre");
             return false;
         }else{
-            boolean comparadorN = false;
-            for (Laboratorio laboratorio : Main.laboratorios) {
-                if (laboratorio.Nombre.equalsIgnoreCase(nombre)){
-                    comparadorN = true;
-                    break;
-                }
-            }
-            if (comparadorN){
+            comparador = Collections.binarySearch(Main.tipopruebas,new TipoPrueba(nombre,"",0),new ComparadorNombreTipoPrueba());
+            if (comparador>=0){
                 System.out.println("El Nombre ya se encuentra en la base de datos");
                 return false;
             }
         }
-        System.out.println("Ingrese el NIT del laboratorio");
-        String NIT = input.readLine();
-        int nNIT;
-        if (NIT.equals("")){
-            System.out.println("No se ingreso ninguna direccion");
+        System.out.println("Ingrese la referencia de la norma utilizada en el tipo de prueba");
+        String RefNorma = input.readLine();
+        if (RefNorma.equals("")){
+            System.out.println("No se ingreso ninguna referencia");
             return false;
         }else{
-            NIT = NIT.replaceAll("[.]","");
-            nNIT = Integer.parseInt(NIT);
-            comparador = Collections.binarySearch(Main.laboratorios,new Laboratorio(nNIT,"",""),new ComparadorNITLaboratorio());
-            if (comparador>=0){
-                System.out.println("El NIT ya se encuentra en la base de datos");
+            indexN = Collections.binarySearch(Main.normas,new Norma("",RefNorma,""),new ComparadorReferenciaNorma());
+            if (indexN<0){
+                System.out.println("La norma no se encuentra en la base de datos");
                 return false;
             }
         }
-        System.out.println("Ingrese la direccion del laboratorio");
-        String Direccion = input.readLine();
-        if (Direccion.equals("")){
+        System.out.println("Ingrese el ID del laboratorio");
+        String nitLab = input.readLine();
+        int NITLab;
+        if (nitLab.equals("")){
             System.out.println("No se ingreso ninguna direccion");
             return false;
+        }else{
+            nitLab = nitLab.replaceAll("[.]","");
+            NITLab = Integer.parseInt(nitLab);
+            indexL = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITLab,"",""),new ComparadorNITLaboratorio());
+            if (indexL<0){
+                System.out.println("No se encuentra el laboratorio con ese NIT");
+                return false;
+            }
         }
-        Laboratorio nuevoLab = new Laboratorio(nNIT,nombre,Direccion);
-        if (Main.laboratorios.isEmpty()){
-            Main.laboratorios.add(nuevoLab);
+        nombre = nombre + " - " + Main.laboratorios.get(indexL).Nombre;
+        TipoPrueba nuevoTipoprueba = new TipoPrueba(nombre,RefNorma,NITLab);
+        if (Main.tipopruebas.isEmpty()){
+            Main.tipopruebas.add(nuevoTipoprueba);
         }else{
             boolean lista = true;
-            for (int i=0;i<Main.laboratorios.size();i++){
-                if (nNIT<Main.laboratorios.get(i).NIT){
-                    Main.laboratorios.add(i,nuevoLab);
+            for (int i=0;i<Main.tipopruebas.size();i++){
+                if (nombre.toLowerCase().compareTo(Main.tipopruebas.get(i).Nombre.toLowerCase())<0){
+                    Main.tipopruebas.add(i,nuevoTipoprueba);
                     lista = false;
                     break;
                 }
             }
             if(lista){
-                Main.laboratorios.add(nuevoLab);
+                Main.tipopruebas.add(nuevoTipoprueba);
             }
         }
         return true;
@@ -258,7 +230,7 @@ public class MenuLaboratorio {
         int NITb = Integer.parseInt(nitb);
         int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
-            System.out.println("No se encuentra el laboratorio con ese NIT");
+            System.out.println("No se encuentra el laboratorio con ese ID");
             return false;
         }
         System.out.println("Nombre: "+ Main.laboratorios.get(index).Nombre);
@@ -379,7 +351,7 @@ public class MenuLaboratorio {
             System.out.println("No hay laboratorios en la base de datos");
             return false;
         }
-        System.out.println("Ingrese el NIT del laboratorio");
+        System.out.println("Ingrese el ID del laboratorio");
         String nitb = input.readLine();
         if (nitb.equals("")){
             System.out.println("No se ingreso ninguna direccion");
