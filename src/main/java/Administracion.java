@@ -7,8 +7,8 @@ public class Administracion {
         while (true) {
             System.out.println("1. Laboratorios.");
             System.out.println("2. Tipos de Pruebas.");
-            System.out.println("3. Elementos de Clases.Prueba.");
-            System.out.println("4. Clases.Informe.");
+            System.out.println("3. Prueba.");
+            System.out.println("4. Informe.");
             System.out.println("5. Dispositivos.");
             System.out.println("6. Normas.");
             System.out.println("7. Clases.");

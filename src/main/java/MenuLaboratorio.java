@@ -9,10 +9,10 @@ public class MenuLaboratorio {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void munuLaboratorio() throws IOException {
         while(true){
-            System.out.println("1. Ver Clases.Laboratorio.");
-            System.out.println("2. Crear Clases.Laboratorio.");
-            System.out.println("3. Editar Clases.Laboratorio.");
-            System.out.println("4. Eliminar Clases.Laboratorio.");
+            System.out.println("1. Ver Laboratorio.");
+            System.out.println("2. Crear Laboratorio.");
+            System.out.println("3. Editar Laboratorio.");
+            System.out.println("4. Eliminar Laboratorio.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             boolean comparador;
@@ -91,13 +91,14 @@ public class MenuLaboratorio {
      }
 
     public static boolean CrearLaboratorio() throws IOException {
+        boolean comparador;
         System.out.println("Ingrese el nombre del laboratorio");
         String nombre = input.readLine();
         if (nombre.equals("")){
             System.out.println("No se ingreso ningun nombre");
             return false;
         }else{
-            boolean comparador = false;
+            comparador = false;
             for (Laboratorio laboratorio : Main.laboratorios) {
                 if (laboratorio.Nombre.equals(nombre)){
                     comparador = true;
@@ -109,14 +110,34 @@ public class MenuLaboratorio {
                 return false;
             }
         }
-        int ID = Main.IDs[0];
+        System.out.println("Ingrese el NIT del laboratorio");
+        String NIT = input.readLine();
+        if (NIT.equals("")){
+            System.out.println("No se ingreso ninguna direccion");
+            return false;
+        }else{
+            NIT.replace('.',' ');
+            NIT.trim();
+            int nNIT = Integer.parseInt(NIT);
+            comparador = false;
+            for (Laboratorio laboratorio : Main.laboratorios) {
+                if (laboratorio.NIT == nNIT){
+                    comparador = true;
+                    break;
+                }
+            }
+            if (comparador){
+                System.out.println("El NIT ya se encuentra en la base de datos");
+                return false;
+            }
+        }
         System.out.println("Ingrese la direccion del laboratorio");
         String Direccion = input.readLine();
         if (Direccion.equals("")){
             System.out.println("No se ingreso ninguna direccion");
             return false;
         }
-        Laboratorio nuevoLab = new Laboratorio(ID,nombre,Direccion);
+        Laboratorio nuevoLab = new Laboratorio(nNIT,nombre,Direccion);
         Main.laboratorios.add(nuevoLab);
         Main.IDs[0] = Main.IDs[0] + 1;
         return true;
