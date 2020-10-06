@@ -30,7 +30,7 @@ public class Administracion {
                 MenuDispositivo.MenuDispositivo(Main.dispositivos);
                 return;
             } else if (opcionA.equals("6")) {
-
+                MenuNorma.MenuNorma(Main.normas);
             } else if (opcionA.equals("7")) {
 
             }else if (opcionA.equals("0")) {

@@ -19,7 +19,7 @@ public class MenuDispositivo {
                 if (Main.dispositivos.isEmpty()) {
                     System.out.println("No hay dispositivos guardados en la base de datos. ");
                 } else {
-                    for (Dispositivo dispositivo : dispositivos) {
+                    for (Dispositivo dispositivo : Main.dispositivos) {
                         System.out.println(dispositivo);
                     }
                 }
