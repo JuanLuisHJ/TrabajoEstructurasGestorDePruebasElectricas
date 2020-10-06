@@ -102,7 +102,7 @@ public class MenuLaboratorio {
         }else{
             boolean comparadorN = false;
             for (Laboratorio laboratorio : Main.laboratorios) {
-                if (laboratorio.Nombre.equals(nombre)){
+                if (laboratorio.Nombre.equalsIgnoreCase(nombre)){
                     comparadorN = true;
                     break;
                 }
@@ -119,8 +119,7 @@ public class MenuLaboratorio {
             System.out.println("No se ingreso ninguna direccion");
             return false;
         }else{
-            NIT.replace('.',' ');
-            NIT.trim();
+            NIT = NIT.replaceAll("[.]","");
             nNIT = Integer.parseInt(NIT);
             comparador = Collections.binarySearch(Main.laboratorios,new Laboratorio(nNIT,"",""),new ComparadorNITLaboratorio());
             if (comparador>=0){
@@ -138,11 +137,16 @@ public class MenuLaboratorio {
         if (Main.laboratorios.isEmpty()){
             Main.laboratorios.add(nuevoLab);
         }else{
+            boolean lista = true;
             for (int i=0;i<Main.laboratorios.size();i++){
                 if (nNIT<Main.laboratorios.get(i).NIT){
                     Main.laboratorios.add(i,nuevoLab);
+                    lista = false;
                     break;
                 }
+            }
+            if(lista){
+                Main.laboratorios.add(nuevoLab);
             }
         }
         return true;
@@ -151,7 +155,7 @@ public class MenuLaboratorio {
     public static boolean EditarLaboratorioN() throws IOException {
         if (Main.laboratorios.isEmpty()){
             System.out.println("No hay laboratorios en la base de datos");
-            return true;
+            return false;
         }
         boolean comparador;
         System.out.println("Ingrese el nombre del laboratorio");
@@ -191,10 +195,12 @@ public class MenuLaboratorio {
         int viejoNIT = Main.laboratorios.get(index).NIT;
         System.out.println("NIT: "+ Main.laboratorios.get(index).NIT);
         String nuevonit = input.readLine();
-        int nuevoNIT = Integer.parseInt(nuevonit);
+        int nuevoNIT;
         if (nuevonit.equals("")){
             nuevoNIT = Main.laboratorios.get(index).NIT;
         }else{
+            nuevonit = nuevonit.replaceAll("[.]","");
+            nuevoNIT = Integer.parseInt(nuevonit);
             int comparadorN = Collections.binarySearch(Main.laboratorios,new Laboratorio(nuevoNIT,"",""),new ComparadorNITLaboratorio());
             if (comparadorN >= 0){
                 System.out.println("El NIT ya se encuentra en la base de datos");
@@ -212,9 +218,9 @@ public class MenuLaboratorio {
             System.out.println("Y. Confirmar");
             System.out.println("N. Cancelar");
             String confir = input.readLine();
-            if (confir.equals("Y")){
+            if (confir.equalsIgnoreCase("Y")){
                 break;
-            }else if(confir.equals("N")){
+            }else if(confir.equalsIgnoreCase("N")){
                 return true;
             }
         }
@@ -239,7 +245,7 @@ public class MenuLaboratorio {
     public static boolean EditarLaboratorioID() throws IOException {
         if (Main.laboratorios.isEmpty()){
             System.out.println("No hay laboratorios en la base de datos");
-            return true;
+            return false;
         }
         boolean comparador;
         System.out.println("Ingrese el ID del laboratorio");
@@ -248,6 +254,7 @@ public class MenuLaboratorio {
             System.out.println("No se ingreso ninguna direccion");
             return false;
         }
+        nitb = nitb.replaceAll("[.]","");
         int NITb = Integer.parseInt(nitb);
         int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
@@ -261,7 +268,7 @@ public class MenuLaboratorio {
         }else{
             comparador = false;
             for (Laboratorio laboratorio : Main.laboratorios) {
-                if (laboratorio.Nombre.equals(nuevoNombre)){
+                if (laboratorio.Nombre.equalsIgnoreCase(nuevoNombre)){
                     comparador = true;
                     break;
                 }
@@ -274,10 +281,12 @@ public class MenuLaboratorio {
         int viejoNIT = Main.laboratorios.get(index).NIT;
         System.out.println("NIT: "+ Main.laboratorios.get(index).NIT);
         String nuevonit = input.readLine();
-        int nuevoNIT = Integer.parseInt(nuevonit);
+        int nuevoNIT;
         if (nuevonit.equals("")){
             nuevoNIT = Main.laboratorios.get(index).NIT;
         }else{
+            nuevonit = nuevonit.replaceAll("[.]","");
+            nuevoNIT = Integer.parseInt(nuevonit);
             int comparadorN = Collections.binarySearch(Main.laboratorios,new Laboratorio(nuevoNIT,"",""),new ComparadorNITLaboratorio());
             if (comparadorN >= 0){
                 System.out.println("El NIT ya se encuentra en la base de datos");
@@ -295,9 +304,9 @@ public class MenuLaboratorio {
             System.out.println("Y. Confirmar");
             System.out.println("N. Cancelar");
             String confir = input.readLine();
-            if (confir.equals("Y")){
+            if (confir.equalsIgnoreCase("Y")){
                 break;
-            }else if(confir.equals("N")){
+            }else if(confir.equalsIgnoreCase("N")){
                 return true;
             }
         }
@@ -321,7 +330,7 @@ public class MenuLaboratorio {
     public static boolean EliminarLaboratorioN() throws IOException {
         if (Main.laboratorios.isEmpty()){
             System.out.println("No hay laboratorios en la base de datos");
-            return true;
+            return false;
         }
         System.out.println("Ingrese el nombre del laboratorio");
         String nombreb = input.readLine();
@@ -346,9 +355,9 @@ public class MenuLaboratorio {
             System.out.println("Y. Confirmar");
             System.out.println("N. Cancelar");
             String confir = input.readLine();
-            if (confir.equals("Y")){
+            if (confir.equalsIgnoreCase("Y")){
                 break;
-            }else if(confir.equals("N")){
+            }else if(confir.equalsIgnoreCase("N")){
                 return true;
             }
         }
@@ -368,7 +377,7 @@ public class MenuLaboratorio {
     public static boolean EliminarLaboratorioID() throws IOException {
         if (Main.laboratorios.isEmpty()){
             System.out.println("No hay laboratorios en la base de datos");
-            return true;
+            return false;
         }
         System.out.println("Ingrese el ID del laboratorio");
         String nitb = input.readLine();
@@ -376,6 +385,7 @@ public class MenuLaboratorio {
             System.out.println("No se ingreso ninguna direccion");
             return false;
         }
+        nitb = nitb.replaceAll("[.]","");
         int NITb = Integer.parseInt(nitb);
         int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
@@ -388,9 +398,9 @@ public class MenuLaboratorio {
             System.out.println("Y. Confirmar");
             System.out.println("N. Cancelar");
             String confir = input.readLine();
-            if (confir.equals("Y")){
+            if (confir.equalsIgnoreCase("Y")){
                 break;
-            }else if(confir.equals("N")){
+            }else if(confir.equalsIgnoreCase("N")){
                 return true;
             }
         }
