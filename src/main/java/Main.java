@@ -9,8 +9,8 @@ public class Main {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static ArrayList<Usuario> Usuarios = new ArrayList<>();
     public static ArrayList<Laboratorio> laboratorios = new ArrayList<>();
-    public static ArrayList<TipoPrueba> pruebas = new ArrayList<>();
-    public static ArrayList<Prueba> elementos = new ArrayList<>();
+    public static ArrayList<TipoPrueba> tipopruebas = new ArrayList<>();
+    public static ArrayList<Prueba> pruebas = new ArrayList<>();
     public static ArrayList<Informe> informes = new ArrayList<>();
     public static ArrayList<Dispositivo> dispositivos = new ArrayList<>();
     public static ArrayList<Norma> normas = new ArrayList<>();
@@ -51,7 +51,7 @@ public class Main {
                         System.out.print("Ingrese contraseña: ");
                         String contraseña = input.readLine();
                         if (Usuarios.get(index).Contraseña.equals(contraseña)) {
-                            System.out.println("Bienvenido al sistema de gestión de pruebas eléctricas\n");
+                            System.out.println("¡Hola! "+Usuarios.get(index).Nombre+", Bienvenido al sistema de gestión de pruebas eléctricas\n");
                             acceso = true;
                         } else {
                             System.out.println("Contraseña incorrecta\n");
@@ -73,7 +73,7 @@ public class Main {
                         String contraseña = input.readLine();
 
                         if (Usuarios.get(index).Contraseña.equals(contraseña)) {
-                            System.out.println("Bienvenido al sistema de gestión de pruebas eléctricas\n");
+                            System.out.println("¡Hola! "+Usuarios.get(index).Nombre+", Bienvenido al sistema de gestión de pruebas eléctricas\n");
                             acceso = true;
                         } else {
                             System.out.println("Contraseña incorrecta");
@@ -98,13 +98,7 @@ public class Main {
                         }
                     } catch (Exception exc) {
                         System.out.println("Ingrese un documento válido: Valor numérico entero mayor que cero\n");
-                        System.out.println("¿Cancelar registro?");
-                        System.out.println("Y <---> SI");
-                        System.out.println("N <---> NO");
-                        String cancelar = input.readLine();
-                        if (cancelar.equalsIgnoreCase("y") || cancelar.equalsIgnoreCase("si")) {
-                            cancelarregistro = true;
-                        }
+                        cancelarregistro=CancelarRegistro();
                     }
                     if (documentovalido) {
                         int contador = 0;
@@ -140,13 +134,7 @@ public class Main {
                     for (Usuario usuario : Usuarios) {
                         if (usuario.Correo.equalsIgnoreCase(correo)) {
                             System.out.println("El correo ingresado ya se encuentra registrado con el documento: \"" + usuario.Documento + "\"\n");
-                            System.out.println("¿Cancelar registro?");
-                            System.out.println("Y <---> SI");
-                            System.out.println("N <---> NO");
-                            String cancelar = input.readLine();
-                            if (cancelar.equalsIgnoreCase("y") || cancelar.equalsIgnoreCase("si")) {
-                                cancelarregistro = true;
-                            }
+                            cancelarregistro=CancelarRegistro();
                             break;
                         }
                         contador++;
@@ -235,13 +223,25 @@ public class Main {
     }
     public static void BorrarDatos(String nombreDeArchivoJsonConExtension){
         try {
-            List<Usuario> usuarios = Arrays.asList();
+            ArrayList<Usuario> usuarios = new ArrayList<>();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Writer writer = Files.newBufferedWriter(Paths.get(nombreDeArchivoJsonConExtension));
             gson.toJson(usuarios, writer);
             writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+    public static boolean CancelarRegistro() throws IOException{
+        System.out.println("¿Cancelar registro?");
+        System.out.println("Y <---> SI");
+        System.out.println("N <---> NO");
+        String cancelar = input.readLine();
+        if (cancelar.equalsIgnoreCase("y") || cancelar.equalsIgnoreCase("si")) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
 }

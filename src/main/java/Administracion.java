@@ -6,9 +6,9 @@ public class Administracion {
     public static void administrar() throws IOException {
         while (true) {
             System.out.println("1. Laboratorios.");
-            System.out.println("2. Tipos de Pruebas.");
-            System.out.println("3. Prueba.");
-            System.out.println("4. Informe.");
+            System.out.println("2. Tipos de Prueba.");
+            System.out.println("3. Pruebas.");
+            System.out.println("4. Informes.");
             System.out.println("5. Dispositivos.");
             System.out.println("6. Normas.");
             System.out.println("7. Clases.");
