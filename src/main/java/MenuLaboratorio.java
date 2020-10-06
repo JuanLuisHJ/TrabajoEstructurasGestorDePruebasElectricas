@@ -298,10 +298,11 @@ public class MenuLaboratorio {
         int viejoID = Main.laboratorios.get(index).ID;
         System.out.println("ID: "+ Main.laboratorios.get(index).ID);
         String nuevoid = input.readLine();
-        int nuevoID = Integer.parseInt(nuevoid);
+        int nuevoID;
         if (nuevoid.equals("")){
             nuevoID = Main.laboratorios.get(index).ID;
         }else{
+            nuevoID = Integer.parseInt(nuevoid);
             comparador = false;
             for (Laboratorio laboratorio : Main.laboratorios) {
                 if (laboratorio.ID == nuevoID){
