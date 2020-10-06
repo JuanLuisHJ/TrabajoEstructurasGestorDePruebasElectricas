@@ -213,10 +213,16 @@ public class Main {
     public static void CargarDatos(){
         try {
             Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("Usuarios.json"));
-            ArrayList<Usuario> usuarios = new ArrayList<Usuario> (Arrays.asList(gson.fromJson(reader, Usuario[].class)));
+            Reader readerUsuarios = Files.newBufferedReader(Paths.get("Usuarios.json"));
+            ArrayList<Usuario> usuarios = new ArrayList<> (Arrays.asList(gson.fromJson(readerUsuarios, Usuario[].class)));
             Usuarios = usuarios;
-            reader.close();
+            readerUsuarios.close();
+
+            Reader readerInformes = Files.newBufferedReader(Paths.get("Informes.json"));
+            ArrayList<Informe> Informes = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Informe[].class)));
+            informes = Informes;
+            readerInformes.close();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }

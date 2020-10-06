@@ -10,11 +10,11 @@ public class Prueba {
     public String Clase;
     public ArrayList<String> RefDispositivos;
 
-    public Prueba(int ID, String nombre, String tipoprueba, int Numinforme, String clase) {
+    public Prueba(int ID, String nombre, String tipoprueba, String clase) {
         this.ID = ID;
         Nombre = nombre;
         TipoPrueba = tipoprueba;
-        NumInforme = Numinforme;
+        NumInforme = -1;
         Clase = clase;
         RefDispositivos = new ArrayList<>();
     }
@@ -24,9 +24,9 @@ public class Prueba {
         return "ElementoPrueba{" +
                 "ID=" + ID +
                 ", Nombre='" + Nombre + '\'' +
-                ", Tipo de Clases.Prueba=" + TipoPrueba +
-                ", Clases.Informe=" + NumInforme +
-                ", Clases.Clase=" + Clase +
+                ", Tipo de Prueba=" + TipoPrueba +
+                ", Informe=" + NumInforme +
+                ", Clase=" + Clase +
                 '}';
     }
 }

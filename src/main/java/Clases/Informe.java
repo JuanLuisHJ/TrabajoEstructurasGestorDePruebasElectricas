@@ -3,7 +3,6 @@ package Clases;
 import java.util.ArrayList;
 
 public class Informe {
-    public int NumInforme;
     public int IDPrueba;
     public boolean Resultado;
     public String Comentarios;
@@ -11,8 +10,7 @@ public class Informe {
     public double Humedad;
     public double Presion;
 
-    public Informe(int NumInforme, int IDprueba, boolean resultado, String comentarios, double temperatura, double humedad,double presion) {
-        this.NumInforme = NumInforme;
+    public Informe(int IDprueba, boolean resultado, String comentarios, double temperatura, double humedad,double presion) {
         IDPrueba = IDprueba;
         Resultado = resultado;
         Comentarios = comentarios;
@@ -24,7 +22,6 @@ public class Informe {
     @Override
     public String toString() {
         return "Clases.Informe{" +
-                "NumInforme=" + NumInforme +
                 ", IDPrueba=" + IDPrueba +
                 ", Resultado=" + Resultado +
                 ", Comentarios='" + Comentarios + '\'' +
