@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class TipoPrueba {
     public String Nombre;
     public String RefNorma;
-    public ArrayList<Integer> Pruebas;
+    public ArrayList<String> Pruebas;
     public int NitLaboratorio;
 
     public TipoPrueba( String nombre, String refnorma, int laboratorio) {

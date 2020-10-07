@@ -1,5 +1,6 @@
 import Clases.Laboratorio;
 import Clases.Norma;
+import Clases.Prueba;
 import Clases.TipoPrueba;
 import Comparadores.ComparadorNITLaboratorio;
 import Comparadores.ComparadorNombreTipoPrueba;
@@ -66,12 +67,28 @@ public class MenuTipoPrueba {
         int comparador;
         int indexN;
         int indexL;
+        System.out.println("Ingrese el NIT del laboratorio");
+        String nitLab = input.readLine();
+        int NITLab;
+        if (nitLab.equals("")) {
+            System.out.println("No se ingreso ninguna direccion");
+            return false;
+        } else {
+            nitLab = nitLab.replaceAll("[.]", "");
+            NITLab = Integer.parseInt(nitLab);
+            indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITLab, "", ""), new ComparadorNITLaboratorio());
+            if (indexL < 0) {
+                System.out.println("No se encuentra el laboratorio con ese NIT");
+                return false;
+            }
+        }
         System.out.println("Ingrese el nombre del tipo de prueba");
         String nombre = input.readLine();
         if (nombre.equals("")) {
             System.out.println("No se ingreso ningun nombre");
             return false;
         } else {
+            nombre = nombre + "-" + Main.laboratorios.get(indexL).Nombre;
             comparador = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nombre, "", 0), new ComparadorNombreTipoPrueba());
             if (comparador >= 0) {
                 System.out.println("El Nombre ya se encuentra en la base de datos");
@@ -90,22 +107,7 @@ public class MenuTipoPrueba {
                 return false;
             }
         }
-        System.out.println("Ingrese el NIT del laboratorio");
-        String nitLab = input.readLine();
-        int NITLab;
-        if (nitLab.equals("")) {
-            System.out.println("No se ingreso ninguna direccion");
-            return false;
-        } else {
-            nitLab = nitLab.replaceAll("[.]", "");
-            NITLab = Integer.parseInt(nitLab);
-            indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITLab, "", ""), new ComparadorNITLaboratorio());
-            if (indexL < 0) {
-                System.out.println("No se encuentra el laboratorio con ese NIT");
-                return false;
-            }
-        }
-        nombre = nombre + " - " + Main.laboratorios.get(indexL).Nombre;
+
         TipoPrueba nuevoTipoprueba = new TipoPrueba(nombre, RefNorma, NITLab);
         if (Main.tipopruebas.isEmpty()) {
             Main.tipopruebas.add(nuevoTipoprueba);
@@ -122,6 +124,7 @@ public class MenuTipoPrueba {
                 Main.tipopruebas.add(nuevoTipoprueba);
             }
         }
+        Main.laboratorios.get(indexL).TipoPruebas.add(nombre);
         return true;
     }
 
@@ -134,7 +137,7 @@ public class MenuTipoPrueba {
             return false;
         }
         int index;
-        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba - Nombre del laboratorio");
+        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
         String nombreb = input.readLine();
         if (nombreb.equals("")) {
             System.out.println("No se ingreso ningun nombre");
@@ -147,12 +150,15 @@ public class MenuTipoPrueba {
             }
         }
         String viejoNombre = Main.tipopruebas.get(index).Nombre;
-        System.out.println("Es suficiente con ingresdar el nombre de la prueba");
+        int indexS = viejoNombre.indexOf('-');
+        String nombrelab = viejoNombre.substring(indexS+1);
+        System.out.println("Es suficiente con ingresdar el nombre del tipo prueba");
         System.out.println("Nombre: " + Main.tipopruebas.get(index).Nombre);
         String nuevoNombre = input.readLine();
         if (nuevoNombre.equals("")) {
             nuevoNombre = Main.tipopruebas.get(index).Nombre;
         } else {
+            nuevoNombre = nuevoNombre + "-" + nombrelab;
             comparador = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nuevoNombre, "", 0), new ComparadorNombreTipoPrueba());
             if (comparador >= 0) {
                 System.out.println("El Nombre ya se encuentra en la base de datos");
@@ -198,7 +204,7 @@ public class MenuTipoPrueba {
                 return true;
             }
         }
-        nuevoNombre = nuevoNombre + Main.laboratorios.get(index).Nombre;
+
         Main.tipopruebas.get(index).RefNorma = nuevaRefNorma;
         Main.tipopruebas.get(index).NitLaboratorio = nuevoNITlab;
 
@@ -213,6 +219,13 @@ public class MenuTipoPrueba {
                     }
                 }
             }
+            if(!Main.tipopruebas.get(index).Pruebas.isEmpty()){
+                for (Prueba prueba : Main.pruebas) {
+                    if(prueba.TipoPrueba.equalsIgnoreCase(viejoNombre)){
+                        prueba.TipoPrueba = nuevoNombre;
+                    }
+                }
+            }
         }
         return true;
     }
@@ -223,7 +236,7 @@ public class MenuTipoPrueba {
             return false;
         }
         int index;
-        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba - Nombre del laboratorio");
+        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
         String nombreb = input.readLine();
         if (nombreb.equals("")) {
             System.out.println("No se ingreso ningun nombre");
@@ -251,12 +264,18 @@ public class MenuTipoPrueba {
         Main.tipopruebas.remove(index);
         String viejoNombre = Main.tipopruebas.get(index).Nombre;
         int NITlab = Main.tipopruebas.get(index).NitLaboratorio;
-        String RefNorma = Main.tipopruebas.get(index).RefNorma;
         int indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITlab, "", ""), new ComparadorNITLaboratorio());
         for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
             if (viejoNombre.equalsIgnoreCase(Main.laboratorios.get(indexL).TipoPruebas.get(j))) {
                 Main.laboratorios.get(indexL).TipoPruebas.remove(j);
                 break;
+            }
+        }
+        if(!Main.tipopruebas.get(index).Pruebas.isEmpty()){
+            for (Prueba prueba : Main.pruebas) {
+                if(prueba.TipoPrueba.equalsIgnoreCase(viejoNombre)){
+                    prueba.TipoPrueba = null;
+                }
             }
         }
         return true;

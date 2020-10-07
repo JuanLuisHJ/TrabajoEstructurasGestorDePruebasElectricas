@@ -1,7 +1,7 @@
 package Clases;
 
 public class Informe {
-    public int IDPrueba;
+    public int IDPrueba;//numero de informe en clase prueba
     public boolean Resultado;
     public String Comentarios;
     public double Temperatura;
