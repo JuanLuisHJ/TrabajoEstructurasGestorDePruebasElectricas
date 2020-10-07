@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ID": "1-100200300",
+    "Nombre": "Prueba trafo ISA",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": -1,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "T250"
+    ]
+  }
+]

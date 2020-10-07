@@ -2,7 +2,9 @@
   {
     "Nombre": "Prueba vacio-Laboratorio Alto Voltaje",
     "RefNorma": "ansi 4325",
-    "Pruebas": [],
+    "Pruebas": [
+      "1-100200300"
+    ],
     "NitLaboratorio": 100200300
   }
 ]
