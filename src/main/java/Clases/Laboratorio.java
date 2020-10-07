@@ -1,6 +1,5 @@
 package Clases;
-
-import java.util.ArrayList;
+import java.util.*;
 
 public class Laboratorio {
     public int NIT;
@@ -19,11 +18,15 @@ public class Laboratorio {
 
     @Override
     public String toString() {
-        return "Laboratotio{" +
-                "NIT=" + NIT +
-                ", Nombre='" + Nombre + '\'' +
-                ", Direccion='" + Direccion + '\'' +
-                ", Tipo de Pruebas=" + TipoPruebas +
-                '}';
+        List<String> tipopruebas= TipoPruebas;
+        String print = "---------------------------------------------";
+        print += "Laboratorio:     " + "\n";
+        print += "NIT:             " + NIT + "." + "\n";
+        print += "Nombre:          " + Nombre + "." + "\n";
+        print += "Dirección:       " + Direccion + "." + "\n";
+        print += "Tipo de pruebas: " + tipopruebas + "." + "\n";
+        print += "ID prueba:       " + IDprueba + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
 }

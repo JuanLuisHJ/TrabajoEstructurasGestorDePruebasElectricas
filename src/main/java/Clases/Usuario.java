@@ -18,12 +18,13 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Clases.Usuario{" +
-                "Documento=" + Documento +
-                ", Correo='" + Correo + '\'' +
-                ", Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido + '\'' +
-                ", Contraseña='" + Contraseña + '\'' +
-                '}';
+        String print = "---------------------------------------------";
+        print += "Usuario:    " + "\n";
+        print += "Documento:  " + Documento + "." + "\n";
+        print += "Nombre:     " + Nombre + "." + "\n";
+        print += "Apellido:   " + Apellido + "." + "\n";
+        print += "Contraseña: " + Contraseña + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
 }

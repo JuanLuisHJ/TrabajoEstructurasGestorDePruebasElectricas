@@ -1,6 +1,6 @@
 package Clases;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Prueba {
     public String ID;
@@ -21,12 +21,16 @@ public class Prueba {
 
     @Override
     public String toString() {
-        return "ElementoPrueba{" +
-                "ID=" + ID +
-                ", Nombre='" + Nombre + '\'' +
-                ", Tipo de Prueba=" + TipoPrueba +
-                ", Informe=" + NumInforme +
-                ", Clase=" + Clase +
-                '}';
+        List<String> ref = RefDispositivos;
+        String print = "---------------------------------------------";
+        print += "Prueba:                      " + "\n";
+        print += "ID:                          " + ID + "." + "\n";
+        print += "Nombre:                      " + Nombre + "." + "\n";
+        print += "Tipo de prueba:              " + TipoPrueba + "." + "\n";
+        print += "Número de informe:           " + NumInforme + "." + "\n";
+        print += "Clase:                       " + Clase + "." + "\n";
+        print += "Referencias de dispositivos: " + ref + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
 }

@@ -1,5 +1,4 @@
 package Clases;
-import java.util.*;
 
 public class Clase {
     public String Nombre;
@@ -22,14 +21,16 @@ public class Clase {
 
     @Override
     public String toString() {
-        return "Clases.Clase{" +
-                ", Nombre='" + Nombre + '\'' +
-                ", Clases.Norma=" + Norma +
-                ", VoltajePrueba=" + VoltajePrueba +
-                ", CorrientePrueba=" + CorrientePrueba +
-                ", VoltajeMaximo=" + VoltajeMaximo +
-                ", CorrienteMaxima=" + CorrienteMaxima +
-                ", Tiempo=" + Tiempo +
-                '}';
+        String print = "---------------------------------------------";
+        print += "Clase: " + "\n";
+        print += "Nombre:                  " + Nombre + "." + "\n";
+        print += "Referencia de la norma:  " + Norma + "." + "\n";
+        print += "Voltaje de prueba [V]:   " + VoltajePrueba + "." + "\n";
+        print += "Corriente de prueba [A]: " + CorrientePrueba + "." + "\n";
+        print += "Voltaje máximo [V]:      " + VoltajeMaximo + "." + "\n";
+        print += "Corriente máxima [A]:    " + CorrienteMaxima + "." + "\n";
+        print += "Tiempo de prueba [s]:    " + Tiempo + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
 }

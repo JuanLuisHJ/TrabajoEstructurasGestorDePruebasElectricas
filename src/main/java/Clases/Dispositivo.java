@@ -1,5 +1,4 @@
 package Clases;
-
 import java.util.ArrayList;
 
 public class Dispositivo {
@@ -21,11 +20,14 @@ public class Dispositivo {
 
     @Override
     public String toString() {
-        return "Clases.Dispositivo{" +
-                ", Nombre='" + Nombre + '\'' +
-                ", PotenciaNominal=" + PotenciaNominal +
-                ", VoltajeNominal=" + VoltajeNominal +
-                ", CorrienteNominal=" + CorrienteNominal +
-                '}';
+        String print = "---------------------------------------------";
+        print += "Dispositivo: " + "\n";
+        print += "Referencia:            " + Refetencia + "." + "\n";
+        print += "Nombre:                " + Nombre + "." + "\n";
+        print += "Potencia nominal [VA]: " + PotenciaNominal + "." + "\n";
+        print += "Voltaje nominal [V]:   " + VoltajeNominal + "." + "\n";
+        print += "Corriente nominal [A]: " + CorrienteNominal + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
 }

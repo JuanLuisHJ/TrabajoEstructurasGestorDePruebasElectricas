@@ -19,15 +19,18 @@ public class Informe {
 
     @Override
     public String toString() {
-        return "Clases.Informe{" +
-                ", IDPrueba=" + IDPrueba +
-                ", Resultado=" + Resultado +
-                ", Comentarios='" + Comentarios + '\'' +
-                ", Temperatura=" + Temperatura +
-                ", Humedad=" + Humedad +
-                ", Presion=" + Presion +
-                '}';
+        String print = "---------------------------------------------";
+        print += "Informe: " + "\n";
+        print += "Numero de informe:    " + IDPrueba + "." + "\n";
+        print += "Resultado:            " + Resultado + "." + "\n";
+        print += "Comentarios:          " + Comentarios + "." + "\n";
+        print += "Temperatura [°C]:     " + Temperatura + "." + "\n";
+        print += "Humedad relativa [%]: " + Humedad + "." + "\n";
+        print += "Presion [mmHg]:       " + Presion + "." + "\n";
+        print += "---------------------------------------------";
+        return print;
     }
+
     public String PasoNoPaso(){
         if (Resultado){
             return "Pasó";
