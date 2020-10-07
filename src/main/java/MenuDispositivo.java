@@ -34,7 +34,7 @@ public class MenuDispositivo {
                 }
                 for (Dispositivo dispositivo : Main.dispositivos) {
                     if (dispositivo.Refetencia.equalsIgnoreCase(ref)) {
-                        System.out.println("La referencia ingresada ya se encuentra registrada para otro dispositivo.");
+                        System.out.println("La referencia ingresada ya se encuentra registrada para otro dispositivo.\n");
                         return;
                     }
                 }
@@ -46,14 +46,14 @@ public class MenuDispositivo {
                 }
                     for (Dispositivo dispositivo1 : Main.dispositivos) {
                         if (dispositivo1.Nombre.equalsIgnoreCase(nombre)) {
-                            System.out.println("El nombre ingresado ya se encuentra registrado para otro dispositivo. ");
+                            System.out.println("El nombre ingresado ya se encuentra registrado para otro dispositivo.\n ");
                             return;
                         }
                     }
-                System.out.println("Ingrese la potencia nominal del dispositivo: ");
+                System.out.print("Ingrese la potencia nominal en [MVA] del dispositivo: ");
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
-                System.out.println("Ingrese el voltaje nominal del dispositivo: ");
+                System.out.print("Ingrese el voltaje nominal del dispositivo: ");
                 String volnom = input.readLine();
                 double volnomr = Double.parseDouble(volnom);
                 Dispositivo dispositivonuevo = new Dispositivo(ref, nombre, potnomr, volnomr);
@@ -99,7 +99,7 @@ public class MenuDispositivo {
                                 }
                                 for (Dispositivo dispositivo : Main.dispositivos) {
                                     if (dispositivo.Refetencia.equalsIgnoreCase(nuevaref)) {
-                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo. ");
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
                                         return;
                                     }
                                 }
@@ -156,12 +156,12 @@ public class MenuDispositivo {
                             System.out.println("Ingrese el nombre del dispositivo: ");
                             String nombre = input.readLine();
                             if (nombre.equals("")) {
-                                System.out.println("No ingreso el nombre. ");
+                                System.out.println("No ingresó el nombre. \n");
                                 return;
                             }
                             for (Dispositivo dispositivo : Main.dispositivos) {
                                 if (!dispositivo.Nombre.equalsIgnoreCase(nombre)) {
-                                    System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo. ");
+                                    System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n ");
                                     return;
                                 }
                             }
@@ -172,71 +172,71 @@ public class MenuDispositivo {
                             System.out.println("¿Desea modificar la referencia? (Y/N)");
                             String opcionref = input.readLine();
                             if (opcionref.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese la nueva referencia: ");
+                                System.out.print("Ingrese la nueva referencia: ");
                                 String nuevaref = input.readLine();
                                 if (nuevaref.equals("")) {
-                                    System.out.println("No ingreso la referencia. ");
+                                    System.out.println("No ingresó la referencia. \n");
                                     return;
                                 }
                                 for (Dispositivo dispositivo : Main.dispositivos) {
                                     if (dispositivo.Refetencia.equalsIgnoreCase(nuevaref)) {
-                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo. ");
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
                                         return;
                                     }
                                 }
                                 dispositivoedit.Refetencia = nuevaref;
-                                System.out.println("Operación realizada con éxito. ");
+                                System.out.println("Operación realizada con éxito. \n");
                             }
                             System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
                             System.out.println("¿Desea modificar el nombre? (Y/N)");
                             String opcionnombre = input.readLine();
                             if (opcionnombre.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo nombre: ");
+                                System.out.print("Ingrese el nuevo nombre: ");
                                 String nuevonombre = input.readLine();
                                 if (nuevonombre.equals("")) {
-                                    System.out.println("No ingreso el nombre. ");
+                                    System.out.println("No ingresó el nombre. \n");
                                     return;
                                 }
                                 for (Dispositivo dispositivo : Main.dispositivos) {
                                     if (dispositivo.Nombre.equalsIgnoreCase(nuevonombre)) {
-                                        System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo. ");
+                                        System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo. \n");
                                         return;
                                     }
                                 }
                                 dispositivoedit.Nombre = nuevonombre;
-                                System.out.println("Operación realizada con éxito. ");
+                                System.out.println("Operación realizada con éxito. \n");
                             }
                             System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + ".");
                             System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
                             String opcionpotnom = input.readLine();
                             if (opcionpotnom.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese la nueva potencia nominal: ");
+                                System.out.print("Ingrese la nueva potencia nominal [MVA]: ");
                                 String nuevapotnom = input.readLine();
                                 if (nuevapotnom.equals("")) {
-                                    System.out.println("No ingreso la potencia nominal. ");
+                                    System.out.println("No ingresó la potencia nominal.\n");
                                     return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
-                                System.out.println("Operación realizada con éxito. ");
+                                System.out.println("Operación realizada con éxito. \n");
                             }
                             System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + ".");
                             System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
                             String opcionvolnom = input.readLine();
                             if (opcionvolnom.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo voltaje nominal: ");
+                                System.out.print("Ingrese el nuevo voltaje nominal [kV]: ");
                                 String nuevavolnom = input.readLine();
                                 if (nuevavolnom.equals("")) {
-                                    System.out.println("No ingreso el voltaje nominal. ");
+                                    System.out.println("No ingresó el voltaje nominal. \n");
                                     return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
-                                System.out.println("Operación realizada con éxito. ");
+                                System.out.println("Operación realizada con éxito. \n");
                             }
                             System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + ".");
                         } else if (opcion.equals("0")) {
                             break;
                         } else {
-                            System.out.println("Los datos ingresados no son validos");
+                            System.out.println("Los datos ingresados no son válidos \n");
                         }
                     }
                 }
@@ -249,46 +249,46 @@ public class MenuDispositivo {
                     System.out.println("0. Salir. ");
                     String opcion = input.readLine();
                     if (opcion.equals("1")) {
-                        System.out.println("Ingrese la referencia del dispositivo: ");
+                        System.out.print("Ingrese la referencia del dispositivo: ");
                         String ref = input.readLine();
                         if (ref.equals("")) {
-                            System.out.println("No ingreso la referencia. ");
+                            System.out.println("No ingresó la referencia. ");
                             return;
                         }
                         for (Dispositivo dispositivo : Main.dispositivos) {
                             if (!dispositivo.Refetencia.equalsIgnoreCase(ref)) {
-                                System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo. ");
+                                System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n ");
                                 return;
                             }
                         }
                         Main.dispositivos.sort(new ComparadorReferenciaDispositivo());
                         int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
                         Main.dispositivos.remove(indicedispositivoborrado);
-                        System.out.println("Operación realizada con éxito. ");
+                        System.out.println("Operación realizada con éxito. \n");
 
                     } else if (opcion.equals("2")) {
-                        System.out.println("Ingrese el nombre del dispositivo: ");
+                        System.out.print("Ingrese el nombre del dispositivo: ");
                         String nombre = input.readLine();
                         if (nombre.equals("")) {
-                            System.out.println("No ingreso el nombre. ");
+                            System.out.println("No ingreso el nombre. \n");
                             return;
                         }
                         for (Dispositivo dispositivo : Main.dispositivos) {
                             if (!dispositivo.Nombre.equalsIgnoreCase(nombre)) {
-                                System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo. ");
+                                System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n ");
                                 return;
                             }
                         }
                         Main.dispositivos.sort(new ComparadorNombreDispositivo());
                         int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(null, nombre, 0, 0), new ComparadorNombreDispositivo());
                         Main.dispositivos.remove(indicedispositivoborrado);
-                        System.out.println("Operación realizada con éxito. ");
+                        System.out.println("Operación realizada con éxito. \n");
 
                     } else if (opcion.equals("0")) {
                         break;
 
                     } else {
-                        System.out.println("Los datos ingresados no son validos");
+                        System.out.println("Los datos ingresados no son validos\n");
                     }
                 }
 
@@ -296,7 +296,7 @@ public class MenuDispositivo {
                 break;
 
             } else {
-                System.out.println("La opción ingresada no es válida");
+                System.out.println("La opción ingresada no es válida\n");
             }
         }
     }

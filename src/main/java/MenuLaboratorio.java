@@ -82,12 +82,13 @@ public class MenuLaboratorio {
 
      public static boolean VerLaboratorio(){
         if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en el sistema");
+            System.out.println("No hay laboratorios en el sistema\n");
             return false;
         }else{
             for (Laboratorio laboratorio : Main.laboratorios) {
                 System.out.println(laboratorio);
             }
+            System.out.println();
             return true;
         }
      }
@@ -154,7 +155,7 @@ public class MenuLaboratorio {
 
     public static boolean EditarLaboratorioN() throws IOException {
         if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en la base de datos");
+            System.out.println("No hay laboratorios en la base de datos\n");
             return false;
         }
         boolean comparador;
@@ -172,7 +173,7 @@ public class MenuLaboratorio {
             }
         }
         if (index<0){
-            System.out.println("No se encuentra el laboratorio con ese nombre");
+            System.out.println("No se encuentra el laboratorio con ese nombre\n");
             return false;
         }
         System.out.println("Nombre: "+ Main.laboratorios.get(index).Nombre);
@@ -203,7 +204,7 @@ public class MenuLaboratorio {
             nuevoNIT = Integer.parseInt(nuevonit);
             int comparadorN = Collections.binarySearch(Main.laboratorios,new Laboratorio(nuevoNIT,"",""),new ComparadorNITLaboratorio());
             if (comparadorN >= 0){
-                System.out.println("El NIT ya se encuentra en la base de datos");
+                System.out.println("El NIT ya se encuentra en la base de datos\n");
                 return false;
             }
         }
@@ -244,14 +245,14 @@ public class MenuLaboratorio {
 
     public static boolean EditarLaboratorioID() throws IOException {
         if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en la base de datos");
+            System.out.println("No hay laboratorios en la base de datos\n");
             return false;
         }
         boolean comparador;
         System.out.println("Ingrese el ID del laboratorio");
         String nitb = input.readLine();
         if (nitb.equals("")){
-            System.out.println("No se ingreso ninguna direccion");
+            System.out.println("No se ingreso ninguna direccion\n");
             return false;
         }
         nitb = nitb.replaceAll("[.]","");
