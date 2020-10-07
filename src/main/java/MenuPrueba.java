@@ -91,7 +91,7 @@ public class MenuPrueba {
             System.out.println("No se ingreso ningun nombre");
             return false;
         } else {
-            nombretipoprueba = nombretipoprueba + " - "+ Main.laboratorios.get(indexL).Nombre;
+            nombretipoprueba = nombretipoprueba + "-"+ Main.laboratorios.get(indexL).Nombre;
             indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nombretipoprueba, "", 0), new ComparadorNombreTipoPrueba());
             if (indexT < 0) {
                 System.out.println("El Nombre no se encuentra en la base de datos");
