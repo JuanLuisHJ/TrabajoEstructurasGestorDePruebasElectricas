@@ -1,0 +1,18 @@
+[
+  {
+    "Refetencia": "T250",
+    "Nombre": "Transformador",
+    "PotenciaNominal": 250.0,
+    "VoltajeNominal": 13.8,
+    "CorrienteNominal": 18.115942028985508,
+    "IDPruebas": []
+  },
+  {
+    "Refetencia": "M-101",
+    "Nombre": "Multimetro",
+    "PotenciaNominal": 100.0,
+    "VoltajeNominal": 1.0,
+    "CorrienteNominal": 100.0,
+    "IDPruebas": []
+  }
+]

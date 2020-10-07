@@ -1,0 +1,11 @@
+[
+  {
+    "NIT": 100200300,
+    "Nombre": "Laboratorio Alto Voltaje",
+    "Direccion": "Medellin Colombia",
+    "TipoPruebas": [
+      "Prueba vacio-Laboratorio Alto Voltaje"
+    ],
+    "IDprueba": 1
+  }
+]

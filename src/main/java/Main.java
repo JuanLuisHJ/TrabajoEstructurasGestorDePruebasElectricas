@@ -172,7 +172,6 @@ public class Main {
                 seleccionsiregistro = true;
             } else if (seleccion.equals("0")) {
                 break;
-                // falta relacionarlo con el menu
             } else {
                 System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"");
             }

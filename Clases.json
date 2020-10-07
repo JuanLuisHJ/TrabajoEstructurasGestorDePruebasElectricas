@@ -1,0 +1,11 @@
+[
+  {
+    "Nombre": "Clase A",
+    "Norma": "pruebas de transfromadores",
+    "VoltajePrueba": 20.0,
+    "CorrientePrueba": 1.0,
+    "VoltajeMaximo": 22.0,
+    "CorrienteMaxima": 2.0,
+    "Tiempo": 60.0
+  }
+]
