@@ -1,7 +1,7 @@
 import Clases.Norma;
 import Clases.Clase;
 import Comparadores.ComparadorNombreClase;
-import Comparadores.ComparadorNombreNorma;
+import Comparadores.ComparadorReferenciaNorma;
 
 import java.io.*;
 import java.util.*;
@@ -39,40 +39,42 @@ public class MenuClase{
                         return;
                     }
                 }
-                System.out.println("Ingrese el nombre de la norma asociada a la clase: ");
+                System.out.println("Ingrese la referencia de la norma asociada a la clase: ");
                 String nombrenorm = input.readLine();
                 if (nombrenorm.equals("")) {
-                    System.out.println("No ingreso el nombre de la norma.");
+                    System.out.println("No ingreso la referencia de la norma.");
                     return;
                 }
                 for (Norma norma1 : Main.normas) {
                     if (!norma1.Nombre.equalsIgnoreCase(nombrenorm)) {
-                        System.out.println("No hay normas con ese nombre guardadas en la base de datos. ");
+                        System.out.println("No hay normas con esa referencia guardadas en la base de datos. ");
                         return;
                     }
                 }
-                System.out.println("Ingrese el voltaje de la prueba: ");
+                System.out.println("Ingrese el voltaje de la prueba [V]: ");
                 String voltaje = input.readLine();
                 double voltajer = Double.parseDouble(voltaje);
-                System.out.println("Ingrese la corriente de la prueba: ");
+                System.out.println("Ingrese la corriente de la prueba [A]: ");
                 String corriente = input.readLine();
                 double corrienter = Double.parseDouble(corriente);
-                System.out.println("Ingrese el voltaje máximo de la prueba: ");
+                System.out.println("Ingrese el voltaje máximo de la prueba [V]: ");
                 String voltajem = input.readLine();
                 double voltajemr = Double.parseDouble(voltajem);
-                System.out.println("Ingrese la corriente máxima de la prueba: ");
+                System.out.println("Ingrese la corriente máxima de la prueba [A]: ");
                 String corrientem = input.readLine();
                 double corrientemr = Double.parseDouble(corrientem);
-                System.out.println("Ingrese el tiempo de la prueba: ");
+                System.out.println("Ingrese el tiempo de la prueba [s]: ");
                 String tiempo = input.readLine();
                 double tiempor = Double.parseDouble(tiempo);
                 Clase clasenueva = new Clase(nombre, nombrenorm, voltajer, corrienter, voltajemr, corrientemr, tiempor);
                 Main.clases.add(clasenueva);
-                Collections.sort(Main.normas, new ComparadorNombreNorma());
-                int indicenorma = Collections.binarySearch(Main.normas, new Norma(nombrenorm, null), new ComparadorNombreNorma());
+                Collections.sort(Main.normas, new ComparadorReferenciaNorma());
+                int indicenorma = Collections.binarySearch(Main.normas, new Norma(null, nombrenorm), new ComparadorReferenciaNorma());
                 Norma normadelaclase = Main.normas.get(indicenorma);
                 normadelaclase.Clases.add(nombre);
+                Collections.sort(Main.clases, new ComparadorNombreClase());
                 System.out.println("Operación realizada con éxito");
+                return;
 
             } else if (opcionA.equals("3")) {
                 if (Main.clases.isEmpty()) {
@@ -119,18 +121,18 @@ public class MenuClase{
                                 clasedit.Nombre = nuevonom;
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("El nombre de la norma asociada a la clase es: " + clasedit.Norma + ".");
-                            System.out.println("¿Desea modificar el nombre de la norma asociada? (Y/N)");
+                            System.out.println("La referencia de la norma asociada a la clase es: " + clasedit.Norma + ".");
+                            System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
                             String opcionnombrenorm = input.readLine();
                             if (opcionnombrenorm.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo nombre de la norma asociada: ");
+                                System.out.println("Ingrese la nueva referencia de la norma asociada: ");
                                 String nuevonombrenorm = input.readLine();
                                 if (nuevonombrenorm.equals("")) {
-                                    System.out.println("No ingreso el nombre. ");
+                                    System.out.println("No ingreso la referencia. ");
                                     return;
                                 }
                                 for (Norma norma : Main.normas) {
-                                    if (!norma.Nombre.equalsIgnoreCase(nuevonombrenorm)) {
+                                    if (!norma.Referencia.equalsIgnoreCase(nuevonombrenorm)) {
                                         System.out.println("La norma ingresada no se encuentra guardada en la base de datos. ");
                                         return;
                                     }
@@ -138,11 +140,11 @@ public class MenuClase{
                                 clasedit.Norma = nuevonombrenorm;
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + ".");
+                            System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + " [V].");
                             System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
                             String opcionvol = input.readLine();
                             if (opcionvol.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo voltaje nominal de prueba: ");
+                                System.out.println("Ingrese el nuevo voltaje nominal de prueba [V]: ");
                                 String nuevovol = input.readLine();
                                 if (nuevovol.equals("")) {
                                     System.out.println("No ingreso el voltaje nominal de prueba. ");
@@ -151,11 +153,11 @@ public class MenuClase{
                                 clasedit.VoltajePrueba = Double.parseDouble(nuevovol);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clasedit.CorrientePrueba + ".");
+                            System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clasedit.CorrientePrueba + " [A].");
                             System.out.println("¿Desea modificar la corriente nominal de prueba de la clase? (Y/N)");
                             String opcioncorr = input.readLine();
                             if (opcioncorr.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese la nueva corriente nominal de prueba: ");
+                                System.out.println("Ingrese la nueva corriente nominal de prueba [A]: ");
                                 String nuevocorr = input.readLine();
                                 if (nuevocorr.equals("")) {
                                     System.out.println("No ingreso la corriente nominal de prueba. ");
@@ -164,11 +166,11 @@ public class MenuClase{
                                 clasedit.CorrientePrueba = Double.parseDouble(nuevocorr);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clasedit.VoltajeMaximo + ".");
+                            System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clasedit.VoltajeMaximo + " [V].");
                             System.out.println("¿Desea modificar el voltaje máximo de prueba de la clase? (Y/N)");
                             String opcionvolm = input.readLine();
                             if (opcionvolm.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo voltaje máximo de prueba: ");
+                                System.out.println("Ingrese el nuevo voltaje máximo de prueba [V]: ");
                                 String nuevovolm = input.readLine();
                                 if (nuevovolm.equals("")) {
                                     System.out.println("No ingreso el voltaje máximo de prueba. ");
@@ -177,11 +179,11 @@ public class MenuClase{
                                 clasedit.VoltajeMaximo = Double.parseDouble(nuevovolm);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clasedit.CorrienteMaxima + ".");
+                            System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clasedit.CorrienteMaxima + " [A].");
                             System.out.println("¿Desea modificar la corriente máxima de prueba de la clase? (Y/N)");
                             String opcioncorrm = input.readLine();
                             if (opcioncorrm.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese la nueva corriente máxima de prueba: ");
+                                System.out.println("Ingrese la nueva corriente máxima de prueba [A]: ");
                                 String nuevocorrm = input.readLine();
                                 if (nuevocorrm.equals("")) {
                                     System.out.println("No ingreso la corriente máxima de prueba. ");
@@ -190,11 +192,11 @@ public class MenuClase{
                                 clasedit.CorrienteMaxima = Double.parseDouble(nuevocorrm);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("El tiempo de prueba de la clase seleccionada es: " + clasedit.Tiempo + ".");
+                            System.out.println("El tiempo de prueba de la clase seleccionada es: " + clasedit.Tiempo + " [s].");
                             System.out.println("¿Desea modificar el tiempo de prueba de la clase? (Y/N)");
                             String opciontiem = input.readLine();
                             if (opciontiem.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo tiempo de prueba: ");
+                                System.out.println("Ingrese el nuevo tiempo de prueba [s]: ");
                                 String nuevotiem = input.readLine();
                                 if (nuevotiem.equals("")) {
                                     System.out.println("No ingreso el tiempo de prueba. ");
@@ -203,6 +205,7 @@ public class MenuClase{
                                 clasedit.Tiempo = Double.parseDouble(nuevotiem);
                                 System.out.println("Operación realizada con éxito. ");
                             }
+                            return;
 
                         } else if (opcion.equals("0")) {
                             break;
@@ -236,6 +239,7 @@ public class MenuClase{
                         int indiceclaseborrado = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
                         Main.dispositivos.remove(indiceclaseborrado);
                         System.out.println("Operación realizada con éxito. ");
+                        return;
 
                     } else if (opcion.equals("0")) {
                         break;
