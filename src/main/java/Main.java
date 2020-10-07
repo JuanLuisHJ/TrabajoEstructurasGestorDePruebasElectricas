@@ -240,17 +240,17 @@ public class Main {
             readerInformes.close();
 
             Reader readerDispositivos = Files.newBufferedReader(Paths.get("Dispositivos.json"));
-            ArrayList<Dispositivo> Dispositivos = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Dispositivo[].class)));
+            ArrayList<Dispositivo> Dispositivos = new ArrayList<> (Arrays.asList(gson.fromJson(readerDispositivos, Dispositivo[].class)));
             dispositivos = Dispositivos;
             readerDispositivos.close();
 
             Reader readerNormas = Files.newBufferedReader(Paths.get("Normas.json"));
-            ArrayList<Norma> Normas = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Norma[].class)));
+            ArrayList<Norma> Normas = new ArrayList<> (Arrays.asList(gson.fromJson(readerNormas, Norma[].class)));
             normas = Normas;
             readerNormas.close();
 
             Reader readerClases = Files.newBufferedReader(Paths.get("Clases.json"));
-            ArrayList<Clase> Clases = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Clase[].class)));
+            ArrayList<Clase> Clases = new ArrayList<> (Arrays.asList(gson.fromJson(readerClases, Clase[].class)));
             clases = Clases;
             readerClases.close();
 
