@@ -23,7 +23,8 @@ public class Administracion {
                 MenuTipoPrueba.munuTipoPrueba();
                 return;
             } else if (opcionA.equals("3")) {
-
+                MenuPrueba.munuPrueba();
+                return;
             } else if (opcionA.equals("4")) {
                 MenuInformes.CRUDinforme();
             } else if (opcionA.equals("5")) {

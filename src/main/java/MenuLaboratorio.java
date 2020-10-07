@@ -116,7 +116,7 @@ public class MenuLaboratorio {
         String NIT = input.readLine();
         int nNIT;
         if (NIT.equals("")){
-            System.out.println("No se ingreso ninguna direccion");
+            System.out.println("No se ingreso ninguna NIT");
             return false;
         }else{
             NIT = NIT.replaceAll("[.]","");

@@ -7,12 +7,14 @@ public class Laboratorio {
     public String Nombre;
     public String Direccion;
     public ArrayList<String> TipoPruebas;
+    public int IDprueba;
 
     public Laboratorio(int NIT, String nombre, String direccion) {
         this.NIT = NIT;
         Nombre = nombre;
         Direccion = direccion;
         TipoPruebas = new ArrayList<>();
+        IDprueba = 1;
     }
 
     @Override

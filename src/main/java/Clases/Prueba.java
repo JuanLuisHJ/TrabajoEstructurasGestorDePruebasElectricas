@@ -10,7 +10,7 @@ public class Prueba {
     public String Clase;
     public ArrayList<String> RefDispositivos;
 
-    public Prueba(int ID, String nombre, String tipoprueba, String clase) {
+    public Prueba(int ID,String nombre, String tipoprueba, String clase) {
         this.ID = ID;
         Nombre = nombre;
         TipoPrueba = tipoprueba;
