@@ -149,15 +149,7 @@ public class MenuInformes {
                 }
                 Clases.Informe nuevoinforme = new Clases.Informe(identificador,resultado,comentarios,temperatura,humedad,presion);
                 Main.informes.add(nuevoinforme);
-                try {
-                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
-                    Writer writer = Files.newBufferedWriter(Paths.get("Informes.json"));
-                    gson.toJson(Main.informes, writer);
-                    System.out.println("El informe se ha generado satisfactoriamente\n");
-                    writer.close();
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
+                System.out.println("El informe se ha generado satisfactoriamente\n");
             }
             else if (seleccion.equals("3")){
                 boolean salir = false;

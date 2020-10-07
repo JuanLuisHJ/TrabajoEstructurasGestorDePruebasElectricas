@@ -190,7 +190,8 @@ public class Main {
                 }else if(opcion.equals("3")){
 
                 }else if(opcion.equals("4")){
-
+                    GuardarDatos();
+                    System.out.println("Los datos se guardaron satisfactoriamente\n");
                 }else if(opcion.equals("0")){
                     while(true){
                         System.out.println("Al seleccionar esta opcion se perderan los cambios si no ha guardado");
@@ -213,20 +214,89 @@ public class Main {
     public static void CargarDatos(){
         try {
             Gson gson = new Gson();
+
             Reader readerUsuarios = Files.newBufferedReader(Paths.get("Usuarios.json"));
             ArrayList<Usuario> usuarios = new ArrayList<> (Arrays.asList(gson.fromJson(readerUsuarios, Usuario[].class)));
             Usuarios = usuarios;
             readerUsuarios.close();
+
+            Reader readerLaboratorios = Files.newBufferedReader(Paths.get("Laboratorios.json"));
+            ArrayList<Laboratorio> Laboratorios = new ArrayList<> (Arrays.asList(gson.fromJson(readerLaboratorios, Laboratorio[].class)));
+            laboratorios = Laboratorios;
+            readerLaboratorios.close();
+
+            Reader readerTipoPruebas = Files.newBufferedReader(Paths.get("TipoPruebas.json"));
+            ArrayList<TipoPrueba> TipoPruebas = new ArrayList<> (Arrays.asList(gson.fromJson(readerTipoPruebas, TipoPrueba[].class)));
+            tipopruebas = TipoPruebas;
+            readerTipoPruebas.close();
+
+            Reader readerPruebas = Files.newBufferedReader(Paths.get("Pruebas.json"));
+            ArrayList<Prueba> Pruebas = new ArrayList<> (Arrays.asList(gson.fromJson(readerPruebas, Prueba[].class)));
+            pruebas = Pruebas;
+            readerPruebas.close();
 
             Reader readerInformes = Files.newBufferedReader(Paths.get("Informes.json"));
             ArrayList<Informe> Informes = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Informe[].class)));
             informes = Informes;
             readerInformes.close();
 
+            Reader readerDispositivos = Files.newBufferedReader(Paths.get("Dispositivos.json"));
+            ArrayList<Dispositivo> Dispositivos = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Dispositivo[].class)));
+            dispositivos = Dispositivos;
+            readerDispositivos.close();
+
+            Reader readerNormas = Files.newBufferedReader(Paths.get("Normas.json"));
+            ArrayList<Norma> Normas = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Norma[].class)));
+            normas = Normas;
+            readerNormas.close();
+
+            Reader readerClases = Files.newBufferedReader(Paths.get("Clases.json"));
+            ArrayList<Clase> Clases = new ArrayList<> (Arrays.asList(gson.fromJson(readerInformes, Clase[].class)));
+            clases = Clases;
+            readerClases.close();
+
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public static void GuardarDatos(){
+        try {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            Writer writerLaboratorios = Files.newBufferedWriter(Paths.get("Laboratorios.json"));
+            gson.toJson(Main.laboratorios, writerLaboratorios);
+            writerLaboratorios.close();
+
+            Writer writerTipoPruebas = Files.newBufferedWriter(Paths.get("TipoPruebas.json"));
+            gson.toJson(Main.tipopruebas, writerTipoPruebas);
+            writerTipoPruebas.close();
+
+            Writer writerPruebas = Files.newBufferedWriter(Paths.get("Pruebas.json"));
+            gson.toJson(Main.pruebas, writerPruebas);
+            writerPruebas.close();
+
+            Writer writerInformes = Files.newBufferedWriter(Paths.get("Informes.json"));
+            gson.toJson(Main.informes, writerInformes);
+            writerInformes.close();
+
+            Writer writerDispositivos = Files.newBufferedWriter(Paths.get("Dispositivos.json"));
+            gson.toJson(Main.dispositivos, writerDispositivos);
+            writerDispositivos.close();
+
+            Writer writerNormas = Files.newBufferedWriter(Paths.get("Normas.json"));
+            gson.toJson(Main.normas, writerNormas);
+            writerNormas.close();
+
+            Writer writerClases = Files.newBufferedWriter(Paths.get("Clases.json"));
+            gson.toJson(Main.clases, writerClases);
+            writerClases.close();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
+
     public static void BorrarDatos(String nombreDeArchivoJsonConExtension){
         try {
             ArrayList<Usuario> usuarios = new ArrayList<>();
