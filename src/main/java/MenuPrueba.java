@@ -208,7 +208,7 @@ public class MenuPrueba {
                 return false;
             }
         }
-
+        System.out.println();
         System.out.print("Clase: "+ Main.pruebas.get(index).Clase+": ");
         String nuevonombreclase = input.readLine();
         if (nuevonombreclase.equals("")) {
@@ -220,7 +220,7 @@ public class MenuPrueba {
                 return false;
             }
         }
-
+        System.out.println();
         ArrayList<String> nuevosDispositivos = new ArrayList<>();
         System.out.println("Referencias dispositivos: "+ Main.pruebas.get(index).RefDispositivos);
         System.out.println("Ingrese las referencias de los dispositivos, cuando haya ingresado todos los dispositivos ingrese fin: ");
