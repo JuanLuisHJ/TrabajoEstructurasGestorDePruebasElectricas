@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "IDPrueba": 7,
+    "Resultado": true,
+    "Comentarios": "juan luis daño la fuente dc por ver el transitorio",
+    "Temperatura": 24.0,
+    "Humedad": 60.0,
+    "Presion": 760.0
+  }
+]
