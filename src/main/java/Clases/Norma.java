@@ -5,13 +5,11 @@ import java.util.ArrayList;
 public class Norma {
     public String Nombre;
     public String Referencia;
-    public String TipoPrueba;
     public ArrayList<Integer> Clases;
 
-    public Norma(String nombre, String referencia, String tipoprueba) {
+    public Norma(String nombre, String referencia) {
         Nombre = nombre;
         Referencia = referencia;
-        TipoPrueba = tipoprueba;
         Clases = new ArrayList<>();
     }
 
@@ -20,7 +18,6 @@ public class Norma {
         return "Clases.Norma{" +
                 ", Nombre='" + Nombre + '\'' +
                 ", Referencia='" + Referencia + '\'' +
-                ", Tipo de Clases.Prueba=" + TipoPrueba +
                 ", Clases=" + Clases +
                 '}';
     }

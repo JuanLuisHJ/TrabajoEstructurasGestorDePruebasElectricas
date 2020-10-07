@@ -84,7 +84,7 @@ public class MenuTipoPrueba {
             System.out.println("No se ingreso ninguna referencia");
             return false;
         } else {
-            indexN = Collections.binarySearch(Main.normas, new Norma("", RefNorma, ""), new ComparadorReferenciaNorma());
+            indexN = Collections.binarySearch(Main.normas, new Norma("", RefNorma), new ComparadorReferenciaNorma());
             if (indexN < 0) {
                 System.out.println("La norma no se encuentra en la base de datos");
                 return false;
@@ -165,7 +165,7 @@ public class MenuTipoPrueba {
         if (nuevaRefNorma.equals("")) {
             nuevaRefNorma = Main.tipopruebas.get(index).RefNorma;
         } else {
-            indexN = Collections.binarySearch(Main.normas, new Norma("", nuevaRefNorma, ""), new ComparadorReferenciaNorma());
+            indexN = Collections.binarySearch(Main.normas, new Norma("", nuevaRefNorma), new ComparadorReferenciaNorma());
             if (indexN < 0) {
                 System.out.println("La norma no se encuentra en la base de datos");
                 return false;

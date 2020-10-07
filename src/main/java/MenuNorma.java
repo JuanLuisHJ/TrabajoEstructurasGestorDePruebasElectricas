@@ -64,7 +64,7 @@ public class MenuNorma {
                         return;
                     }
                 }
-                Norma normanueva = new Norma(nombre, ref, tipoprueba);
+                Norma normanueva = new Norma(nombre, ref);
                 Main.normas.add(normanueva);
                 Main.tipopruebas.sort(new ComparadorNombreTipoPrueba());
                 int indicetipoprueba = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(tipoprueba, null, 0), new ComparadorNombreTipoPrueba());
@@ -97,7 +97,7 @@ public class MenuNorma {
                                 }
                             }
                             Main.normas.sort(new ComparadorReferenciaNorma());
-                            int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(null, ref, null), new ComparadorReferenciaNorma());
+                            int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                             Norma normaedit = Main.normas.get(indicenormaedit);
                             System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
                             System.out.println("¿Desea modificar la referencia? (Y/N)");
@@ -135,25 +135,6 @@ public class MenuNorma {
                                     }
                                 }
                                 normaedit.Nombre = nuevonombre;
-                                System.out.println("Operación realizada con éxito. ");
-                            }
-                            System.out.println("El nombre del tipo de prueba al que pertenece la norma seleccionada es: " + normaedit.TipoPrueba + ".");
-                            System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
-                            String opciontipoprueba = input.readLine();
-                            if (opciontipoprueba.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nombre del nuevo tipo de prueba: ");
-                                String nuevotipoprueba = input.readLine();
-                                if (nuevotipoprueba.equals("")) {
-                                    System.out.println("No ingreso el nombre del tipo de prueba. ");
-                                    return;
-                                }
-                                for (TipoPrueba tipoprueba : Main.tipopruebas) {
-                                    if (!tipoprueba.Nombre.equalsIgnoreCase(nuevotipoprueba)) {
-                                        System.out.println("El tipo de prueba ingresado no se encuentra en la base de datos. ");
-                                        return;
-                                    }
-                                }
-                                normaedit.TipoPrueba = nuevotipoprueba;
                                 System.out.println("Operación realizada con éxito. ");
                             }
 
@@ -171,7 +152,7 @@ public class MenuNorma {
                                 }
                             }
                             Main.normas.sort(new ComparadorNombreNorma());
-                            int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(nombre, null, null), new ComparadorNombreNorma());
+                            int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(nombre, null), new ComparadorNombreNorma());
                             Norma normaedit = Main.normas.get(indicenormaedit);
                             System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
                             System.out.println("¿Desea modificar la referencia? (Y/N)");
@@ -209,25 +190,6 @@ public class MenuNorma {
                                     }
                                 }
                                 normaedit.Nombre = nuevonombre;
-                                System.out.println("Operación realizada con éxito. ");
-                            }
-                            System.out.println("El nombre del tipo de prueba asociado a la norma seleccionada es: " + normaedit.TipoPrueba + ".");
-                            System.out.println("¿Desea modificar el tipo de prueba asociada? (Y/N)");
-                            String opciontipoprueba = input.readLine();
-                            if (opciontipoprueba.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nombre del nuevo tipo de prueba: ");
-                                String nuevotipoprueba = input.readLine();
-                                if (nuevotipoprueba.equals("")) {
-                                    System.out.println("No ingreso el nombre del tipo de prueba. ");
-                                    return;
-                                }
-                                for (TipoPrueba tipoprueba : Main.tipopruebas) {
-                                    if (!tipoprueba.Nombre.equalsIgnoreCase(nuevotipoprueba)) {
-                                        System.out.println("El tipo de prueba ingresado no se encuentra en la base de datos. ");
-                                        return;
-                                    }
-                                }
-                                normaedit.TipoPrueba = nuevotipoprueba;
                                 System.out.println("Operación realizada con éxito. ");
                             }
 
@@ -261,7 +223,7 @@ public class MenuNorma {
                             }
                         }
                         Main.normas.sort(new ComparadorReferenciaNorma());
-                        int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref, null), new ComparadorReferenciaNorma());
+                        int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                         Main.normas.remove(indicenormaborrado);
                         System.out.println("Operación realizada con éxito. ");
 
@@ -279,7 +241,7 @@ public class MenuNorma {
                             }
                         }
                         Main.normas.sort(new ComparadorNombreNorma());
-                        int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(nombre, null, null), new ComparadorNombreNorma());
+                        int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(nombre, null), new ComparadorNombreNorma());
                         Main.dispositivos.remove(indicenormaborrado);
                         System.out.println("Operación realizada con éxito. ");
 
