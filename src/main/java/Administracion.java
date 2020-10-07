@@ -27,13 +27,16 @@ public class Administracion {
                 return;
             } else if (opcionA.equals("4")) {
                 MenuInformes.CRUDinforme();
+                return;
             } else if (opcionA.equals("5")) {
                 MenuDispositivo.MenuDispositivo();
                 return;
             } else if (opcionA.equals("6")) {
                 MenuNorma.MenuNorma();
+                return;
             } else if (opcionA.equals("7")) {
-
+                MenuClase.MenuClase();
+                return;
             }else if (opcionA.equals("0")) {
                 break;
             } else {

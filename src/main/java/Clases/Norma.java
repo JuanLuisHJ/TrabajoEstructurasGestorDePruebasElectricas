@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Norma {
     public String Nombre;
     public String Referencia;
-    public ArrayList<Integer> Clases;
+    public ArrayList<String> Clases;
 
     public Norma(String nombre, String referencia) {
         Nombre = nombre;

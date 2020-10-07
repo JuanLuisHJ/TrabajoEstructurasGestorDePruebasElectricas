@@ -1,6 +1,4 @@
 import Clases.Norma;
-import Clases.TipoPrueba;
-import Comparadores.ComparadorNombreTipoPrueba;
 import Comparadores.ComparadorReferenciaNorma;
 import Comparadores.ComparadorNombreNorma;
 
@@ -52,28 +50,12 @@ public class MenuNorma {
                         return;
                     }
                 }
-                System.out.println("Ingrese el nombre del tipo de prueba al que pertenece esta norma: ");
-                String tipoprueba = input.readLine();
-                if (tipoprueba.equals("")) {
-                    System.out.println("No ingreso el nombre.");
-                    return;
-                }
-                for (TipoPrueba tipoPrueba : Main.tipopruebas) {
-                    if (!tipoPrueba.Nombre.equalsIgnoreCase(tipoprueba)) {
-                        System.out.println("Este tipo de prueba no encuentra guardada en la base de datos. ");
-                        return;
-                    }
-                }
                 Norma normanueva = new Norma(nombre, ref);
                 Main.normas.add(normanueva);
-                Main.tipopruebas.sort(new ComparadorNombreTipoPrueba());
-                int indicetipoprueba = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(tipoprueba, null, 0), new ComparadorNombreTipoPrueba());
-                TipoPrueba pruebanorma = Main.tipopruebas.get(indicetipoprueba);
-                pruebanorma.RefNorma = normanueva.Referencia;
                 System.out.println("Operación realizada con éxito");
 
             } else if (opcionA.equals("3")) {
-                if (Main.dispositivos.isEmpty()) {
+                if (Main.normas.isEmpty()) {
                     System.out.println("No hay normas guardadas en la base de datos. ");
                     return;
                 } else {

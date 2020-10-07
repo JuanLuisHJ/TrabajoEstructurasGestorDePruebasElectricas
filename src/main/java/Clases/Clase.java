@@ -1,10 +1,8 @@
 package Clases;
-
-import java.util.ArrayList;
+import java.util.*;
 
 public class Clase {
     public String Nombre;
-    public ArrayList<Integer> Pruebas;
     public String Norma;
     public double VoltajePrueba;
     public double CorrientePrueba;
@@ -20,14 +18,12 @@ public class Clase {
         VoltajeMaximo = voltajeMaximo;
         CorrienteMaxima = corrienteMaxima;
         Tiempo = tiempo;
-        Pruebas = new ArrayList<>();
     }
 
     @Override
     public String toString() {
         return "Clases.Clase{" +
                 ", Nombre='" + Nombre + '\'' +
-                ", Clases.Prueba=" + Pruebas +
                 ", Clases.Norma=" + Norma +
                 ", VoltajePrueba=" + VoltajePrueba +
                 ", CorrientePrueba=" + CorrientePrueba +
