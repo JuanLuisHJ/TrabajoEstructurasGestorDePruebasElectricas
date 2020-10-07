@@ -208,17 +208,13 @@ public class MenuTipoPrueba {
             if (!Main.laboratorios.get(indexL).TipoPruebas.isEmpty()) {
                 for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
                     if (Main.laboratorios.get(indexL).TipoPruebas.get(j).equalsIgnoreCase(viejoNombre)) {
-                        Main.laboratorios.get(indexL).TipoPruebas.set(j, nuevaRefNorma);
+                        Main.laboratorios.get(indexL).TipoPruebas.set(j, nuevoNombre);
                         break;
                     }
                 }
             }
-            if (Main.normas.get(indexN).TipoPrueba.equalsIgnoreCase(viejoNombre)) {
-                Main.normas.get(indexN).TipoPrueba = nuevoNombre;
-            }
         }
         return true;
-
     }
 
     public static boolean EliminarTipoPrueba() throws IOException {
@@ -263,8 +259,6 @@ public class MenuTipoPrueba {
                 break;
             }
         }
-        int indexN = Collections.binarySearch(Main.normas, new Norma("", RefNorma, ""), new ComparadorReferenciaNorma());
-        Main.normas.get(indexN).TipoPrueba = null;
         return true;
     }
 }

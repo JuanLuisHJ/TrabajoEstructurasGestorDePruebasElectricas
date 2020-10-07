@@ -1,14 +1,10 @@
-import Clases.Laboratorio;
-import Clases.Norma;
-import Clases.Prueba;
-import Clases.TipoPrueba;
-import Comparadores.ComparadorNITLaboratorio;
-import Comparadores.ComparadorNombreTipoPrueba;
-import Comparadores.ComparadorReferenciaNorma;
+import Clases.*;
+import Comparadores.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class MenuPrueba {
@@ -102,73 +98,79 @@ public class MenuPrueba {
                 return false;
             }
         }
-
-        /*System.out.println("Ingrese el nombre de la clase");
+        System.out.println("Ingrese el nombre de la clase");
         String nombreclase = input.readLine();
-        if (RefNorma.equals("")) {
+        if (nombreclase.equals("")) {
             System.out.println("No se ingreso ninguna nombre");
             return false;
         } else {
-            indexN = Collections.binarySearch(Main.normas, new Norma("", RefNorma, ""), new ComparadorReferenciaNorma());
-            if (indexN < 0) {
-                System.out.println("La clase no se encuentra en la base de datos");
-                return false;
-            }
-        }*/
-
-        System.out.println("Ingrese la referencia de los dispositivos");
-        String nombreclase = input.readLine();
-        if (RefNorma.equals("")) {
-            System.out.println("No se ingreso ninguna nombre");
-            return false;
-        } else {
-            indexN = Collections.binarySearch(Main.normas, new Norma("", RefNorma, ""), new ComparadorReferenciaNorma());
-            if (indexN < 0) {
+            indexC = Collections.binarySearch(Main.clases, new Clase(nombreclase,"",0,0,0,0,0), new ComparadorNombreClase());
+            if (indexC < 0) {
                 System.out.println("La clase no se encuentra en la base de datos");
                 return false;
             }
         }
+        ArrayList<String> Dispositivos = new ArrayList<>();
+        System.out.println("Ingrese las referencias de los dispositivos, cuando haya ingresado todos los dispositivos ingrese fin");
+        String refdispositivo = input.readLine();
+        while (!refdispositivo.equalsIgnoreCase("fin")) {
+            if(refdispositivo.equals("")){
+                System.out.println("No se ingreso ninguna nombre");
+                return false;
+            }
+            int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadorReferenciaDispositivo());
+            if (indexD<0){
+                System.out.println("El dispositivo no se encuentra en la base de datos");
+                return false;
+            }
+            Dispositivos.add(refdispositivo);
+            refdispositivo = input.readLine();
+        }
 
-        TipoPrueba nuevoTipoprueba = new TipoPrueba(nombre, RefNorma, NITLab);
-        if (Main.tipopruebas.isEmpty()) {
-            Main.tipopruebas.add(nuevoTipoprueba);
+        String ID = Main.laboratorios.get(indexL).IDprueba + "-" + Main.laboratorios.get(indexL).NIT;
+        Main.laboratorios.get(indexL).IDprueba += 1;
+        Prueba nuevaPrueba = new Prueba(ID,nombre,nombretipoprueba,nombreclase,Dispositivos);
+        if (Main.pruebas.isEmpty()) {
+            Main.pruebas.add(nuevaPrueba);
         } else {
             boolean lista = true;
-            for (int i = 0; i < Main.tipopruebas.size(); i++) {
-                if (nombre.toLowerCase().compareTo(Main.tipopruebas.get(i).Nombre.toLowerCase()) < 0) {
-                    Main.tipopruebas.add(i, nuevoTipoprueba);
+            for (int i = 0; i < Main.pruebas.size(); i++) {
+                if (ID.compareTo(Main.pruebas.get(i).ID)<0) {
+                    Main.pruebas.add(i, nuevaPrueba);
                     lista = false;
                     break;
                 }
             }
             if (lista) {
-                Main.tipopruebas.add(nuevoTipoprueba);
+                Main.pruebas.add(nuevaPrueba);
             }
         }
         return true;
     }
 
-    public static boolean EditarTipoPrueba() throws IOException {
+    public static boolean EditarPrueba() throws IOException {
         int comparador;
         int indexN = -1;
         int indexL = -1;
-        if (Main.laboratorios.isEmpty()) {
+        if (Main.pruebas.isEmpty()) {
             System.out.println("No hay tipos de prueba en la base de datos");
             return false;
         }
         int index;
-        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba - Nombre del laboratorio");
-        String nombreb = input.readLine();
-        if (nombreb.equals("")) {
-            System.out.println("No se ingreso ningun nombre");
+        System.out.println("Ingrese el ID de la prueba");
+        String IDb = input.readLine();
+        if (IDb.equals("")) {
+            System.out.println("No se ingreso ningun ID");
             return false;
         } else {
-            index = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nombreb, "", 0), new ComparadorNombreTipoPrueba());
+            index = Collections.binarySearch(Main.pruebas, new Prueba(IDb,"","","",null), new ComparadorIDPrueba());
             if (index < 0) {
-                System.out.println("El Nombre no se encuentra en la base de datos");
+                System.out.println("El ID no se encuentra en la base de datos");
                 return false;
             }
         }
+        //////////
+
         String viejoNombre = Main.tipopruebas.get(index).Nombre;
         System.out.println("Es suficiente con ingresdar el nombre de la prueba");
         System.out.println("Nombre: " + Main.tipopruebas.get(index).Nombre);
@@ -235,9 +237,6 @@ public class MenuPrueba {
                         break;
                     }
                 }
-            }
-            if (Main.normas.get(indexN).TipoPrueba.equalsIgnoreCase(viejoNombre)) {
-                Main.normas.get(indexN).TipoPrueba = nuevoNombre;
             }
         }
         return true;
