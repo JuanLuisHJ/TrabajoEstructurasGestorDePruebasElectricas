@@ -17,15 +17,20 @@ public class MenuInformes {
             String seleccion = input.readLine();
             if (seleccion.equals("1")){
                 VerInformes();
+                return;
             }
             else if (seleccion.equals("2")){
                 CrearInforme();
+                return;
             }
             else if (seleccion.equals("3")){
                 EditarInforme();
+                return;
             }
             else if(seleccion.equals("4")){
                 EliminarInforme();
+                return;
+
             }
             else if(seleccion.equals("0")){
                 volver=true;
@@ -46,7 +51,7 @@ public class MenuInformes {
         }
     }
     public static void CrearInforme() throws IOException{
-        System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe:");
+        System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe: ");
         String ingreso = input.readLine();
         int IDPrueba=-1;
         boolean identificadoraprobado=false;
