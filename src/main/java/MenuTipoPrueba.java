@@ -183,6 +183,7 @@ public class MenuTipoPrueba {
         int nuevoNITlab;
         if (nuevonitLab.equals("")) {
             nuevoNITlab = Main.tipopruebas.get(index).NitLaboratorio;
+            indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(nuevoNITlab, "", ""), new ComparadorNITLaboratorio());
         } else {
             nuevonitLab = nuevonitLab.replaceAll("[.]", "");
             nuevoNITlab = Integer.parseInt(nuevonitLab);

@@ -200,6 +200,7 @@ public class MenuPrueba {
         String nuevoNombreTP = input.readLine();
         if (nuevoNombreTP.equals("")) {
             nuevoNombreTP = Main.pruebas.get(index).TipoPrueba;
+            indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nuevoNombreTP, "", 0), new ComparadorNombreTipoPrueba());
         } else {
             indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nuevoNombreTP, "", 0), new ComparadorNombreTipoPrueba());
             if (indexT < 0) {
@@ -265,7 +266,7 @@ public class MenuPrueba {
                 if (!Main.tipopruebas.get(indexT).Pruebas.isEmpty()) {
                     for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
                         if (Main.tipopruebas.get(indexT).Pruebas.get(j).equalsIgnoreCase(viejoID)) {
-                            Main.tipopruebas.get(indexL).Pruebas.set(j, nuevoID);
+                            Main.tipopruebas.get(indexT).Pruebas.set(j, nuevoID);
                             break;
                         }
                     }
