@@ -1,14 +1,7 @@
-import Clases.Usuario;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Writer;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
+import java.util.Collections;
 
 public class MenuInformes {
     public static BufferedReader input = new BufferedReader( new InputStreamReader(System.in));
@@ -34,47 +27,57 @@ public class MenuInformes {
             else if (seleccion.equals("2")){
                 System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe:");
                 String ingreso = input.readLine();
-                int identificador=-1;
+                int IDPrueba=-1;
                 boolean identificadoraprobado=false;
                 boolean cancelarregistro=false;
                 while (!cancelarregistro && !identificadoraprobado){
-                    try{
-                        ingreso.replaceAll("[.]","");
-                        ingreso.replaceAll("[,]","");
-                        identificador=Integer.parseInt(ingreso);
-                        if(identificador<0){
-                            System.out.println("Ingrese un identificador numérico mayor que cero\n");
-                            identificadoraprobado=false;
-                            cancelarregistro=Main.CancelarRegistro();
-                            System.out.println("Las pruebas sin informe son: ");
-                            for(Clases.Prueba prueba : Main.pruebas){
-                                if (prueba.NumInforme<0){
-                                    System.out.println(prueba);
+                    ingreso=ingreso.replaceAll("\\s","");
+                    ingreso=ingreso.replaceAll("[.]","");
+                    ingreso=ingreso.replaceAll("[,]","");
+                    for (Clases.Prueba prueba : Main.pruebas){
+                        if (prueba.ID.equalsIgnoreCase(ingreso)){
+                            if (prueba.NumInforme<0){
+                                System.out.print("Ingrese el numero de informe que desea asignar: ");
+                                String entrada = input.readLine();
+                                try{
+                                    IDPrueba=Integer.parseInt(entrada);
+                                    if(IDPrueba<0) {
+                                        System.out.println("Ingrese un identificador numérico mayor que cero\n");
+                                        cancelarregistro=Main.CancelarRegistro();
+                                        identificadoraprobado = false;
+                                    }
+                                    else{
+                                        int contador=0;
+                                        for (Clases.Prueba pruebacon : Main.pruebas){
+                                            if (pruebacon.NumInforme==IDPrueba){
+                                                System.out.println("Este número de informe ya ha sido asignado a otra prueba, por favor, digite uno diferente\n");
+                                            }
+                                            contador++;
+                                        }
+                                        if (contador==Main.pruebas.size()){
+                                            prueba.NumInforme=IDPrueba;
+                                            identificadoraprobado=true;
+                                            System.out.println("El número identificador se asignó correctamente\n");
+                                        }
+                                    }
+                                } catch (Exception exc){
+                                    System.out.println("Ingrese un identificador numérico mayor que cero\n");
+                                    cancelarregistro=Main.CancelarRegistro();
                                 }
+                            }
+                            else{
+                                System.out.println("La prueba registrada con este idetificador (ID) ya tiene un informe\n");
+                                System.out.println("Las pruebas sin informe son: \n");
+                                for(Clases.Prueba pruebasin : Main.pruebas){
+                                    if (prueba.NumInforme<0){
+                                        System.out.println(pruebasin);
+                                    }
+                                }
+                                cancelarregistro=Main.CancelarRegistro();
                             }
                         }
                         else{
-                            int contador=0;
-                            for (Clases.Prueba prueba : Main.pruebas){
-                                if (prueba.NumInforme==identificador){
-                                    System.out.println("La prueba registrada con este idetificador ya tiene un informe\n");
-                                    cancelarregistro=Main.CancelarRegistro();
-                                    break;
-                                }
-                                contador++;
-                            }
-                            if (contador==Main.pruebas.size()){
-                                identificadoraprobado=true;
-                            }
-                        }
-                    }catch (Exception exc){
-                        System.out.println("Ingrese un identificador numérico mayor que cero\n");
-                        cancelarregistro=Main.CancelarRegistro();
-                        System.out.println("Las pruebas sin informe son: \n");
-                        for(Clases.Prueba prueba : Main.pruebas){
-                            if (prueba.NumInforme<0){
-                                System.out.println(prueba);
-                            }
+                            System.out.println("No existe una prueba realizada que tenga este identificador (ID): "+ingreso);
                         }
                     }
                 }
@@ -147,19 +150,28 @@ public class MenuInformes {
                         System.out.println("Por favor, ingrese un valor numérico de presión");
                     }
                 }
-                Clases.Informe nuevoinforme = new Clases.Informe(identificador,resultado,comentarios,temperatura,humedad,presion);
+                Clases.Informe nuevoinforme = new Clases.Informe(IDPrueba,resultado,comentarios,temperatura,humedad,presion);
+                int enelquevoy=Main.informes.size();
                 Main.informes.add(nuevoinforme);
+                if (enelquevoy != 0) {
+                    while (enelquevoy > 0 && Main.informes.get(enelquevoy).IDPrueba < Main.informes.get(enelquevoy - 1).IDPrueba) {
+                        Clases.Informe buffer = Main.informes.get(enelquevoy);
+                        Main.informes.set(enelquevoy, Main.informes.get(enelquevoy - 1));
+                        Main.informes.set(enelquevoy - 1, buffer);
+                        enelquevoy--;
+                    }
+                }
                 System.out.println("El informe se ha generado satisfactoriamente\n");
             }
             else if (seleccion.equals("3")){
                 boolean salir = false;
                 while (!salir){
                     System.out.println("Seleccionar por:");
-                    System.out.println(" 1. Identificador de prueba (ID)");
+                    System.out.println(" 1. Identificador número de informe de prueba ");
                     System.out.println(" 0. Cancelar");
                     seleccion = input.readLine();
                     if (seleccion.equals("1")) {
-                        System.out.print("Ingrese el identificador de la prueba a la cual desea editar el informe: ");
+                        System.out.print("Ingrese el número de informe de la prueba a la cual desea editar el informe: ");
                         int identificador;
                         String ingreso = input.readLine();
                         try{
@@ -177,6 +189,7 @@ public class MenuInformes {
                                         System.out.println("si desea modificarlo, digite el valor, de lo contrario, presione enter:\n");
                                         boolean cambiovalido = false;
                                         int IDPruebacambiado=informe.IDPrueba;
+                                        int bufferIDPrueba=informe.IDPrueba;
                                         while(!cambiovalido){
                                             System.out.print("Identificador del informe de la prueba: "+informe.IDPrueba+": ");
                                             String cambio=input.readLine();
@@ -243,7 +256,7 @@ public class MenuInformes {
                                         while(!cambiovalido){
                                             System.out.print("Temperatura de la prueba en (°C): "+informe.Temperatura+": ");
                                             cambio = input.readLine();
-                                            double temperaturabuffer=0;
+                                            double temperaturabuffer;
                                             try{
                                                 if(cambio.equals("")){
                                                     break;
@@ -260,7 +273,7 @@ public class MenuInformes {
                                         double humedadcambiada=informe.Humedad;
                                         cambiovalido=false;
                                         while(!cambiovalido){
-                                            double humedad=0;
+                                            double humedad;
                                             System.out.print("Humedad de la prueba en (% de 0-100): "+informe.Humedad+": ");
                                             cambio = input.readLine();
                                             try{
@@ -284,7 +297,7 @@ public class MenuInformes {
                                         double presioncambiada = informe.Presion;
                                         cambiovalido=false;
                                         while(!cambiovalido){
-                                            double presion=0;
+                                            double presion;
                                             System.out.print("Presión de la prueba: "+informe.Presion+": ");
                                             cambio = input.readLine();
                                             try{
@@ -313,6 +326,12 @@ public class MenuInformes {
                                                 informe.Temperatura=temperaturacambiada;
                                                 informe.Humedad=humedadcambiada;
                                                 informe.Presion=presioncambiada;
+                                                for(Clases.Prueba prueba : Main.pruebas){
+                                                    if(prueba.NumInforme==bufferIDPrueba){
+                                                        prueba.NumInforme=IDPruebacambiado;
+                                                    }
+                                                }
+                                                Collections.sort(Main.informes, new Comparadores.ComparadorNumInforme());
                                                 salir=true;
                                             }
                                             else if(seleccion.equalsIgnoreCase("n") || seleccion.equalsIgnoreCase("no")){

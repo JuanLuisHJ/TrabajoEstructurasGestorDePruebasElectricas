@@ -1,7 +1,5 @@
 package Clases;
 
-import java.util.ArrayList;
-
 public class Informe {
     public int IDPrueba;
     public boolean Resultado;
