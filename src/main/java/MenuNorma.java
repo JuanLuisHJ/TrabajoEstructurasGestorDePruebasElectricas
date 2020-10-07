@@ -52,7 +52,9 @@ public class MenuNorma {
                 }
                 Norma normanueva = new Norma(nombre, ref);
                 Main.normas.add(normanueva);
+                Collections.sort(Main.normas, new ComparadorReferenciaNorma());
                 System.out.println("Operación realizada con éxito");
+                return;
 
             } else if (opcionA.equals("3")) {
                 if (Main.normas.isEmpty()) {
@@ -119,6 +121,7 @@ public class MenuNorma {
                                 normaedit.Nombre = nuevonombre;
                                 System.out.println("Operación realizada con éxito. ");
                             }
+                            return;
 
                         } else if (opcion.equals("2")) {
                             System.out.println("Ingrese el nombre de la norma: ");
@@ -174,6 +177,7 @@ public class MenuNorma {
                                 normaedit.Nombre = nuevonombre;
                                 System.out.println("Operación realizada con éxito. ");
                             }
+                            return;
 
                         } else if (opcion.equals("0")) {
                             break;
@@ -208,6 +212,7 @@ public class MenuNorma {
                         int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                         Main.normas.remove(indicenormaborrado);
                         System.out.println("Operación realizada con éxito. ");
+                        return;
 
                     } else if (opcion.equals("2")) {
                         System.out.println("Ingrese el nombre de la norma: ");
@@ -226,6 +231,7 @@ public class MenuNorma {
                         int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(nombre, null), new ComparadorNombreNorma());
                         Main.dispositivos.remove(indicenormaborrado);
                         System.out.println("Operación realizada con éxito. ");
+                        return;
 
                     } else if (opcion.equals("0")) {
                         break;

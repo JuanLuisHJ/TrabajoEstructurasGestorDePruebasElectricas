@@ -50,15 +50,17 @@ public class MenuDispositivo {
                             return;
                         }
                     }
-                System.out.print("Ingrese la potencia nominal en [MVA] del dispositivo: ");
+                System.out.print("Ingrese la potencia nominal en [VA] del dispositivo: ");
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
-                System.out.print("Ingrese el voltaje nominal del dispositivo: ");
+                System.out.print("Ingrese el voltaje nominal del dispositivo [V]: ");
                 String volnom = input.readLine();
                 double volnomr = Double.parseDouble(volnom);
                 Dispositivo dispositivonuevo = new Dispositivo(ref, nombre, potnomr, volnomr);
                 Main.dispositivos.add(dispositivonuevo);
+                Collections.sort(Main.dispositivos, new ComparadorReferenciaDispositivo());
                 System.out.println("Operacion realizada con exito. ");
+                return;
 
             } else if (opcionA.equals("3")) {
                 if (Main.dispositivos.isEmpty()) {
@@ -125,11 +127,11 @@ public class MenuDispositivo {
                                 dispositivoedit.Nombre = nuevonombre;
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + ".");
+                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
                             System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
                             String opcionpotnom = input.readLine();
                             if (opcionpotnom.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese la nueva potencia nominal: ");
+                                System.out.println("Ingrese la nueva potencia nominal [VA]: ");
                                 String nuevapotnom = input.readLine();
                                 if (nuevapotnom.equals("")) {
                                     System.out.println("No ingreso la potencia nominal. ");
@@ -138,11 +140,11 @@ public class MenuDispositivo {
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + ".");
+                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
                             System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
                             String opcionvolnom = input.readLine();
                             if (opcionvolnom.equalsIgnoreCase("Y")) {
-                                System.out.println("Ingrese el nuevo voltaje nominal: ");
+                                System.out.println("Ingrese el nuevo voltaje nominal [V]: ");
                                 String nuevavolnom = input.readLine();
                                 if (nuevavolnom.equals("")) {
                                     System.out.println("No ingreso el voltaje nominal. ");
@@ -151,7 +153,9 @@ public class MenuDispositivo {
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito. ");
                             }
-                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + ".");
+                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].");
+                            return;
+
                         } else if (opcion.equals("2")) {
                             System.out.println("Ingrese el nombre del dispositivo: ");
                             String nombre = input.readLine();
@@ -206,11 +210,11 @@ public class MenuDispositivo {
                                 dispositivoedit.Nombre = nuevonombre;
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + ".");
+                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
                             System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
                             String opcionpotnom = input.readLine();
                             if (opcionpotnom.equalsIgnoreCase("Y")) {
-                                System.out.print("Ingrese la nueva potencia nominal [MVA]: ");
+                                System.out.print("Ingrese la nueva potencia nominal [VA]: ");
                                 String nuevapotnom = input.readLine();
                                 if (nuevapotnom.equals("")) {
                                     System.out.println("No ingresó la potencia nominal.\n");
@@ -219,11 +223,11 @@ public class MenuDispositivo {
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + ".");
+                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
                             System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
                             String opcionvolnom = input.readLine();
                             if (opcionvolnom.equalsIgnoreCase("Y")) {
-                                System.out.print("Ingrese el nuevo voltaje nominal [kV]: ");
+                                System.out.print("Ingrese el nuevo voltaje nominal [V]: ");
                                 String nuevavolnom = input.readLine();
                                 if (nuevavolnom.equals("")) {
                                     System.out.println("No ingresó el voltaje nominal. \n");
@@ -232,7 +236,9 @@ public class MenuDispositivo {
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + ".");
+                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].");
+                            return;
+
                         } else if (opcion.equals("0")) {
                             break;
                         } else {
@@ -265,6 +271,7 @@ public class MenuDispositivo {
                         int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
                         Main.dispositivos.remove(indicedispositivoborrado);
                         System.out.println("Operación realizada con éxito. \n");
+                        return;
 
                     } else if (opcion.equals("2")) {
                         System.out.print("Ingrese el nombre del dispositivo: ");
@@ -283,6 +290,7 @@ public class MenuDispositivo {
                         int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(null, nombre, 0, 0), new ComparadorNombreDispositivo());
                         Main.dispositivos.remove(indicedispositivoborrado);
                         System.out.println("Operación realizada con éxito. \n");
+                        return;
 
                     } else if (opcion.equals("0")) {
                         break;
