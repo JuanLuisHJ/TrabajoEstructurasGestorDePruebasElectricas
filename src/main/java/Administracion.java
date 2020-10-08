@@ -72,7 +72,7 @@ public class Administracion {
             }else if (opcionA.equals("0")) {
                 break;
             } else {
-                System.out.println("Los datos ingresados no son validos");
+                System.out.println("Los datos ingresados no son válidos\n");
             }
         }
     }
