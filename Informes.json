@@ -1,16 +1,8 @@
 [
   {
-    "IDPrueba": 2,
-    "Resultado": false,
-    "Comentarios": "la mierda se le salió ",
-    "Temperatura": 90.0,
-    "Humedad": 25.0,
-    "Presion": 645.0
-  },
-  {
-    "IDPrueba": 7,
+    "IDPrueba": 9,
     "Resultado": true,
-    "Comentarios": "juan luis daño la fuente dc por ver el transitorio",
+    "Comentarios": "juan luis es una chimba pa ",
     "Temperatura": 24.0,
     "Humedad": 60.0,
     "Presion": 760.0

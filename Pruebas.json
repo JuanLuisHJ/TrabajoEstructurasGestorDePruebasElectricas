@@ -3,7 +3,7 @@
     "ID": "1-100200300",
     "Nombre": "Prueba trafo ISA",
     "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
-    "NumInforme": 7,
+    "NumInforme": 9,
     "Clase": "clase a",
     "RefDispositivos": [
       "T250"

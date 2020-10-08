@@ -51,13 +51,14 @@ public class MenuInformes {
         boolean identificadoraprobado=false;
         boolean cancelarregistro=false;
         int nuevoidentificador=-1;
+        int indice=-1;
         while (!cancelarregistro && !identificadoraprobado){
             System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe: ");
             ingreso = input.readLine();
             ingreso=ingreso.replaceAll("\\s","");
             ingreso=ingreso.replaceAll("[.]","");
             ingreso=ingreso.replaceAll("[,]","");
-            int indice = Collections.binarySearch(Main.pruebas, new Clases.Prueba(ingreso,"","","",new ArrayList<>()), new Comparadores.ComparadorIDPrueba());
+            indice = Collections.binarySearch(Main.pruebas, new Clases.Prueba(ingreso,"","","",new ArrayList<>()), new Comparadores.ComparadorIDPrueba());
             if (indice>=0){
                 Clases.Prueba prueba = Main.pruebas.get(indice);
                 if (prueba.NumInforme<0){
@@ -189,6 +190,7 @@ public class MenuInformes {
                 enelquevoy--;
             }
         }
+        Main.pruebas.get(indice).NumInforme=IDPrueba;
         System.out.println("El informe se ha generado satisfactoriamente\n");
     }
     public static void EditarInforme() throws IOException{
