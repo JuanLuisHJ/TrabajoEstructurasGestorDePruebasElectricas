@@ -8,5 +8,25 @@
     "RefDispositivos": [
       "T250"
     ]
+  },
+  {
+    "ID": "2-100200300",
+    "Nombre": "prueba de corto",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": 2,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "t250"
+    ]
+  },
+  {
+    "ID": "3-100200300",
+    "Nombre": "prueba de mierda",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": -1,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "t250"
+    ]
   }
 ]

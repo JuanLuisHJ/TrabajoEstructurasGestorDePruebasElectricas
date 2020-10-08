@@ -308,15 +308,20 @@ public class Main {
         }
     }
     public static boolean CancelarRegistro() throws IOException{
-        System.out.println("¿Cancelar registro?");
-        System.out.println("Y <---> SI");
-        System.out.println("N <---> NO");
-        String cancelar = input.readLine();
-        if (cancelar.equalsIgnoreCase("y") || cancelar.equalsIgnoreCase("si")) {
-            return true;
-        }
-        else {
-            return false;
+        while(true){
+            System.out.println("¿Cancelar registro?");
+            System.out.println("Y <---> SI");
+            System.out.println("N <---> NO");
+            String cancelar = input.readLine();
+            if (cancelar.equalsIgnoreCase("y") || cancelar.equalsIgnoreCase("si")) {
+                return true;
+            }
+            else if (cancelar.equalsIgnoreCase("n") || cancelar.equalsIgnoreCase("no")){
+                return false;
+            }
+            else {
+                System.out.println("Debe ingresar una opción: \"si\",\"y\" o \"no\",\"n\"");
+            }
         }
     }
 }
