@@ -183,6 +183,7 @@ public class MenuTipoPrueba {
         int nuevoNITlab;
         if (nuevonitLab.equals("")) {
             nuevoNITlab = Main.tipopruebas.get(index).NitLaboratorio;
+            indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(nuevoNITlab, "", ""), new ComparadorNITLaboratorio());
         } else {
             nuevonitLab = nuevonitLab.replaceAll("[.]", "");
             nuevoNITlab = Integer.parseInt(nuevonitLab);
@@ -211,11 +212,13 @@ public class MenuTipoPrueba {
         if (!nuevoNombre.equalsIgnoreCase(Main.tipopruebas.get(index).Nombre)) {
             Main.tipopruebas.get(index).Nombre = nuevoNombre;
             Collections.sort(Main.tipopruebas, new ComparadorNombreTipoPrueba());
-            if (!Main.laboratorios.get(indexL).TipoPruebas.isEmpty()) {
-                for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
-                    if (Main.laboratorios.get(indexL).TipoPruebas.get(j).equalsIgnoreCase(viejoNombre)) {
-                        Main.laboratorios.get(indexL).TipoPruebas.set(j, nuevoNombre);
-                        break;
+            if(indexL>=0){
+                if (!Main.laboratorios.get(indexL).TipoPruebas.isEmpty()) {
+                    for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
+                        if (Main.laboratorios.get(indexL).TipoPruebas.get(j).equalsIgnoreCase(viejoNombre)) {
+                            Main.laboratorios.get(indexL).TipoPruebas.set(j, nuevoNombre);
+                            break;
+                        }
                     }
                 }
             }
@@ -265,10 +268,12 @@ public class MenuTipoPrueba {
         String viejoNombre = Main.tipopruebas.get(index).Nombre;
         int NITlab = Main.tipopruebas.get(index).NitLaboratorio;
         int indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITlab, "", ""), new ComparadorNITLaboratorio());
-        for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
-            if (viejoNombre.equalsIgnoreCase(Main.laboratorios.get(indexL).TipoPruebas.get(j))) {
-                Main.laboratorios.get(indexL).TipoPruebas.remove(j);
-                break;
+        if(indexL>=0){
+            for (int j = 0; j < Main.laboratorios.get(indexL).TipoPruebas.size(); j++) {
+                if (viejoNombre.equalsIgnoreCase(Main.laboratorios.get(indexL).TipoPruebas.get(j))) {
+                    Main.laboratorios.get(indexL).TipoPruebas.remove(j);
+                    break;
+                }
             }
         }
         if(!Main.tipopruebas.get(index).Pruebas.isEmpty()){

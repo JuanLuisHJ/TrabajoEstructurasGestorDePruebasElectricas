@@ -151,7 +151,6 @@ public class MenuPrueba {
 
     public static boolean EditarPrueba() throws IOException {
         int indexT= -1;
-        int indexN = -1;
         int indexL = -1;
         int indexC = -1;
         if (Main.pruebas.isEmpty()) {
@@ -199,8 +198,9 @@ public class MenuPrueba {
         System.out.println("Nombre Tipo de prueba: " + Main.pruebas.get(index).TipoPrueba);
         System.out.print("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio: ");
         String nuevoNombreTP = input.readLine();
-        if (nuevoNombre.equals("")) {
-            nuevoNombre = Main.tipopruebas.get(index).Nombre;
+        if (nuevoNombreTP.equals("")) {
+            nuevoNombreTP = Main.pruebas.get(index).TipoPrueba;
+            indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nuevoNombreTP, "", 0), new ComparadorNombreTipoPrueba());
         } else {
             indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nuevoNombreTP, "", 0), new ComparadorNombreTipoPrueba());
             if (indexT < 0) {
@@ -208,7 +208,7 @@ public class MenuPrueba {
                 return false;
             }
         }
-
+        System.out.println();
         System.out.print("Clase: "+ Main.pruebas.get(index).Clase+": ");
         String nuevonombreclase = input.readLine();
         if (nuevonombreclase.equals("")) {
@@ -220,7 +220,7 @@ public class MenuPrueba {
                 return false;
             }
         }
-
+        System.out.println();
         ArrayList<String> nuevosDispositivos = new ArrayList<>();
         System.out.println("Referencias dispositivos: "+ Main.pruebas.get(index).RefDispositivos);
         System.out.println("Ingrese las referencias de los dispositivos, cuando haya ingresado todos los dispositivos ingrese fin: ");
@@ -262,11 +262,13 @@ public class MenuPrueba {
         if (!nuevoID.equalsIgnoreCase(Main.pruebas.get(index).ID)) {
             Main.pruebas.get(index).ID = nuevoID;
             Collections.sort(Main.pruebas, new ComparadorIDPrueba());
-            if (!Main.tipopruebas.get(indexT).Pruebas.isEmpty()) {
-                for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
-                    if (Main.tipopruebas.get(indexT).Pruebas.get(j).equalsIgnoreCase(viejoID)) {
-                        Main.tipopruebas.get(indexL).Pruebas.set(j, nuevoID);
-                        break;
+            if(indexT>=0){
+                if (!Main.tipopruebas.get(indexT).Pruebas.isEmpty()) {
+                    for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
+                        if (Main.tipopruebas.get(indexT).Pruebas.get(j).equalsIgnoreCase(viejoID)) {
+                            Main.tipopruebas.get(indexT).Pruebas.set(j, nuevoID);
+                            break;
+                        }
                     }
                 }
             }
@@ -310,6 +312,14 @@ public class MenuPrueba {
         Main.pruebas.remove(index);
         String viejoID = Main.pruebas.get(index).ID;
         int indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(Main.pruebas.get(index).TipoPrueba,"",-1), new ComparadorNombreTipoPrueba());
+        if(indexT>=0){
+            for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
+                if (viejoID.equalsIgnoreCase(Main.tipopruebas.get(indexT).Pruebas.get(j))) {
+                    Main.tipopruebas.get(indexT).Pruebas.remove(j);
+                    break;
+                }
+            }
+        }
         for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
             if (viejoID.equalsIgnoreCase(Main.tipopruebas.get(indexT).Pruebas.get(j))) {
                 Main.tipopruebas.get(indexT).Pruebas.remove(j);

@@ -52,11 +52,12 @@ public class MenuInformes {
     }
     public static void CrearInforme() throws IOException{
         System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe: ");
-        String ingreso = input.readLine();
+        String ingreso= input.readLine();
         int IDPrueba=-1;
         boolean identificadoraprobado=false;
         boolean cancelarregistro=false;
         while (!cancelarregistro && !identificadoraprobado){
+            ingreso = input.readLine();
             ingreso=ingreso.replaceAll("\\s","");
             ingreso=ingreso.replaceAll("[.]","");
             ingreso=ingreso.replaceAll("[,]","");

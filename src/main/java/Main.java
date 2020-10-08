@@ -185,7 +185,7 @@ public class Main {
                 if (opcion.equals("1")){
                     Administracion.administrar();
                 }else if(opcion.equals("2")){
-
+                    Administracion.busqueda();
                 }else if(opcion.equals("3")){
 
                 }else if(opcion.equals("4")){
