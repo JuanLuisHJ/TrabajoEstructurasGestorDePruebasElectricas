@@ -56,7 +56,8 @@ public class Administracion {
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             if (opcionA.equals("1")) {
-
+                MenuBusquedaLaboratorio.menubusquedaLaboratorio();
+                return;
             } else if (opcionA.equals("2")) {
 
             } else if (opcionA.equals("3")) {
