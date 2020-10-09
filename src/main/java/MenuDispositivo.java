@@ -1,5 +1,5 @@
 import Clases.Dispositivo;
-import Comparadores.ComparadorReferenciaDispositivo;
+import Comparadores.ComparadoresDispositivo.*;
 
 import java.io.*;
 import java.util.*;

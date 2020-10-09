@@ -118,7 +118,7 @@ public class MenuPrueba {
                 System.out.println("No se ingreso ninguna nombre");
                 return false;
             }
-            int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadorReferenciaDispositivo());
+            int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
             if (indexD<0){
                 System.out.println("El dispositivo no se encuentra en la base de datos\n");
                 return false;
@@ -233,7 +233,7 @@ public class MenuPrueba {
                     System.out.println("No se ingresó ninguna nombre\n");
                     return false;
                 }
-                int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadorReferenciaDispositivo());
+                int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
                 if (indexD<0){
                     System.out.println("El dispositivo no se encuentra en la base de datos\n");
                     return false;
