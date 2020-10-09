@@ -29,4 +29,43 @@ public class ComparadoresDispositivo {
             }
         }
     }
+
+    public static class ComparadorPotenciaNominalDispositivo implements Comparator<Dispositivo> {
+        @Override
+        public int compare(Dispositivo disp1, Dispositivo disp2) {
+            if (disp1.PotenciaNominal < disp2.PotenciaNominal){
+                return -1;
+            }else if (disp1.PotenciaNominal == disp2.PotenciaNominal){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+    }
+
+    public static class ComparadorVoltajeNominalDispositivo implements Comparator<Dispositivo> {
+        @Override
+        public int compare(Dispositivo disp1, Dispositivo disp2) {
+            if (disp1.VoltajeNominal < disp2.VoltajeNominal){
+                return -1;
+            }else if (disp1.VoltajeNominal == disp2.VoltajeNominal){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+    }
+
+    public static class ComparadorCorrienteNominalDispositivo implements Comparator<Dispositivo> {
+        @Override
+        public int compare(Dispositivo disp1, Dispositivo disp2) {
+            if (disp1.CorrienteNominal < disp2.CorrienteNominal){
+                return -1;
+            }else if (disp1.CorrienteNominal == disp2.CorrienteNominal){
+                return 0;
+            }else{
+                return 1;
+            }
+        }
+    }
 }

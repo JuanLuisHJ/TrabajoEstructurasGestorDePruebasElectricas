@@ -1,5 +1,5 @@
 import Clases.Norma;
-import Comparadores.ComparadorReferenciaNorma;
+import Comparadores.ComparadoresNorma.*;
 
 import java.io.*;
 import java.util.*;

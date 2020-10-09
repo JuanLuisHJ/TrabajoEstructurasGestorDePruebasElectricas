@@ -1,3 +1,6 @@
+import Comparadores.ComparadoresPrueba.*;
+import Comparadores.ComparadoresInforme.*;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -58,7 +61,7 @@ public class MenuInformes {
             ingreso=ingreso.replaceAll("\\s","");
             ingreso=ingreso.replaceAll("[.]","");
             ingreso=ingreso.replaceAll("[,]","");
-            indice = Collections.binarySearch(Main.pruebas, new Clases.Prueba(ingreso,"","","",new ArrayList<>()), new Comparadores.ComparadorIDPrueba());
+            indice = Collections.binarySearch(Main.pruebas, new Clases.Prueba(ingreso,"","","",new ArrayList<>()), new ComparadorIDPrueba());
             if (indice>=0){
                 Clases.Prueba prueba = Main.pruebas.get(indice);
                 if (prueba.NumInforme<0){
@@ -213,7 +216,7 @@ public class MenuInformes {
                     }
                     else{
                         int contador;
-                        int indice = Collections.binarySearch(Main.informes, new Clases.Informe(identificador,false,"",0,0,0), new Comparadores.ComparadorNumInforme());
+                        int indice = Collections.binarySearch(Main.informes, new Clases.Informe(identificador,false,"",0,0,0), new ComparadorNumInforme());
                         Clases.Informe informe = Main.informes.get(indice);
                         System.out.println("Se mostrarán todos los campos del informe de la prueba, ");
                         System.out.println("si desea modificarlo, digite el valor, de lo contrario, presione enter:\n");
@@ -361,7 +364,7 @@ public class MenuInformes {
                                         prueba.NumInforme=IDPruebacambiado;
                                     }
                                 }
-                                Collections.sort(Main.informes, new Comparadores.ComparadorNumInforme());
+                                Collections.sort(Main.informes, new ComparadorNumInforme());
                                 salir=true;
                                 guardadovalido=true;
                             }
@@ -404,7 +407,7 @@ public class MenuInformes {
                     if (identificador < 0) {
                         System.out.println("Por favor, ingrese un identificador numérico mayor que cero\n");
                     } else {
-                        int indice = Collections.binarySearch(Main.informes,new Clases.Informe(identificador,false,"",0,0,0), new Comparadores.ComparadorNumInforme());
+                        int indice = Collections.binarySearch(Main.informes,new Clases.Informe(identificador,false,"",0,0,0), new ComparadorNumInforme());
                         if (indice>=0){
                             if (Main.informes.get(indice).IDPrueba==identificador){
                                 System.out.println("¿Está seguro de eliminar el informe?");

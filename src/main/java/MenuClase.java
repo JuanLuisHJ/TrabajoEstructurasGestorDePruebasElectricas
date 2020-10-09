@@ -1,7 +1,7 @@
 import Clases.Norma;
 import Clases.Clase;
-import Comparadores.ComparadorNombreClase;
-import Comparadores.ComparadorReferenciaNorma;
+import Comparadores.ComparadoresClase.*;
+import Comparadores.ComparadoresNorma.*;
 
 import java.io.*;
 import java.util.*;

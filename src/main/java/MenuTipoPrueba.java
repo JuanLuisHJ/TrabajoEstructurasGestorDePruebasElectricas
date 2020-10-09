@@ -2,9 +2,9 @@ import Clases.Laboratorio;
 import Clases.Norma;
 import Clases.Prueba;
 import Clases.TipoPrueba;
-import Comparadores.ComparadorNITLaboratorio;
-import Comparadores.ComparadorNombreTipoPrueba;
-import Comparadores.ComparadorReferenciaNorma;
+import Comparadores.ComparadoresLaboratorio.*;
+import Comparadores.ComparadoresTipoPrueba.*;
+import Comparadores.ComparadoresNorma.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;

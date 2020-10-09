@@ -1,5 +1,10 @@
 import Clases.*;
-import Comparadores.*;
+import Comparadores.ComparadoresTipoPrueba.*;
+import Comparadores.ComparadoresClase.*;
+import Comparadores.ComparadoresPrueba.*;
+import Comparadores.ComparadoresLaboratorio.*;
+import Comparadores.ComparadoresDispositivo.*;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -118,7 +123,7 @@ public class MenuPrueba {
                 System.out.println("No se ingreso ninguna nombre");
                 return false;
             }
-            int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
+            int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadorReferenciaDispositivo());
             if (indexD<0){
                 System.out.println("El dispositivo no se encuentra en la base de datos\n");
                 return false;
@@ -233,7 +238,7 @@ public class MenuPrueba {
                     System.out.println("No se ingresó ninguna nombre\n");
                     return false;
                 }
-                int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
+                int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadorReferenciaDispositivo());
                 if (indexD<0){
                     System.out.println("El dispositivo no se encuentra en la base de datos\n");
                     return false;

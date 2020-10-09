@@ -1,6 +1,6 @@
 import Clases.Laboratorio;
 import Clases.TipoPrueba;
-import Comparadores.ComparadorNITLaboratorio;
+import Comparadores.ComparadoresLaboratorio.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
