@@ -101,6 +101,7 @@ public class MenuDispositivo {
                         System.out.println("No ingreso la referencia.\n");
                         return;
                     }
+                    ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                     for (Dispositivo dispositivo : Main.dispositivos) {
                         if (dispositivo.Refetencia.equalsIgnoreCase(ref)) {
                             int indicedispositivoedit = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, "", 0, 0), new ComparadorReferenciaDispositivo());
@@ -173,10 +174,13 @@ public class MenuDispositivo {
                             break;
 
                         } else {
+                        dispositivosquenoson.add(dispositivo);
+                        }
+                        if (!dispositivosquenoson.isEmpty()) {
                             System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n");
+                            return;
                         }
                     }
-                    return;
 
                 } else if (opcion.equals("2")) {
                     System.out.println("Ingrese el nombre del dispositivo: ");
@@ -185,6 +189,7 @@ public class MenuDispositivo {
                         System.out.println("No ingresó el nombre.\n");
                         return;
                     }
+                    ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                     for (Dispositivo dispositivo : Main.dispositivos) {
                         if (dispositivo.Nombre.equalsIgnoreCase(nombre)) {
                             Dispositivo dispositivoedit = null;
@@ -262,10 +267,13 @@ public class MenuDispositivo {
                             return;
 
                         } else {
-                            System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n ");
+                            dispositivosquenoson.add(dispositivo);
+                        }
+                        if (!dispositivosquenoson.isEmpty()) {
+                            System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n");
+                            return;
                         }
                     }
-                    return;
 
                 } else if (opcion.equals("0")) {
                     break;
@@ -291,16 +299,22 @@ public class MenuDispositivo {
                     System.out.println("No ingresó la referencia.\n");
                     return;
                 }
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : Main.dispositivos) {
                     if (!dispositivo.Refetencia.equalsIgnoreCase(ref)) {
-                        System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n ");
+                        dispositivosquenoson.add(dispositivo);
+                    } else {
+                        int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
+                        Main.dispositivos.remove(indicedispositivoborrado);
+                        System.out.println("Operación realizada con éxito. \n");
                         return;
                     }
                 }
-                int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
-                Main.dispositivos.remove(indicedispositivoborrado);
-                System.out.println("Operación realizada con éxito. \n");
-                return;
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n ");
+                    return;
+                }
+
 
             } else if (opcion.equals("2")) {
                 System.out.print("Ingrese el nombre del dispositivo: ");
@@ -309,27 +323,30 @@ public class MenuDispositivo {
                     System.out.println("No ingreso el nombre. \n");
                     return;
                 }
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : Main.dispositivos) {
                     if (!dispositivo.Nombre.equalsIgnoreCase(nombre)) {
-                        System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n ");
-                        return;
-                    }
-                }
-                for (int i = 0; i < Main.dispositivos.size(); i++) {
-                    if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
-                        Main.dispositivos.remove(i);
-                        break;
-                    }
-                }
+                        dispositivosquenoson.add(dispositivo);
 
-                System.out.println("Operación realizada con éxito. \n");
-                return;
+                    } else {
+                        for (int i = 0; i < Main.dispositivos.size(); i++) {
+                            if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
+                                Main.dispositivos.remove(i);
+                                System.out.println("Operación realizada con éxito. \n");
+                                break;
+                            }
+                        }
+                    }
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El nombre ingresado no coincide con ningun dispositivo guardado.\n ");
+                }
 
             } else if (opcion.equals("0")) {
                 break;
 
             } else {
-                System.out.println("Los datos ingresados no son validos\n");
+                System.out.println("Los datos ingresados no son validos.\n");
             }
         }
     }

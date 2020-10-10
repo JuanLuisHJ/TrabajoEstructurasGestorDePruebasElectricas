@@ -113,6 +113,7 @@ public class MenuClase{
                         System.out.println("No ingreso el nombre.\n");
                         return;
                     }
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : Main.clases) {
                         if (clase.Nombre.equalsIgnoreCase(nombre)) {
                             int indiceclasedit = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
@@ -223,8 +224,12 @@ public class MenuClase{
                             return;
 
                         } else {
-                            System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                            clasesquenoson.add(clase);
+
                         }
+                    }
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("La clase ingresada no se encuentra guardada en la base de datos.\n ");
                     }
                     return;
 
@@ -251,16 +256,22 @@ public class MenuClase{
                     System.out.println("No ingreso el nombre.\n");
                     return;
                 }
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : Main.clases) {
-                    if (!clase.Nombre.equalsIgnoreCase(nombre)) {
-                        System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                    if (clase.Nombre.equalsIgnoreCase(nombre)) {
+                        int indiceclaseborrado = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
+                        Main.dispositivos.remove(indiceclaseborrado);
+                        System.out.println("Operación realizada con éxito.\n");
                         return;
+
+                    } else {
+                        clasesquenoson.add(clase);
                     }
                 }
-                int indiceclaseborrado = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
-                Main.dispositivos.remove(indiceclaseborrado);
-                System.out.println("Operación realizada con éxito.\n");
-                return;
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                    return;
+                }
 
             } else if (opcion.equals("0")) {
                 break;

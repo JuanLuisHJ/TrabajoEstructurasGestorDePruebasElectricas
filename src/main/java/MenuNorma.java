@@ -95,6 +95,7 @@ public class MenuNorma {
                         System.out.println("No ingreso la referencia.\n");
                         return;
                     }
+                    ArrayList<Norma> normasquenoson = new ArrayList<>();
                     for (Norma norma : Main.normas) {
                         if (norma.Referencia.equalsIgnoreCase(ref)) {
                             int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
@@ -140,10 +141,14 @@ public class MenuNorma {
                             return;
 
                         } else {
-                            System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                            normasquenoson.add(norma);
                         }
                     }
-                    return;
+
+                    if (!normasquenoson.isEmpty()) {
+                        System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                        return;
+                    }
 
                 } else if (opcion.equals("2")) {
                     System.out.println("Ingrese el nombre de la norma: ");
@@ -152,6 +157,7 @@ public class MenuNorma {
                         System.out.println("No ingreso el nombre.\n");
                         return;
                     }
+                    ArrayList<Norma> normasquenoson = new ArrayList<>();
                     for (Norma norma : Main.normas) {
                         if (norma.Nombre.equalsIgnoreCase(nombre)) {
                             Norma normaedit = null;
@@ -202,11 +208,14 @@ public class MenuNorma {
                             return;
 
                         } else {
-                            System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
-
+                            normasquenoson.add(norma);
                         }
                     }
-                    return;
+
+                    if (!normasquenoson.isEmpty()) {
+                        System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
+                        return;
+                    }
 
                 } else if (opcion.equals("0")) {
                     break;
@@ -232,16 +241,23 @@ public class MenuNorma {
                     System.out.println("No ingreso la referencia.\n");
                     return;
                 }
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
                 for (Norma norma : Main.normas) {
-                    if (!norma.Referencia.equalsIgnoreCase(ref)) {
-                        System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                    if (norma.Referencia.equalsIgnoreCase(ref)) {
+                        int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
+                        Main.normas.remove(indicenormaborrado);
+                        System.out.println("Operación realizada con éxito.\n");
                         return;
+
+                    } else {
+                        normasquenoson.add(norma);
                     }
                 }
-                int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
-                Main.normas.remove(indicenormaborrado);
-                System.out.println("Operación realizada con éxito.\n");
-                return;
+
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                    return;
+                }
 
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese el nombre de la norma: ");
@@ -250,8 +266,9 @@ public class MenuNorma {
                     System.out.println("No ingreso el nombre.\n");
                     return;
                 }
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
                 for (Norma norma : Main.normas) {
-                    if (!norma.Nombre.equalsIgnoreCase(nombre)) {
+                    if (norma.Nombre.equalsIgnoreCase(nombre)) {
                         System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
                         return;
                     }
@@ -260,10 +277,15 @@ public class MenuNorma {
                     if (Main.normas.get(i).Nombre.equalsIgnoreCase(nombre)) {
                         Main.normas.remove(i);
                         break;
+                    } else {
+                        normasquenoson.add(Main.normas.get(i));
                     }
                 }
-                System.out.println("Operación realizada con éxito. ");
-                return;
+
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
+                    return;
+                }
             }
         }
     }
