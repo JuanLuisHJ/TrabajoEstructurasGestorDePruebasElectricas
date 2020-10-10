@@ -1,5 +1,4 @@
 import Comparadores.ComparadoresPrueba.*;
-import Comparadores.ComparadoresInforme.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,9 +6,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class MenuInformes {
+public class MenuInforme {
     public static BufferedReader input = new BufferedReader( new InputStreamReader(System.in));
-    public static void CRUDinforme() throws IOException {
+    public static void MenuInforme() throws IOException {
         boolean volver = false;
         while (!volver){
             System.out.println("1. Ver informes");
@@ -216,7 +215,7 @@ public class MenuInformes {
                     }
                     else{
                         int contador;
-                        int indice = Collections.binarySearch(Main.informes, new Clases.Informe(identificador,false,"",0,0,0), new ComparadorNumInforme());
+                        int indice = Collections.binarySearch(Main.informes, new Clases.Informe(identificador,false,"",0,0,0), new Comparadores.ComparadorDeInformes("IDPrueba"));
                         Clases.Informe informe = Main.informes.get(indice);
                         System.out.println("Se mostrarán todos los campos del informe de la prueba, ");
                         System.out.println("si desea modificarlo, digite el valor, de lo contrario, presione enter:\n");
@@ -364,7 +363,7 @@ public class MenuInformes {
                                         prueba.NumInforme=IDPruebacambiado;
                                     }
                                 }
-                                Collections.sort(Main.informes, new ComparadorNumInforme());
+                                Collections.sort(Main.informes, new Comparadores.ComparadorDeInformes("IDPrueba"));
                                 salir=true;
                                 guardadovalido=true;
                             }
@@ -407,7 +406,7 @@ public class MenuInformes {
                     if (identificador < 0) {
                         System.out.println("Por favor, ingrese un identificador numérico mayor que cero\n");
                     } else {
-                        int indice = Collections.binarySearch(Main.informes,new Clases.Informe(identificador,false,"",0,0,0), new ComparadorNumInforme());
+                        int indice = Collections.binarySearch(Main.informes,new Clases.Informe(identificador,false,"",0,0,0), new Comparadores.ComparadorDeInformes("IDPrueba"));
                         if (indice>=0){
                             if (Main.informes.get(indice).IDPrueba==identificador){
                                 System.out.println("¿Está seguro de eliminar el informe?");
