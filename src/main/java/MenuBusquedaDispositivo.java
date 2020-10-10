@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class BusquedaDispositivo {
+public class MenuBusquedaDispositivo {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
     public static void BusquedaDispositivo() throws IOException {
