@@ -129,7 +129,8 @@ public class BusquedaDispositivo {
         }
     }
 
-    public static void PotenciaNominal() {
+    public static void PotenciaNominal() throws IOException {
+        ArrayList<Dispositivo> dispositivos = Main.dispositivos;
         while (true) {
             System.out.println("Seleccione una opción: ");
             System.out.println("1. Valor exacto. ");
@@ -137,6 +138,31 @@ public class BusquedaDispositivo {
             System.out.println("3. Valor máximo. ");
             System.out.println("4. Rango. ");
             System.out.println("0. Cancelar. ");
+            String opcion = input.readLine();
+            if (opcion.equals("1")) {
+                System.out.println("Ingrese la potencia nominal del dispositivo: ");
+                String potnom = input.readLine();
+                double potnomr = Double.parseDouble(potnom);
+                ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                for (Dispositivo dispositivo : dispositivos) {
+                    if (dispositivo.PotenciaNominal == potnomr) {
+                        dispositivos1.add(dispositivo);
+                    }
+                }
+                OrganizarPorAtributo(dispositivos1);
+                return;
+                
+            } else if (opcion.equals("2")) {
+
+            } else if (opcion.equals("3")) {
+
+            } else if (opcion.equals("4")) {
+
+            }  else if (opcion.equals("0")) {
+
+            } else {
+                System.out.println("La opción ingresada no es válida.\n");
+            }
         }
     }
 
