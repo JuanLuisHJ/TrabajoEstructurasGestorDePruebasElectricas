@@ -96,50 +96,52 @@ public class MenuNorma {
                         return;
                     }
                     for (Norma norma : Main.normas) {
-                        if (!norma.Referencia.equalsIgnoreCase(ref)) {
+                        if (norma.Referencia.equalsIgnoreCase(ref)) {
+                            int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
+                            Norma normaedit = Main.normas.get(indicenormaedit);
+                            System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
+                            System.out.println("¿Desea modificar la referencia? (Y/N)");
+                            String opcionref = input.readLine();
+                            if (opcionref.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese la nueva referencia: ");
+                                String nuevaref = input.readLine();
+                                if (nuevaref.equals("")) {
+                                    System.out.println("No ingreso la referencia.\n");
+                                    return;
+                                }
+                                for (Norma norma1 : Main.normas) {
+                                    if (norma1.Referencia.equalsIgnoreCase(nuevaref)) {
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otra norma.\n");
+                                        return;
+                                    }
+                                }
+                                normaedit.Referencia = nuevaref;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("El nombre de la norma seleccionada es: " + normaedit.Nombre + ".");
+                            System.out.println("¿Desea modificar el nombre? (Y/N)");
+                            String opcionnombre = input.readLine();
+                            if (opcionnombre.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese el nuevo nombre: ");
+                                String nuevonombre = input.readLine();
+                                if (nuevonombre.equals("")) {
+                                    System.out.println("No ingreso el nombre.\n");
+                                    return;
+                                }
+                                for (Norma norma2 : Main.normas) {
+                                    if (norma2.Nombre.equalsIgnoreCase(nuevonombre)) {
+                                        System.out.println("El nombre ingresado ya se encuentra asignado a otra norma.\n");
+                                        return;
+                                    }
+                                }
+                                normaedit.Nombre = nuevonombre;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            return;
+
+                        } else {
                             System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
-                            return;
                         }
-                    }
-                    int indicenormaedit = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
-                    Norma normaedit = Main.normas.get(indicenormaedit);
-                    System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
-                    System.out.println("¿Desea modificar la referencia? (Y/N)");
-                    String opcionref = input.readLine();
-                    if (opcionref.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva referencia: ");
-                        String nuevaref = input.readLine();
-                        if (nuevaref.equals("")) {
-                            System.out.println("No ingreso la referencia.\n");
-                            return;
-                        }
-                        for (Norma norma : Main.normas) {
-                            if (norma.Referencia.equalsIgnoreCase(nuevaref)) {
-                                System.out.println("La referencia ingresada ya se encuentra asignada a otra norma.\n");
-                                return;
-                            }
-                        }
-                        normaedit.Referencia = nuevaref;
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El nombre de la norma seleccionada es: " + normaedit.Nombre + ".");
-                    System.out.println("¿Desea modificar el nombre? (Y/N)");
-                    String opcionnombre = input.readLine();
-                    if (opcionnombre.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo nombre: ");
-                        String nuevonombre = input.readLine();
-                        if (nuevonombre.equals("")) {
-                            System.out.println("No ingreso el nombre.\n");
-                            return;
-                        }
-                        for (Norma norma : Main.normas) {
-                            if (norma.Nombre.equalsIgnoreCase(nuevonombre)) {
-                                System.out.println("El nombre ingresado ya se encuentra asignado a otra norma.\n");
-                                return;
-                            }
-                        }
-                        normaedit.Nombre = nuevonombre;
-                        System.out.println("Operación realizada con éxito.\n");
                     }
                     return;
 
@@ -151,55 +153,58 @@ public class MenuNorma {
                         return;
                     }
                     for (Norma norma : Main.normas) {
-                        if (!norma.Nombre.equalsIgnoreCase(nombre)) {
+                        if (norma.Nombre.equalsIgnoreCase(nombre)) {
+                            Norma normaedit = null;
+                            for (int i = 0; i < Main.normas.size(); i++) {
+                                if (Main.normas.get(i).Nombre.equalsIgnoreCase(nombre)) {
+                                    normaedit = Main.normas.get(i);
+                                    break;
+                                }
+                            }
+                            System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
+                            System.out.println("¿Desea modificar la referencia? (Y/N)");
+                            String opcionref = input.readLine();
+                            if (opcionref.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese la nueva referencia: ");
+                                String nuevaref = input.readLine();
+                                if (nuevaref.equals("")) {
+                                    System.out.println("No ingreso la referencia.\n");
+                                    return;
+                                }
+                                for (Norma norma1 : Main.normas) {
+                                    if (norma1.Referencia.equalsIgnoreCase(nuevaref)) {
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otra norma.\n");
+                                        return;
+                                    }
+                                }
+                                normaedit.Referencia = nuevaref;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("El nombre de la norma seleccionada es: " + normaedit.Nombre + ".");
+                            System.out.println("¿Desea modificar el nombre? (Y/N)");
+                            String opcionnombre = input.readLine();
+                            if (opcionnombre.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese el nuevo nombre: ");
+                                String nuevonombre = input.readLine();
+                                if (nuevonombre.equals("")) {
+                                    System.out.println("No ingreso el nombre.\n");
+                                    return;
+                                }
+                                for (Norma norma2 : Main.normas) {
+                                    if (norma2.Nombre.equalsIgnoreCase(nuevonombre)) {
+                                        System.out.println("El nombre ingresado ya se encuentra asignado a otra norma.\n");
+                                        return;
+                                    }
+                                }
+                                normaedit.Nombre = nuevonombre;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            return;
+
+                        } else {
                             System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
-                            return;
+
                         }
-                    }
-                    Norma normaedit = null;
-                    for (int i = 0; i < Main.normas.size(); i++) {
-                        if (Main.normas.get(i).Nombre.equalsIgnoreCase(nombre)) {
-                            normaedit = Main.normas.get(i);
-                            break;
-                        }
-                    }
-                    System.out.println("La referencia de la norma seleccionada es: " + normaedit.Referencia + ".");
-                    System.out.println("¿Desea modificar la referencia? (Y/N)");
-                    String opcionref = input.readLine();
-                    if (opcionref.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva referencia: ");
-                        String nuevaref = input.readLine();
-                        if (nuevaref.equals("")) {
-                            System.out.println("No ingreso la referencia.\n");
-                            return;
-                        }
-                        for (Norma norma : Main.normas) {
-                            if (norma.Referencia.equalsIgnoreCase(nuevaref)) {
-                                System.out.println("La referencia ingresada ya se encuentra asignada a otra norma.\n");
-                                return;
-                            }
-                        }
-                        normaedit.Referencia = nuevaref;
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El nombre de la norma seleccionada es: " + normaedit.Nombre + ".");
-                    System.out.println("¿Desea modificar el nombre? (Y/N)");
-                    String opcionnombre = input.readLine();
-                    if (opcionnombre.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo nombre: ");
-                        String nuevonombre = input.readLine();
-                        if (nuevonombre.equals("")) {
-                            System.out.println("No ingreso el nombre.\n");
-                            return;
-                        }
-                        for (Norma norma : Main.normas) {
-                            if (norma.Nombre.equalsIgnoreCase(nuevonombre)) {
-                                System.out.println("El nombre ingresado ya se encuentra asignado a otra norma.\n");
-                                return;
-                            }
-                        }
-                        normaedit.Nombre = nuevonombre;
-                        System.out.println("Operación realizada con éxito.\n");
                     }
                     return;
 

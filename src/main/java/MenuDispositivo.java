@@ -102,78 +102,80 @@ public class MenuDispositivo {
                         return;
                     }
                     for (Dispositivo dispositivo : Main.dispositivos) {
-                        if (!dispositivo.Refetencia.equalsIgnoreCase(ref)) {
+                        if (dispositivo.Refetencia.equalsIgnoreCase(ref)) {
+                            int indicedispositivoedit = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, "", 0, 0), new ComparadorReferenciaDispositivo());
+                            Dispositivo dispositivoedit = Main.dispositivos.get(indicedispositivoedit);
+                            System.out.println("La referencia del dispositivo seleccionado es: " + dispositivoedit.Refetencia + ".");
+                            System.out.println("¿Desea modificar la referencia? (Y/N)");
+                            String opcionref = input.readLine();
+                            if (opcionref.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese la nueva referencia: ");
+                                String nuevaref = input.readLine();
+                                if (nuevaref.equals("")) {
+                                    System.out.println("No ingreso la referencia.\n");
+                                    return;
+                                }
+                                for (Dispositivo dispositivo2 : Main.dispositivos) {
+                                    if (dispositivo2.Refetencia.equalsIgnoreCase(nuevaref)) {
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
+                                        return;
+                                    }
+                                }
+                                dispositivoedit.Refetencia = nuevaref;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
+                            System.out.println("¿Desea modificar el nombre? (Y/N)");
+                            String opcionnombre = input.readLine();
+                            if (opcionnombre.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese el nuevo nombre: ");
+                                String nuevonombre = input.readLine();
+                                if (nuevonombre.equals("")) {
+                                    System.out.println("No ingreso el nombre.\n");
+                                    return;
+                                }
+                                for (Dispositivo dispositivo1 : Main.dispositivos) {
+                                    if (dispositivo1.Nombre.equalsIgnoreCase(nuevonombre)) {
+                                        System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo.\n");
+                                        return;
+                                    }
+                                }
+                                dispositivoedit.Nombre = nuevonombre;
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
+                            System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
+                            String opcionpotnom = input.readLine();
+                            if (opcionpotnom.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese la nueva potencia nominal [VA]: ");
+                                String nuevapotnom = input.readLine();
+                                if (nuevapotnom.equals("")) {
+                                    System.out.println("No ingreso la potencia nominal.\n");
+                                    return;
+                                }
+                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
+                            System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
+                            String opcionvolnom = input.readLine();
+                            if (opcionvolnom.equalsIgnoreCase("Y")) {
+                                System.out.println("Ingrese el nuevo voltaje nominal [V]: ");
+                                String nuevavolnom = input.readLine();
+                                if (nuevavolnom.equals("")) {
+                                    System.out.println("No ingreso el voltaje nominal.\n");
+                                    return;
+                                }
+                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
+                                System.out.println("Operación realizada con éxito.\n");
+                            }
+                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].\n");
+                            break;
+
+                        } else {
                             System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n");
-                            return;
                         }
                     }
-                    int indicedispositivoedit = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, "", 0, 0), new ComparadorReferenciaDispositivo());
-                    Dispositivo dispositivoedit = Main.dispositivos.get(indicedispositivoedit);
-                    System.out.println("La referencia del dispositivo seleccionado es: " + dispositivoedit.Refetencia + ".");
-                    System.out.println("¿Desea modificar la referencia? (Y/N)");
-                    String opcionref = input.readLine();
-                    if (opcionref.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva referencia: ");
-                        String nuevaref = input.readLine();
-                        if (nuevaref.equals("")) {
-                            System.out.println("No ingreso la referencia.\n");
-                            return;
-                        }
-                        for (Dispositivo dispositivo : Main.dispositivos) {
-                            if (dispositivo.Refetencia.equalsIgnoreCase(nuevaref)) {
-                                System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
-                                return;
-                            }
-                        }
-                        dispositivoedit.Refetencia = nuevaref;
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
-                    System.out.println("¿Desea modificar el nombre? (Y/N)");
-                    String opcionnombre = input.readLine();
-                    if (opcionnombre.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo nombre: ");
-                        String nuevonombre = input.readLine();
-                        if (nuevonombre.equals("")) {
-                            System.out.println("No ingreso el nombre.\n");
-                            return;
-                        }
-                        for (Dispositivo dispositivo : Main.dispositivos) {
-                            if (dispositivo.Nombre.equalsIgnoreCase(nuevonombre)) {
-                                System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo.\n");
-                                return;
-                            }
-                        }
-                        dispositivoedit.Nombre = nuevonombre;
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
-                    System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
-                    String opcionpotnom = input.readLine();
-                    if (opcionpotnom.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva potencia nominal [VA]: ");
-                        String nuevapotnom = input.readLine();
-                        if (nuevapotnom.equals("")) {
-                            System.out.println("No ingreso la potencia nominal.\n");
-                            return;
-                        }
-                        dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
-                    System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
-                    String opcionvolnom = input.readLine();
-                    if (opcionvolnom.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo voltaje nominal [V]: ");
-                        String nuevavolnom = input.readLine();
-                        if (nuevavolnom.equals("")) {
-                            System.out.println("No ingreso el voltaje nominal.\n");
-                            return;
-                        }
-                        dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].\n");
                     return;
 
                 } else if (opcion.equals("2")) {
@@ -184,83 +186,85 @@ public class MenuDispositivo {
                         return;
                     }
                     for (Dispositivo dispositivo : Main.dispositivos) {
-                        if (!dispositivo.Nombre.equalsIgnoreCase(nombre)) {
+                        if (dispositivo.Nombre.equalsIgnoreCase(nombre)) {
+                            Dispositivo dispositivoedit = null;
+                            for (int i = 0; i < Main.dispositivos.size(); i++) {
+                                if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
+                                    dispositivoedit = Main.dispositivos.get(i);
+                                    break;
+                                }
+                            }
+                            System.out.println("La referencia del dispositivo seleccionado es: " + dispositivoedit.Refetencia + ".");
+                            System.out.println("¿Desea modificar la referencia? (Y/N)");
+                            String opcionref = input.readLine();
+                            if (opcionref.equalsIgnoreCase("Y")) {
+                                System.out.print("Ingrese la nueva referencia: ");
+                                String nuevaref = input.readLine();
+                                if (nuevaref.equals("")) {
+                                    System.out.println("No ingresó la referencia. \n");
+                                    return;
+                                }
+                                for (Dispositivo dispositivo2 : Main.dispositivos) {
+                                    if (dispositivo2.Refetencia.equalsIgnoreCase(nuevaref)) {
+                                        System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
+                                        return;
+                                    }
+                                }
+                                dispositivoedit.Refetencia = nuevaref;
+                                System.out.println("Operación realizada con éxito. \n");
+                            }
+                            System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
+                            System.out.println("¿Desea modificar el nombre? (Y/N)");
+                            String opcionnombre = input.readLine();
+                            if (opcionnombre.equalsIgnoreCase("Y")) {
+                                System.out.print("Ingrese el nuevo nombre: ");
+                                String nuevonombre = input.readLine();
+                                if (nuevonombre.equals("")) {
+                                    System.out.println("No ingresó el nombre. \n");
+                                    return;
+                                }
+                                for (Dispositivo dispositivo1 : Main.dispositivos) {
+                                    if (dispositivo1.Nombre.equalsIgnoreCase(nuevonombre)) {
+                                        System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo. \n");
+                                        return;
+                                    }
+                                }
+                                dispositivoedit.Nombre = nuevonombre;
+                                System.out.println("Operación realizada con éxito. \n");
+                            }
+                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
+                            System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
+                            String opcionpotnom = input.readLine();
+                            if (opcionpotnom.equalsIgnoreCase("Y")) {
+                                System.out.print("Ingrese la nueva potencia nominal [VA]: ");
+                                String nuevapotnom = input.readLine();
+                                if (nuevapotnom.equals("")) {
+                                    System.out.println("No ingresó la potencia nominal.\n");
+                                    return;
+                                }
+                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
+                                System.out.println("Operación realizada con éxito. \n");
+                            }
+                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
+                            System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
+                            String opcionvolnom = input.readLine();
+                            if (opcionvolnom.equalsIgnoreCase("Y")) {
+                                System.out.print("Ingrese el nuevo voltaje nominal [V]: ");
+                                String nuevavolnom = input.readLine();
+                                if (nuevavolnom.equals("")) {
+                                    System.out.println("No ingresó el voltaje nominal. \n");
+                                    return;
+                                }
+                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
+                                System.out.println("Operación realizada con éxito. \n");
+                            }
+                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].\n");
+                            return;
+
+                        } else {
                             System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n ");
-                            return;
                         }
                     }
-                    Dispositivo dispositivoedit = null;
-                    for (int i = 0; i < Main.dispositivos.size(); i++) {
-                        if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
-                            dispositivoedit = Main.dispositivos.get(i);
-                            break;
-                        }
-                    }
-                    System.out.println("La referencia del dispositivo seleccionado es: " + dispositivoedit.Refetencia + ".");
-                    System.out.println("¿Desea modificar la referencia? (Y/N)");
-                    String opcionref = input.readLine();
-                    if (opcionref.equalsIgnoreCase("Y")) {
-                        System.out.print("Ingrese la nueva referencia: ");
-                        String nuevaref = input.readLine();
-                        if (nuevaref.equals("")) {
-                            System.out.println("No ingresó la referencia. \n");
-                            return;
-                        }
-                        for (Dispositivo dispositivo : Main.dispositivos) {
-                            if (dispositivo.Refetencia.equalsIgnoreCase(nuevaref)) {
-                                System.out.println("La referencia ingresada ya se encuentra asignada a otro dispositivo.\n ");
-                                return;
-                            }
-                        }
-                        dispositivoedit.Refetencia = nuevaref;
-                        System.out.println("Operación realizada con éxito. \n");
-                    }
-                    System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
-                    System.out.println("¿Desea modificar el nombre? (Y/N)");
-                    String opcionnombre = input.readLine();
-                    if (opcionnombre.equalsIgnoreCase("Y")) {
-                        System.out.print("Ingrese el nuevo nombre: ");
-                        String nuevonombre = input.readLine();
-                        if (nuevonombre.equals("")) {
-                            System.out.println("No ingresó el nombre. \n");
-                            return;
-                        }
-                        for (Dispositivo dispositivo : Main.dispositivos) {
-                            if (dispositivo.Nombre.equalsIgnoreCase(nuevonombre)) {
-                                System.out.println("El nombre ingresado ya se encuentra asignado a otro dispositivo. \n");
-                                return;
-                            }
-                        }
-                        dispositivoedit.Nombre = nuevonombre;
-                        System.out.println("Operación realizada con éxito. \n");
-                    }
-                    System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
-                    System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
-                    String opcionpotnom = input.readLine();
-                    if (opcionpotnom.equalsIgnoreCase("Y")) {
-                        System.out.print("Ingrese la nueva potencia nominal [VA]: ");
-                        String nuevapotnom = input.readLine();
-                        if (nuevapotnom.equals("")) {
-                            System.out.println("No ingresó la potencia nominal.\n");
-                            return;
-                        }
-                        dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
-                        System.out.println("Operación realizada con éxito. \n");
-                    }
-                    System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
-                    System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
-                    String opcionvolnom = input.readLine();
-                    if (opcionvolnom.equalsIgnoreCase("Y")) {
-                        System.out.print("Ingrese el nuevo voltaje nominal [V]: ");
-                        String nuevavolnom = input.readLine();
-                        if (nuevavolnom.equals("")) {
-                            System.out.println("No ingresó el voltaje nominal. \n");
-                            return;
-                        }
-                        dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
-                        System.out.println("Operación realizada con éxito. \n");
-                    }
-                    System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].\n");
                     return;
 
                 } else if (opcion.equals("0")) {
