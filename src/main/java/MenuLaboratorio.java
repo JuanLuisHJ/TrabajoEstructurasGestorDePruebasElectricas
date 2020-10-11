@@ -249,7 +249,7 @@ public class MenuLaboratorio {
             return false;
         }
         boolean comparador;
-        System.out.println("Ingrese el ID del laboratorio");
+        System.out.println("Ingrese el NIT del laboratorio");
         String nitb = input.readLine();
         if (nitb.equals("")){
             System.out.println("No se ingreso ninguna direccion\n");
