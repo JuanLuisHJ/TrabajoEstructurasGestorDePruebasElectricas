@@ -1,10 +1,34 @@
 [
   {
+    "IDPrueba": 8,
+    "Resultado": true,
+    "Comentarios": "Flameo",
+    "Temperatura": 56.0,
+    "Humedad": 57.0,
+    "Presion": 633.0
+  },
+  {
     "IDPrueba": 9,
     "Resultado": true,
     "Comentarios": "juan luis es una chimba pa ",
     "Temperatura": 24.0,
     "Humedad": 60.0,
     "Presion": 760.0
+  },
+  {
+    "IDPrueba": 10,
+    "Resultado": false,
+    "Comentarios": "Perforado",
+    "Temperatura": 34.0,
+    "Humedad": 87.0,
+    "Presion": 645.0
+  },
+  {
+    "IDPrueba": 18,
+    "Resultado": false,
+    "Comentarios": "Dañado",
+    "Temperatura": 56.0,
+    "Humedad": 34.0,
+    "Presion": 657.0
   }
 ]

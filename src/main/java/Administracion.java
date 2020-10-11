@@ -63,7 +63,7 @@ public class Administracion {
             } else if (opcionA.equals("3")) {
 
             } else if (opcionA.equals("4")) {
-
+                MenuBusquedaInforme.BusquedaInforme();
             } else if (opcionA.equals("5")) {
 
             } else if (opcionA.equals("6")) {

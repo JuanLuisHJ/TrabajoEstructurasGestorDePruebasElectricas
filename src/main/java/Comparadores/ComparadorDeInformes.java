@@ -24,7 +24,7 @@ public class ComparadorDeInformes implements Comparator<Informe> {
             }
         }
         else if (Parametro.equals("Comentarios")){
-            if (informe1.Comentarios.toLowerCase().compareTo(informe2.Comentarios)<0){
+            if (informe1.Comentarios./*toLowerCase().*/compareTo(informe2.Comentarios)<0){
                 return -1;
             } else if (informe1.Comentarios.equalsIgnoreCase(informe2.Comentarios)){
                 return 0;

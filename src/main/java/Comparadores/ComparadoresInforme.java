@@ -1,4 +1,4 @@
-package Comparadores;
+/*package Comparadores;
 import Clases.Informe;
 
 import java.util.Comparator;
@@ -70,3 +70,4 @@ public class ComparadoresInforme {
         }
     }
 }
+*/

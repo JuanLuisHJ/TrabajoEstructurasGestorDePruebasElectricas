@@ -13,7 +13,27 @@
     "ID": "3-100200300",
     "Nombre": "prueba de mierda",
     "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
-    "NumInforme": -1,
+    "NumInforme": 8,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "t250"
+    ]
+  },
+  {
+    "ID": "4-100200300",
+    "Nombre": "prueba de crto",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": 10,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "t250"
+    ]
+  },
+  {
+    "ID": "5-100200300",
+    "Nombre": "PRUEBA DE AISLAMIENTO",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": 18,
     "Clase": "clase a",
     "RefDispositivos": [
       "t250"

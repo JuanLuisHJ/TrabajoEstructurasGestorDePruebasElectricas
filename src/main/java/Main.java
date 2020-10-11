@@ -258,7 +258,6 @@ public class Main {
             exc.printStackTrace();
         }
     }
-
     public static void GuardarDatos(){
         try {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -295,7 +294,6 @@ public class Main {
             ex.printStackTrace();
         }
     }
-
     public static void BorrarDatos(String nombreDeArchivoJsonConExtension){
         try {
             ArrayList<Usuario> usuarios = new ArrayList<>();

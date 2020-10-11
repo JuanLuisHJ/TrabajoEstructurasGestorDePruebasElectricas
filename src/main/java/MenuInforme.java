@@ -8,7 +8,7 @@ import java.util.Collections;
 
 public class MenuInforme {
     public static BufferedReader input = new BufferedReader( new InputStreamReader(System.in));
-    public static void MenuInforme() throws IOException {
+    public static void MenuInforme() throws IOException{
         boolean volver = false;
         while (!volver){
             System.out.println("1. Ver informes");
@@ -388,6 +388,187 @@ public class MenuInforme {
             }
         }
     }
+    public static void EditarInformePorID(ArrayList<Clases.Informe> copia) throws IOException{
+        boolean salir = false;
+        String seleccion;
+        while (!salir){
+            System.out.print("Ingrese el identificador correspondiente al informe que desea editar: ");
+            int identificador;
+            String ingreso = input.readLine();
+            try{
+                ingreso=ingreso.replaceAll("[.]","");
+                ingreso=ingreso.replaceAll("[,]","");
+                identificador=Integer.parseInt(ingreso);
+                if(identificador<0) {
+                    System.out.println("Por favor, ingrese un identificador de la lista mostrada\n");
+                }
+                else{
+                    int contador;
+                    Clases.Informe informe = copia.get(identificador-1);
+                    System.out.println("Se mostrarán todos los campos del informe de la prueba, ");
+                    System.out.println("si desea modificarlo, digite el valor, de lo contrario, presione enter:\n");
+                    boolean cambiovalido = false;
+                    int IDPruebacambiado=informe.IDPrueba;
+                    int bufferIDPrueba=informe.IDPrueba;
+                    while(!cambiovalido){
+                        System.out.print("Identificador del informe de la prueba: "+informe.IDPrueba+": ");
+                        String cambio=input.readLine();
+                        if (cambio.equals("")){
+                            break;
+                        }
+                        else{
+                            try{
+                                IDPruebacambiado=Integer.parseInt(cambio);
+                                if(IDPruebacambiado<0){
+                                    System.out.println("Por favor, ingrese un identificador numérico mayor que cero \n");
+                                }
+                                else{
+                                    contador = 0;
+                                    for(Clases.Prueba prueba : Main.pruebas){
+                                        if (prueba.NumInforme==IDPruebacambiado){
+                                            System.out.println("Este identificador ya ha sido asignado al informe de una prueba\n");
+                                            break;
+                                        }
+                                        contador++;
+                                    }
+                                    if (contador == Main.pruebas.size()){
+                                        cambiovalido=true;
+                                    }
+                                }
+                            } catch (Exception exc){
+                                System.out.println("Por favor, ingrese un identificador numérico mayor que cero\n");
+                            }
+                        }
+                    }
+                    cambiovalido=false;
+                    boolean informecambiado=informe.Resultado;
+                    while (!cambiovalido){
+                        System.out.print("Resultado de la prueba: "+informe.PasoNoPaso()+": ");
+                        String cambio = input.readLine();
+                        if (cambio.equals("")){
+                            break;
+                        }
+                        else{
+                            cambio=cambio.replaceAll("\\s","");
+                            cambio=cambio.replaceAll("[.]","");
+                            cambio=cambio.replaceAll("[,]","");
+                            if (cambio.equalsIgnoreCase("paso")){
+                                informecambiado=true;
+                                cambiovalido=true;
+                            }
+                            else if (cambio.equalsIgnoreCase("nopaso")){
+                                informecambiado=false;
+                                cambiovalido=true;
+                            }
+                            else{
+                                System.out.println("Por favor, digite \"paso\" o \"no paso\", en el caso que desee modificar el resultado\n");
+                            }
+                        }
+                    }
+                    String comentarioscambiados = informe.Comentarios;
+                    System.out.print("Comentarios de la prueba: "+informe.Comentarios+": ");
+                    String cambio = input.readLine();
+                    if (!cambio.equals("")){
+                        comentarioscambiados=cambio;
+                    }
+                    double temperaturacambiada=informe.Temperatura;
+                    cambiovalido=false;
+                    while(!cambiovalido){
+                        System.out.print("Temperatura de la prueba en (°C): "+informe.Temperatura+": ");
+                        cambio = input.readLine();
+                        double temperaturabuffer;
+                        try{
+                            if(cambio.equals("")){
+                                break;
+                            }
+                            else{
+                                temperaturabuffer=Double.parseDouble(cambio);
+                                temperaturacambiada=temperaturabuffer;
+                                cambiovalido=true;
+                            }
+                        } catch (Exception exc){
+                            System.out.println("Por favor, ingrese un valor numérico de temperatura");
+                        }
+                    }
+                    double humedadcambiada=informe.Humedad;
+                    cambiovalido=false;
+                    while(!cambiovalido){
+                        double humedad;
+                        System.out.print("Humedad de la prueba en (% de 0-100): "+informe.Humedad+": ");
+                        cambio = input.readLine();
+                        try{
+                            if(cambio.equals("")){
+                                break;
+                            }
+                            else{
+                                humedad = Double.parseDouble(ingreso);
+                                if (humedad<0 || humedad>100){
+                                    System.out.println("Por favor, ingrese un númerico de humedad entre 0-100\n");
+                                }
+                                else{
+                                    humedadcambiada=humedad;
+                                    cambiovalido=true;
+                                }
+                            }
+                        } catch (Exception exc){
+                            System.out.println("Por favor, ingrese un valor numérico de humedad\n");
+                        }
+                    }
+                    double presioncambiada = informe.Presion;
+                    cambiovalido=false;
+                    while(!cambiovalido){
+                        double presion;
+                        System.out.print("Presión de la prueba: "+informe.Presion+": ");
+                        cambio = input.readLine();
+                        try{
+                            if(cambio.equals("")){
+                                break;
+                            }
+                            else{
+                                presion = Double.parseDouble(cambio);
+                                presioncambiada=presion;
+                                cambiovalido=true;
+                            }
+                        } catch (Exception exc){
+                            System.out.println("Por favor, ingrese un valor numérico de presión");
+                        }
+                    }
+                    boolean guardadovalido=false;
+                    while (!guardadovalido){
+                        System.out.println("¿Desea guardar los cambios?");
+                        System.out.println(" Y <---> SI");
+                        System.out.println(" N <---> NO");
+                        seleccion=input.readLine();
+                        if (seleccion.equalsIgnoreCase("y") || seleccion.equalsIgnoreCase("si")) {
+                            informe.IDPrueba=IDPruebacambiado;
+                            informe.Resultado=informecambiado;
+                            informe.Comentarios=comentarioscambiados;
+                            informe.Temperatura=temperaturacambiada;
+                            informe.Humedad=humedadcambiada;
+                            informe.Presion=presioncambiada;
+                            for(Clases.Prueba prueba : Main.pruebas){
+                                if(prueba.NumInforme==bufferIDPrueba){
+                                    prueba.NumInforme=IDPruebacambiado;
+                                }
+                            }
+                            Collections.sort(Main.informes, new Comparadores.ComparadorDeInformes("IDPrueba"));
+                            salir=true;
+                            guardadovalido=true;
+                        }
+                        else if(seleccion.equalsIgnoreCase("n") || seleccion.equalsIgnoreCase("no")){
+                            guardadovalido=true;
+                            salir=true;
+                        }
+                        else{
+                            System.out.println("Por favor, ingrese la opción \"Y\" o \"N\" para confirmar los cambios\n");
+                        }
+                    }
+                }
+            } catch(Exception exc){
+                System.out.println("Por favor, seleccione uno de los identificadores de la lista mostrada\n");
+            }
+        }
+    }
     public static void EliminarInforme() throws IOException{
         boolean salir = false;
         while (!salir) {
@@ -444,6 +625,47 @@ public class MenuInforme {
             }
             else{
                 System.out.println("La opción de búsqueda única para informes es \"numero de informe de prueba\", por favor digite \"1\" o \"0\"");
+            }
+        }
+    }
+    public static void EliminarInformePorID(ArrayList<Clases.Informe> copia) throws IOException{
+        boolean salir = false;
+        String seleccion;
+        while (!salir) {
+            System.out.print("Ingrese el identificador correspondiente al informe que desea eliminar: ");
+            int identificador;
+            String ingreso = input.readLine();
+            try {
+                ingreso=ingreso.replaceAll("[.]", "");
+                ingreso=ingreso.replaceAll("[,]", "");
+                identificador = Integer.parseInt(ingreso);
+                if (identificador < 0) {
+                    System.out.println("Por favor, ingrese un identificador de la lista mostrada\n");
+                } else {
+                    Clases.Informe informeaborrar=copia.get(identificador);
+                    System.out.println("¿Está seguro de eliminar el informe "+informeaborrar+"?");
+                    System.out.println(" Y <---> SI");
+                    System.out.println(" N <---> NO");
+                    seleccion=input.readLine();
+                    if (seleccion.equalsIgnoreCase("y") || seleccion.equalsIgnoreCase("si")) {
+                        for(Clases.Prueba prueba : Main.pruebas){
+                            if (prueba.NumInforme==informeaborrar.IDPrueba){
+                                prueba.NumInforme=-1;
+                                break;
+                            }
+                        }
+                        Main.informes.remove(informeaborrar);
+                        salir=true;
+                    }
+                    else if(seleccion.equalsIgnoreCase("n") || seleccion.equalsIgnoreCase("no")){
+                        salir=true;
+                    }
+                    else{
+                        System.out.println("Por favor, ingrese la opción \"Y\" o \"N\" para confirmar la eliminación\n");
+                    }
+                }
+            } catch (Exception exc) {
+                System.out.println("Por favor, seleccione uno de los identificadores de la lista mostrada\n");
             }
         }
     }
