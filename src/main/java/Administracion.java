@@ -63,7 +63,8 @@ public class Administracion {
                 MenuBusquedaTipoPrueba.menubusquedaTipoPrueba();
                 return;
             } else if (opcionA.equals("3")) {
-
+                MenuBusquedaPrueba.menubusquedaPrueba();
+                return;
             } else if (opcionA.equals("4")) {
                 MenuBusquedaInforme.BusquedaInforme();
             } else if (opcionA.equals("5")) {

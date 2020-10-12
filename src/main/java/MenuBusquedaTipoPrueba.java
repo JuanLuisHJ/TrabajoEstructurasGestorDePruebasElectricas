@@ -11,7 +11,7 @@ public class MenuBusquedaTipoPrueba {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static ArrayList<TipoPrueba> Listatemporal = new ArrayList<>();
     public static void menubusquedaTipoPrueba() throws IOException {
-        if(Main.laboratorios.isEmpty()){
+        if(Main.tipopruebas.isEmpty()){
             System.out.println("No hay tipos de prueba en el sistema");
             return;
         }
@@ -104,7 +104,7 @@ public class MenuBusquedaTipoPrueba {
                 }
             }
             if(Listatemporal.isEmpty()){
-                System.out.println("No se encontro ningun laboratorio que cumpla la condicion");
+                System.out.println("No se encontro ningun tipo de prueba que cumpla la condicion");
                 return false;
             }
             organizar();
@@ -133,7 +133,7 @@ public class MenuBusquedaTipoPrueba {
                 }
             }
             if(Listatemporal.isEmpty()){
-                System.out.println("No se encontro ningun laboratorio que cumpla la condicion");
+                System.out.println("No se encontro ningun tipo de prueba que cumpla la condicion");
                 return false;
             }
             organizar();
