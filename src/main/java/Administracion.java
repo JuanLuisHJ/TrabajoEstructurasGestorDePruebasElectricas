@@ -46,6 +46,7 @@ public class Administracion {
     }
     public static void busqueda() throws IOException {
         while (true) {
+            System.out.println("Buscar:");
             System.out.println("1. Laboratorios.");
             System.out.println("2. Tipos de Prueba.");
             System.out.println("3. Pruebas.");

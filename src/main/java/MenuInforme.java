@@ -392,7 +392,7 @@ public class MenuInforme {
         boolean salir = false;
         String seleccion;
         while (!salir){
-            System.out.print("Ingrese el identificador correspondiente al informe que desea editar: ");
+            System.out.print("Ingrese el identificador de la lista anterior, correspondiente al informe que desea editar: ");
             int identificador;
             String ingreso = input.readLine();
             try{

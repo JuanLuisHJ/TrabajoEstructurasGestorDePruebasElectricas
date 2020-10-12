@@ -1,5 +1,21 @@
 [
   {
+    "IDPrueba": 1,
+    "Resultado": true,
+    "Comentarios": "esto es un pequeño comentario",
+    "Temperatura": 25.3,
+    "Humedad": 67.9,
+    "Presion": 633.8
+  },
+  {
+    "IDPrueba": 5,
+    "Resultado": true,
+    "Comentarios": "Juan Luis es una retro-chimba pa",
+    "Temperatura": 24.0,
+    "Humedad": 1.0,
+    "Presion": 634.0
+  },
+  {
     "IDPrueba": 8,
     "Resultado": true,
     "Comentarios": "Flameo",
@@ -8,20 +24,12 @@
     "Presion": 633.0
   },
   {
-    "IDPrueba": 9,
-    "Resultado": true,
-    "Comentarios": "juan luis es una chimba pa ",
-    "Temperatura": 24.0,
-    "Humedad": 60.0,
-    "Presion": 760.0
-  },
-  {
     "IDPrueba": 10,
     "Resultado": false,
     "Comentarios": "Perforado",
-    "Temperatura": 34.0,
-    "Humedad": 87.0,
-    "Presion": 645.0
+    "Temperatura": 37.0,
+    "Humedad": 1.0,
+    "Presion": 645.3
   },
   {
     "IDPrueba": 18,

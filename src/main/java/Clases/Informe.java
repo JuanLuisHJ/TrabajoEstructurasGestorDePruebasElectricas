@@ -22,7 +22,7 @@ public class Informe {
         String print = "---------------------------------------------";
         print += "Informe: " + "\n";
         print += "Numero de informe:    " + IDPrueba + "." + "\n";
-        print += "Resultado:            " + Resultado + "." + "\n";
+        print += "Resultado:            " + PasoNoPaso() + "." + "\n";
         print += "Comentarios:          " + Comentarios + "." + "\n";
         print += "Temperatura [°C]:     " + Temperatura + "." + "\n";
         print += "Humedad relativa [%]: " + Humedad + "." + "\n";

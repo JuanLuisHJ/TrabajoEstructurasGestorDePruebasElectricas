@@ -3,7 +3,7 @@
     "ID": "1-100200300",
     "Nombre": "Prueba trafo ISA",
     "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
-    "NumInforme": 9,
+    "NumInforme": 5,
     "Clase": "clase a",
     "RefDispositivos": [
       "T250"
@@ -37,6 +37,16 @@
     "Clase": "clase a",
     "RefDispositivos": [
       "t250"
+    ]
+  },
+  {
+    "ID": "6-100200300",
+    "Nombre": "Prueba de tu mai ",
+    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
+    "NumInforme": 1,
+    "Clase": "clase a",
+    "RefDispositivos": [
+      "T250"
     ]
   }
 ]
