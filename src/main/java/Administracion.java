@@ -60,7 +60,8 @@ public class Administracion {
                 MenuBusquedaLaboratorio.menubusquedaLaboratorio();
                 return;
             } else if (opcionA.equals("2")) {
-
+                MenuBusquedaTipoPrueba.menubusquedaTipoPrueba();
+                return;
             } else if (opcionA.equals("3")) {
 
             } else if (opcionA.equals("4")) {
