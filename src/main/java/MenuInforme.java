@@ -1,5 +1,4 @@
 import Comparadores.ComparadoresPrueba.*;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,7 +38,7 @@ public class MenuInforme {
     }
     public static void VerInformes(){
         if (Main.informes.size()==0){
-            System.out.println("No hay informes registrados todavía");
+            System.out.println("No hay informes registrados todavía\n");
         }
         else{
             for (Clases.Informe informe : Main.informes){
@@ -642,7 +641,7 @@ public class MenuInforme {
                 if (identificador < 0) {
                     System.out.println("Por favor, ingrese un identificador de la lista mostrada\n");
                 } else {
-                    Clases.Informe informeaborrar=copia.get(identificador);
+                    Clases.Informe informeaborrar=copia.get(identificador-1);
                     System.out.println("¿Está seguro de eliminar el informe "+informeaborrar+"?");
                     System.out.println(" Y <---> SI");
                     System.out.println(" N <---> NO");

@@ -187,7 +187,7 @@ public class Main {
                 }else if(opcion.equals("2")){
                     Administracion.busqueda();
                 }else if(opcion.equals("3")){
-
+                    Administracion.diagnosticoDeInconsistencias();
                 }else if(opcion.equals("4")){
                     GuardarDatos();
                     System.out.println("Los datos se guardaron satisfactoriamente\n");

@@ -29,7 +29,7 @@ public class MenuTipoPrueba {
                     return;
                 }
             } else if (opcionA.equals("2")) {
-                comparador = CrearTipoPrueba();
+                comparador = CrearTipoPrueba("",0);
                 if (comparador) {
                     return;
                 }
@@ -63,23 +63,29 @@ public class MenuTipoPrueba {
         }
     }
 
-    public static boolean CrearTipoPrueba() throws IOException {
+    public static boolean CrearTipoPrueba(String llamadoEn, int NITdeInconsistencias) throws IOException {
         int comparador;
         int indexN;
-        int indexL;
-        System.out.println("Ingrese el NIT del laboratorio");
-        String nitLab = input.readLine();
+        int indexL=-1;
         int NITLab;
-        if (nitLab.equals("")) {
-            System.out.println("No se ingreso ninguna direccion");
-            return false;
-        } else {
-            nitLab = nitLab.replaceAll("[.]", "");
-            NITLab = Integer.parseInt(nitLab);
-            indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITLab, "", ""), new ComparadorNITLaboratorio());
-            if (indexL < 0) {
-                System.out.println("No se encuentra el laboratorio con ese NIT");
+        if (llamadoEn.equals("Inconsistencias")){
+            NITLab=NITdeInconsistencias;
+            System.out.println("El NIT de laboratorio seleccionado corresponde a \""+NITdeInconsistencias+"\"\n");
+        }
+        else{
+            System.out.println("Ingrese el NIT del laboratorio");
+            String nitLab = input.readLine();
+            if (nitLab.equals("")) {
+                System.out.println("No se ingreso ninguna direccion");
                 return false;
+            } else {
+                nitLab = nitLab.replaceAll("[.]", "");
+                NITLab = Integer.parseInt(nitLab);
+                indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITLab, "", ""), new ComparadorNITLaboratorio());
+                if (indexL < 0) {
+                    System.out.println("No se encuentra el laboratorio con ese NIT");
+                    return false;
+                }
             }
         }
         System.out.println("Ingrese el nombre del tipo de prueba");
