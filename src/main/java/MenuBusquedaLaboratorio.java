@@ -64,9 +64,9 @@ public class MenuBusquedaLaboratorio {
             System.out.println(Main.laboratorios.get(index));
             opcion = MenuEoE();
             if(opcion.equals("1")){
-                MenuLaboratorio.EditarLaboratorioID();
+                MenuLaboratorio.EditarLaboratorioID(Main.laboratorios.get(index).NIT);
             }else if(opcion.equals("2")){
-                MenuLaboratorio.EliminarLaboratorioID();
+                MenuLaboratorio.EliminarLaboratorioID(Main.laboratorios.get(index).NIT);
             }else {
                 return true;
             }
@@ -247,9 +247,9 @@ public class MenuBusquedaLaboratorio {
             System.out.println(Listatemporal.get(0));
             String opcion = MenuEoE();
             if(opcion.equals("1")){
-                MenuLaboratorio.EditarLaboratorioID();
+                MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(0).NIT);
             }else if(opcion.equals("2")){
-                MenuLaboratorio.EliminarLaboratorioID();
+                MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(0).NIT);
             }else {
                 return;
             }
@@ -264,9 +264,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }
@@ -277,9 +301,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }
@@ -295,9 +343,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }
@@ -308,9 +380,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }
@@ -326,9 +422,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }
@@ -339,9 +459,33 @@ public class MenuBusquedaLaboratorio {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuLaboratorio.EditarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea editar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EditarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else if(opcion.equals("2")){
-                    MenuLaboratorio.EliminarLaboratorioID();
+                    System.out.println("Ingrese el indice del laboratorio que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuLaboratorio.EliminarLaboratorioID(Listatemporal.get(Indice).NIT);
                 }else {
                     return;
                 }

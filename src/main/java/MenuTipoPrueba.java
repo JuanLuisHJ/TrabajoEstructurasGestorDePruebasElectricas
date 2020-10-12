@@ -34,12 +34,12 @@ public class MenuTipoPrueba {
                     return;
                 }
             } else if (opcionA.equals("3")) {
-                comparador = EditarTipoPrueba();
+                comparador = EditarTipoPrueba(null);
                 if (comparador) {
                     return;
                 }
             } else if (opcionA.equals("4")) {
-                comparador = EliminarTipoPrueba();
+                comparador = EliminarTipoPrueba(null);
                 if (comparador) {
                     return;
                 }
@@ -134,17 +134,22 @@ public class MenuTipoPrueba {
         return true;
     }
 
-    public static boolean EditarTipoPrueba() throws IOException {
+    public static boolean EditarTipoPrueba(String bnombre) throws IOException {
         int comparador;
         int indexN = -1;
         int indexL = -1;
-        if (Main.tipopruebas.isEmpty()) {
-            System.out.println("No hay tipos de prueba en la base de datos");
-            return false;
-        }
         int index;
-        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
-        String nombreb = input.readLine();
+        String nombreb;
+        if (bnombre == null){
+            if (Main.tipopruebas.isEmpty()) {
+                System.out.println("No hay tipos de prueba en la base de datos");
+                return false;
+            }
+            System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
+            nombreb = input.readLine();
+        }else{
+            nombreb = bnombre;
+        }
         if (nombreb.equals("")) {
             System.out.println("No se ingreso ningun nombre");
             return false;
@@ -239,14 +244,19 @@ public class MenuTipoPrueba {
         return true;
     }
 
-    public static boolean EliminarTipoPrueba() throws IOException {
-        if (Main.tipopruebas.isEmpty()) {
-            System.out.println("No hay tipos de prueba en la base de datos");
-            return false;
-        }
+    public static boolean EliminarTipoPrueba(String bnombre) throws IOException {
         int index;
-        System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
-        String nombreb = input.readLine();
+        String nombreb;
+        if(bnombre == null){
+            if (Main.tipopruebas.isEmpty()) {
+                System.out.println("No hay tipos de prueba en la base de datos");
+                return false;
+            }
+            System.out.println("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio");
+            nombreb = input.readLine();
+        }else{
+            nombreb = bnombre;
+        }
         if (nombreb.equals("")) {
             System.out.println("No se ingreso ningun nombre");
             return false;

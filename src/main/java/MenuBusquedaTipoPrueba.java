@@ -244,9 +244,9 @@ public class MenuBusquedaTipoPrueba {
             System.out.println(Listatemporal.get(0));
             String opcion = MenuEoE();
             if(opcion.equals("1")){
-                MenuTipoPrueba.EditarTipoPrueba();
+                MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(0).Nombre);
             }else if(opcion.equals("2")){
-                MenuTipoPrueba.EliminarTipoPrueba();
+                MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(0).Nombre);
             }else {
                 return;
             }
@@ -261,9 +261,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }
@@ -274,9 +298,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }
@@ -292,9 +340,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }
@@ -305,9 +377,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }
@@ -323,9 +419,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }
@@ -336,9 +456,33 @@ public class MenuBusquedaTipoPrueba {
                 }
                 opcion = MenuEoE();
                 if(opcion.equals("1")){
-                    MenuTipoPrueba.EditarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EditarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else if(opcion.equals("2")){
-                    MenuTipoPrueba.EliminarTipoPrueba();
+                    System.out.println("Ingrese el indice del tipo de prueba que desea eliminar");
+                    String indice = input.readLine();
+                    if (indice.equals("")){
+                        System.out.println("No se ingreso ningun indice\n");
+                        return;
+                    }
+                    indice = indice.replaceAll("[.]","");
+                    int Indice = Integer.parseInt(indice);
+                    if (Indice >= Listatemporal.size()){
+                        System.out.println("El indice ingresado no es valido");
+                        return;
+                    }
+                    MenuTipoPrueba.EliminarTipoPrueba(Listatemporal.get(Indice).Nombre);
                 }else {
                     return;
                 }

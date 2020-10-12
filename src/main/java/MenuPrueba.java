@@ -35,12 +35,12 @@ public class MenuPrueba {
                     return;
                 }
             } else if (opcionA.equals("3")) {
-                comparador = EditarPrueba();
+                comparador = EditarPrueba(null);
                 if (comparador) {
                     return;
                 }
             } else if (opcionA.equals("4")) {
-                comparador = EliminarPrueba();
+                comparador = EliminarPrueba(null);
                 if (comparador) {
                     return;
                 }
@@ -154,17 +154,22 @@ public class MenuPrueba {
         return true;
     }
 
-    public static boolean EditarPrueba() throws IOException {
+    public static boolean EditarPrueba(String bID) throws IOException {
         int indexT= -1;
         int indexL = -1;
         int indexC = -1;
-        if (Main.pruebas.isEmpty()) {
-            System.out.println("No hay tipos de prueba en la base de datos\n");
-            return false;
-        }
         int index;
-        System.out.print("Ingrese el ID de la prueba: ");
-        String IDb = input.readLine();
+        String IDb;
+        if (bID == null){
+            if (Main.pruebas.isEmpty()) {
+                System.out.println("No hay tipos de prueba en la base de datos\n");
+                return false;
+            }
+            System.out.print("Ingrese el ID de la prueba: ");
+            IDb = input.readLine();
+        }else{
+            IDb = bID;
+        }
         if (IDb.equals("")) {
             System.out.println("No se ingresó ningun ID\n");
             return false;
@@ -282,14 +287,19 @@ public class MenuPrueba {
 
     }
 
-    public static boolean EliminarPrueba() throws IOException {
-        if (Main.pruebas.isEmpty()) {
-            System.out.println("No hay tipos de prueba en la base de datos\n");
-            return false;
-        }
+    public static boolean EliminarPrueba(String bID) throws IOException {
         int index;
-        System.out.print("Ingrese el ID de la prueba: ");
-        String IDb = input.readLine();
+        String IDb;
+        if (bID == null){
+            if (Main.pruebas.isEmpty()) {
+                System.out.println("No hay tipos de prueba en la base de datos\n");
+                return false;
+            }
+            System.out.print("Ingrese el ID de la prueba: ");
+            IDb = input.readLine();
+        }else{
+            IDb = bID;
+        }
         if (IDb.equals("")) {
             System.out.println("No se ingresó ningun ID\n");
             return false;

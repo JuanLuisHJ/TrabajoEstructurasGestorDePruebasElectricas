@@ -39,7 +39,7 @@ public class MenuLaboratorio {
                             return;
                         }
                     }else if(opcionAE.equals("2")) {
-                        comparador = EditarLaboratorioID();
+                        comparador = EditarLaboratorioID(-1);
                         if (comparador){
                             return;
                         }
@@ -61,7 +61,7 @@ public class MenuLaboratorio {
                             return;
                         }
                     }else if(opcionAE.equals("2")) {
-                        comparador = EliminarLaboratorioID();
+                        comparador = EliminarLaboratorioID(-1);
                         if (comparador){
                             return;
                         }
@@ -121,6 +121,10 @@ public class MenuLaboratorio {
         }else{
             NIT = NIT.replaceAll("[.]","");
             nNIT = Integer.parseInt(NIT);
+            if (nNIT<0){
+                System.out.println("El Nit ingresado no es valido");
+                return false;
+            }
             comparador = Collections.binarySearch(Main.laboratorios,new Laboratorio(nNIT,"",""),new ComparadorNITLaboratorio());
             if (comparador>=0){
                 System.out.println("El NIT ya se encuentra en la base de datos");
@@ -242,20 +246,25 @@ public class MenuLaboratorio {
 
     }
 
-    public static boolean EditarLaboratorioID() throws IOException {
-        if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en la base de datos\n");
-            return false;
-        }
+    public static boolean EditarLaboratorioID(int bnit) throws IOException {
         boolean comparador;
-        System.out.println("Ingrese el NIT del laboratorio");
-        String nitb = input.readLine();
-        if (nitb.equals("")){
-            System.out.println("No se ingreso ninguna direccion\n");
-            return false;
+        int NITb;
+        if(bnit <0){
+            if (Main.laboratorios.isEmpty()){
+                System.out.println("No hay laboratorios en la base de datos\n");
+                return false;
+            }
+            System.out.println("Ingrese el NIT del laboratorio");
+            String nitb = input.readLine();
+            if (nitb.equals("")){
+                System.out.println("No se ingreso ningun NIT\n");
+                return false;
+            }
+            nitb = nitb.replaceAll("[.]","");
+            NITb = Integer.parseInt(nitb);
+        }else{
+            NITb = bnit;
         }
-        nitb = nitb.replaceAll("[.]","");
-        int NITb = Integer.parseInt(nitb);
         int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
             System.out.println("No se encuentra el laboratorio con ese NIT");
@@ -374,19 +383,24 @@ public class MenuLaboratorio {
         return true;
     }
 
-    public static boolean EliminarLaboratorioID() throws IOException {
-        if (Main.laboratorios.isEmpty()){
-            System.out.println("No hay laboratorios en la base de datos");
-            return false;
+    public static boolean EliminarLaboratorioID(int bnit) throws IOException {
+        int NITb;
+        if (bnit<0){
+            if (Main.laboratorios.isEmpty()){
+                System.out.println("No hay laboratorios en la base de datos");
+                return false;
+            }
+            System.out.println("Ingrese el NIT del laboratorio");
+            String nitb = input.readLine();
+            if (nitb.equals("")){
+                System.out.println("No se ingreso ninguna direccion");
+                return false;
+            }
+            nitb = nitb.replaceAll("[.]","");
+            NITb = Integer.parseInt(nitb);
+        }else{
+            NITb = bnit;
         }
-        System.out.println("Ingrese el NIT del laboratorio");
-        String nitb = input.readLine();
-        if (nitb.equals("")){
-            System.out.println("No se ingreso ninguna direccion");
-            return false;
-        }
-        nitb = nitb.replaceAll("[.]","");
-        int NITb = Integer.parseInt(nitb);
         int index = Collections.binarySearch(Main.laboratorios,new Laboratorio(NITb,"",""),new ComparadorNITLaboratorio());
         if (index<0){
             System.out.println("No se encuentra el laboratorio con ese ID");
