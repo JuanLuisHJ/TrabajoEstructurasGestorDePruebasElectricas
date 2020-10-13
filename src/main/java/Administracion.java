@@ -1,5 +1,3 @@
-import Clases.Dispositivo;
-
 import java.io.*;
 
 public class Administracion {
@@ -89,7 +87,7 @@ public class Administracion {
                 InconsistenciasDeNorma.InconsistenciasDeNorma();
             }
             else if (seleccion.equals("7")){
-
+                InconsistenciasDeClase.InconsistenciasDeClase();
             }
             else if (seleccion.equals("0")){
                 return;

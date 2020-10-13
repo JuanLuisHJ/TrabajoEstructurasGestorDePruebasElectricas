@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 public class InconsistenciasDeInforme {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeInforme() throws IOException {
-        System.out.println("En caso de eliminar una prueba, el Informe queda invalidado,");
+        System.out.println("En caso de eliminar una Prueba, el Informe queda invalidado,");
         System.out.println("se mostrarán los Informes que no están asociados a ninguna Prueba:");
         boolean informeSinPrueba = false;
         for (Informe informe : Main.informes){
@@ -16,7 +16,7 @@ public class InconsistenciasDeInforme {
             }
         }
         if (informeSinPrueba){
-            System.out.println("Es necesario eliminar todos los informes inválidos desde este menú:\n");
+            System.out.println("Es necesario eliminar todos los Informes inválidos desde este menú:\n");
             System.out.println("Diagnóstico de inconsistencias--->Informes\n");
             while (true){
                 System.out.println("¿Desea eliminar el/los Informe/s ahora?");
