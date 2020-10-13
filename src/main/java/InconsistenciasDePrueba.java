@@ -111,7 +111,7 @@ public class InconsistenciasDePrueba {
         }
         if (pruebaSinDispositivo){
             System.out.println("Para agregar un Dispositivo a una Prueba, seleccione uno de los números ");
-            System.out.println("correspondientes al ID de la Prueba a la cual desea agregar el dispositivo:");
+            System.out.println("correspondientes al ID de la Prueba a la cual desea agregar el Dispositivo:");
             int contador=0;
             System.out.println("Número     ID");
             for (String ID : pruebasSinDispositivo){

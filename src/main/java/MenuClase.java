@@ -2,7 +2,6 @@ import Clases.Norma;
 import Clases.Clase;
 import Comparadores.ComparadoresClase.*;
 import Comparadores.ComparadoresNorma.*;
-
 import java.io.*;
 import java.util.*;
 
@@ -26,7 +25,7 @@ public class MenuClase{
                 }
 
             } else if (opcionA.equals("2")) {
-                Crear();
+                Crear("","");
                 return;
 
             } else if (opcionA.equals("3")) {
@@ -46,7 +45,7 @@ public class MenuClase{
         }
     }
 
-    public static void Crear() throws IOException {
+    public static void Crear(String llamadoEn, String ReferenciaDeInconsistencias) throws IOException {
         System.out.println("Para crear una clase, por favor ingrese en orden los datos solicitados:");
         System.out.println("Ingrese el nombre de la clase: ");
         String nombre = input.readLine();
@@ -60,14 +59,32 @@ public class MenuClase{
                 return;
             }
         }
-        System.out.println("Ingrese la referencia de la norma asociada a la clase: ");
-        String nombrenorm = input.readLine();
+
+        // OE Y ESTE IF , ELSE QUE SIGUE AQUÍ A SU LÓGICA NO LE AFECTA EN NADA
+        // SIMPLEMENTE EL PARÁMETRO QUE SE LLAMA "llamadoEn" LO RECIBE LA FUNCIÓN Y LO USÉ PARA PODER LLAMARLA
+        // DESDE LAS INCONSISTENCIAS SIN DAÑARLE NADA A UD,
+        // OBSERVE LA LÍNEA 29 DE ESTE CÓDIGO Y VERÁ QUE ESO NO LE AFECTA EN NADA, TAMBIÉN SE LO HICE A LOS
+        // DE MATEO Y DIJO QUE ESO NO AFECTABA, TONCES POR FA NO LO BORRE MEN QUE LO NECESITO EN OTRA PARTE
+
+        String nombrenorm;
+        if (llamadoEn.equals("Inconsistencias")){
+            nombrenorm=ReferenciaDeInconsistencias;
+            System.out.println("La Referencia de Norma asignada a esta Clase corresponde a \""+ReferenciaDeInconsistencias+"\"\n");
+        }
+        else {
+            System.out.print("Ingrese la referencia de la norma asociada a la clase: ");
+            nombrenorm = input.readLine();
+        }
         if (nombrenorm.equals("")) {
             System.out.println("No ingreso la referencia de la norma.\n");
             return;
         }
+
+        // EN EL SIGUIENTE FOR YO CAMBIÉ: DECÍA: .....norma1.Nombre.equals.......
+        // YO CAMBIÉ Norma por Referencia, para que cuando vaya a buscar en las normas Sí busque por la referencia y no ´por el nombre, pq con la referencia es que se está trabajando, ud mismo lo dijo
+
         for (Norma norma1 : Main.normas) {
-            if (!norma1.Nombre.equalsIgnoreCase(nombrenorm)) {
+            if (!norma1.Referencia.equalsIgnoreCase(nombrenorm)) {
                 System.out.println("No hay normas con esa referencia guardadas en la base de datos.\n");
                 return;
             }

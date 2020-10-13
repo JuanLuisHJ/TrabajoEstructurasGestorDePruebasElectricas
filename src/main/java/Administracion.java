@@ -83,10 +83,10 @@ public class Administracion {
                 InconsistenciasDeInforme.InconsistenciasDeInforme();
             }
             else if (seleccion.equals("5")){
-
+                System.out.println("La clase \"Dispositivos\" no presenta posibles inconsistencias\n");
             }
             else if (seleccion.equals("6")){
-
+                InconsistenciasDeNorma.InconsistenciasDeNorma();
             }
             else if (seleccion.equals("7")){
 
