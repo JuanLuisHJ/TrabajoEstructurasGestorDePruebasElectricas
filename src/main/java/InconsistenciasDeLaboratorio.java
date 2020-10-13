@@ -32,7 +32,7 @@ public class InconsistenciasDeLaboratorio {
 
     public static void laboratorioSinTipoDePrueba() throws IOException {
         System.out.println("Un laboratorio debe tener al menos un tipo de prueba asociado,");
-        System.out.println("se mostrarán los laboratorios que no tengan ninguno:");
+        System.out.println("se mostrarán los laboratorios que no tengan ninguno:\n");
         boolean laboratorioSinTipoPrueba = false;
         ArrayList<Integer> NITsinTipoPruebas = new ArrayList<>();
         for (Laboratorio laboratorio : Main.laboratorios){
@@ -95,7 +95,7 @@ public class InconsistenciasDeLaboratorio {
 
     public static void laboratorioSinPruebas() throws IOException {
         System.out.println("Un laboratorio debe haber realizado al menos una Prueba,");
-        System.out.println("se mostrarán los laboratorios que no hayan realizado ninguna:");
+        System.out.println("se mostrarán los laboratorios que no hayan realizado ninguna:\n");
         boolean laboratorioSinPrueba = false;
         ArrayList<Integer> NITsinPruebas = new ArrayList<>();
         for (Laboratorio laboratorio : Main.laboratorios){

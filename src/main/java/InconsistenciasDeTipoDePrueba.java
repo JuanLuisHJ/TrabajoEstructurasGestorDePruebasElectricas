@@ -8,7 +8,7 @@ public class InconsistenciasDeTipoDePrueba {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeTipoDePrueba() throws IOException  {
         System.out.println("Un Tipo de Prueba debe tener al menos una Prueba asociada,");
-        System.out.println("se mostrarán todos los Tipos que no tengan ninguna:");
+        System.out.println("se mostrarán todos los Tipos que no tengan ninguna:\n");
         boolean tipodepruebasinpruebas = false;
         ArrayList<String> tiposDePruebaSinPruebas = new ArrayList<>();
         for (TipoPrueba tipoprueba : Main.tipopruebas){

@@ -36,7 +36,7 @@ public class InconsistenciasDePrueba {
 
     public static void pruebaSinInforme() throws IOException {
         System.out.println("Una Prueba debe tener asociado un Informe,");
-        System.out.println("se mostrarán las Pruebas que no tengan ninguno:");
+        System.out.println("se mostrarán las Pruebas que no tengan ninguno:\n");
         boolean pruebaSinInforme = false;
         ArrayList<String> pruebasSinInforme = new ArrayList<>();
         for (Prueba prueba : Main.pruebas){
@@ -99,7 +99,7 @@ public class InconsistenciasDePrueba {
 
     public static void pruebaSinDispositivo() throws IOException {
         System.out.println("Una Prueba debe tener al menos un Dispositivo asociado,");
-        System.out.println("se mostrarán todas las Pruebas que no tengan ninguno:");
+        System.out.println("se mostrarán todas las Pruebas que no tengan ninguno:\n");
         boolean pruebaSinDispositivo = false;
         ArrayList<String> pruebasSinDispositivo = new ArrayList<>();
         for (Prueba prueba : Main.pruebas){

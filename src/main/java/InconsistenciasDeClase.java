@@ -7,7 +7,7 @@ public class InconsistenciasDeClase {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeClase() throws IOException {
         System.out.println("En caso de eliminar una Norma, las Clases asociadas quedan invalidadas,");
-        System.out.println("se mostrarán las Clases que no están asociadas a ninguna Norma:");
+        System.out.println("se mostrarán las Clases que no están asociadas a ninguna Norma:\n");
         boolean claseSinNorma = false;
         for (Clase clase : Main.clases){
             if(clase.Norma==null){

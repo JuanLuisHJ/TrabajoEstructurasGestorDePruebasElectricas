@@ -105,7 +105,7 @@ public class Administracion {
         System.out.println("5. Dispositivos.");
         System.out.println("6. Normas.");
         System.out.println("7. Clases.");
-        System.out.println("0. Cancelar");
+        System.out.println("0. Volver");
     }
 }
 

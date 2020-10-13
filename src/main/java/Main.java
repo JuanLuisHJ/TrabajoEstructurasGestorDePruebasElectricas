@@ -173,7 +173,7 @@ public class Main {
             } else if (seleccion.equals("0")) {
                 break;
             } else {
-                System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"");
+                System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"\n");
             }
             while(acceso){
                 System.out.println("1. Administración.");

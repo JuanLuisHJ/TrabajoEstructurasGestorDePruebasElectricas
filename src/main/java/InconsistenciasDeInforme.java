@@ -7,7 +7,7 @@ public class InconsistenciasDeInforme {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeInforme() throws IOException {
         System.out.println("En caso de eliminar una Prueba, el Informe queda invalidado,");
-        System.out.println("se mostrarán los Informes que no están asociados a ninguna Prueba:");
+        System.out.println("se mostrarán los Informes que no están asociados a ninguna Prueba:\n");
         boolean informeSinPrueba = false;
         for (Informe informe : Main.informes){
             if(informe.IDPrueba==-1){

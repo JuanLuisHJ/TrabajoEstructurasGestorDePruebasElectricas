@@ -8,7 +8,7 @@ public class InconsistenciasDeNorma {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeNorma() throws IOException {
         System.out.println("Una Norma debe tener al menos una Clase asociada,");
-        System.out.println("se mostrarán todas las Normas que no tengan ninguna:");
+        System.out.println("se mostrarán todas las Normas que no tengan ninguna:\n");
         boolean normaSinClase = false;
         ArrayList<String> normasSinclase = new ArrayList<>();
         for (Norma norma : Main.normas){
