@@ -7,7 +7,6 @@ public class Dispositivo {
     public double PotenciaNominal;
     public double VoltajeNominal;
     public double CorrienteNominal;
-    public ArrayList<Integer> IDPruebas;
 
     public Dispositivo( String referencia,String nombre, double potenciaNominal, double voltajeNominal) {
         Refetencia = referencia;
@@ -15,7 +14,6 @@ public class Dispositivo {
         PotenciaNominal = potenciaNominal;
         VoltajeNominal = voltajeNominal;
         CorrienteNominal = PotenciaNominal/VoltajeNominal;
-        IDPruebas = new ArrayList<>();
     }
 
     @Override
