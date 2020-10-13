@@ -16,10 +16,10 @@ public class MenuTipoPrueba {
 
     public static void munuTipoPrueba() throws IOException {
         while (true) {
-            System.out.println("1. Ver Tipos de prueba.");
-            System.out.println("2. Crear Tipos de prueba.");
-            System.out.println("3. Editar Tipos de prueba.");
-            System.out.println("4. Eliminar Tipos de prueba.");
+            System.out.println("1. Ver Tipos de Prueba.");
+            System.out.println("2. Crear Tipos de Prueba.");
+            System.out.println("3. Editar Tipos de Prueba.");
+            System.out.println("4. Eliminar Tipos de Prueba.");
             System.out.println("0. Cancelar");
             String opcionA = input.readLine();
             boolean comparador;
@@ -46,7 +46,7 @@ public class MenuTipoPrueba {
             } else if (opcionA.equals("0")) {
                 return;
             } else {
-                System.out.println("La opción ingresada no es válida");
+                System.out.println("La opción ingresada no es válida\n");
             }
         }
     }
@@ -70,7 +70,7 @@ public class MenuTipoPrueba {
         int NITLab;
         if (llamadoEn.equals("Inconsistencias")){
             NITLab=NITdeInconsistencias;
-            System.out.println("El NIT de laboratorio seleccionado corresponde a \""+NITdeInconsistencias+"\"\n");
+            System.out.println("El NIT de laboratorio asignado corresponde a \""+NITdeInconsistencias+"\"\n");
         }
         else{
             System.out.println("Ingrese el NIT del laboratorio");

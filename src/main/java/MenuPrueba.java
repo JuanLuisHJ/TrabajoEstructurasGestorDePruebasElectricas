@@ -30,7 +30,7 @@ public class MenuPrueba {
                     return;
                 }
             } else if (opcionA.equals("2")) {
-                comparador = CrearPrueba();
+                comparador = CrearPrueba("","","");
                 if (comparador) {
                     return;
                 }
@@ -64,10 +64,10 @@ public class MenuPrueba {
         }
     }
 
-    public static boolean CrearPrueba() throws IOException {
+    public static boolean CrearPrueba(String llamadoEn, String nombreDeInconsistencias, String NITdeInconsistencias) throws IOException {
         int indexN;
         int indexL;
-        int indexT;
+        int indexT=-1;
         int indexC;
         System.out.print("Ingrese el nombre la prueba: ");
         String nombre = input.readLine();
@@ -75,9 +75,17 @@ public class MenuPrueba {
             System.out.println("No se ingresó ningun nombre\n");
             return false;
         }
-        System.out.print("Ingrese el NIT del laboratorio: ");
-        String NIT = input.readLine();
+
         int nNIT;
+        String NIT;
+        if (llamadoEn.equals("InconsistenciasPrueba")){
+            NIT=NITdeInconsistencias;
+            System.out.println("El NIT de Laboratorio asignado corresponde a \""+NITdeInconsistencias+"\"\n");
+        }
+        else {
+            System.out.print("Ingrese el NIT del laboratorio: ");
+            NIT = input.readLine();
+        }
         if (NIT.equals("")){
             System.out.println("No se ingresó ningun NIT\n");
             return false;
@@ -90,17 +98,25 @@ public class MenuPrueba {
                 return false;
             }
         }
-        System.out.print("Ingrese el nombre del tipo de prueba: ");
-        String nombretipoprueba = input.readLine() ;
-        if (nombretipoprueba.equals("")) {
-            System.out.println("No se ingresó ningun nombre\n");
-            return false;
-        } else {
-            nombretipoprueba = nombretipoprueba + "-"+ Main.laboratorios.get(indexL).Nombre;
-            indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nombretipoprueba, "", 0), new ComparadorNombreTipoPrueba());
-            if (indexT < 0) {
-                System.out.println("El Nombre no se encuentra en la base de datos");
+
+        String nombretipoprueba;
+        if (llamadoEn.equals("InconsistenciasTipoPrueba")){
+            nombretipoprueba=nombreDeInconsistencias;
+            System.out.println("El nombre de Tipo de Prueba asignado corresponde a \""+nombreDeInconsistencias+"\"\n");
+        }
+        else{
+            System.out.print("Ingrese el nombre del tipo de prueba: ");
+            nombretipoprueba = input.readLine() ;
+            if (nombretipoprueba.equals("")) {
+                System.out.println("No se ingresó ningun nombre\n");
                 return false;
+            } else {
+                nombretipoprueba = nombretipoprueba + "-"+ Main.laboratorios.get(indexL).Nombre;
+                indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(nombretipoprueba, "", 0), new ComparadorNombreTipoPrueba());
+                if (indexT < 0) {
+                    System.out.println("El Nombre no se encuentra en la base de datos\n");
+                    return false;
+                }
             }
         }
         System.out.print("Ingrese el nombre de la clase: ");
@@ -131,7 +147,6 @@ public class MenuPrueba {
             Dispositivos.add(refdispositivo);
             refdispositivo = input.readLine();
         }
-
         String ID = Main.laboratorios.get(indexL).IDprueba + "-" + Main.laboratorios.get(indexL).NIT;
         Main.laboratorios.get(indexL).IDprueba += 1;
         Prueba nuevaPrueba = new Prueba(ID,nombre,nombretipoprueba,nombreclase,Dispositivos);
@@ -206,7 +221,7 @@ public class MenuPrueba {
         }
 
         System.out.println("Nombre Tipo de prueba: " + Main.pruebas.get(index).TipoPrueba);
-        System.out.print("Ingrese el nombre del tipo de prueba y en nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio: ");
+        System.out.print("Ingrese el nombre del tipo de prueba y el nombre del laboratorio de la siguiente forma\n" + "Nombre del tipo de prueba-Nombre del laboratorio: ");
         String nuevoNombreTP = input.readLine();
         if (nuevoNombreTP.equals("")) {
             nuevoNombreTP = Main.pruebas.get(index).TipoPrueba;

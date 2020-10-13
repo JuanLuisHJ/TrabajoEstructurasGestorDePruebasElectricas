@@ -360,6 +360,7 @@ public class MenuInforme {
                                 for(Clases.Prueba prueba : Main.pruebas){
                                     if(prueba.NumInforme==bufferIDPrueba){
                                         prueba.NumInforme=IDPruebacambiado;
+                                        break;
                                     }
                                 }
                                 Collections.sort(Main.informes, new Comparadores.ComparadorDeInformes("IDPrueba"));
