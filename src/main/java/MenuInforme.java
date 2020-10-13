@@ -20,7 +20,7 @@ public class MenuInforme {
                 VerInformes();
             }
             else if (seleccion.equals("2")){
-                CrearInforme();
+                CrearInforme("","");
             }
             else if (seleccion.equals("3")){
                 EditarInforme();
@@ -46,7 +46,7 @@ public class MenuInforme {
             }
         }
     }
-    public static void CrearInforme() throws IOException{
+    public static void CrearInforme(String llamadoEn, String IDdeInconsistencias) throws IOException{
         String ingreso;
         int IDPrueba=-1;
         boolean identificadoraprobado=false;
@@ -54,8 +54,14 @@ public class MenuInforme {
         int nuevoidentificador=-1;
         int indice=-1;
         while (!cancelarregistro && !identificadoraprobado){
-            System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe: ");
-            ingreso = input.readLine();
+            if (llamadoEn.equals("Inconsistencias")){
+                ingreso=IDdeInconsistencias;
+                System.out.println("El ID de Prueba asignado corresponde a \""+IDdeInconsistencias+"\"\n");
+            }
+            else {
+                System.out.print("Ingrese el identificador (ID) de la prueba a la cual desea generar el informe: ");
+                ingreso = input.readLine();
+            }
             ingreso=ingreso.replaceAll("\\s","");
             ingreso=ingreso.replaceAll("[.]","");
             ingreso=ingreso.replaceAll("[,]","");

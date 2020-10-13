@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class InconsistenciasDeTipoDePrueba {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
     public static void InconsistenciasDeTipoDePrueba() throws IOException  {
-        System.out.println("Un Tipo de Prueba debe tener al menos una prueba asociada,");
-        System.out.println("se mostrarán todos los tipos que no tengan ninguna:");
+        System.out.println("Un Tipo de Prueba debe tener al menos una Prueba asociada,");
+        System.out.println("se mostrarán todos los Tipos que no tengan ninguna:");
         boolean tipodepruebasinpruebas = false;
         ArrayList<String> tiposDePruebaSinPruebas = new ArrayList<>();
         for (TipoPrueba tipoprueba : Main.tipopruebas){
@@ -19,7 +19,7 @@ public class InconsistenciasDeTipoDePrueba {
             }
         }
         if (tipodepruebasinpruebas){
-            System.out.println("Para agregar una prueba a un tipo de prueba, acceda al menú:\n");
+            System.out.println("Para agregar una Prueba a un Tipo de Prueba, acceda al menú:\n");
             System.out.println("Administración--->Pruebas--->Crear Prueba.\n");
             System.out.println("Cree una Prueba ingresando alguno de los nombres de");
             System.out.println("tipo de prueba existente que se muestra a continuación o ");
@@ -38,7 +38,7 @@ public class InconsistenciasDeTipoDePrueba {
                 if (opcion.equals("1")){
                     String nombreTipoDePrueba;
                     while (true){
-                        System.out.println("Seleccione el número correspondiente al Nombre del Tipo de Prueba al cual desea agregar la Prueba");
+                        System.out.print("Seleccione el número correspondiente al Nombre del Tipo de Prueba al cual desea agregar la Prueba: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{
@@ -65,10 +65,10 @@ public class InconsistenciasDeTipoDePrueba {
         }
         else {
             System.out.println("No se encontraron inconsistencias:");
-            System.out.println("Todos los tipos de prueba tienen al menos una prueba asociada\n");
+            System.out.println("Todos los Tipos de Prueba tienen al menos una Prueba asociada\n");
         }
     }
-    
+
     public static boolean cancelarCreacion() throws IOException {
         while (true){
             System.out.println("¿Desea cancelar la creación?");

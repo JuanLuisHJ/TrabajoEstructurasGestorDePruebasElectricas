@@ -62,9 +62,9 @@ public class InconsistenciasDeLaboratorio {
                 if (opcion.equals("1")){
                     int NIT;
                     while (true){
-                        System.out.println("Seleccione el número correspondiente al NIT de laboratorio al cual desea agregar el Tipo de Prueba:");
+                        System.out.print("Seleccione el número correspondiente al NIT de laboratorio al cual desea agregar el Tipo de Prueba: ");
                         String ingreso = input.readLine();
-                        int indice=-1;
+                        int indice;
                         try{
                             indice=Integer.parseInt(ingreso);
                             NIT=NITsinTipoPruebas.get(indice-1);
@@ -125,7 +125,7 @@ public class InconsistenciasDeLaboratorio {
                 if (opcion.equals("1")){
                     int NIT;
                     while (true){
-                        System.out.println("Seleccione el número correspondiente al NIT de laboratorio al cual desea agregar la Prueba:");
+                        System.out.print("Seleccione el número correspondiente al NIT de Laboratorio al cual desea agregar la Prueba: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{

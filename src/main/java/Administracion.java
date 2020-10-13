@@ -77,7 +77,7 @@ public class Administracion {
                 InconsistenciasDeTipoDePrueba.InconsistenciasDeTipoDePrueba();
             }
             else if (seleccion.equals("3")){
-
+                InconsistenciasDePrueba.InconsistenciasDePrueba();
             }
             else if (seleccion.equals("4")){
 
