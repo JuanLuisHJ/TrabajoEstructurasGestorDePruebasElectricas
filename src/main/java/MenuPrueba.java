@@ -339,7 +339,6 @@ public class MenuPrueba {
             }
         }
 
-        Main.pruebas.remove(index);
         String viejoID = Main.pruebas.get(index).ID;
         int indexT = Collections.binarySearch(Main.tipopruebas, new TipoPrueba(Main.pruebas.get(index).TipoPrueba,"",-1), new ComparadorNombreTipoPrueba());
         if(indexT>=0){
@@ -350,12 +349,6 @@ public class MenuPrueba {
                 }
             }
         }
-        for (int j = 0; j < Main.tipopruebas.get(indexT).Pruebas.size(); j++) {
-            if (viejoID.equalsIgnoreCase(Main.tipopruebas.get(indexT).Pruebas.get(j))) {
-                Main.tipopruebas.get(indexT).Pruebas.remove(j);
-                break;
-            }
-        }
         if(Main.pruebas.get(index).NumInforme!= -1){
             for (Informe informe : Main.informes) {
                 if(informe.IDPrueba==Main.pruebas.get(index).NumInforme){
@@ -363,6 +356,7 @@ public class MenuPrueba {
                 }
             }
         }
+        Main.pruebas.remove(index);
         return true;
     }
 }

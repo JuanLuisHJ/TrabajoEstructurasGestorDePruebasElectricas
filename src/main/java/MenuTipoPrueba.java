@@ -280,7 +280,6 @@ public class MenuTipoPrueba {
             }
         }
 
-        Main.tipopruebas.remove(index);
         String viejoNombre = Main.tipopruebas.get(index).Nombre;
         int NITlab = Main.tipopruebas.get(index).NitLaboratorio;
         int indexL = Collections.binarySearch(Main.laboratorios, new Laboratorio(NITlab, "", ""), new ComparadorNITLaboratorio());
@@ -299,6 +298,7 @@ public class MenuTipoPrueba {
                 }
             }
         }
+        Main.tipopruebas.remove(index);
         return true;
     }
 }

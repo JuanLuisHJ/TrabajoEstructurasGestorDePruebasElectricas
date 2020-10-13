@@ -372,7 +372,6 @@ public class MenuLaboratorio {
         }
 
         int viejoNIT = Main.laboratorios.get(index).NIT;
-        Main.laboratorios.remove(index);
         if(!Main.pruebas.isEmpty()){
             for (TipoPrueba tipoprueba : Main.tipopruebas) {
                 if (tipoprueba.NitLaboratorio== viejoNIT){
@@ -380,6 +379,7 @@ public class MenuLaboratorio {
                 }
             }
         }
+        Main.laboratorios.remove(index);
         return true;
     }
 
@@ -420,7 +420,6 @@ public class MenuLaboratorio {
         }
 
         int viejoNIT = Main.laboratorios.get(index).NIT;
-        Main.laboratorios.remove(index);
         if(!Main.pruebas.isEmpty()){
             for (TipoPrueba tipoprueba : Main.tipopruebas) {
                 if (tipoprueba.NitLaboratorio== viejoNIT){
@@ -428,6 +427,7 @@ public class MenuLaboratorio {
                 }
             }
         }
+        Main.laboratorios.remove(index);
         return true;
     }
 }
