@@ -80,7 +80,8 @@ public class Administracion {
                 InconsistenciasDePrueba.InconsistenciasDePrueba();
             }
             else if (seleccion.equals("4")){
-
+                InconsistenciasDeInforme.InconsistenciasDeInforme();
+                return;
             }
             else if (seleccion.equals("5")){
 
