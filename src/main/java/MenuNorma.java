@@ -246,6 +246,9 @@ public class MenuNorma {
                     if (norma.Referencia.equalsIgnoreCase(ref)) {
                         int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                         Main.normas.remove(indicenormaborrado);
+
+                        // IR A LAS "CLASES" Y ESTABLECER EN NULL EL ATRIBUTO "NORMA"
+
                         System.out.println("Operación realizada con éxito.\n");
                         return;
 
@@ -276,6 +279,11 @@ public class MenuNorma {
                 for (int i = 0; i < Main.normas.size(); i++) {
                     if (Main.normas.get(i).Nombre.equalsIgnoreCase(nombre)) {
                         Main.normas.remove(i);
+
+
+                        // IR A LAS "CLASES" Y ESTABLECER EN NULL EL ATRIBUTO "NORMA"
+
+
                         break;
                     } else {
                         normasquenoson.add(Main.normas.get(i));

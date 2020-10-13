@@ -81,7 +81,6 @@ public class Administracion {
             }
             else if (seleccion.equals("4")){
                 InconsistenciasDeInforme.InconsistenciasDeInforme();
-                return;
             }
             else if (seleccion.equals("5")){
 

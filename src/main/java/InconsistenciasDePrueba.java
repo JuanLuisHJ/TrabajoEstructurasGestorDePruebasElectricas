@@ -119,14 +119,14 @@ public class InconsistenciasDePrueba {
                 contador++;
             }
             while (true){
-                System.out.println("¿Desea agregar Prueba ahora?");
+                System.out.println("¿Desea agregar Dispositivos ahora?");
                 System.out.println("1. SÍ");
                 System.out.println("2. NO");
                 String opcion = input.readLine();
                 if (opcion.equals("1")){
                     String ID;
                     while (true){
-                        System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar el Dispositivo: ");
+                        System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar Dispositivos: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{

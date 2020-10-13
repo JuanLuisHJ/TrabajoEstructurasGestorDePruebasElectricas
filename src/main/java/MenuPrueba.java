@@ -299,7 +299,6 @@ public class MenuPrueba {
             }
         }
         return true;
-
     }
 
     public static boolean EliminarPrueba(String bID) throws IOException {

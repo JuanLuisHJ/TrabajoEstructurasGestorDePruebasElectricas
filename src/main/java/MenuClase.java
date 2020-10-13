@@ -136,6 +136,10 @@ public class MenuClase{
                                 }
                                 clasedit.Nombre = nuevonom;
                                 System.out.println("Operación realizada con éxito.\n");
+
+                                // IR A MODIFICAR LA CLASE EN LA LISTA DE CLASES EN LA CLASE "NORMA"
+
+
                             }
                             System.out.println("La referencia de la norma asociada a la clase es: " + clasedit.Norma + ".");
                             System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
@@ -261,6 +265,11 @@ public class MenuClase{
                     if (clase.Nombre.equalsIgnoreCase(nombre)) {
                         int indiceclaseborrado = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
                         Main.dispositivos.remove(indiceclaseborrado);
+
+
+                        // IR A LA NORMA Y ELIMINAR LA CLASE EN EL ATRIBUTO QUE ES LISTA DE CLASES
+
+
                         System.out.println("Operación realizada con éxito.\n");
                         return;
 

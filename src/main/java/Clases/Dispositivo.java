@@ -1,5 +1,4 @@
 package Clases;
-import java.util.ArrayList;
 
 public class Dispositivo {
     public String Refetencia;
