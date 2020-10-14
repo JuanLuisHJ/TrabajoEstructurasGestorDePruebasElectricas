@@ -30,7 +30,8 @@ public class InconsistenciasDeClase {
                             Main.clases.remove(borrador);
                         }
                     }
-                    System.out.println("Se han eliminado las inconsistencias en las Clases");
+                    System.out.println("Se han eliminado las inconsistencias en las Clases\n");
+                    System.out.println("Recuerde revisar las inconsistencias en las Pruebas, dado que se han eliminado clases\n");
                     return;
                 }
                 else if(opcion.equals("2")){
