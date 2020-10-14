@@ -782,8 +782,7 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese el nuevo nombre: ");
                 String nuevonom = input.readLine();
                 if (nuevonom.equals("")) {
-                    System.out.println("No ingreso el nombre.\n");
-                    return;
+                    System.out.println("No ingreso un nuevo nombre.\n");
                 }
                 for (Clase clase1 : Main.clases) {
                     if (clase1.Nombre.equalsIgnoreCase(nuevonom)) {
@@ -802,8 +801,7 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese la nueva referencia de la norma asociada: ");
                 String nuevonombrenorm = input.readLine();
                 if (nuevonombrenorm.equals("")) {
-                    System.out.println("No ingreso la referencia.\n");
-                    return;
+                    System.out.println("No ingreso una nueva referencia.\n");
                 }
                 ArrayList<Norma> normasquenoson = new ArrayList<>();
                 for (Norma norma : Main.normas) {
@@ -821,8 +819,7 @@ public class MenuBusquedaClase {
                         System.out.println("Ingrese el nuevo voltaje nominal de prueba [V]: ");
                         String nuevovol = input.readLine();
                         if (nuevovol.equals("")) {
-                            System.out.println("No ingreso el voltaje nominal de prueba.\n");
-                            return;
+                            System.out.println("No ingreso un nuevo voltaje nominal de prueba.\n");
                         }
                         clase.VoltajePrueba = Double.parseDouble(nuevovol);
                         System.out.println("Operación realizada con éxito.\n");
@@ -834,8 +831,7 @@ public class MenuBusquedaClase {
                         System.out.println("Ingrese la nueva corriente nominal de prueba [A]: ");
                         String nuevocorr = input.readLine();
                         if (nuevocorr.equals("")) {
-                            System.out.println("No ingreso la corriente nominal de prueba.\n");
-                            return;
+                            System.out.println("No ingreso una nueva corriente nominal de prueba.\n");
                         }
                         clase.CorrientePrueba = Double.parseDouble(nuevocorr);
                         System.out.println("Operación realizada con éxito.\n");
@@ -847,8 +843,7 @@ public class MenuBusquedaClase {
                         System.out.println("Ingrese el nuevo voltaje máximo de prueba [V]: ");
                         String nuevovolm = input.readLine();
                         if (nuevovolm.equals("")) {
-                            System.out.println("No ingreso el voltaje máximo de prueba.\n");
-                            return;
+                            System.out.println("No ingreso un nuevo voltaje máximo de prueba.\n");
                         }
                         clase.VoltajeMaximo = Double.parseDouble(nuevovolm);
                         System.out.println("Operación realizada con éxito.\n");
@@ -860,8 +855,8 @@ public class MenuBusquedaClase {
                         System.out.println("Ingrese la nueva corriente máxima de prueba [A]: ");
                         String nuevocorrm = input.readLine();
                         if (nuevocorrm.equals("")) {
-                            System.out.println("No ingreso la corriente máxima de prueba.\n");
-                            return;
+                            System.out.println("No ingreso una nueva corriente máxima de prueba.\n");
+
                         }
                         clase.CorrienteMaxima = Double.parseDouble(nuevocorrm);
                         System.out.println("Operación realizada con éxito.\n");
@@ -873,8 +868,7 @@ public class MenuBusquedaClase {
                         System.out.println("Ingrese el nuevo tiempo de prueba [s]: ");
                         String nuevotiem = input.readLine();
                         if (nuevotiem.equals("")) {
-                            System.out.println("No ingreso el tiempo de prueba.\n");
-                            return;
+                            System.out.println("No ingreso un nuevo tiempo de prueba.\n");
                         }
                         clase.Tiempo = Double.parseDouble(nuevotiem);
                         System.out.println("Operación realizada con éxito.\n");
@@ -882,6 +876,7 @@ public class MenuBusquedaClase {
                 }
                 if (!normasquenoson.isEmpty()) {
                     System.out.println("La referencia ingreasada no se encuentra asignado a ninguna norma. ");
+                    normasquenoson.clear();
                 }
             }
         }

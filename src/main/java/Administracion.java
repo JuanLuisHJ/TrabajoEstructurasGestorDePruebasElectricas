@@ -58,7 +58,8 @@ public class Administracion {
                 MenuBusquedaNorma.BusquedaNorma();
                 return;
             } else if (opcionA.equals("7")) {
-                
+                MenuBusquedaClase.BusquedaClase();
+                return;
             }else if (opcionA.equals("0")) {
                 break;
             } else {

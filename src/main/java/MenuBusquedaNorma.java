@@ -50,9 +50,9 @@ public class MenuBusquedaNorma {
             System.out.println("2. Valor sin considerar mayusculas. ");
             String opcion = input.readLine();
             if (opcion.equals("1")) {
-                System.out.println("Ingrese la referencia dela norma: ");
+                System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(ref, null), new ComparadoresNorma.ComparadorReferenciaNorma());
+                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadoresNorma.ComparadorReferenciaNorma());
                 System.out.println(normas.get(indiceref));
                 editareliminarUK(normas.get(indiceref));
                 System.out.println("Operación realizada con éxito.\n ");
@@ -61,7 +61,7 @@ public class MenuBusquedaNorma {
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(ref, null), new ComparadoresNorma.ComparadorReferenciaNorma());
+                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadoresNorma.ComparadorReferenciaNorma());
                 System.out.println(normas.get(indiceref));
                 editareliminarUK(normas.get(indiceref));
                 System.out.println("Operación realizada con éxito.\n ");
@@ -151,8 +151,7 @@ public class MenuBusquedaNorma {
             System.out.println("Ingrese la nueva referencia: ");
             String nuevaref = input.readLine();
             if (nuevaref.equals("")) {
-                System.out.println("No ingreso la referencia.\n");
-                return;
+                System.out.println("No ingreso una nueva referencia.\n");
             }
             for (Norma norma1 : Main.normas) {
                 if (norma1.Referencia.equalsIgnoreCase(nuevaref)) {
@@ -170,8 +169,7 @@ public class MenuBusquedaNorma {
             System.out.println("Ingrese el nuevo nombre: ");
             String nuevonombre = input.readLine();
             if (nuevonombre.equals("")) {
-                System.out.println("No ingreso el nombre.\n");
-                return;
+                System.out.println("No ingreso un nuevo nombre.\n");
             }
             for (Norma norma2 : Main.normas) {
                 if (norma2.Nombre.equalsIgnoreCase(nuevonombre)) {

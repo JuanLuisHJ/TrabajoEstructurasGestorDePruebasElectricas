@@ -570,8 +570,7 @@ public class MenuBusquedaDispositivo {
             System.out.println("Ingrese la nueva referencia: ");
             String nuevaref = input.readLine();
             if (nuevaref.equals("")) {
-                System.out.println("No ingreso la referencia.\n");
-                return;
+                System.out.println("No ingreso una nueva referencia.\n");
             }
             for (Dispositivo dispositivo2 : Main.dispositivos) {
                 if (dispositivo2.Refetencia.equalsIgnoreCase(nuevaref)) {
@@ -589,8 +588,7 @@ public class MenuBusquedaDispositivo {
             System.out.println("Ingrese el nuevo nombre: ");
             String nuevonombre = input.readLine();
             if (nuevonombre.equals("")) {
-                System.out.println("No ingreso el nombre.\n");
-                return;
+                System.out.println("No ingreso un nuevo nombre.\n");
             }
             for (Dispositivo dispositivo1 : Main.dispositivos) {
                 if (dispositivo1.Nombre.equalsIgnoreCase(nuevonombre)) {
@@ -608,8 +606,7 @@ public class MenuBusquedaDispositivo {
             System.out.println("Ingrese la nueva potencia nominal [VA]: ");
             String nuevapotnom = input.readLine();
             if (nuevapotnom.equals("")) {
-                System.out.println("No ingreso la potencia nominal.\n");
-                return;
+                System.out.println("No ingreso una nueva potencia nominal.\n");
             } else if (Double.parseDouble(nuevapotnom) < 0) {
                 System.out.println("No se permiten valores negativos.\n");
                 return;
@@ -624,8 +621,7 @@ public class MenuBusquedaDispositivo {
             System.out.println("Ingrese el nuevo voltaje nominal [V]: ");
             String nuevavolnom = input.readLine();
             if (nuevavolnom.equals("")) {
-                System.out.println("No ingreso el voltaje nominal.\n");
-                return;
+                System.out.println("No ingreso un nuevo voltaje nominal.\n");
             } else if (Double.parseDouble(nuevavolnom) < 0) {
                 System.out.println("No se permiten valores negativos.\n");
                 return;
