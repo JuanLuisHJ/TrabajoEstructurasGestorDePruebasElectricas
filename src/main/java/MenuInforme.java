@@ -14,19 +14,23 @@ public class MenuInforme {
             System.out.println("2. Crear Informe");
             System.out.println("3. Editar informe");
             System.out.println("4. Eliminar informe");
-            System.out.println("0. Volver");
+            System.out.println("0. Cancelar");
             String seleccion = input.readLine();
             if (seleccion.equals("1")){
                 VerInformes();
+                volver=true;
             }
             else if (seleccion.equals("2")){
                 CrearInforme("","");
+                volver=true;
             }
             else if (seleccion.equals("3")){
                 EditarInforme();
+                volver=true;
             }
             else if(seleccion.equals("4")){
                 EliminarInforme();
+                volver=true;
             }
             else if(seleccion.equals("0")){
                 volver=true;

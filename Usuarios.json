@@ -19,12 +19,5 @@
     "Nombre": "David",
     "Apellido": "Muñoz Molina",
     "Contraseña": "qwert"
-  },
-  {
-    "Documento": 123456789,
-    "Correo": "uncorreo@unal.edu.co",
-    "Nombre": "alguien",
-    "Apellido": "con un apellido",
-    "Contraseña": "contraseña"
   }
 ]
