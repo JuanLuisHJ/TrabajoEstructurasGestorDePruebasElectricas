@@ -1,5 +1,32 @@
 [
   {
+    "Nombre": "Clase 1",
+    "Norma": "IEEE 666",
+    "VoltajePrueba": 30000.0,
+    "CorrientePrueba": 0.3,
+    "VoltajeMaximo": 35000.0,
+    "CorrienteMaxima": 1.0,
+    "Tiempo": 120.0
+  },
+  {
+    "Nombre": "Clase 2",
+    "Norma": "IEEE 666",
+    "VoltajePrueba": 50000.0,
+    "CorrientePrueba": 0.5,
+    "VoltajeMaximo": 55000.0,
+    "CorrienteMaxima": 1.2,
+    "Tiempo": 120.0
+  },
+  {
+    "Nombre": "Clase 3",
+    "Norma": "IEEE 666",
+    "VoltajePrueba": 70000.0,
+    "CorrientePrueba": 0.7,
+    "VoltajeMaximo": 75000.0,
+    "CorrienteMaxima": 1.5,
+    "Tiempo": 120.0
+  },
+  {
     "Nombre": "Clase A",
     "Norma": "pruebas de transfromadores",
     "VoltajePrueba": 20.0,

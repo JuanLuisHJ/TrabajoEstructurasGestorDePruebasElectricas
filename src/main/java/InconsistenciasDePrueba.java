@@ -124,76 +124,73 @@ public class InconsistenciasDePrueba {
                 System.out.println(contador+1+"          "+ID);
                 contador++;
             }
-            while (true){
-                System.out.println("¿Desea agregar Dispositivos ahora?");
-                System.out.println("1. SÍ");
-                System.out.println("2. NO");
-                String opcion = input.readLine();
-                if (opcion.equals("1")){
-                    String ID;
-                    while (true){
-                        System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar Dispositivos: ");
-                        String ingreso = input.readLine();
-                        int indice;
-                        try{
-                            indice=Integer.parseInt(ingreso);
-                            ID=pruebasSinDispositivo.get(indice-1);
-                            break;
-                        } catch (Exception exc){
-                            System.out.println("Por favor, ingrese uno de los números de la lista anterior.\n");
-                            if(cancelarCreacion()){
-                                return;
-                            }
-                        }
-                    }
-                    ArrayList<String> Dispositivos = new ArrayList<>();
-                    System.out.println("Ingrese las referencias de los dispositivos, cuando haya ingresado todos los dispositivos ingrese fin:");
-                    String refdispositivo="";
-                    while (true) {
-                        refdispositivo = input.readLine();
-                        if (refdispositivo.equals("fin")){
-                            break;
-                        }
-                        if(refdispositivo.equals("")){
-                            System.out.println("No se ingresó ninguna referencia");
-                            if(cancelarCreacion()){
-                                return;
-                            }
-                            else{
-                                System.out.print("Referencia: ");
-                                continue;
-                            }
-                        }
-                        int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
-                        if (indexD<0){
-                            System.out.println("El dispositivo no se encuentra en la base de datos\n");
-                            if(cancelarCreacion()){
-                                return;
-                            }
-                            else{
-                                System.out.print("Referencia: ");
-                                continue;
-                            }
-                        }
-                        Dispositivos.add(refdispositivo);
-                    }
-                    if(Dispositivos.isEmpty()){
-                        System.out.println("No ha agregado ningún dispositivo\n");
-                        return;
-                    }
-                    else {
-                        int indice = Collections.binarySearch(Main.pruebas,new Prueba(ID,"","","",new ArrayList<>()),new ComparadoresPrueba.ComparadorIDPrueba());
-                        for(String referenciaNueva : Dispositivos){
-                            Main.pruebas.get(indice).RefDispositivos.add(referenciaNueva);
+            System.out.println("¿Desea agregar Dispositivos ahora?");
+            System.out.println("1. SÍ");
+            System.out.println("2. NO");
+            String opcion = input.readLine();
+            if (opcion.equals("1")){
+                String ID;
+                while (true){
+                    System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar Dispositivos: ");
+                    String ingreso = input.readLine();
+                    int indice;
+                    try{
+                        indice=Integer.parseInt(ingreso);
+                        ID=pruebasSinDispositivo.get(indice-1);
+                        break;
+                    } catch (Exception exc){
+                        System.out.println("Por favor, ingrese uno de los números de la lista anterior.\n");
+                        if(cancelarCreacion()){
+                            return;
                         }
                     }
                 }
-                else if(opcion.equals("2")){
+                ArrayList<String> Dispositivos = new ArrayList<>();
+                System.out.println("Ingrese las referencias de los dispositivos, cuando haya ingresado todos los dispositivos ingrese fin:");
+                String refdispositivo;
+                while (true) {
+                    System.out.print("referencia: ");
+                    refdispositivo = input.readLine();
+                    if (refdispositivo.equals("fin")){
+                        break;
+                    }
+                    if(refdispositivo.equals("")){
+                        System.out.println("No se ingresó ninguna referencia");
+                        if(cancelarCreacion()){
+                            return;
+                        }
+                        else{
+                            continue;
+                        }
+                    }
+                    int indexD = Collections.binarySearch(Main.dispositivos,new Dispositivo(refdispositivo,"",0,0), new ComparadoresDispositivo.ComparadorReferenciaDispositivo());
+                    if (indexD<0){
+                        System.out.println("El dispositivo no se encuentra en la base de datos\n");
+                        if(cancelarCreacion()){
+                            return;
+                        }
+                        else{
+                            continue;
+                        }
+                    }
+                    Dispositivos.add(refdispositivo);
+                }
+                if(Dispositivos.isEmpty()){
+                    System.out.println("No se agregó ningún dispositivo\n");
                     return;
                 }
-                else{
-                    System.out.println("Por favor, ingrese una opción válida: \"1\" o \"2\"\n");
+                else {
+                    int indice = Collections.binarySearch(Main.pruebas,new Prueba(ID,"","","",new ArrayList<>()),new ComparadoresPrueba.ComparadorIDPrueba());
+                    for(String referenciaNueva : Dispositivos){
+                        Main.pruebas.get(indice).RefDispositivos.add(referenciaNueva);
+                    }
                 }
+            }
+            else if(opcion.equals("2")){
+                return;
+            }
+            else{
+                System.out.println("Por favor, ingrese una opción válida: \"1\" o \"2\"\n");
             }
         }
         else {
@@ -290,7 +287,7 @@ public class InconsistenciasDePrueba {
 
     public static boolean cancelarCreacion() throws IOException {
         while (true){
-            System.out.println("¿Desea cancelar la creación?");
+            System.out.println("¿Desea cancelar la adición?");
             System.out.println("1. SÍ");
             System.out.println("2. NO");
             String cancelar = input.readLine();

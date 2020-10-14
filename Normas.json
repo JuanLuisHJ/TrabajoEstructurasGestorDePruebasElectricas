@@ -5,5 +5,14 @@
     "Clases": [
       "Clase A"
     ]
+  },
+  {
+    "Nombre": "Prueba de aisladores",
+    "Referencia": "IEEE 108",
+    "Clases": [
+      "Clase 1",
+      "Clase 2",
+      "Clase 3"
+    ]
   }
 ]

@@ -772,6 +772,7 @@ public class MenuBusquedaPrueba {
 
     public static String MenuOrganizar() throws IOException {
         while (true) {
+            System.out.println("Selecione el atributo por el cual desea organizar");
             System.out.println("1. ID.");
             System.out.println("2. Nombre.");
             System.out.println("3. Tipo de prueba.");
