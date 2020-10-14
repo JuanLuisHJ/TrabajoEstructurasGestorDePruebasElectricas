@@ -61,12 +61,6 @@ public class MenuClase{
             }
         }
 
-        // OE Y ESTE IF , ELSE QUE SIGUE AQUÍ A SU LÓGICA NO LE AFECTA EN NADA
-        // SIMPLEMENTE EL PARÁMETRO QUE SE LLAMA "llamadoEn" LO RECIBE LA FUNCIÓN Y LO USÉ PARA PODER LLAMARLA
-        // DESDE LAS INCONSISTENCIAS SIN DAÑARLE NADA A UD,
-        // OBSERVE LA LÍNEA 29 DE ESTE CÓDIGO Y VERÁ QUE ESO NO LE AFECTA EN NADA, TAMBIÉN SE LO HICE A LOS
-        // DE MATEO Y DIJO QUE ESO NO AFECTABA, TONCES POR FA NO LO BORRE MEN QUE LO NECESITO EN OTRA PARTE
-
         String nombrenorm;
         if (llamadoEn.equals("Inconsistencias")){
             nombrenorm=ReferenciaDeInconsistencias;
@@ -129,13 +123,14 @@ public class MenuClase{
                 normadelaclase.Clases.add(nombre);
                 Main.clases.sort(new ComparadorNombreClase());
                 System.out.println("Operación realizada con éxito.\n");
+                normasquenoson.clear();
                 break;
             }
         }
 
         if (!normasquenoson.isEmpty()) {
             System.out.println("No hay normas con esa referencia guardadas en la base de datos.\n");
-            normasquenoson = null;
+            normasquenoson.clear();
         }
     }
 
@@ -168,7 +163,6 @@ public class MenuClase{
                                 String nuevonom = input.readLine();
                                 if (nuevonom.equals("")) {
                                     System.out.println("No ingreso el nombre.\n");
-                                    return;
                                 }
                                 for (Clase clase1 : Main.clases) {
                                     if (clase1.Nombre.equalsIgnoreCase(nuevonom)) {
@@ -176,10 +170,22 @@ public class MenuClase{
                                         return;
                                     }
                                 }
+                                for (Norma norma : Main.normas) {
+                                    for (int i = 0; i < norma.Clases.size(); i++) {
+                                        if (norma.Clases.get(i).equalsIgnoreCase(clasedit.Nombre)) {
+                                            norma.Clases.set(i, nuevonom);
+                                            break;
+                                        }
+                                    }
+                                    break;
+                                }
+                                for (Prueba prueba : Main.pruebas) {
+                                    if (prueba.Clase.equalsIgnoreCase(clasedit.Nombre)) {
+                                    prueba.Clase = nuevonom;
+                                    }
+                                }
                                 clasedit.Nombre = nuevonom;
                                 System.out.println("Operación realizada con éxito.\n");
-
-                                // IR A MODIFICAR LA CLASE EN LA LISTA DE CLASES EN LA CLASE "NORMA"
                             }
                             System.out.println("La referencia de la norma asociada a la clase es: " + clasedit.Norma + ".");
                             System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
@@ -188,8 +194,7 @@ public class MenuClase{
                                 System.out.println("Ingrese la nueva referencia de la norma asociada: ");
                                 String nuevonombrenorm = input.readLine();
                                 if (nuevonombrenorm.equals("")) {
-                                    System.out.println("No ingreso la referencia.\n");
-                                    return;
+                                    System.out.println("No ingreso una nueva referencia.\n");
                                 }
                                 ArrayList<Norma> normasquenoson = new ArrayList<>();
                                 for (Norma norma : Main.normas) {
@@ -197,18 +202,25 @@ public class MenuClase{
                                         normasquenoson.add(norma);
                                     } else {
                                         clasedit.Norma = nuevonombrenorm;
+                                        normasquenoson.clear();
                                         System.out.println("Operación realizada con éxito.\n");
                                         break;
                                     }
-                                    System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + " [V].");
-                                    System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
-                                    String opcionvol = input.readLine();
+                                }
+                                    if (!normasquenoson.isEmpty()) {
+                                        System.out.println("La referencia para la norma asociada no se encuentra guardada en la base de datos.\n ");
+                                        normasquenoson.clear();
+                                        return;
+                                    }
+                              }
+                                System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + " [V].");
+                                System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
+                                String opcionvol = input.readLine();
                                     if (opcionvol.equalsIgnoreCase("Y")) {
                                         System.out.println("Ingrese el nuevo voltaje nominal de prueba [V]: ");
                                         String nuevovol = input.readLine();
                                         if (nuevovol.equals("")) {
-                                            System.out.println("No ingreso el voltaje nominal de prueba.\n");
-                                            return;
+                                            System.out.println("No ingreso un nuevo voltaje nominal de prueba.\n");
                                         }
                                         clasedit.VoltajePrueba = Double.parseDouble(nuevovol);
                                         System.out.println("Operación realizada con éxito.\n");
@@ -220,8 +232,7 @@ public class MenuClase{
                                         System.out.println("Ingrese la nueva corriente nominal de prueba [A]: ");
                                         String nuevocorr = input.readLine();
                                         if (nuevocorr.equals("")) {
-                                            System.out.println("No ingreso la corriente nominal de prueba.\n");
-                                            return;
+                                            System.out.println("No ingreso una nueva corriente nominal de prueba.\n");
                                         }
                                         clasedit.CorrientePrueba = Double.parseDouble(nuevocorr);
                                         System.out.println("Operación realizada con éxito.\n");
@@ -233,8 +244,7 @@ public class MenuClase{
                                         System.out.println("Ingrese el nuevo voltaje máximo de prueba [V]: ");
                                         String nuevovolm = input.readLine();
                                         if (nuevovolm.equals("")) {
-                                            System.out.println("No ingreso el voltaje máximo de prueba.\n");
-                                            return;
+                                            System.out.println("No ingreso un nuevo voltaje máximo de prueba.\n");
                                         }
                                         clasedit.VoltajeMaximo = Double.parseDouble(nuevovolm);
                                         System.out.println("Operación realizada con éxito.\n");
@@ -246,8 +256,7 @@ public class MenuClase{
                                         System.out.println("Ingrese la nueva corriente máxima de prueba [A]: ");
                                         String nuevocorrm = input.readLine();
                                         if (nuevocorrm.equals("")) {
-                                            System.out.println("No ingreso la corriente máxima de prueba.\n");
-                                            return;
+                                            System.out.println("No ingreso una nueva corriente máxima de prueba.\n");
                                         }
                                         clasedit.CorrienteMaxima = Double.parseDouble(nuevocorrm);
                                         System.out.println("Operación realizada con éxito.\n");
@@ -259,28 +268,20 @@ public class MenuClase{
                                         System.out.println("Ingrese el nuevo tiempo de prueba [s]: ");
                                         String nuevotiem = input.readLine();
                                         if (nuevotiem.equals("")) {
-                                            System.out.println("No ingreso el tiempo de prueba.\n");
-                                            return;
+                                            System.out.println("No ingreso un nuevo tiempo de prueba.\n");
                                         }
                                         clasedit.Tiempo = Double.parseDouble(nuevotiem);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
+                                    clasesquenoson.clear();
                                     break;
-                                }
-                                if (!normasquenoson.isEmpty()) {
-                                    System.out.println("La referencia ingreasada no se encuentra asignado a ninguna norma. ");
-                                    normasquenoson = null;
-                                    return;
-                                }
-                            }
-
                         } else {
                             clasesquenoson.add(clase);
-
                         }
                     }
                     if (!clasesquenoson.isEmpty()) {
                         System.out.println("La clase ingresada no se encuentra guardada en la base de datos.\n ");
+                        clasesquenoson.clear();
                         return;
                     }
 
@@ -318,6 +319,7 @@ public class MenuClase{
                                     break;
                                 }
                             }
+                            break;
                         }
                         for (Prueba prueba : Main.pruebas) {
                             if (prueba.Clase.equalsIgnoreCase(nombre)) {
@@ -327,7 +329,8 @@ public class MenuClase{
                         }
                         Main.dispositivos.remove(indiceclaseborrado);
                         System.out.println("Operación realizada con éxito.\n");
-                        return;
+                        clasesquenoson.clear();
+                        break;
 
                     } else {
                         clasesquenoson.add(clase);
@@ -335,7 +338,7 @@ public class MenuClase{
                 }
                 if (!clasesquenoson.isEmpty()) {
                     System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
-                    clasesquenoson = null;
+                    clasesquenoson.clear();
                     return;
                 }
 
