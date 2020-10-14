@@ -13,8 +13,9 @@
     "Nombre": "Laboratorio UNAL",
     "Direccion": "Bogota, Colombia",
     "TipoPruebas": [
-      "Prueba Aisladores tipo pin-Laboratorio UNAL"
+      "Prueba Aisladores tipo pin-Laboratorio UNAL",
+      "PRUEBA DE MAGNETISMO-Laboratorio UNAL"
     ],
-    "IDprueba": 2
+    "IDprueba": 3
   }
 ]

@@ -8,6 +8,14 @@
     "NitLaboratorio": 110250300
   },
   {
+    "Nombre": "PRUEBA DE MAGNETISMO-Laboratorio UNAL",
+    "RefNorma": "ASTM 800",
+    "Pruebas": [
+      "2-110250300"
+    ],
+    "NitLaboratorio": 110250300
+  },
+  {
     "Nombre": "Prueba vacio-Laboratorio Alto Voltaje",
     "RefNorma": "ansi 4325",
     "Pruebas": [
