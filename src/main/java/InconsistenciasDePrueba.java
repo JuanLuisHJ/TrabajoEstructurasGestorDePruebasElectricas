@@ -15,21 +15,27 @@ public class InconsistenciasDePrueba {
             System.out.println("Inconsistencias en Prueba de:");
             System.out.println("1. Informe.");
             System.out.println("2. Dispositivos.");
+            System.out.println("3. Tipo de Prueba.");
+            System.out.println("4. Clase.");
             System.out.println("0. Cancelar.");
             String seleccion = input.readLine();
             if (seleccion.equals("1")){
                 pruebaSinInforme();
-                return;
             }
             else if (seleccion.equals("2")){
                 pruebaSinDispositivo();
-                return;
+            }
+            else if (seleccion.equals("3")){
+                pruebaSinTipoPrueba();
+            }
+            else if (seleccion.equals("4")){
+                pruebaSinClase();
             }
             else if (seleccion.equals("0")){
                 return;
             }
             else {
-                System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"\n");
+                System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\", \"3\", \"4\" o \"0\"\n");
             }
         }
     }
@@ -193,6 +199,92 @@ public class InconsistenciasDePrueba {
         else {
             System.out.println("No se encontraron inconsistencias:");
             System.out.println("Todas las Pruebas tienen al menos un Dispositivo asociado\n");
+        }
+    }
+
+    public static void pruebaSinTipoPrueba() throws IOException {
+        System.out.println("En caso de eliminar un Tipo de Prueba, las Pruebas asociadas con este Tipo de Prueba quedan");
+        System.out.println("invalidadas, se mostrarán las Pruebas que no tienen ningún Tipo de Prueba asociado:\n");
+        boolean pruebaSinTipoDePrueba = false;
+        for (Prueba prueba : Main.pruebas){
+            if(prueba.TipoPrueba==null){
+                System.out.println(prueba);
+                pruebaSinTipoDePrueba = true;
+            }
+        }
+        if (pruebaSinTipoDePrueba){
+            System.out.println("Es necesario eliminar todas las Pruebas inválidas desde este menú:\n");
+            System.out.println("Diagnóstico de inconsistencias--->Pruebas--->Tipo de Prueba\n");
+            while (true){
+                System.out.println("¿Desea eliminar la/las Prueba/s ahora?");
+                System.out.println("1. SÍ");
+                System.out.println("2. NO");
+                String opcion = input.readLine();
+                if (opcion.equals("1")){
+                    for (int borrador=0;borrador< Main.pruebas.size();borrador++){
+                        if(Main.pruebas.get(borrador).TipoPrueba==null){
+                            System.out.println("Borrando...   "+Main.pruebas.get(borrador));
+                            Main.pruebas.remove(borrador);
+                        }
+                    }
+                    System.out.println("Se han eliminado las inconsistencias en las Pruebas por Tipo de Prueba\n");
+                    System.out.println("Recuerde revisar las inconsistencias de Informes, dado que se han eliminado Pruebas\n");
+                    return;
+                }
+                else if(opcion.equals("2")){
+                    return;
+                }
+                else{
+                    System.out.println("Por favor, ingrese una opción válida: \"1\" o \"2\"\n");
+                }
+            }
+        }
+        else {
+            System.out.println("No se encontraron inconsistencias:");
+            System.out.println("Todas las Pruebas tienen un Tipo de Prueba asociado.\n");
+        }
+    }
+
+    public static void pruebaSinClase() throws IOException {
+        System.out.println("En caso de eliminar una Clase, las Pruebas asociadas con esta Clase quedan");
+        System.out.println("invalidadas, se mostrarán las Pruebas que no tienen ninguna Clase asociada:\n");
+        boolean pruebaSinClase = false;
+        for (Prueba prueba : Main.pruebas){
+            if(prueba.Clase==null){
+                System.out.println(prueba);
+                pruebaSinClase = true;
+            }
+        }
+        if (pruebaSinClase){
+            System.out.println("Es necesario eliminar todas las Pruebas inválidas desde este menú:\n");
+            System.out.println("Diagnóstico de inconsistencias--->Pruebas--->Clase\n");
+            while (true){
+                System.out.println("¿Desea eliminar la/las Prueba/s ahora?");
+                System.out.println("1. SÍ");
+                System.out.println("2. NO");
+                String opcion = input.readLine();
+                if (opcion.equals("1")){
+                    for (int borrador=0;borrador< Main.pruebas.size();borrador++){
+                        if(Main.pruebas.get(borrador).Clase==null){
+                            System.out.println("Borrando...   "+Main.pruebas.get(borrador));
+                            Main.pruebas.remove(borrador);
+                        }
+                    }
+                    System.out.println("Se han eliminado las inconsistencias en las Pruebas por Clase\n");
+                    System.out.println("Recuerde revisar las inconsistencias de Informes, dado que se han eliminado Pruebas\n");
+                    return;
+                }
+                else if(opcion.equals("2")){
+                    return;
+                }
+                else{
+                    System.out.println("Por favor, ingrese una opción válida: \"1\" o \"2\"\n");
+                }
+            }
+        }
+        else {
+            System.out.println("No se encontraron inconsistencias:");
+            System.out.println("Todos las Pruebas tienen una Clase asociada.\n");
         }
     }
 
