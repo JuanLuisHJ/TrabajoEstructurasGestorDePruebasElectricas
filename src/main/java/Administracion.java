@@ -50,8 +50,10 @@ public class Administracion {
                 return;
             } else if (opcionA.equals("4")) {
                 MenuBusquedaInforme.BusquedaInforme();
+                return;
             } else if (opcionA.equals("5")) {
-
+                MenuBusquedaDispositivo.BusquedaDispositivo();
+                return;
             } else if (opcionA.equals("6")) {
 
             } else if (opcionA.equals("7")) {
