@@ -18,6 +18,7 @@ public class Administracion {
                 return;
             } else if (opcionA.equals("4")) {
                 MenuInforme.MenuInforme();
+                return;
             } else if (opcionA.equals("5")) {
                 MenuDispositivo.MenuDispositivo();
                 return;
@@ -28,7 +29,7 @@ public class Administracion {
                 MenuClase.MenuClase();
                 return;
             }else if (opcionA.equals("0")) {
-                break;
+                return;
             } else {
                 System.out.println("Por favor, ingrese una de las opciones válidas, \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\" o \"0\"\n");
             }
@@ -73,24 +74,31 @@ public class Administracion {
             String seleccion = input.readLine();
             if (seleccion.equals("1")){
                 InconsistenciasDeLaboratorio.InconsistenciasDeLaboratorio();
+                return;
             }
             else if (seleccion.equals("2")){
                 InconsistenciasDeTipoDePrueba.InconsistenciasDeTipoDePrueba();
+                return;
             }
             else if (seleccion.equals("3")){
                 InconsistenciasDePrueba.InconsistenciasDePrueba();
+                return;
             }
             else if (seleccion.equals("4")){
                 InconsistenciasDeInforme.InconsistenciasDeInforme();
+                return;
             }
             else if (seleccion.equals("5")){
                 System.out.println("La clase \"Dispositivos\" no presenta posibles inconsistencias\n");
+                return;
             }
             else if (seleccion.equals("6")){
                 InconsistenciasDeNorma.InconsistenciasDeNorma();
+                return;
             }
             else if (seleccion.equals("7")){
                 InconsistenciasDeClase.InconsistenciasDeClase();
+                return;
             }
             else if (seleccion.equals("0")){
                 return;

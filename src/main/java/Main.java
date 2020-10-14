@@ -22,12 +22,15 @@ public class Main {
         while (!acceso) {
             String seleccion = "";
             if (!seleccionsiregistro) {
-                System.out.println("Sistema de gestión de pruebas eléctricas:\n");
+                System.out.println("\nSistema de gestión de pruebas eléctricas:\n");
                 System.out.println("  1. Ingresar");
                 System.out.println("  2. Registrarse");
                 System.out.println("  0. Salir");
                 seleccion = input.readLine();
             }
+
+            // INGRESO USUARIO
+
             if (seleccion.equals("1") || seleccionsiregistro) {
                 if (seleccionsiregistro) {
                     seleccionsiregistro = false;
@@ -46,7 +49,7 @@ public class Main {
                         }
                     }
                     if (!encontrado) {
-                        System.out.println("Clases.Usuario con documento: \"" + documento + "\" no econtrado\n");
+                        System.out.println("Usuario con documento: \"" + documento + "\" no econtrado\n");
                     } else {
                         System.out.print("Ingrese contraseña: ");
                         String contraseña = input.readLine();
@@ -67,7 +70,7 @@ public class Main {
                         }
                     }
                     if (!encontrado) {
-                        System.out.println("Clases.Usuario con correo: \"" + ingreso + "\" no econtrado\n");
+                        System.out.println("Usuario con correo: \"" + ingreso + "\" no econtrado\n");
                     } else {
                         System.out.print("Ingrese contraseña: ");
                         String contraseña = input.readLine();
@@ -80,7 +83,11 @@ public class Main {
                         }
                     }
                 }
-            } else if (seleccion.equals("2")) {
+            }
+
+            // REGISTRO NUEVO USUARIO
+
+            else if (seleccion.equals("2")) {
                 int documento = -1;
                 boolean documentovalido = false;
                 boolean cancelarregistro = false;
@@ -146,12 +153,26 @@ public class Main {
                 if (cancelarregistro) {
                     continue;
                 }
+                String nombre;
+                String apellido;
+                String contraseña;
+                /*while (true) {
+                    System.out.print("Ingresar nombre: ");
+                    nombre = input.readLine();
+                    System.out.print("Ingresar apellido: ");
+                    apellido = input.readLine();
+                    System.out.print("Ingresar contraseña: ");
+                    contraseña = input.readLine();
+                    System.out.println("¿Está seguro de registrarse como usuario con los siguietes datos?\n");
+                    System.out.println("");
+
+                }*/
                 System.out.print("Ingresar nombre: ");
-                String nombre = input.readLine();
+                nombre = input.readLine();
                 System.out.print("Ingresar apellido: ");
-                String apellido = input.readLine();
+                apellido = input.readLine();
                 System.out.print("Ingresar contraseña: ");
-                String contraseña = input.readLine();
+                contraseña = input.readLine();
                 Usuario nuevousuario = new Usuario(documento, correo, nombre, apellido, contraseña);
                 Usuarios.add(nuevousuario);
                 try {
@@ -175,6 +196,9 @@ public class Main {
             } else {
                 System.out.println("Por favor, ingrese una opción válida: \"1\", \"2\" o \"0\"\n");
             }
+
+            // ACCESO AL PROGRAMA
+
             while(acceso){
                 System.out.println("1. Administración.");
                 System.out.println("2. Búsqueda.");
@@ -296,10 +320,10 @@ public class Main {
     }
     public static void BorrarDatos(String nombreDeArchivoJsonConExtension){
         try {
-            ArrayList<Usuario> usuarios = new ArrayList<>();
+            ArrayList<String> auxiliarvacio = new ArrayList<>();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Writer writer = Files.newBufferedWriter(Paths.get(nombreDeArchivoJsonConExtension));
-            gson.toJson(usuarios, writer);
+            gson.toJson(auxiliarvacio, writer);
             writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
