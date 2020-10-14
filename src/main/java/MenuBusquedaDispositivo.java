@@ -156,7 +156,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
                 
             } else if (opcion.equals("2")) {
@@ -170,7 +169,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("3")) {
@@ -184,7 +182,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("4")) {
@@ -201,7 +198,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             }  else if (opcion.equals("0")) {
@@ -234,7 +230,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("2")) {
@@ -248,7 +243,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("3")) {
@@ -262,7 +256,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("4")) {
@@ -279,7 +272,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             }  else if (opcion.equals("0")) {
@@ -313,7 +305,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("2")) {
@@ -327,7 +318,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("3")) {
@@ -341,7 +331,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             } else if (opcion.equals("4")) {
@@ -358,7 +347,6 @@ public class MenuBusquedaDispositivo {
                     }
                 }
                 OrganizarPorAtributo(dispositivos1);
-                editareliminarlistas(dispositivos1);
                 return;
 
             }  else if (opcion.equals("0")) {
@@ -393,6 +381,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     } else if (opc.equals("2")) {
                         dispositivos.sort(new ComparadorReferenciaDispositivo().reversed());
@@ -400,6 +389,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     }
                 }
@@ -415,6 +405,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     } else if (opc.equals("2")) {
                         dispositivos.sort(new ComparadorNombreDispositivo().reversed());
@@ -422,6 +413,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     }
                 }
@@ -438,6 +430,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     } else if (opc.equals("2")) {
                         dispositivos.sort(new ComparadorPotenciaNominalDispositivo().reversed());
@@ -445,6 +438,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     }
                 }
@@ -461,6 +455,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     } else if (opc.equals("2")) {
                         dispositivos.sort(new ComparadorVoltajeNominalDispositivo().reversed());
@@ -468,6 +463,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     }
                 }
@@ -484,6 +480,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     } else if (opc.equals("2")) {
                         dispositivos.sort(new ComparadorCorrienteNominalDispositivo().reversed());
@@ -491,6 +488,7 @@ public class MenuBusquedaDispositivo {
                             System.out.println("Indice: " + i + ".\n");
                             System.out.println(dispositivos);
                         }
+                        editareliminarlistas(dispositivos);
                         return;
                     }
                 }
@@ -639,7 +637,6 @@ public class MenuBusquedaDispositivo {
     }
 
     public static void eliminar(Dispositivo dispositivo) {
-        int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(dispositivo.Refetencia, null, 0, 0), new ComparadorReferenciaDispositivo());
         for (Prueba prueba : Main.pruebas) {
             for (int i = 0; i < prueba.RefDispositivos.size(); i++) {
                 if (prueba.RefDispositivos.get(i).equalsIgnoreCase(dispositivo.Refetencia)) {
@@ -648,7 +645,7 @@ public class MenuBusquedaDispositivo {
                 }
             }
         }
-        Main.dispositivos.remove(indicedispositivoborrado);
+        Main.dispositivos.remove(dispositivo);
         System.out.println("Operación realizada con éxito. \n");
     }
 }

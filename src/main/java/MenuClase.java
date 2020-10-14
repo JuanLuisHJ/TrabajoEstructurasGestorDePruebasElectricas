@@ -198,6 +198,7 @@ public class MenuClase{
                                     } else {
                                         clasedit.Norma = nuevonombrenorm;
                                         System.out.println("Operación realizada con éxito.\n");
+                                        break;
                                     }
                                     System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + " [V].");
                                     System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
@@ -268,6 +269,7 @@ public class MenuClase{
                                 }
                                 if (!normasquenoson.isEmpty()) {
                                     System.out.println("La referencia ingreasada no se encuentra asignado a ninguna norma. ");
+                                    normasquenoson = null;
                                     return;
                                 }
                             }
@@ -333,6 +335,7 @@ public class MenuClase{
                 }
                 if (!clasesquenoson.isEmpty()) {
                     System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                    clasesquenoson = null;
                     return;
                 }
 

@@ -55,7 +55,8 @@ public class Administracion {
                 MenuBusquedaDispositivo.BusquedaDispositivo();
                 return;
             } else if (opcionA.equals("6")) {
-
+                MenuBusquedaNorma.BusquedaNorma();
+                return;
             } else if (opcionA.equals("7")) {
                 
             }else if (opcionA.equals("0")) {
