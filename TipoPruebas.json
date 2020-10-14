@@ -1,5 +1,11 @@
 [
   {
+    "Nombre": "Prueba Aisladores tipo pin-Laboratorio UNAL",
+    "RefNorma": "IEEE 108",
+    "Pruebas": [],
+    "NitLaboratorio": 110250300
+  },
+  {
     "Nombre": "Prueba vacio-Laboratorio Alto Voltaje",
     "RefNorma": "ansi 4325",
     "Pruebas": [

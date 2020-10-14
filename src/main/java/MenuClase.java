@@ -61,12 +61,6 @@ public class MenuClase{
             }
         }
 
-        // OE Y ESTE IF , ELSE QUE SIGUE AQUÍ A SU LÓGICA NO LE AFECTA EN NADA
-        // SIMPLEMENTE EL PARÁMETRO QUE SE LLAMA "llamadoEn" LO RECIBE LA FUNCIÓN Y LO USÉ PARA PODER LLAMARLA
-        // DESDE LAS INCONSISTENCIAS SIN DAÑARLE NADA A UD,
-        // OBSERVE LA LÍNEA 29 DE ESTE CÓDIGO Y VERÁ QUE ESO NO LE AFECTA EN NADA, TAMBIÉN SE LO HICE A LOS
-        // DE MATEO Y DIJO QUE ESO NO AFECTABA, TONCES POR FA NO LO BORRE MEN QUE LO NECESITO EN OTRA PARTE
-
         String nombrenorm;
         if (llamadoEn.equals("Inconsistencias")){
             nombrenorm=ReferenciaDeInconsistencias;

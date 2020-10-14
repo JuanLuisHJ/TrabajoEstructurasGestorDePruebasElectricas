@@ -7,5 +7,14 @@
       "Prueba vacio-Laboratorio Alto Voltaje"
     ],
     "IDprueba": 7
+  },
+  {
+    "NIT": 110250300,
+    "Nombre": "Laboratorio UNAL",
+    "Direccion": "Bogota, Colombia",
+    "TipoPruebas": [
+      "Prueba Aisladores tipo pin-Laboratorio UNAL"
+    ],
+    "IDprueba": 1
   }
 ]
