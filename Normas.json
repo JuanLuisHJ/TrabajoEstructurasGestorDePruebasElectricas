@@ -7,6 +7,11 @@
     ]
   },
   {
+    "Nombre": "PRUEBAS DE MAGNETISMO",
+    "Referencia": "ASTM 800",
+    "Clases": []
+  },
+  {
     "Nombre": "Prueba de aisladores",
     "Referencia": "IEEE 108",
     "Clases": [

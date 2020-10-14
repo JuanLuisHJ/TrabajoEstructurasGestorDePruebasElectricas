@@ -184,6 +184,8 @@ public class InconsistenciasDePrueba {
                     for(String referenciaNueva : Dispositivos){
                         Main.pruebas.get(indice).RefDispositivos.add(referenciaNueva);
                     }
+                    System.out.println("Se han agregado los dispositivos.\n");
+                    return;
                 }
             }
             else if(opcion.equals("2")){
