@@ -10,6 +10,17 @@
     ]
   },
   {
+    "ID": "1-110250300",
+    "Nombre": "prueba aislador asd",
+    "TipoPrueba": "Prueba Aisladores tipo pin-Laboratorio UNAL",
+    "NumInforme": 15,
+    "Clase": "Clase 1",
+    "RefDispositivos": [
+      "R-250",
+      "AMP-789"
+    ]
+  },
+  {
     "ID": "3-100200300",
     "Nombre": "prueba de mierda",
     "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
@@ -37,16 +48,6 @@
     "Clase": "clase a",
     "RefDispositivos": [
       "t250"
-    ]
-  },
-  {
-    "ID": "6-100200300",
-    "Nombre": "Prueba de tu mai ",
-    "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
-    "NumInforme": 1,
-    "Clase": "clase a",
-    "RefDispositivos": [
-      "T250"
     ]
   }
 ]

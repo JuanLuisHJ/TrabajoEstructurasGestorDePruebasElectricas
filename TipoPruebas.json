@@ -2,7 +2,9 @@
   {
     "Nombre": "Prueba Aisladores tipo pin-Laboratorio UNAL",
     "RefNorma": "IEEE 108",
-    "Pruebas": [],
+    "Pruebas": [
+      "1-110250300"
+    ],
     "NitLaboratorio": 110250300
   },
   {
@@ -12,8 +14,7 @@
       "1-100200300",
       "2-100200300",
       "4-100200300",
-      "5-100200300",
-      "6-100200300"
+      "5-100200300"
     ],
     "NitLaboratorio": 100200300
   }
