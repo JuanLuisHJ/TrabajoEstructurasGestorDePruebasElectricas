@@ -212,15 +212,7 @@ public class MenuDispositivo {
                     ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                     for (Dispositivo dispositivo : Main.dispositivos) {
                         if (dispositivo.Nombre.equalsIgnoreCase(nombre)) {
-                            Dispositivo dispositivoedit = null;
-                            for (int i = 0; i < Main.dispositivos.size(); i++) {
-                                if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
-                                    dispositivoedit = Main.dispositivos.get(i);
-                                    break;
-                                }
-                            }
-                            assert dispositivoedit != null;
-                            System.out.println("La referencia del dispositivo seleccionado es: " + dispositivoedit.Refetencia + ".");
+                            System.out.println("La referencia del dispositivo seleccionado es: " + dispositivo.Refetencia + ".");
                             System.out.println("¿Desea modificar la referencia? (Y/N)");
                             String opcionref = input.readLine();
                             if (opcionref.equalsIgnoreCase("Y")) {
@@ -244,10 +236,10 @@ public class MenuDispositivo {
                                     }
                                     break;
                                 }
-                                dispositivoedit.Refetencia = nuevaref;
+                                dispositivo.Refetencia = nuevaref;
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("El nombre del dispositivo seleccionado es: " + dispositivoedit.Nombre + ".");
+                            System.out.println("El nombre del dispositivo seleccionado es: " + dispositivo.Nombre + ".");
                             System.out.println("¿Desea modificar el nombre? (Y/N)");
                             String opcionnombre = input.readLine();
                             if (opcionnombre.equalsIgnoreCase("Y")) {
@@ -262,10 +254,10 @@ public class MenuDispositivo {
                                         return;
                                     }
                                 }
-                                dispositivoedit.Nombre = nuevonombre;
+                                dispositivo.Nombre = nuevonombre;
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivoedit.PotenciaNominal + " [VA].");
+                            System.out.println("La potencia nominal del dispositivo seleccionado es: " + dispositivo.PotenciaNominal + " [VA].");
                             System.out.println("¿Desea modificar la potencia nominal? (Y/N)");
                             String opcionpotnom = input.readLine();
                             if (opcionpotnom.equalsIgnoreCase("Y")) {
@@ -277,10 +269,10 @@ public class MenuDispositivo {
                                     System.out.println("No se permiten valores negativos.\n");
                                     return;
                                 }
-                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
+                                dispositivo.PotenciaNominal = Double.parseDouble(nuevapotnom);
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivoedit.VoltajeNominal + " [V].");
+                            System.out.println("El voltaje nominal del dispositivo seleccionado es: " + dispositivo.VoltajeNominal + " [V].");
                             System.out.println("¿Desea modificar el voltaje nominal? (Y/N)");
                             String opcionvolnom = input.readLine();
                             if (opcionvolnom.equalsIgnoreCase("Y")) {
@@ -292,10 +284,10 @@ public class MenuDispositivo {
                                     System.out.println("No se permiten valores negativos.\n");
                                     return;
                                 }
-                                dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
+                                dispositivo.PotenciaNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito. \n");
                             }
-                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivoedit.CorrienteNominal + " [A].\n");
+                            System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivo.CorrienteNominal + " [A].\n");
                             dispositivosquenoson.clear();
                             break;
 
@@ -371,15 +363,8 @@ public class MenuDispositivo {
                 for (Dispositivo dispositivo : Main.dispositivos) {
                     if (!dispositivo.Nombre.equalsIgnoreCase(nombre)) {
                         dispositivosquenoson.add(dispositivo);
-
                     } else {
-                        String referenciaxnombre = null;
-                        for (Dispositivo dispositivo1 : Main.dispositivos) {
-                            if (dispositivo1.Nombre.equalsIgnoreCase(nombre)) {
-                                referenciaxnombre = dispositivo1.Refetencia;
-                                break;
-                            }
-                        }
+                        String referenciaxnombre = dispositivo.Refetencia;
                         for (Prueba prueba : Main.pruebas) {
                             for (int i = 0; i < prueba.RefDispositivos.size(); i++) {
                                 if (prueba.RefDispositivos.get(i).equalsIgnoreCase(referenciaxnombre)) {
@@ -388,13 +373,8 @@ public class MenuDispositivo {
                                 }
                             }
                         }
-                        for (int i = 0; i < Main.dispositivos.size(); i++) {
-                            if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
-                                Main.dispositivos.remove(i);
-                                System.out.println("Operación realizada con éxito. \n");
-                                break;
-                            }
-                        }
+                        Main.dispositivos.remove(dispositivo);
+                        System.out.println("Operación realizada con éxito. \n");
                         dispositivosquenoson.clear();
                         break;
                     }

@@ -117,7 +117,6 @@ public class MenuClase{
                 double tiempor = Double.parseDouble(tiempo);
                 Clase clasenueva = new Clase(nombre, nombrenorm, voltajer, corrienter, voltajemr, corrientemr, tiempor);
                 Main.clases.add(clasenueva);
-                Main.normas.sort(new ComparadorReferenciaNorma());
                 int indicenorma = Collections.binarySearch(Main.normas, new Norma(null, nombrenorm), new ComparadorReferenciaNorma());
                 Norma normadelaclase = Main.normas.get(indicenorma);
                 normadelaclase.Clases.add(nombre);
@@ -153,9 +152,7 @@ public class MenuClase{
                     ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : Main.clases) {
                         if (clase.Nombre.equalsIgnoreCase(nombre)) {
-                            int indiceclasedit = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
-                            Clase clasedit = Main.clases.get(indiceclasedit);
-                            System.out.println("El nombre de la clase seleccionada es: " + clasedit.Nombre + ".");
+                            System.out.println("El nombre de la clase seleccionada es: " + clase.Nombre + ".");
                             System.out.println("¿Desea modificar el nombre? (Y/N)");
                             String opcionnom = input.readLine();
                             if (opcionnom.equalsIgnoreCase("Y")) {
@@ -172,7 +169,7 @@ public class MenuClase{
                                 }
                                 for (Norma norma : Main.normas) {
                                     for (int i = 0; i < norma.Clases.size(); i++) {
-                                        if (norma.Clases.get(i).equalsIgnoreCase(clasedit.Nombre)) {
+                                        if (norma.Clases.get(i).equalsIgnoreCase(clase.Nombre)) {
                                             norma.Clases.set(i, nuevonom);
                                             break;
                                         }
@@ -180,14 +177,14 @@ public class MenuClase{
                                     break;
                                 }
                                 for (Prueba prueba : Main.pruebas) {
-                                    if (prueba.Clase.equalsIgnoreCase(clasedit.Nombre)) {
+                                    if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {
                                     prueba.Clase = nuevonom;
                                     }
                                 }
-                                clasedit.Nombre = nuevonom;
+                                clase.Nombre = nuevonom;
                                 System.out.println("Operación realizada con éxito.\n");
                             }
-                            System.out.println("La referencia de la norma asociada a la clase es: " + clasedit.Norma + ".");
+                            System.out.println("La referencia de la norma asociada a la clase es: " + clase.Norma + ".");
                             System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
                             String opcionnombrenorm = input.readLine();
                             if (opcionnombrenorm.equalsIgnoreCase("Y")) {
@@ -201,7 +198,7 @@ public class MenuClase{
                                     if (!norma.Referencia.equalsIgnoreCase(nuevonombrenorm)) {
                                         normasquenoson.add(norma);
                                     } else {
-                                        clasedit.Norma = nuevonombrenorm;
+                                        clase.Norma = nuevonombrenorm;
                                         normasquenoson.clear();
                                         System.out.println("Operación realizada con éxito.\n");
                                         break;
@@ -213,7 +210,7 @@ public class MenuClase{
                                         return;
                                     }
                               }
-                                System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clasedit.VoltajePrueba + " [V].");
+                                System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clase.VoltajePrueba + " [V].");
                                 System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
                                 String opcionvol = input.readLine();
                                     if (opcionvol.equalsIgnoreCase("Y")) {
@@ -222,10 +219,10 @@ public class MenuClase{
                                         if (nuevovol.equals("")) {
                                             System.out.println("No ingreso un nuevo voltaje nominal de prueba.\n");
                                         }
-                                        clasedit.VoltajePrueba = Double.parseDouble(nuevovol);
+                                        clase.VoltajePrueba = Double.parseDouble(nuevovol);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
-                                    System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clasedit.CorrientePrueba + " [A].");
+                                    System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clase.CorrientePrueba + " [A].");
                                     System.out.println("¿Desea modificar la corriente nominal de prueba de la clase? (Y/N)");
                                     String opcioncorr = input.readLine();
                                     if (opcioncorr.equalsIgnoreCase("Y")) {
@@ -234,10 +231,10 @@ public class MenuClase{
                                         if (nuevocorr.equals("")) {
                                             System.out.println("No ingreso una nueva corriente nominal de prueba.\n");
                                         }
-                                        clasedit.CorrientePrueba = Double.parseDouble(nuevocorr);
+                                        clase.CorrientePrueba = Double.parseDouble(nuevocorr);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
-                                    System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clasedit.VoltajeMaximo + " [V].");
+                                    System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clase.VoltajeMaximo + " [V].");
                                     System.out.println("¿Desea modificar el voltaje máximo de prueba de la clase? (Y/N)");
                                     String opcionvolm = input.readLine();
                                     if (opcionvolm.equalsIgnoreCase("Y")) {
@@ -246,10 +243,10 @@ public class MenuClase{
                                         if (nuevovolm.equals("")) {
                                             System.out.println("No ingreso un nuevo voltaje máximo de prueba.\n");
                                         }
-                                        clasedit.VoltajeMaximo = Double.parseDouble(nuevovolm);
+                                        clase.VoltajeMaximo = Double.parseDouble(nuevovolm);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
-                                    System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clasedit.CorrienteMaxima + " [A].");
+                                    System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clase.CorrienteMaxima + " [A].");
                                     System.out.println("¿Desea modificar la corriente máxima de prueba de la clase? (Y/N)");
                                     String opcioncorrm = input.readLine();
                                     if (opcioncorrm.equalsIgnoreCase("Y")) {
@@ -258,10 +255,10 @@ public class MenuClase{
                                         if (nuevocorrm.equals("")) {
                                             System.out.println("No ingreso una nueva corriente máxima de prueba.\n");
                                         }
-                                        clasedit.CorrienteMaxima = Double.parseDouble(nuevocorrm);
+                                        clase.CorrienteMaxima = Double.parseDouble(nuevocorrm);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
-                                    System.out.println("El tiempo de prueba de la clase seleccionada es: " + clasedit.Tiempo + " [s].");
+                                    System.out.println("El tiempo de prueba de la clase seleccionada es: " + clase.Tiempo + " [s].");
                                     System.out.println("¿Desea modificar el tiempo de prueba de la clase? (Y/N)");
                                     String opciontiem = input.readLine();
                                     if (opciontiem.equalsIgnoreCase("Y")) {
@@ -270,7 +267,7 @@ public class MenuClase{
                                         if (nuevotiem.equals("")) {
                                             System.out.println("No ingreso un nuevo tiempo de prueba.\n");
                                         }
-                                        clasedit.Tiempo = Double.parseDouble(nuevotiem);
+                                        clase.Tiempo = Double.parseDouble(nuevotiem);
                                         System.out.println("Operación realizada con éxito.\n");
                                     }
                                     clasesquenoson.clear();
@@ -311,7 +308,6 @@ public class MenuClase{
                 ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : Main.clases) {
                     if (clase.Nombre.equalsIgnoreCase(nombre)) {
-                        int indiceclaseborrado = Collections.binarySearch(Main.clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
                         for (Norma norma : Main.normas) {
                             for (String s : norma.Clases) {
                                 if (s.equalsIgnoreCase(nombre)) {
@@ -327,7 +323,7 @@ public class MenuClase{
                                 break;
                             }
                         }
-                        Main.dispositivos.remove(indiceclaseborrado);
+                        Main.clases.remove(clase);
                         System.out.println("Operación realizada con éxito.\n");
                         clasesquenoson.clear();
                         break;

@@ -775,112 +775,125 @@ public class MenuBusquedaClase {
     }
 
     public static void editar(Clase clase) throws IOException {
-            System.out.println("El nombre de la clase seleccionada es: " + clase.Nombre + ".");
-            System.out.println("¿Desea modificar el nombre? (Y/N)");
-            String opcionnom = input.readLine();
-            if (opcionnom.equalsIgnoreCase("Y")) {
-                System.out.println("Ingrese el nuevo nombre: ");
-                String nuevonom = input.readLine();
-                if (nuevonom.equals("")) {
-                    System.out.println("No ingreso un nuevo nombre.\n");
-                }
-                for (Clase clase1 : Main.clases) {
-                    if (clase1.Nombre.equalsIgnoreCase(nuevonom)) {
-                        System.out.println("El nombre ingresado ya se encuentra asignado a otra clase.\n");
-                        return;
-                    }
-                }
-                clase.Nombre = nuevonom;
-                System.out.println("Operación realizada con éxito.\n");
-
+        System.out.println("El nombre de la clase seleccionada es: " + clase.Nombre + ".");
+        System.out.println("¿Desea modificar el nombre? (Y/N)");
+        String opcionnom = input.readLine();
+        if (opcionnom.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese el nuevo nombre: ");
+            String nuevonom = input.readLine();
+            if (nuevonom.equals("")) {
+                System.out.println("No ingreso el nombre.\n");
             }
-            System.out.println("La referencia de la norma asociada a la clase es: " + clase.Norma + ".");
-            System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
-            String opcionnombrenorm = input.readLine();
-            if (opcionnombrenorm.equalsIgnoreCase("Y")) {
-                System.out.println("Ingrese la nueva referencia de la norma asociada: ");
-                String nuevonombrenorm = input.readLine();
-                if (nuevonombrenorm.equals("")) {
-                    System.out.println("No ingreso una nueva referencia.\n");
+            for (Clase clase1 : Main.clases) {
+                if (clase1.Nombre.equalsIgnoreCase(nuevonom)) {
+                    System.out.println("El nombre ingresado ya se encuentra asignado a otra clase.\n");
+                    return;
                 }
-                ArrayList<Norma> normasquenoson = new ArrayList<>();
-                for (Norma norma : Main.normas) {
-                    if (!norma.Referencia.equalsIgnoreCase(nuevonombrenorm)) {
-                        normasquenoson.add(norma);
-                    } else {
-                        clase.Norma = nuevonombrenorm;
-                        System.out.println("Operación realizada con éxito.\n");
+            }
+            for (Norma norma : Main.normas) {
+                for (int i = 0; i < norma.Clases.size(); i++) {
+                    if (norma.Clases.get(i).equalsIgnoreCase(clase.Nombre)) {
+                        norma.Clases.set(i, nuevonom);
                         break;
                     }
-                    System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clase.VoltajePrueba + " [V].");
-                    System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
-                    String opcionvol = input.readLine();
-                    if (opcionvol.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo voltaje nominal de prueba [V]: ");
-                        String nuevovol = input.readLine();
-                        if (nuevovol.equals("")) {
-                            System.out.println("No ingreso un nuevo voltaje nominal de prueba.\n");
-                        }
-                        clase.VoltajePrueba = Double.parseDouble(nuevovol);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clase.CorrientePrueba + " [A].");
-                    System.out.println("¿Desea modificar la corriente nominal de prueba de la clase? (Y/N)");
-                    String opcioncorr = input.readLine();
-                    if (opcioncorr.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva corriente nominal de prueba [A]: ");
-                        String nuevocorr = input.readLine();
-                        if (nuevocorr.equals("")) {
-                            System.out.println("No ingreso una nueva corriente nominal de prueba.\n");
-                        }
-                        clase.CorrientePrueba = Double.parseDouble(nuevocorr);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clase.VoltajeMaximo + " [V].");
-                    System.out.println("¿Desea modificar el voltaje máximo de prueba de la clase? (Y/N)");
-                    String opcionvolm = input.readLine();
-                    if (opcionvolm.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo voltaje máximo de prueba [V]: ");
-                        String nuevovolm = input.readLine();
-                        if (nuevovolm.equals("")) {
-                            System.out.println("No ingreso un nuevo voltaje máximo de prueba.\n");
-                        }
-                        clase.VoltajeMaximo = Double.parseDouble(nuevovolm);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clase.CorrienteMaxima + " [A].");
-                    System.out.println("¿Desea modificar la corriente máxima de prueba de la clase? (Y/N)");
-                    String opcioncorrm = input.readLine();
-                    if (opcioncorrm.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese la nueva corriente máxima de prueba [A]: ");
-                        String nuevocorrm = input.readLine();
-                        if (nuevocorrm.equals("")) {
-                            System.out.println("No ingreso una nueva corriente máxima de prueba.\n");
-
-                        }
-                        clase.CorrienteMaxima = Double.parseDouble(nuevocorrm);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
-                    System.out.println("El tiempo de prueba de la clase seleccionada es: " + clase.Tiempo + " [s].");
-                    System.out.println("¿Desea modificar el tiempo de prueba de la clase? (Y/N)");
-                    String opciontiem = input.readLine();
-                    if (opciontiem.equalsIgnoreCase("Y")) {
-                        System.out.println("Ingrese el nuevo tiempo de prueba [s]: ");
-                        String nuevotiem = input.readLine();
-                        if (nuevotiem.equals("")) {
-                            System.out.println("No ingreso un nuevo tiempo de prueba.\n");
-                        }
-                        clase.Tiempo = Double.parseDouble(nuevotiem);
-                        System.out.println("Operación realizada con éxito.\n");
-                    }
                 }
-                if (!normasquenoson.isEmpty()) {
-                    System.out.println("La referencia ingreasada no se encuentra asignado a ninguna norma. ");
-                    normasquenoson.clear();
+                break;
+            }
+            for (Prueba prueba : Main.pruebas) {
+                if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {
+                    prueba.Clase = nuevonom;
                 }
             }
+            clase.Nombre = nuevonom;
+            System.out.println("Operación realizada con éxito.\n");
         }
-
+        System.out.println("La referencia de la norma asociada a la clase es: " + clase.Norma + ".");
+        System.out.println("¿Desea modificar la referencia de la norma asociada? (Y/N)");
+        String opcionnombrenorm = input.readLine();
+        if (opcionnombrenorm.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese la nueva referencia de la norma asociada: ");
+            String nuevonombrenorm = input.readLine();
+            if (nuevonombrenorm.equals("")) {
+                System.out.println("No ingreso una nueva referencia.\n");
+            }
+            ArrayList<Norma> normasquenoson = new ArrayList<>();
+            for (Norma norma : Main.normas) {
+                if (!norma.Referencia.equalsIgnoreCase(nuevonombrenorm)) {
+                    normasquenoson.add(norma);
+                } else {
+                    clase.Norma = nuevonombrenorm;
+                    normasquenoson.clear();
+                    System.out.println("Operación realizada con éxito.\n");
+                    break;
+                }
+            }
+            if (!normasquenoson.isEmpty()) {
+                System.out.println("La referencia para la norma asociada no se encuentra guardada en la base de datos.\n ");
+                normasquenoson.clear();
+                return;
+            }
+        }
+        System.out.println("El voltaje nominal de prueba de la clase seleccionada es: " + clase.VoltajePrueba + " [V].");
+        System.out.println("¿Desea modificar el voltaje nominal de prueba de la clase? (Y/N)");
+        String opcionvol = input.readLine();
+        if (opcionvol.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese el nuevo voltaje nominal de prueba [V]: ");
+            String nuevovol = input.readLine();
+            if (nuevovol.equals("")) {
+                System.out.println("No ingreso un nuevo voltaje nominal de prueba.\n");
+            }
+            clase.VoltajePrueba = Double.parseDouble(nuevovol);
+            System.out.println("Operación realizada con éxito.\n");
+        }
+        System.out.println("La corriente nominal de prueba de la clase seleccionada es: " + clase.CorrientePrueba + " [A].");
+        System.out.println("¿Desea modificar la corriente nominal de prueba de la clase? (Y/N)");
+        String opcioncorr = input.readLine();
+        if (opcioncorr.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese la nueva corriente nominal de prueba [A]: ");
+            String nuevocorr = input.readLine();
+            if (nuevocorr.equals("")) {
+                System.out.println("No ingreso una nueva corriente nominal de prueba.\n");
+            }
+            clase.CorrientePrueba = Double.parseDouble(nuevocorr);
+            System.out.println("Operación realizada con éxito.\n");
+        }
+        System.out.println("El voltaje máximo de prueba de la clase seleccionada es: " + clase.VoltajeMaximo + " [V].");
+        System.out.println("¿Desea modificar el voltaje máximo de prueba de la clase? (Y/N)");
+        String opcionvolm = input.readLine();
+        if (opcionvolm.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese el nuevo voltaje máximo de prueba [V]: ");
+            String nuevovolm = input.readLine();
+            if (nuevovolm.equals("")) {
+                System.out.println("No ingreso un nuevo voltaje máximo de prueba.\n");
+            }
+            clase.VoltajeMaximo = Double.parseDouble(nuevovolm);
+            System.out.println("Operación realizada con éxito.\n");
+        }
+        System.out.println("La corriente máxima de prueba de la clase seleccionada es: " + clase.CorrienteMaxima + " [A].");
+        System.out.println("¿Desea modificar la corriente máxima de prueba de la clase? (Y/N)");
+        String opcioncorrm = input.readLine();
+        if (opcioncorrm.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese la nueva corriente máxima de prueba [A]: ");
+            String nuevocorrm = input.readLine();
+            if (nuevocorrm.equals("")) {
+                System.out.println("No ingreso una nueva corriente máxima de prueba.\n");
+            }
+            clase.CorrienteMaxima = Double.parseDouble(nuevocorrm);
+            System.out.println("Operación realizada con éxito.\n");
+        }
+        System.out.println("El tiempo de prueba de la clase seleccionada es: " + clase.Tiempo + " [s].");
+        System.out.println("¿Desea modificar el tiempo de prueba de la clase? (Y/N)");
+        String opciontiem = input.readLine();
+        if (opciontiem.equalsIgnoreCase("Y")) {
+            System.out.println("Ingrese el nuevo tiempo de prueba [s]: ");
+            String nuevotiem = input.readLine();
+            if (nuevotiem.equals("")) {
+                System.out.println("No ingreso un nuevo tiempo de prueba.\n");
+            }
+            clase.Tiempo = Double.parseDouble(nuevotiem);
+            System.out.println("Operación realizada con éxito.\n");
+        }
+    }
 
     public static void eliminar(Clase clase) {
         for (Norma norma : Main.normas) {
@@ -890,6 +903,7 @@ public class MenuBusquedaClase {
                     break;
                 }
             }
+            break;
         }
         for (Prueba prueba : Main.pruebas) {
             if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {

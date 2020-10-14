@@ -159,6 +159,17 @@ public class MenuBusquedaNorma {
                     return;
                 }
             }
+            for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                if (tipoprueba.RefNorma.equalsIgnoreCase(norma.Referencia)) {
+                    tipoprueba.RefNorma = nuevaref;
+                    break;
+                }
+            }
+            for (Clase clase : Main.clases) {
+                if (clase.Norma.equalsIgnoreCase(norma.Referencia)) {
+                    clase.Norma = nuevaref;
+                }
+            }
             norma.Referencia = nuevaref;
             System.out.println("Operación realizada con éxito.\n");
         }

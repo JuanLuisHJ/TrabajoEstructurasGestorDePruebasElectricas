@@ -578,6 +578,15 @@ public class MenuBusquedaDispositivo {
                     return;
                 }
             }
+            for (Prueba prueba : Main.pruebas) {
+                for (int h = 0; h < prueba.RefDispositivos.size(); h++) {
+                    if (prueba.RefDispositivos.get(h).equalsIgnoreCase(dispositivo.Refetencia)) {
+                        prueba.RefDispositivos.set(h, nuevaref);
+                        break;
+                    }
+                }
+                break;
+            }
             dispositivo.Refetencia = nuevaref;
             System.out.println("Operación realizada con éxito.\n");
         }
@@ -643,6 +652,7 @@ public class MenuBusquedaDispositivo {
         }
         Main.dispositivos.remove(dispositivo);
         System.out.println("Operación realizada con éxito. \n");
+
     }
 }
 
