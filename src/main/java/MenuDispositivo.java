@@ -1,4 +1,5 @@
 import Clases.Dispositivo;
+import Clases.Prueba;
 import Comparadores.ComparadoresDispositivo.*;
 
 import java.io.*;
@@ -75,9 +76,17 @@ public class MenuDispositivo {
         System.out.print("Ingrese la potencia nominal en [VA] del dispositivo: ");
         String potnom = input.readLine();
         double potnomr = Double.parseDouble(potnom);
+        if (potnomr < 0) {
+            System.out.println("No se permiten valores negativos.\n");
+            return;
+        }
         System.out.print("Ingrese el voltaje nominal del dispositivo [V]: ");
         String volnom = input.readLine();
         double volnomr = Double.parseDouble(volnom);
+        if (volnomr < 0) {
+            System.out.println("No se permiten valores negativos.\n");
+            return;
+        }
         Dispositivo dispositivonuevo = new Dispositivo(ref, nombre, potnomr, volnomr);
         Main.dispositivos.add(dispositivonuevo);
         Main.dispositivos.sort(new ComparadorReferenciaDispositivo());
@@ -153,6 +162,9 @@ public class MenuDispositivo {
                                 if (nuevapotnom.equals("")) {
                                     System.out.println("No ingreso la potencia nominal.\n");
                                     return;
+                                } else if (Double.parseDouble(nuevapotnom) < 0) {
+                                    System.out.println("No se permiten valores negativos.\n");
+                                    return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
                                 System.out.println("Operación realizada con éxito.\n");
@@ -166,6 +178,9 @@ public class MenuDispositivo {
                                 if (nuevavolnom.equals("")) {
                                     System.out.println("No ingreso el voltaje nominal.\n");
                                     return;
+                                } else if (Double.parseDouble(nuevavolnom) < 0) {
+                                    System.out.println("No se permiten valores negativos.\n");
+                                    return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito.\n");
@@ -174,13 +189,14 @@ public class MenuDispositivo {
                             break;
 
                         } else {
-                        dispositivosquenoson.add(dispositivo);
-                        }
-                        if (!dispositivosquenoson.isEmpty()) {
-                            System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n");
-                            return;
+                            dispositivosquenoson.add(dispositivo);
                         }
                     }
+                        if (!dispositivosquenoson.isEmpty()) {
+                            System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n");
+                            dispositivosquenoson = null;
+                            return;
+                        }
 
                 } else if (opcion.equals("2")) {
                     System.out.println("Ingrese el nombre del dispositivo: ");
@@ -246,6 +262,9 @@ public class MenuDispositivo {
                                 if (nuevapotnom.equals("")) {
                                     System.out.println("No ingresó la potencia nominal.\n");
                                     return;
+                                } else if (Double.parseDouble(nuevapotnom) < 0) {
+                                    System.out.println("No se permiten valores negativos.\n");
+                                    return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevapotnom);
                                 System.out.println("Operación realizada con éxito. \n");
@@ -259,6 +278,9 @@ public class MenuDispositivo {
                                 if (nuevavolnom.equals("")) {
                                     System.out.println("No ingresó el voltaje nominal. \n");
                                     return;
+                                } else if (Double.parseDouble(nuevavolnom) < 0) {
+                                    System.out.println("No se permiten valores negativos.\n");
+                                    return;
                                 }
                                 dispositivoedit.PotenciaNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito. \n");
@@ -269,11 +291,13 @@ public class MenuDispositivo {
                         } else {
                             dispositivosquenoson.add(dispositivo);
                         }
+                    }
                         if (!dispositivosquenoson.isEmpty()) {
                             System.out.println("El nombre ingresado no se encuentra asignado a ningun dispositivo.\n");
+                            dispositivosquenoson = null;
                             return;
                         }
-                    }
+
 
                 } else if (opcion.equals("0")) {
                     break;
@@ -305,6 +329,14 @@ public class MenuDispositivo {
                         dispositivosquenoson.add(dispositivo);
                     } else {
                         int indicedispositivoborrado = Collections.binarySearch(Main.dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
+                        for (Prueba prueba : Main.pruebas) {
+                            for (int i = 0; i < prueba.RefDispositivos.size(); i++) {
+                                if (prueba.RefDispositivos.get(i).equalsIgnoreCase(ref)) {
+                                    prueba.RefDispositivos.remove(i);
+                                    break;
+                                }
+                            }
+                        }
                         Main.dispositivos.remove(indicedispositivoborrado);
                         System.out.println("Operación realizada con éxito. \n");
                         return;
@@ -312,6 +344,7 @@ public class MenuDispositivo {
                 }
                 if (!dispositivosquenoson.isEmpty()) {
                     System.out.println("La referencia ingresada no se encuentra asignada a ningun dispositivo.\n ");
+                    dispositivosquenoson = null;
                     return;
                 }
 
@@ -329,6 +362,21 @@ public class MenuDispositivo {
                         dispositivosquenoson.add(dispositivo);
 
                     } else {
+                        String referenciaxnombre = null;
+                        for (Dispositivo dispositivo1 : Main.dispositivos) {
+                            if (dispositivo1.Nombre.equalsIgnoreCase(nombre)) {
+                                referenciaxnombre = dispositivo1.Refetencia;
+                                break;
+                            }
+                        }
+                        for (Prueba prueba : Main.pruebas) {
+                            for (int i = 0; i < prueba.RefDispositivos.size(); i++) {
+                                if (prueba.RefDispositivos.get(i).equalsIgnoreCase(referenciaxnombre)) {
+                                    prueba.RefDispositivos.remove(i);
+                                    break;
+                                }
+                            }
+                        }
                         for (int i = 0; i < Main.dispositivos.size(); i++) {
                             if (Main.dispositivos.get(i).Nombre.equalsIgnoreCase(nombre)) {
                                 Main.dispositivos.remove(i);
@@ -340,6 +388,8 @@ public class MenuDispositivo {
                 }
                 if (!dispositivosquenoson.isEmpty()) {
                     System.out.println("El nombre ingresado no coincide con ningun dispositivo guardado.\n ");
+                    dispositivosquenoson = null;
+                    return;
                 }
 
             } else if (opcion.equals("0")) {

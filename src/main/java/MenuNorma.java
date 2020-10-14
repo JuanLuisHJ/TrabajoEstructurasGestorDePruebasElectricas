@@ -1,4 +1,6 @@
+import Clases.Clase;
 import Clases.Norma;
+import Clases.TipoPrueba;
 import Comparadores.ComparadoresNorma.*;
 
 import java.io.*;
@@ -147,6 +149,7 @@ public class MenuNorma {
 
                     if (!normasquenoson.isEmpty()) {
                         System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                        normasquenoson = null;
                         return;
                     }
 
@@ -214,6 +217,7 @@ public class MenuNorma {
 
                     if (!normasquenoson.isEmpty()) {
                         System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
+                        normasquenoson = null;
                         return;
                     }
 
@@ -245,10 +249,19 @@ public class MenuNorma {
                 for (Norma norma : Main.normas) {
                     if (norma.Referencia.equalsIgnoreCase(ref)) {
                         int indicenormaborrado = Collections.binarySearch(Main.normas, new Norma(null, ref), new ComparadorReferenciaNorma());
+                        for (Clase clase : Main.clases) {
+                            if (clase.Norma.equalsIgnoreCase(ref)) {
+                                clase.Norma = null;
+                                break;
+                            }
+                        }
+                        for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                            if (tipoprueba.RefNorma.equalsIgnoreCase(ref)) {
+                                tipoprueba.RefNorma = null;
+                                break;
+                            }
+                        }
                         Main.normas.remove(indicenormaborrado);
-
-                        // IR A LAS "CLASES" Y ESTABLECER EN NULL EL ATRIBUTO "NORMA"
-
                         System.out.println("Operación realizada con éxito.\n");
                         return;
 
@@ -259,6 +272,7 @@ public class MenuNorma {
 
                 if (!normasquenoson.isEmpty()) {
                     System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                    normasquenoson = null;
                     return;
                 }
 
@@ -276,15 +290,30 @@ public class MenuNorma {
                         return;
                     }
                 }
+                String referenciaxnombre = null;
+                for (Norma norma : Main.normas) {
+                    if (norma.Nombre.equalsIgnoreCase(nombre)) {
+                        referenciaxnombre = norma.Referencia;
+                        break;
+                    }
+                }
+                for (TipoPrueba tipoprueba : Main.tipopruebas) {
+                    if (tipoprueba.RefNorma.equalsIgnoreCase(referenciaxnombre)) {
+                        tipoprueba.RefNorma = null;
+                        break;
+                    }
+                }
+                for (Clase clase : Main.clases) {
+                    if (clase.Norma.equalsIgnoreCase(referenciaxnombre)) {
+                        clase.Norma = null;
+                        break;
+                    }
+                }
                 for (int i = 0; i < Main.normas.size(); i++) {
                     if (Main.normas.get(i).Nombre.equalsIgnoreCase(nombre)) {
                         Main.normas.remove(i);
-
-
-                        // IR A LAS "CLASES" Y ESTABLECER EN NULL EL ATRIBUTO "NORMA"
-
-
                         break;
+
                     } else {
                         normasquenoson.add(Main.normas.get(i));
                     }
@@ -292,6 +321,7 @@ public class MenuNorma {
 
                 if (!normasquenoson.isEmpty()) {
                     System.out.println("El nombre ingresado no se encuentra asignado a ninguna norma.\n");
+                    normasquenoson = null;
                     return;
                 }
             }
