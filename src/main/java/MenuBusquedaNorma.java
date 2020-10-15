@@ -1,7 +1,7 @@
 import Clases.Clase;
 import Clases.Norma;
 import Clases.TipoPrueba;
-import Comparadores.ComparadoresNorma;
+import Comparadores.ComparadoresNorma.*;
 
 
 import java.io.*;
@@ -31,6 +31,7 @@ public class MenuBusquedaNorma {
                     System.out.println("Indice: " + i + ".\n");
                     System.out.println(normas.get(i));
                 }
+                OrganizarPorAtributo(normas);
                 return;
 
             } else if (opcionA.equals("0")) {
@@ -52,7 +53,7 @@ public class MenuBusquedaNorma {
             if (opcion.equals("1")) {
                 System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadoresNorma.ComparadorReferenciaNorma());
+                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                 System.out.println(normas.get(indiceref));
                 editareliminarUK(normas.get(indiceref));
                 System.out.println("Operación realizada con éxito.\n ");
@@ -61,7 +62,7 @@ public class MenuBusquedaNorma {
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadoresNorma.ComparadorReferenciaNorma());
+                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadorReferenciaNorma());
                 System.out.println(normas.get(indiceref));
                 editareliminarUK(normas.get(indiceref));
                 System.out.println("Operación realizada con éxito.\n ");
@@ -208,6 +209,109 @@ public class MenuBusquedaNorma {
         }
         Main.normas.remove(norma);
         System.out.println("Operación realizada con éxito.\n");
+    }
+
+    public static void OrganizarPorAtributo(ArrayList<Norma> normas) throws IOException {
+        while(true) {
+            System.out.println("Seleccione el atributo por el que desea organizar la lista para impresión. ");
+            System.out.println("1. Nombre.");
+            System.out.println("2. Referencia.");
+            System.out.println("0. Cancelar");
+            String opcionA = input.readLine();
+            if (opcionA.equals("1")) {
+                while (true) {
+                    System.out.println("Seleccione una opción:\n");
+                    System.out.println("1. Organizar ascendente.");
+                    System.out.println("2. Organizar descendente. ");
+                    String opc = input.readLine();
+                    if (opc.equals("1")) {
+                        normas.sort(new ComparadorNombreNorma());
+                        for (int i = 0; i < normas.size(); i++) {
+                            System.out.println("Indice: " + i + ".\n");
+                            System.out.println(normas);
+                        }
+                        editareliminarlistas(normas);
+                        return;
+                    } else if (opc.equals("2")) {
+                        normas.sort(new ComparadorNombreNorma().reversed());
+                        for (int i = 0; i < normas.size(); i++) {
+                            System.out.println("Indice: " + i + ".\n");
+                            System.out.println(normas);
+                        }
+                        editareliminarlistas(normas);
+                        return;
+                    }
+                }
+
+            } else if (opcionA.equals("2")) {
+                while (true) {
+                    System.out.println("Seleccione una opción:\n");
+                    System.out.println("1. Organizar ascendente.");
+                    System.out.println("2. Organizar descendente. ");
+                    String opc = input.readLine();
+                    if (opc.equals("1")) {
+                        normas.sort(new ComparadorReferenciaNorma());
+                        for (int i = 0; i < normas.size(); i++) {
+                            System.out.println("Indice: " + i + ".\n");
+                            System.out.println(normas);
+                        }
+                        editareliminarlistas(normas);
+                        return;
+
+                    } else if (opc.equals("2")) {
+                        normas.sort(new ComparadorReferenciaNorma().reversed());
+                        for (int i = 0; i < normas.size(); i++) {
+                            System.out.println("Indice: " + i + ".\n");
+                            System.out.println(normas);
+                        }
+                        editareliminarlistas(normas);
+                        return;
+                    }
+                }
+            }else if (opcionA.equals("0")) {
+                break;
+
+            } else {
+                System.out.println("La opción ingresada no es válida.\n");
+            }
+
+        }
+    }
+
+    public static void editareliminarlistas(ArrayList<Norma> normas) throws IOException {
+
+        while (true) {
+            System.out.println("Seleccione una opción:\n");
+            System.out.println("1. Editar.");
+            System.out.println("2. Eliminar. ");
+            System.out.println("0. Cancelar. ");
+            String opc = input.readLine();
+            if (opc.equals("1")) {
+                System.out.println("Ingrese el indice del elemento que desea modificar: ");
+                String indice = input.readLine();
+                double indicer = Double.parseDouble(indice);
+                for (int i = 0; i < normas.size(); i++) {
+                    if (indicer == i) {
+                        editar(normas.get(i));
+                        break;
+                    }
+                }
+
+            } else if (opc.equals("2")) {
+                System.out.println("Ingrese el indice del elemento que desea modificar: ");
+                String indice = input.readLine();
+                double indicer = Double.parseDouble(indice);
+                for (int i = 0; i < normas.size(); i++) {
+                    if (indicer == i) {
+                        eliminar(normas.get(i));
+                        break;
+                    }
+                }
+            } else if (opc.equals("0")) {
+                break;
+
+            }
+        }
     }
 }
 

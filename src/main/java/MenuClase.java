@@ -174,7 +174,6 @@ public class MenuClase{
                                             break;
                                         }
                                     }
-                                    break;
                                 }
                                 for (Prueba prueba : Main.pruebas) {
                                     if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {
@@ -315,12 +314,10 @@ public class MenuClase{
                                     break;
                                 }
                             }
-                            break;
                         }
                         for (Prueba prueba : Main.pruebas) {
                             if (prueba.Clase.equalsIgnoreCase(nombre)) {
                                 prueba.Clase = null;
-                                break;
                             }
                         }
                         Main.clases.remove(clase);

@@ -1,10 +1,7 @@
 import Clases.Clase;
-import Clases.Dispositivo;
 import Clases.Norma;
 import Clases.Prueba;
 import Comparadores.ComparadoresClase.*;
-
-
 
 import java.io.*;
 import java.util.*;
@@ -13,7 +10,7 @@ public class MenuBusquedaClase {
     public static BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
     public static void BusquedaClase () throws IOException {
-        ArrayList<Dispositivo> dispositivos = Main.dispositivos;
+        ArrayList<Clase> clases = Main.clases;
         while (true) {
             System.out.println("1. Nombre.");
             System.out.println("2. Referencia de norma asociada.");
@@ -53,10 +50,11 @@ public class MenuBusquedaClase {
                 return;
 
             } else if (opcionA.equals("8")) {
-                for (int i = 0; i < dispositivos.size(); i++) {
+                for (int i = 0; i < clases.size(); i++) {
                     System.out.println("Indice: " + i + ".\n");
-                    System.out.println(dispositivos.get(i));
+                    System.out.println(clases.get(i));
                 }
+                OrganizarPorAtributo(clases);
                 return;
 
             } else if (opcionA.equals("0")) {
@@ -797,7 +795,6 @@ public class MenuBusquedaClase {
                         break;
                     }
                 }
-                break;
             }
             for (Prueba prueba : Main.pruebas) {
                 if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {
@@ -903,12 +900,10 @@ public class MenuBusquedaClase {
                     break;
                 }
             }
-            break;
         }
         for (Prueba prueba : Main.pruebas) {
             if (prueba.Clase.equalsIgnoreCase(clase.Nombre)) {
                 prueba.Clase = null;
-                break;
             }
         }
         Main.clases.remove(clase);

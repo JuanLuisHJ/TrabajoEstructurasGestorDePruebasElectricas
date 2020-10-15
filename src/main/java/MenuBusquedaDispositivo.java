@@ -45,6 +45,7 @@ public class MenuBusquedaDispositivo {
                         System.out.println("Indice: " + i + ".\n");
                         System.out.println(dispositivos.get(i));
                     }
+                    OrganizarPorAtributo(dispositivos);
                     return;
 
                 } else if (opcionA.equals("0")) {
@@ -585,7 +586,6 @@ public class MenuBusquedaDispositivo {
                         break;
                     }
                 }
-                break;
             }
             dispositivo.Refetencia = nuevaref;
             System.out.println("Operación realizada con éxito.\n");

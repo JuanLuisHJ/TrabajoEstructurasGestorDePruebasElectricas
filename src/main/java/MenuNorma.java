@@ -117,12 +117,12 @@ public class MenuNorma {
                                 for (TipoPrueba tipoprueba : Main.tipopruebas) {
                                     if (tipoprueba.RefNorma.equalsIgnoreCase(norma.Referencia)) {
                                         tipoprueba.RefNorma = nuevaref;
-                                        break;
                                     }
                                 }
                                 for (Clase clase : Main.clases) {
                                     if (clase.Norma.equalsIgnoreCase(norma.Referencia)) {
                                         clase.Norma = nuevaref;
+                                        break;
                                     }
                                 }
                                 norma.Referencia = nuevaref;
@@ -188,12 +188,12 @@ public class MenuNorma {
                                 for (TipoPrueba tipoprueba : Main.tipopruebas) {
                                     if (tipoprueba.RefNorma.equalsIgnoreCase(norma.Referencia)) {
                                         tipoprueba.RefNorma = nuevaref;
-                                        break;
                                     }
                                 }
                                 for (Clase clase : Main.clases) {
                                     if (clase.Norma.equalsIgnoreCase(norma.Referencia)) {
                                         clase.Norma = nuevaref;
+                                        break;
                                     }
                                 }
                                 norma.Referencia = nuevaref;
@@ -267,7 +267,6 @@ public class MenuNorma {
                         for (TipoPrueba tipoprueba : Main.tipopruebas) {
                             if (tipoprueba.RefNorma.equalsIgnoreCase(ref)) {
                                 tipoprueba.RefNorma = null;
-                                break;
                             }
                         }
                         Main.normas.remove(norma);
@@ -300,7 +299,6 @@ public class MenuNorma {
                         for (TipoPrueba tipoprueba : Main.tipopruebas) {
                             if (tipoprueba.RefNorma.equalsIgnoreCase(referenciaxnombre)) {
                                 tipoprueba.RefNorma = null;
-                                break;
                             }
                         }
                         for (Clase clase : Main.clases) {

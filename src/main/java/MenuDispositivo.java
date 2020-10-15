@@ -135,7 +135,6 @@ public class MenuDispositivo {
                                             break;
                                         }
                                     }
-                                    break;
                                 }
                                 dispositivo.Refetencia = nuevaref;
                                 System.out.println("Operación realizada con éxito.\n");
@@ -234,7 +233,6 @@ public class MenuDispositivo {
                                             break;
                                         }
                                     }
-                                    break;
                                 }
                                 dispositivo.Refetencia = nuevaref;
                                 System.out.println("Operación realizada con éxito. \n");
