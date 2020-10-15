@@ -64,7 +64,7 @@ public class InconsistenciasDeTipoDePrueba {
                 if (opcion.equals("1")){
                     String nombreTipoDePrueba;
                     while (true){
-                        System.out.print("Seleccione el número correspondiente al Nombre del Tipo de Prueba al cual desea agregar la Prueba: ");
+                        System.out.print("Seleccione el número de la lista anterior correspondiente al Nombre del Tipo de Prueba al cual desea agregar la Prueba: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{

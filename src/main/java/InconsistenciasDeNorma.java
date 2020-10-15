@@ -38,7 +38,7 @@ public class InconsistenciasDeNorma {
                 if (opcion.equals("1")){
                     String Referencia;
                     while (true){
-                        System.out.print("Seleccione el número correspondiente a la Referencia de la Norma a la cual desea agregar la Clase: ");
+                        System.out.print("Seleccione el número de la lista anterior correspondiente a la Referencia de la Norma a la cual desea agregar la Clase: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{

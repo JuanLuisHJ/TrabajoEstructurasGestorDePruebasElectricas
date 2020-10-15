@@ -72,7 +72,7 @@ public class InconsistenciasDePrueba {
                 if (opcion.equals("1")){
                     String ID;
                     while (true){
-                        System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar el Informe: ");
+                        System.out.print("Seleccione el número de la lista anterior correspondiente al ID de Prueba a la cual desea agregar el Informe: ");
                         String ingreso = input.readLine();
                         int indice;
                         try{
@@ -131,7 +131,7 @@ public class InconsistenciasDePrueba {
             if (opcion.equals("1")){
                 String ID;
                 while (true){
-                    System.out.print("Seleccione el número correspondiente al ID de Prueba a la cual desea agregar Dispositivos: ");
+                    System.out.print("Seleccione el número de la lista anterior correspondiente al ID de Prueba a la cual desea agregar Dispositivos: ");
                     String ingreso = input.readLine();
                     int indice;
                     try{
