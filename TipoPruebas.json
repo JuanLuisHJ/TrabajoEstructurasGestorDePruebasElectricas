@@ -6,16 +6,25 @@
     "NitLaboratorio": 100200300
   },
   {
+    "Nombre": "Prueba de Magnetización-Laboratorio de Magnetismo",
+    "RefNorma": "astm 800",
+    "Pruebas": [],
+    "NitLaboratorio": 400500600
+  },
+  {
     "Nombre": "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo",
     "RefNorma": "ASTM 800",
-    "Pruebas": [],
+    "Pruebas": [
+      "1-400500600"
+    ],
     "NitLaboratorio": 400500600
   },
   {
     "Nombre": "Prueba de Semiconductores-Laboratorio de Electrónica",
     "RefNorma": "iec 700",
     "Pruebas": [
-      "1-100400800"
+      "1-100400800",
+      "2-100400800"
     ],
     "NitLaboratorio": 100400800
   },
@@ -34,5 +43,13 @@
       "1-100200300"
     ],
     "NitLaboratorio": 100200300
+  },
+  {
+    "Nombre": "Pruebas de Potencia-Laboratorio de Aislamientos",
+    "RefNorma": "IEEE 300",
+    "Pruebas": [
+      "2-200300400"
+    ],
+    "NitLaboratorio": 200300400
   }
 ]

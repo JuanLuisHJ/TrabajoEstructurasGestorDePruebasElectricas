@@ -33,5 +33,44 @@
       "T-650",
       "M-007"
     ]
+  },
+  {
+    "ID": "1-400500600",
+    "Nombre": "Magnetización de Rotor",
+    "TipoPrueba": "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo",
+    "NumInforme": -1,
+    "Clase": "Clase B",
+    "RefDispositivos": [
+      "g-100",
+      "gic-700",
+      "m-009",
+      "r-500"
+    ]
+  },
+  {
+    "ID": "2-100400800",
+    "Nombre": "Diodos ShotKey",
+    "TipoPrueba": "prueba de semiconductores-Laboratorio de Electrónica",
+    "NumInforme": -1,
+    "Clase": "silicio",
+    "RefDispositivos": [
+      "giv-900",
+      "m-007",
+      "t-300"
+    ]
+  },
+  {
+    "ID": "2-200300400",
+    "Nombre": "Corriente superficial",
+    "TipoPrueba": "Pruebas de potencia-Laboratorio de Aislamientos",
+    "NumInforme": 17,
+    "Clase": "clase p",
+    "RefDispositivos": [
+      "t-650",
+      "t-300",
+      "t-100",
+      "m-007",
+      "m-009"
+    ]
   }
 ]

@@ -45,6 +45,15 @@
     "Tiempo": 90.0
   },
   {
+    "Nombre": "Clase P",
+    "Norma": "ieee 300",
+    "VoltajePrueba": 100000.0,
+    "CorrientePrueba": 750.0,
+    "VoltajeMaximo": 110000.0,
+    "CorrienteMaxima": 1000.0,
+    "Tiempo": 180.0
+  },
+  {
     "Nombre": "Germanio",
     "Norma": "IEC 700",
     "VoltajePrueba": 1.5,

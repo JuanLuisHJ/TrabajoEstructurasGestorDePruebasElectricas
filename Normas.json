@@ -27,7 +27,9 @@
   {
     "Nombre": "Pruebas de Corriente",
     "Referencia": "IEEE 300",
-    "Clases": []
+    "Clases": [
+      "Clase P"
+    ]
   },
   {
     "Nombre": "Pruebas de Aislamientos",

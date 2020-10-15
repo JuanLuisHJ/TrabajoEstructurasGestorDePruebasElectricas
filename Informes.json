@@ -22,5 +22,13 @@
     "Temperatura": 21.0,
     "Humedad": 59.0,
     "Presion": 678.0
+  },
+  {
+    "IDPrueba": 17,
+    "Resultado": true,
+    "Comentarios": "Corriente dentro del rango",
+    "Temperatura": 28.0,
+    "Humedad": 69.0,
+    "Presion": 760.0
   }
 ]

@@ -16,25 +16,27 @@
     "TipoPruebas": [
       "Prueba de Semiconductores-Laboratorio de Electrónica"
     ],
-    "IDprueba": 2
+    "IDprueba": 3
   },
   {
     "NIT": 200300400,
     "Nombre": "Laboratorio de Aislamientos",
     "Direccion": "Cali, Colombia",
     "TipoPruebas": [
-      "Prueba de Voltaje sostenido-Laboratorio de Aislamientos"
+      "Prueba de Voltaje sostenido-Laboratorio de Aislamientos",
+      "Pruebas de Potencia-Laboratorio de Aislamientos"
     ],
-    "IDprueba": 2
+    "IDprueba": 3
   },
   {
     "NIT": 400500600,
     "Nombre": "Laboratorio de Magnetismo",
     "Direccion": "Medellín, Colombia",
     "TipoPruebas": [
-      "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo"
+      "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo",
+      "Prueba de Magnetización-Laboratorio de Magnetismo"
     ],
-    "IDprueba": 1
+    "IDprueba": 2
   },
   {
     "NIT": 500600700,
