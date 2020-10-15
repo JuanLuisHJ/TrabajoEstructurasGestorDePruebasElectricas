@@ -25,7 +25,6 @@ public class Laboratorio {
         print += "Nombre:          " + Nombre + "." + "\n";
         print += "Dirección:       " + Direccion + "." + "\n";
         print += "Tipo de pruebas: " + tipopruebas + "." + "\n";
-        print += "ID prueba:       " + IDprueba + "." + "\n";
         print += "---------------------------------------------";
         return print;
     }
