@@ -184,9 +184,10 @@ public class MenuDispositivo {
                                     System.out.println("No se permiten valores negativos.\n");
                                     return;
                                 }
-                                dispositivo.PotenciaNominal = Double.parseDouble(nuevavolnom);
+                                dispositivo.VoltajeNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito.\n");
                             }
+                            dispositivo.CorrienteNominal = dispositivo.PotenciaNominal/ dispositivo.VoltajeNominal;
                             System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivo.CorrienteNominal + " [A].\n");
                             dispositivosquenoson.clear();
                             break;
@@ -282,9 +283,10 @@ public class MenuDispositivo {
                                     System.out.println("No se permiten valores negativos.\n");
                                     return;
                                 }
-                                dispositivo.PotenciaNominal = Double.parseDouble(nuevavolnom);
+                                dispositivo.VoltajeNominal = Double.parseDouble(nuevavolnom);
                                 System.out.println("Operación realizada con éxito. \n");
                             }
+                            dispositivo.CorrienteNominal = dispositivo.PotenciaNominal/ dispositivo.VoltajeNominal;
                             System.out.println("La corriente nominal del dispositivo seleccionado es: " + dispositivo.CorrienteNominal + " [A].\n");
                             dispositivosquenoson.clear();
                             break;
