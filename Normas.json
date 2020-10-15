@@ -1,25 +1,2 @@
 [
-  {
-    "Nombre": "Pruebas de transfromadores",
-    "Referencia": "ANSI 4325",
-    "Clases": [
-      "Clase A"
-    ]
-  },
-  {
-    "Nombre": "PRUEBAS DE MAGNETISMO",
-    "Referencia": "ASTM 800",
-    "Clases": [
-      "Clase 0"
-    ]
-  },
-  {
-    "Nombre": "Pruebas de aislamiento",
-    "Referencia": "IEEE 108",
-    "Clases": [
-      "Clase 1",
-      "Clase 2",
-      "Clase 3"
-    ]
-  }
 ]

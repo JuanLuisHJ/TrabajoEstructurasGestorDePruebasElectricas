@@ -1,28 +1,2 @@
 [
-  {
-    "NIT": 100200300,
-    "Nombre": "Laboratorio Alto Voltaje",
-    "Direccion": "Medellin Colombia",
-    "TipoPruebas": [
-      "Prueba vacio-Laboratorio Alto Voltaje"
-    ],
-    "IDprueba": 7
-  },
-  {
-    "NIT": 110250300,
-    "Nombre": "Laboratorio UNAL",
-    "Direccion": "Bogota, Colombia",
-    "TipoPruebas": [
-      "Prueba Aisladores tipo pin-Laboratorio UNAL",
-      "PRUEBA DE MAGNETISMO-Laboratorio UNAL"
-    ],
-    "IDprueba": 3
-  },
-  {
-    "NIT": 321654987,
-    "Nombre": "LAV",
-    "Direccion": "Cali ",
-    "TipoPruebas": [],
-    "IDprueba": 1
-  }
 ]
