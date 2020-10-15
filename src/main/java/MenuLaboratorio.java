@@ -153,6 +153,7 @@ public class MenuLaboratorio {
                 Main.laboratorios.add(nuevoLab);
             }
         }
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -225,6 +226,7 @@ public class MenuLaboratorio {
             if (confir.equalsIgnoreCase("Y")){
                 break;
             }else if(confir.equalsIgnoreCase("N")){
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -242,6 +244,7 @@ public class MenuLaboratorio {
                 }
             }
         }
+        System.out.println("La operacion fue exitosa");
         return true;
 
     }
@@ -316,6 +319,7 @@ public class MenuLaboratorio {
             if (confir.equalsIgnoreCase("Y")){
                 break;
             }else if(confir.equalsIgnoreCase("N")){
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -333,6 +337,7 @@ public class MenuLaboratorio {
                 }
             }
         }
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -367,6 +372,7 @@ public class MenuLaboratorio {
             if (confir.equalsIgnoreCase("Y")){
                 break;
             }else if(confir.equalsIgnoreCase("N")){
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -380,6 +386,7 @@ public class MenuLaboratorio {
             }
         }
         Main.laboratorios.remove(index);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -415,6 +422,7 @@ public class MenuLaboratorio {
             if (confir.equalsIgnoreCase("Y")){
                 break;
             }else if(confir.equalsIgnoreCase("N")){
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -428,6 +436,7 @@ public class MenuLaboratorio {
             }
         }
         Main.laboratorios.remove(index);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 }

@@ -67,6 +67,7 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("2")){
             System.out.println("Ingrese el valor minimo de NIT del laboratorio correspondiente al tipo de prueba");
@@ -88,6 +89,7 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("3")){
             System.out.println("Ingrese el valor maximo de NIT del laboratorio correspondiente al tipo de prueba");
@@ -109,6 +111,7 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("4")){
             System.out.println("Ingrese el valor minimo de NIT del laboratorio correspondiente al tipo de prueba");
@@ -138,8 +141,10 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -164,6 +169,7 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese el nombre del tipo de prueba");
@@ -183,8 +189,10 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -209,6 +217,7 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese la referencia de la norma del tipo de prueba");
@@ -228,8 +237,10 @@ public class MenuBusquedaTipoPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
