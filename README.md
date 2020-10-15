@@ -13,3 +13,5 @@ jlhenaoj@unal.edu.co / 1152465710
 contraseña: asdfg
 damunozmo@unal.edu.co / 1037661668
 contraseña: qwert
+
+![Diagrama UML(1)](https://user-images.githubusercontent.com/71849001/96154930-f6b75e00-0ed4-11eb-9c92-58c420614e6b.png)
