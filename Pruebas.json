@@ -6,7 +6,7 @@
     "NumInforme": 5,
     "Clase": "clase a",
     "RefDispositivos": [
-      "T250"
+      "T300"
     ]
   },
   {
@@ -25,7 +25,7 @@
     "Nombre": "prueba de magnetismo a núcleo de transformador",
     "TipoPrueba": "prueba de magnetismo-Laboratorio UNAL",
     "NumInforme": -1,
-    "Clase": "clase 3",
+    "Clase": "Clase 4",
     "RefDispositivos": [
       "G707",
       "t250",
@@ -34,7 +34,7 @@
   },
   {
     "ID": "3-100200300",
-    "Nombre": "prueba de mierda",
+    "Nombre": "prueba de patas",
     "TipoPrueba": "prueba vacio-Laboratorio Alto Voltaje",
     "NumInforme": 8,
     "Clase": "clase a",

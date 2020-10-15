@@ -17,5 +17,12 @@
       "PRUEBA DE MAGNETISMO-Laboratorio UNAL"
     ],
     "IDprueba": 3
+  },
+  {
+    "NIT": 321654987,
+    "Nombre": "LAV",
+    "Direccion": "Cali ",
+    "TipoPruebas": [],
+    "IDprueba": 1
   }
 ]

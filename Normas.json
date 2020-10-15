@@ -9,10 +9,12 @@
   {
     "Nombre": "PRUEBAS DE MAGNETISMO",
     "Referencia": "ASTM 800",
-    "Clases": []
+    "Clases": [
+      "Clase 0"
+    ]
   },
   {
-    "Nombre": "Prueba de aisladores",
+    "Nombre": "Pruebas de aislamiento",
     "Referencia": "IEEE 108",
     "Clases": [
       "Clase 1",

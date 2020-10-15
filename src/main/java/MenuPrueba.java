@@ -166,6 +166,7 @@ public class MenuPrueba {
             }
         }
         Main.tipopruebas.get(indexT).Pruebas.add(ID);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -276,6 +277,7 @@ public class MenuPrueba {
             if (confir.equalsIgnoreCase("Y")) {
                 break;
             } else if (confir.equalsIgnoreCase("N")) {
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -298,6 +300,7 @@ public class MenuPrueba {
                 }
             }
         }
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -334,6 +337,7 @@ public class MenuPrueba {
             if (confir.equalsIgnoreCase("Y")) {
                 break;
             } else if (confir.equalsIgnoreCase("N")) {
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -356,6 +360,7 @@ public class MenuPrueba {
             }
         }
         Main.pruebas.remove(index);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 }

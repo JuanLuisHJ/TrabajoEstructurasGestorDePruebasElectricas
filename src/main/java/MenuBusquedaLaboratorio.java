@@ -70,6 +70,7 @@ public class MenuBusquedaLaboratorio {
             }else {
                 return true;
             }
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("2")){
             System.out.println("Ingrese el valor minimo de NIT del laboratorio");
@@ -91,6 +92,7 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("3")){
             System.out.println("Ingrese el valor maximo de NIT del laboratorio");
@@ -112,6 +114,7 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("4")){
             System.out.println("Ingrese el valor minimo de NIT del laboratorio");
@@ -141,8 +144,10 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -167,6 +172,7 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese el nombre del laboratorio");
@@ -186,8 +192,10 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -212,6 +220,7 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese la direccion del laboratorio");
@@ -231,8 +240,10 @@ public class MenuBusquedaLaboratorio {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -240,6 +251,7 @@ public class MenuBusquedaLaboratorio {
     public static void MostrarTodo() throws IOException {
         Listatemporal = (ArrayList) Main.laboratorios.clone();
         organizar();
+        System.out.println("La operacion fue exitosa");
     }
 
     public static void organizar() throws IOException {

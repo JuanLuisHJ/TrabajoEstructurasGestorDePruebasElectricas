@@ -1,5 +1,14 @@
 [
   {
+    "Nombre": "Clase 0",
+    "Norma": "ASTM 800",
+    "VoltajePrueba": 25000.0,
+    "CorrientePrueba": 100.0,
+    "VoltajeMaximo": 26000.0,
+    "CorrienteMaxima": 120.0,
+    "Tiempo": 360.0
+  },
+  {
     "Nombre": "Clase 1",
     "Norma": "IEEE 666",
     "VoltajePrueba": 30000.0,
@@ -18,7 +27,7 @@
     "Tiempo": 120.0
   },
   {
-    "Nombre": "Clase 3",
+    "Nombre": "Clase 4",
     "Norma": "IEEE 666",
     "VoltajePrueba": 70000.0,
     "CorrientePrueba": 0.7,

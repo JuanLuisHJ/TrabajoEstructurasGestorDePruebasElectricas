@@ -77,6 +77,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("2")){
             System.out.println("Ingrese el valor minimo del nuemero de informe de la prueba");
@@ -98,6 +99,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("3")){
             System.out.println("Ingrese el valor maximo del numero de informe de la prueba");
@@ -119,6 +121,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else if (opcion.equals("4")){
             System.out.println("Ingrese el valor minimo de numero de informe");
@@ -148,8 +151,10 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         }else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -174,6 +179,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese el nombre de la de prueba");
@@ -193,8 +199,10 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -219,6 +227,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese el tipo de prueba");
@@ -238,8 +247,10 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -264,6 +275,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese la clase de la prueba");
@@ -283,8 +295,10 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }
@@ -309,6 +323,7 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else if (opcion.equals("2")) {
             System.out.println("Ingrese el ID de la prueba");
@@ -328,8 +343,10 @@ public class MenuBusquedaPrueba {
             }
             organizar();
             Listatemporal.clear();
+            System.out.println("La operacion fue exitosa");
             return true;
         } else {
+            System.out.println("La operacion fue cancelada");
             return true;
         }
     }

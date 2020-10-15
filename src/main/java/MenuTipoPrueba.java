@@ -131,6 +131,7 @@ public class MenuTipoPrueba {
             }
         }
         Main.laboratorios.get(indexL).TipoPruebas.add(nombre);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -213,6 +214,7 @@ public class MenuTipoPrueba {
             if (confir.equalsIgnoreCase("Y")) {
                 break;
             } else if (confir.equalsIgnoreCase("N")) {
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -241,6 +243,7 @@ public class MenuTipoPrueba {
                 }
             }
         }
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 
@@ -276,6 +279,7 @@ public class MenuTipoPrueba {
             if (confir.equalsIgnoreCase("Y")) {
                 break;
             } else if (confir.equalsIgnoreCase("N")) {
+                System.out.println("La operacion fue cancelada");
                 return true;
             }
         }
@@ -299,6 +303,7 @@ public class MenuTipoPrueba {
             }
         }
         Main.tipopruebas.remove(index);
+        System.out.println("La operacion fue exitosa");
         return true;
     }
 }
