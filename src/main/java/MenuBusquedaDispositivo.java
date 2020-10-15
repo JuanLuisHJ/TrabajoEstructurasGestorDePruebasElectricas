@@ -711,12 +711,12 @@ public class MenuBusquedaDispositivo {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < dispositivos.size(); i++) {
-                    if ((indicer - 1) == i) {
+                    if (indicer  == i) {
                         editar(dispositivos.get(i));
                         break;
                     }
@@ -726,12 +726,12 @@ public class MenuBusquedaDispositivo {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < dispositivos.size(); i++) {
-                    if ((indicer - 1)  == i) {
+                    if (indicer  == i) {
                         eliminar(dispositivos.get(i));
                         break;
                     }

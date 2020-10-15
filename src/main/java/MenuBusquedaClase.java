@@ -1049,12 +1049,12 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < clases.size(); i++) {
-                    if ((indicer - 1) == i) {
+                    if (indicer == i) {
                         editar(clases.get(i));
                         break;
                     }
@@ -1064,12 +1064,12 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < clases.size(); i++) {
-                    if ((indicer - 1) == i) {
+                    if (indicer == i) {
                         eliminar(clases.get(i));
                         break;
                     }

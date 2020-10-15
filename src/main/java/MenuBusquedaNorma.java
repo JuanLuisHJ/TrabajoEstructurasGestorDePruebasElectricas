@@ -345,12 +345,12 @@ public class MenuBusquedaNorma {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer  < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < normas.size(); i++) {
-                    if ((indicer - 1) == i) {
+                    if (indicer == i) {
                         editar(normas.get(i));
                         break;
                     }
@@ -360,12 +360,12 @@ public class MenuBusquedaNorma {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
-                if ((indicer - 1) < 0) {
+                if (indicer < 0) {
                     System.out.println("No se permiten valores negativos.\n");
                     return;
                 }
                 for (int i = 0; i < normas.size(); i++) {
-                    if ((indicer - 1) == i) {
+                    if (indicer == i) {
                         eliminar(normas.get(i));
                         break;
                     }
