@@ -1,2 +1,38 @@
 [
+  {
+    "Nombre": "Prueba de Alto Voltaje-Laboratorio de Alto Voltaje",
+    "RefNorma": "ansi 900",
+    "Pruebas": [],
+    "NitLaboratorio": 100200300
+  },
+  {
+    "Nombre": "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo",
+    "RefNorma": "ASTM 800",
+    "Pruebas": [],
+    "NitLaboratorio": 400500600
+  },
+  {
+    "Nombre": "Prueba de Semiconductores-Laboratorio de Electrónica",
+    "RefNorma": "iec 700",
+    "Pruebas": [
+      "1-100400800"
+    ],
+    "NitLaboratorio": 100400800
+  },
+  {
+    "Nombre": "Prueba de Voltaje sostenido-Laboratorio de Aislamientos",
+    "RefNorma": "IEEE 500",
+    "Pruebas": [
+      "1-200300400"
+    ],
+    "NitLaboratorio": 200300400
+  },
+  {
+    "Nombre": "Prueba de Voltaje-Laboratorio de Alto Voltaje",
+    "RefNorma": "ANSI 900",
+    "Pruebas": [
+      "1-100200300"
+    ],
+    "NitLaboratorio": 100200300
+  }
 ]

@@ -1,2 +1,37 @@
 [
+  {
+    "ID": "1-100200300",
+    "Nombre": "Voltaje de ruptura",
+    "TipoPrueba": "Prueba de Voltaje-Laboratorio de Alto Voltaje",
+    "NumInforme": 4,
+    "Clase": "Clase 2",
+    "RefDispositivos": [
+      "t-100",
+      "r-500",
+      "m-007",
+      "giv-900"
+    ]
+  },
+  {
+    "ID": "1-100400800",
+    "Nombre": "Conductividad",
+    "TipoPrueba": "Prueba de Semiconductores-Laboratorio de Electrónica",
+    "NumInforme": 9,
+    "Clase": "Germanio",
+    "RefDispositivos": [
+      "M-009",
+      "GIC-700"
+    ]
+  },
+  {
+    "ID": "1-200300400",
+    "Nombre": "Voltaje al islamiento",
+    "TipoPrueba": "Prueba de Voltaje sostenido-Laboratorio de Aislamientos",
+    "NumInforme": 8,
+    "Clase": "Clase 4",
+    "RefDispositivos": [
+      "T-650",
+      "M-007"
+    ]
+  }
 ]

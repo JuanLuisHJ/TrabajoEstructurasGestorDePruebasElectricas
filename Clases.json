@@ -1,2 +1,83 @@
 [
+  {
+    "Nombre": "Clase 0",
+    "Norma": "ANSI 900",
+    "VoltajePrueba": 5000.0,
+    "CorrientePrueba": 0.5,
+    "VoltajeMaximo": 6500.0,
+    "CorrienteMaxima": 0.75,
+    "Tiempo": 60.0
+  },
+  {
+    "Nombre": "Clase 2",
+    "Norma": "ansi 900",
+    "VoltajePrueba": 20000.0,
+    "CorrientePrueba": 0.9,
+    "VoltajeMaximo": 27000.0,
+    "CorrienteMaxima": 1.1,
+    "Tiempo": 60.0
+  },
+  {
+    "Nombre": "Clase 4",
+    "Norma": "ansi 900",
+    "VoltajePrueba": 40000.0,
+    "CorrientePrueba": 1.9,
+    "VoltajeMaximo": 52000.0,
+    "CorrienteMaxima": 2.6,
+    "Tiempo": 60.0
+  },
+  {
+    "Nombre": "Clase A",
+    "Norma": "ASTM 800",
+    "VoltajePrueba": 3000.0,
+    "CorrientePrueba": 1000.0,
+    "VoltajeMaximo": 3200.0,
+    "CorrienteMaxima": 2000.0,
+    "Tiempo": 90.0
+  },
+  {
+    "Nombre": "Clase B",
+    "Norma": "ASTM 800",
+    "VoltajePrueba": 5000.0,
+    "CorrientePrueba": 3000.0,
+    "VoltajeMaximo": 5700.0,
+    "CorrienteMaxima": 4500.0,
+    "Tiempo": 90.0
+  },
+  {
+    "Nombre": "Germanio",
+    "Norma": "IEC 700",
+    "VoltajePrueba": 1.5,
+    "CorrientePrueba": 1.3,
+    "VoltajeMaximo": 1.7,
+    "CorrienteMaxima": 1.6,
+    "Tiempo": 15.0
+  },
+  {
+    "Nombre": "Materiales Rígidos",
+    "Norma": "IEEE 500",
+    "VoltajePrueba": 35000.0,
+    "CorrientePrueba": 0.05,
+    "VoltajeMaximo": 50000.0,
+    "CorrienteMaxima": 0.07,
+    "Tiempo": 120.0
+  },
+  {
+    "Nombre": "Matriales Flexibles",
+    "Norma": "IEEE 500",
+    "VoltajePrueba": 25000.0,
+    "CorrientePrueba": 0.08,
+    "VoltajeMaximo": 33000.0,
+    "CorrienteMaxima": 0.11,
+    "Tiempo": 140.0
+  },
+  {
+    "Nombre": "Silicio",
+    "Norma": "IEC 700",
+    "VoltajePrueba": 3.0,
+    "CorrientePrueba": 0.7,
+    "VoltajeMaximo": 3.3,
+    "CorrienteMaxima": 0.9,
+    "Tiempo": 10.0
+  }
 ]

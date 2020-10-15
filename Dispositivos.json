@@ -1,2 +1,65 @@
 [
+  {
+    "Refetencia": "G-100",
+    "Nombre": "Generador de Potencia",
+    "PotenciaNominal": 1.0E7,
+    "VoltajeNominal": 13800.0,
+    "CorrienteNominal": 724.6376811594203
+  },
+  {
+    "Refetencia": "GIC-700",
+    "Nombre": "Generador de Impulso de Corriente",
+    "PotenciaNominal": 1000.0,
+    "VoltajeNominal": 0.1,
+    "CorrienteNominal": 10000.0
+  },
+  {
+    "Refetencia": "GIV-900",
+    "Nombre": "Generador de Impulso de Voltaje",
+    "PotenciaNominal": 300.0,
+    "VoltajeNominal": 1500000.0,
+    "CorrienteNominal": 2.0E-4
+  },
+  {
+    "Refetencia": "M-007",
+    "Nombre": "Multímetro X",
+    "PotenciaNominal": 0.5,
+    "VoltajeNominal": 1000.0,
+    "CorrienteNominal": 5.0E-4
+  },
+  {
+    "Refetencia": "M-009",
+    "Nombre": "Multímtro Y",
+    "PotenciaNominal": 0.7,
+    "VoltajeNominal": 450.0,
+    "CorrienteNominal": 0.0015555555555555555
+  },
+  {
+    "Refetencia": "R-500",
+    "Nombre": "Reóstato 500",
+    "PotenciaNominal": 3000.0,
+    "VoltajeNominal": 750.0,
+    "CorrienteNominal": 4.0
+  },
+  {
+    "Refetencia": "T-100",
+    "Nombre": "Transformador de Corriente",
+    "PotenciaNominal": 10.0,
+    "VoltajeNominal": 0.02,
+    "CorrienteNominal": 500.0
+  },
+  {
+    "Refetencia": "T-300",
+    "Nombre": "Transformador de Potencia",
+    "PotenciaNominal": 100000.0,
+    "VoltajeNominal": 13800.0,
+    "CorrienteNominal": 7.246376811594203
+  },
+  {
+    "Refetencia": "T-650",
+    "Nombre": "Transformador de Voltaje",
+    "PotenciaNominal": 10.0,
+    "VoltajeNominal": 50000.0,
+    "CorrienteNominal": 2.0E-4
+  }
 ]

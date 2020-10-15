@@ -1,2 +1,26 @@
 [
+  {
+    "IDPrueba": 4,
+    "Resultado": true,
+    "Comentarios": "Flameo",
+    "Temperatura": 23.0,
+    "Humedad": 67.0,
+    "Presion": 633.5
+  },
+  {
+    "IDPrueba": 8,
+    "Resultado": false,
+    "Comentarios": "Destrucción",
+    "Temperatura": 25.0,
+    "Humedad": 79.0,
+    "Presion": 643.0
+  },
+  {
+    "IDPrueba": 9,
+    "Resultado": true,
+    "Comentarios": "Buena Conductividad",
+    "Temperatura": 21.0,
+    "Humedad": 59.0,
+    "Presion": 678.0
+  }
 ]

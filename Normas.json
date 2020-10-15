@@ -1,2 +1,45 @@
 [
+  {
+    "Nombre": "Pruebas de Voltaje",
+    "Referencia": "ANSI 900",
+    "Clases": [
+      "Clase 0",
+      "Clase 2",
+      "Clase 4"
+    ]
+  },
+  {
+    "Nombre": "Pruebas de Magnetismo",
+    "Referencia": "ASTM 800",
+    "Clases": [
+      "Clase A",
+      "Clase B"
+    ]
+  },
+  {
+    "Nombre": "Pruebas de Semiconductores",
+    "Referencia": "IEC 700",
+    "Clases": [
+      "Silicio",
+      "Germanio"
+    ]
+  },
+  {
+    "Nombre": "Pruebas de Corriente",
+    "Referencia": "IEEE 300",
+    "Clases": []
+  },
+  {
+    "Nombre": "Pruebas de Aislamientos",
+    "Referencia": "IEEE 500",
+    "Clases": [
+      "Materiales Rígidos",
+      "Matriales Flexibles"
+    ]
+  },
+  {
+    "Nombre": "Pruebas de Campos",
+    "Referencia": "NTC 100",
+    "Clases": []
+  }
 ]

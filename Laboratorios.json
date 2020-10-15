@@ -1,2 +1,53 @@
 [
+  {
+    "NIT": 100200300,
+    "Nombre": "Laboratorio de Alto Voltaje",
+    "Direccion": "Medellín, Colombia",
+    "TipoPruebas": [
+      "Prueba de Voltaje-Laboratorio de Alto Voltaje",
+      "Prueba de Alto Voltaje-Laboratorio de Alto Voltaje"
+    ],
+    "IDprueba": 2
+  },
+  {
+    "NIT": 100400800,
+    "Nombre": "Laboratorio de Electrónica",
+    "Direccion": "Bogotá DC, Colombia",
+    "TipoPruebas": [
+      "Prueba de Semiconductores-Laboratorio de Electrónica"
+    ],
+    "IDprueba": 2
+  },
+  {
+    "NIT": 200300400,
+    "Nombre": "Laboratorio de Aislamientos",
+    "Direccion": "Cali, Colombia",
+    "TipoPruebas": [
+      "Prueba de Voltaje sostenido-Laboratorio de Aislamientos"
+    ],
+    "IDprueba": 2
+  },
+  {
+    "NIT": 400500600,
+    "Nombre": "Laboratorio de Magnetismo",
+    "Direccion": "Medellín, Colombia",
+    "TipoPruebas": [
+      "Prueba de Núcleos Magnéticos-Laboratorio de Magnetismo"
+    ],
+    "IDprueba": 1
+  },
+  {
+    "NIT": 500600700,
+    "Nombre": "Laboratorio de Corrientes",
+    "Direccion": "Bogotá DC, Colombia",
+    "TipoPruebas": [],
+    "IDprueba": 1
+  },
+  {
+    "NIT": 700800900,
+    "Nombre": "Laboratorio de Máquinas",
+    "Direccion": "Manizales, Colombia",
+    "TipoPruebas": [],
+    "IDprueba": 1
+  }
 ]
