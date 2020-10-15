@@ -50,10 +50,6 @@ public class MenuBusquedaClase {
                 return;
 
             } else if (opcionA.equals("8")) {
-                for (int i = 0; i < clases.size(); i++) {
-                    System.out.println("Indice: " + i + ".\n");
-                    System.out.println(clases.get(i));
-                }
                 OrganizarPorAtributo(clases);
                 return;
 
@@ -74,29 +70,56 @@ public class MenuBusquedaClase {
                 System.out.println("Seleccione una opción: ");
                 System.out.println("1. Valor exacto.");
                 System.out.println("2. Valor sin considerar mayusculas. ");
+                System.out.println("0. Cancelar. ");
                 String opcion = input.readLine();
                 if (opcion.equals("1")) {
                     System.out.println("Ingrese el nombre de la clase: ");
                     String nombre = input.readLine();
-                    int indiceref = Collections.binarySearch(clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
-                    System.out.println(clases.get(indiceref));
-                    editareliminarUK(clases.get(indiceref));
-                    System.out.println("Operación realizada con éxito.\n ");
-                    return;
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
+                    for (Clase clase : clases) {
+                        if (clase.Nombre.equalsIgnoreCase(nombre)) {
+                            System.out.println(clase);
+                            editareliminarUK(clase);
+                            System.out.println("Operación realizada con éxito.\n ");
+                            clasesquenoson.clear();
+                            break;
+
+                        } else {
+                            clasesquenoson.add(clase);
+                        }
+                    }
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                        clasesquenoson.clear();
+                        return;
+                    }
 
                 } else if (opcion.equals("2")) {
                     System.out.println("Ingrese el nombre de la clase: ");
                     String nombre = input.readLine();
-                    int indiceref = Collections.binarySearch(clases, new Clase(nombre, null, 0, 0, 0, 0, 0), new ComparadorNombreClase());
-                    System.out.println(clases.get(indiceref));
-                    editareliminarUK(clases.get(indiceref));
-                    System.out.println("Operación realizada con éxito.\n ");
-                    return;
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
+                    for (Clase clase : clases) {
+                      if (clase.Nombre.equalsIgnoreCase(nombre)) {
+                          System.out.println(clase);
+                          editareliminarUK(clase);
+                          System.out.println("Operación realizada con éxito.\n ");
+                          clasesquenoson.clear();
+                          break;
+
+                      } else {
+                          clasesquenoson.add(clase);
+                      }
+                    }
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El nombre ingresado no se encuentra asignado a ninguna clase.\n");
+                        clasesquenoson.clear();
+                        return;
+                    }
 
                 } else if (opcion.equals("0")) {
                     break;
 
-                }else {
+                } else {
                     System.out.println("La opción ingresada no es válida.\n");
 
                 }
@@ -109,32 +132,51 @@ public class MenuBusquedaClase {
                 System.out.println("Seleccione una opción: ");
                 System.out.println("1. Valor exacto.");
                 System.out.println("2. Valor sin considerar mayusculas. ");
+                System.out.println("0. Cancelar. ");
                 String opcion = input.readLine();
                 if (opcion.equals("1")) {
                     System.out.println("Ingrese la referencia de la norma asociada: ");
                     String nombre = input.readLine();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.Nombre.equals(nombre)) {
                             System.out.println(clase);
                             editareliminarUK(clase);
+                            System.out.println("Operación realizada con éxito.\n ");
+                            clasesquenoson.clear();
                             break;
+
+                        } else {
+                            clasesquenoson.add(clase);
                         }
                     }
-                    System.out.println("Operación realizada con éxito.\n ");
-                    return;
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                        clasesquenoson.clear();
+                        return;
+                    }
 
                 } else if (opcion.equals("2")) {
                     System.out.println("Ingrese la referencia de la norma asociada: ");
                     String nombre = input.readLine();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.Nombre.equalsIgnoreCase(nombre)) {
                             System.out.println(clase);
                             editareliminarUK(clase);
+                            System.out.println("Operación realizada con éxito.\n ");
+                            clasesquenoson.clear();
                             break;
+
+                        } else {
+                            clasesquenoson.add(clase);
                         }
                     }
-                    System.out.println("Operación realizada con éxito.\n ");
-                    return;
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("La referencia ingresada no se encuentra asignada a ninguna norma.\n");
+                        clasesquenoson.clear();
+                        return;
+                    }
 
                 } else if (opcion.equals("0")) {
                     break;
@@ -160,10 +202,22 @@ public class MenuBusquedaClase {
                     String volnom = input.readLine();
                     double volnomr = Double.parseDouble(volnom);
                     ArrayList<Clase> clases1 = new ArrayList<>();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.VoltajePrueba == volnomr) {
                             clases1.add(clase);
+                        } else {
+                            clasesquenoson.add(clase);
                         }
+                    }
+                    if (!clases1.isEmpty()) {
+                        clasesquenoson.clear();
+                    }
+
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El valor ingresado no ha sido encontrado. ");
+                        clasesquenoson.clear();
+                        return;
                     }
                     OrganizarPorAtributo(clases1);
                     return;
@@ -173,10 +227,22 @@ public class MenuBusquedaClase {
                     String volnom = input.readLine();
                     double volnomr = Double.parseDouble(volnom);
                     ArrayList<Clase> clases1 = new ArrayList<>();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.VoltajePrueba >= volnomr) {
                             clases1.add(clase);
+                        } else {
+                            clasesquenoson.add(clase);
                         }
+                    }
+                    if (!clases1.isEmpty()) {
+                        clasesquenoson.clear();
+                    }
+
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El valor ingresado no ha sido encontrado. ");
+                        clasesquenoson.clear();
+                        return;
                     }
                     OrganizarPorAtributo(clases1);
                     return;
@@ -186,10 +252,22 @@ public class MenuBusquedaClase {
                     String volnom = input.readLine();
                     double volnomr = Double.parseDouble(volnom);
                     ArrayList<Clase> clases1 = new ArrayList<>();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.VoltajePrueba <= volnomr) {
                             clases1.add(clase);
+                        }else {
+                            clasesquenoson.add(clase);
                         }
+                    }
+                    if (!clases1.isEmpty()) {
+                        clasesquenoson.clear();
+                    }
+
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El valor ingresado no ha sido encontrado. ");
+                        clasesquenoson.clear();
+                        return;
                     }
                     OrganizarPorAtributo(clases1);
                     return;
@@ -202,10 +280,22 @@ public class MenuBusquedaClase {
                     String volnommax = input.readLine();
                     double volnommaxr = Double.parseDouble(volnommax);
                     ArrayList<Clase> clases1 = new ArrayList<>();
+                    ArrayList<Clase> clasesquenoson = new ArrayList<>();
                     for (Clase clase : clases) {
                         if (clase.VoltajePrueba >= volnomminr && clase.VoltajePrueba <= volnommaxr) {
                             clases1.add(clase);
+                        } else {
+                            clasesquenoson.add(clase);
                         }
+                    }
+                    if (!clases1.isEmpty()) {
+                        clasesquenoson.clear();
+                    }
+
+                    if (!clasesquenoson.isEmpty()) {
+                        System.out.println("El valor ingresado no ha sido encontrado. ");
+                        clasesquenoson.clear();
+                        return;
                     }
                     OrganizarPorAtributo(clases1);
                     return;
@@ -234,10 +324,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrientePrueba == corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -247,10 +349,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrientePrueba >= corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -260,10 +374,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrientePrueba <= corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -276,10 +402,22 @@ public class MenuBusquedaClase {
                 String corrnommax = input.readLine();
                 double corrnommaxr = Double.parseDouble(corrnommax);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrientePrueba >= corrnomminr && clase.CorrientePrueba <= corrnommaxr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -308,10 +446,22 @@ public class MenuBusquedaClase {
                 String volnom = input.readLine();
                 double volnomr = Double.parseDouble(volnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.VoltajeMaximo == volnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -321,10 +471,22 @@ public class MenuBusquedaClase {
                 String volnom = input.readLine();
                 double volnomr = Double.parseDouble(volnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.VoltajeMaximo >= volnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -334,10 +496,22 @@ public class MenuBusquedaClase {
                 String volnom = input.readLine();
                 double volnomr = Double.parseDouble(volnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.VoltajeMaximo <= volnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -350,10 +524,22 @@ public class MenuBusquedaClase {
                 String volnommax = input.readLine();
                 double volnommaxr = Double.parseDouble(volnommax);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.VoltajeMaximo >= volnomminr && clase.VoltajeMaximo <= volnommaxr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -382,10 +568,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrienteMaxima == corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -395,10 +593,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrienteMaxima >= corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -408,10 +618,22 @@ public class MenuBusquedaClase {
                 String corrnom = input.readLine();
                 double corrnomr = Double.parseDouble(corrnom);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrienteMaxima <= corrnomr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -424,10 +646,22 @@ public class MenuBusquedaClase {
                 String corrnommax = input.readLine();
                 double corrnommaxr = Double.parseDouble(corrnommax);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.CorrienteMaxima >= corrnomminr && clase.CorrienteMaxima <= corrnommaxr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -456,10 +690,22 @@ public class MenuBusquedaClase {
                 String tiempo = input.readLine();
                 double tiempor = Double.parseDouble(tiempo);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.Tiempo == tiempor) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -469,10 +715,22 @@ public class MenuBusquedaClase {
                 String tiempo = input.readLine();
                 double tiempor = Double.parseDouble(tiempo);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.Tiempo >= tiempor) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -482,10 +740,22 @@ public class MenuBusquedaClase {
                 String tiempo = input.readLine();
                 double tiempor = Double.parseDouble(tiempo);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.Tiempo <= tiempor) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -498,10 +768,22 @@ public class MenuBusquedaClase {
                 String tiempomax = input.readLine();
                 double tiempomaxr = Double.parseDouble(tiempomax);
                 ArrayList<Clase> clases1 = new ArrayList<>();
+                ArrayList<Clase> clasesquenoson = new ArrayList<>();
                 for (Clase clase : clases) {
                     if (clase.Tiempo >= tiempominnr && clase.Tiempo <= tiempomaxr) {
                         clases1.add(clase);
+                    } else {
+                        clasesquenoson.add(clase);
                     }
+                }
+                if (!clases1.isEmpty()) {
+                    clasesquenoson.clear();
+                }
+
+                if (!clasesquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    clasesquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(clases1);
                 return;
@@ -532,6 +814,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorNombreClase());
@@ -549,6 +832,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -557,6 +845,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorNormaClase());
@@ -575,6 +864,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -583,6 +877,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorVoltajePrueba());
@@ -600,6 +895,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -608,6 +908,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorCorrientePrueba());
@@ -625,6 +926,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -633,6 +939,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorVoltajePruebaMax());
@@ -650,6 +957,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -658,6 +970,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorCorrientePruebaMax());
@@ -675,6 +988,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -683,6 +1001,7 @@ public class MenuBusquedaClase {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         clases.sort(new ComparadorTiempoPrueba());
@@ -700,6 +1019,11 @@ public class MenuBusquedaClase {
                         }
                         editareliminarlistas(clases);
                         return;
+                    } else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -725,8 +1049,12 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < clases.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1) == i) {
                         editar(clases.get(i));
                         break;
                     }
@@ -736,8 +1064,12 @@ public class MenuBusquedaClase {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < clases.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1) == i) {
                         eliminar(clases.get(i));
                         break;
                     }
@@ -745,6 +1077,8 @@ public class MenuBusquedaClase {
             } else if (opc.equals("0")) {
                 break;
 
+            } else {
+                System.out.println("La opción ingresada no es válida.\n");
             }
         }
     }

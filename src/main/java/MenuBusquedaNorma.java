@@ -27,10 +27,6 @@ public class MenuBusquedaNorma {
                 return;
 
             } else if (opcionA.equals("3")) {
-                for (int i = 0; i < normas.size(); i++) {
-                    System.out.println("Indice: " + i + ".\n");
-                    System.out.println(normas.get(i));
-                }
                 OrganizarPorAtributo(normas);
                 return;
 
@@ -49,24 +45,51 @@ public class MenuBusquedaNorma {
             System.out.println("Seleccione una opción: ");
             System.out.println("1. Valor exacto.");
             System.out.println("2. Valor sin considerar mayusculas. ");
+            System.out.println("0. Cancelar. ");
             String opcion = input.readLine();
             if (opcion.equals("1")) {
                 System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadorReferenciaNorma());
-                System.out.println(normas.get(indiceref));
-                editareliminarUK(normas.get(indiceref));
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
+                for (Norma norma : normas) {
+                    if (norma.Referencia.equalsIgnoreCase(ref)) {
+                       System.out.println(norma);
+                        editareliminarUK(norma);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        normasquenoson.clear();
+                        break;
+
+                    } else {
+                        normasquenoson.add(norma);
+                    }
+                }
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("No se encontro ninguna norma con la referencia ingresada.\n");
+                    normasquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese la referencia de la norma: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(normas, new Norma(null, ref), new ComparadorReferenciaNorma());
-                System.out.println(normas.get(indiceref));
-                editareliminarUK(normas.get(indiceref));
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
+                for (Norma norma : normas) {
+                    if (norma.Referencia.equalsIgnoreCase(ref)) {
+                        System.out.println(norma);
+                        editareliminarUK(norma);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        normasquenoson.clear();
+                        break;
+
+                } else {
+                    normasquenoson.add(norma);
+                }
+            }
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("No se encontro ninguna norma con la referencia ingresada.\n");
+                    normasquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("0")) {
                 break;
@@ -84,32 +107,51 @@ public class MenuBusquedaNorma {
             System.out.println("Seleccione una opción: ");
             System.out.println("1. Valor exacto.");
             System.out.println("2. Valor sin considerar mayusculas. ");
+            System.out.println("0. Cancelar. ");
             String opcion = input.readLine();
             if (opcion.equals("1")) {
                 System.out.println("Ingrese el nombre del dispositivo: ");
                 String nombre = input.readLine();
-                for (Norma norma : normas) {
-                    if (norma.Nombre.equals(nombre)) {
-                        System.out.println(norma);
-                        editareliminarUK(norma);
-                        break;
-                    }
-                }
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
-
-            } else if (opcion.equals("2")) {
-                System.out.println("Ingrese el nombre del dispositivo: ");
-                String nombre = input.readLine();
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
                 for (Norma norma : normas) {
                     if (norma.Nombre.equalsIgnoreCase(nombre)) {
                         System.out.println(norma);
                         editareliminarUK(norma);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        normasquenoson.clear();
                         break;
+
+                    } else {
+                        normasquenoson.add(norma);
                     }
                 }
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("No se encontro ninguna norma con el nombre ingresado.\n");
+                    normasquenoson.clear();
+                    return;
+                }
+
+            } else if (opcion.equals("2")) {
+                System.out.println("Ingrese el nombre del dispositivo: ");
+                String nombre = input.readLine();
+                ArrayList<Norma> normasquenoson = new ArrayList<>();
+                for (Norma norma : normas) {
+                    if (norma.Nombre.equalsIgnoreCase(nombre)) {
+                        System.out.println(norma);
+                        editareliminarUK(norma);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        normasquenoson.clear();
+                        break;
+
+                    } else {
+                        normasquenoson.add(norma);
+                    }
+                }
+                if (!normasquenoson.isEmpty()) {
+                    System.out.println("No se encontro ninguna norma con el nombre ingresado.\n");
+                    normasquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("0")) {
                 break;
@@ -122,7 +164,6 @@ public class MenuBusquedaNorma {
     }
 
     public static void editareliminarUK(Norma norma) throws IOException {
-
         while (true) {
             System.out.println("Seleccione una opción:\n");
             System.out.println("1. Editar.");
@@ -204,7 +245,6 @@ public class MenuBusquedaNorma {
         for (TipoPrueba tipoprueba : Main.tipopruebas) {
             if (tipoprueba.RefNorma.equalsIgnoreCase(norma.Referencia)) {
                 tipoprueba.RefNorma = null;
-                break;
             }
         }
         Main.normas.remove(norma);
@@ -212,7 +252,7 @@ public class MenuBusquedaNorma {
     }
 
     public static void OrganizarPorAtributo(ArrayList<Norma> normas) throws IOException {
-        while(true) {
+        while (true) {
             System.out.println("Seleccione el atributo por el que desea organizar la lista para impresión. ");
             System.out.println("1. Nombre.");
             System.out.println("2. Referencia.");
@@ -232,6 +272,7 @@ public class MenuBusquedaNorma {
                         }
                         editareliminarlistas(normas);
                         return;
+
                     } else if (opc.equals("2")) {
                         normas.sort(new ComparadorNombreNorma().reversed());
                         for (int i = 0; i < normas.size(); i++) {
@@ -240,6 +281,12 @@ public class MenuBusquedaNorma {
                         }
                         editareliminarlistas(normas);
                         return;
+
+                    } else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -248,6 +295,7 @@ public class MenuBusquedaNorma {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         normas.sort(new ComparadorReferenciaNorma());
@@ -266,17 +314,24 @@ public class MenuBusquedaNorma {
                         }
                         editareliminarlistas(normas);
                         return;
+
+                    } else if (opc.equals("0")) {
+                        break;
+
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
-            }else if (opcionA.equals("0")) {
+
+            } else if (opcionA.equals("0")) {
                 break;
 
             } else {
                 System.out.println("La opción ingresada no es válida.\n");
             }
-
         }
     }
+
 
     public static void editareliminarlistas(ArrayList<Norma> normas) throws IOException {
 
@@ -290,8 +345,12 @@ public class MenuBusquedaNorma {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < normas.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1) == i) {
                         editar(normas.get(i));
                         break;
                     }
@@ -301,8 +360,12 @@ public class MenuBusquedaNorma {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < normas.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1) == i) {
                         eliminar(normas.get(i));
                         break;
                     }
@@ -310,6 +373,8 @@ public class MenuBusquedaNorma {
             } else if (opc.equals("0")) {
                 break;
 
+            } else {
+                System.out.println("La opción ingresada no es válida.\n");
             }
         }
     }

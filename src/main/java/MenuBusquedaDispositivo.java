@@ -41,10 +41,6 @@ public class MenuBusquedaDispositivo {
                     return;
 
                 } else if (opcionA.equals("6")) {
-                    for (int i = 0; i < dispositivos.size(); i++) {
-                        System.out.println("Indice: " + i + ".\n");
-                        System.out.println(dispositivos.get(i));
-                    }
                     OrganizarPorAtributo(dispositivos);
                     return;
 
@@ -68,20 +64,45 @@ public class MenuBusquedaDispositivo {
             if (opcion.equals("1")) {
                 System.out.println("Ingrese la referencia del dispositivo: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
-                System.out.println(dispositivos.get(indiceref));
-                editareliminarUK(dispositivos.get(indiceref));
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
+                for (Dispositivo dispositivo : dispositivos) {
+                    if (dispositivo.Refetencia.equalsIgnoreCase(ref)) {
+                        System.out.println(dispositivo);
+                        editareliminarUK(dispositivo);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        dispositivosquenoson.clear();
+                        break;
+
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
+                    }
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("No se ha encontrado ningun dispositivo con la referencia ingresada.\n");
+                    dispositivosquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese la referencia del dispositivo: ");
                 String ref = input.readLine();
-                int indiceref = Collections.binarySearch(dispositivos, new Dispositivo(ref, null, 0, 0), new ComparadorReferenciaDispositivo());
-                System.out.println(dispositivos.get(indiceref));
-                editareliminarUK(dispositivos.get(indiceref));
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
+                for (Dispositivo dispositivo : dispositivos) {
+                    if (dispositivo.Refetencia.equalsIgnoreCase(ref)) {
+                        System.out.println(dispositivo);
+                        editareliminarUK(dispositivo);
+                        System.out.println("Operación realizada con éxito.\n ");
+                        break;
+
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
+                    }
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("No se ha encontrado ningun dispositivo con la referencia ingresada.\n");
+                    dispositivosquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("0")) {
                 break;
@@ -103,28 +124,45 @@ public class MenuBusquedaDispositivo {
             if (opcion.equals("1")) {
                 System.out.println("Ingrese el nombre del dispositivo: ");
                 String nombre = input.readLine();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.Nombre.equals(nombre)) {
                         System.out.println(dispositivo);
                         editareliminarUK(dispositivo);
+                        dispositivosquenoson.clear();
+                        System.out.println("Operación realizada con éxito.\n ");
                         break;
+
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
                 }
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("No se ha encontrado ningun dispositivo con el nombre ingresado.\n");
+                    dispositivosquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("2")) {
                 System.out.println("Ingrese el nombre del dispositivo: ");
                 String nombre = input.readLine();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.Nombre.equalsIgnoreCase(nombre)) {
                         System.out.println(dispositivo);
                         editareliminarUK(dispositivo);
+                        dispositivosquenoson.clear();
+                        System.out.println("Operación realizada con éxito.\n ");
                         break;
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
                 }
-                System.out.println("Operación realizada con éxito.\n ");
-                return;
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("No se ha encontrado ningun dispositivo con el nombre ingresado.\n");
+                    dispositivosquenoson.clear();
+                    return;
+                }
 
             } else if (opcion.equals("0")) {
                 break;
@@ -151,10 +189,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.PotenciaNominal == potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -164,10 +213,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.PotenciaNominal >= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -177,10 +237,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.PotenciaNominal <= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -193,10 +264,21 @@ public class MenuBusquedaDispositivo {
                 String potnommax = input.readLine();
                 double potnommaxr = Double.parseDouble(potnommax);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.PotenciaNominal >= potnomminr && dispositivo.PotenciaNominal <= potnommaxr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -225,10 +307,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.VoltajeNominal == potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -238,10 +331,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.VoltajeNominal >= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -251,10 +355,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.VoltajeNominal <= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -267,10 +382,21 @@ public class MenuBusquedaDispositivo {
                 String potnommax = input.readLine();
                 double potnommaxr = Double.parseDouble(potnommax);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.VoltajeNominal >= potnomminr && dispositivo.VoltajeNominal <= potnommaxr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -300,10 +426,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.CorrienteNominal == potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -313,10 +450,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.CorrienteNominal >= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -326,10 +474,21 @@ public class MenuBusquedaDispositivo {
                 String potnom = input.readLine();
                 double potnomr = Double.parseDouble(potnom);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.CorrienteNominal <= potnomr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -342,10 +501,21 @@ public class MenuBusquedaDispositivo {
                 String potnommax = input.readLine();
                 double potnommaxr = Double.parseDouble(potnommax);
                 ArrayList<Dispositivo> dispositivos1 = new ArrayList<>();
+                ArrayList<Dispositivo> dispositivosquenoson = new ArrayList<>();
                 for (Dispositivo dispositivo : dispositivos) {
                     if (dispositivo.CorrienteNominal >= potnomminr && dispositivo.CorrienteNominal <= potnommaxr) {
                         dispositivos1.add(dispositivo);
+                    } else {
+                        dispositivosquenoson.add(dispositivo);
                     }
+                }
+                if (!dispositivos1.isEmpty()) {
+                    dispositivosquenoson.clear();
+                }
+                if (!dispositivosquenoson.isEmpty()) {
+                    System.out.println("El valor ingresado no ha sido encontrado. ");
+                    dispositivosquenoson.clear();
+                    return;
                 }
                 OrganizarPorAtributo(dispositivos1);
                 return;
@@ -375,6 +545,7 @@ public class MenuBusquedaDispositivo {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         dispositivos.sort(new ComparadorReferenciaDispositivo());
@@ -392,13 +563,19 @@ public class MenuBusquedaDispositivo {
                         }
                         editareliminarlistas(dispositivos);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
+
             } else if (opcionA.equals("2")) {
                 while (true) {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         dispositivos.sort(new ComparadorNombreDispositivo());
@@ -416,6 +593,10 @@ public class MenuBusquedaDispositivo {
                         }
                         editareliminarlistas(dispositivos);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -424,6 +605,7 @@ public class MenuBusquedaDispositivo {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         dispositivos.sort(new ComparadorPotenciaNominalDispositivo());
@@ -441,14 +623,18 @@ public class MenuBusquedaDispositivo {
                         }
                         editareliminarlistas(dispositivos);
                         return;
+                    }else if (opc.equals("0")) {
+                        break;
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
-
             } else if (opcionA.equals("4")) {
                 while (true) {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         dispositivos.sort(new ComparadorVoltajeNominalDispositivo());
@@ -466,6 +652,10 @@ public class MenuBusquedaDispositivo {
                         }
                         editareliminarlistas(dispositivos);
                         return;
+                    } else if (opc.equals("0")) {
+                        break;
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -474,6 +664,7 @@ public class MenuBusquedaDispositivo {
                     System.out.println("Seleccione una opción:\n");
                     System.out.println("1. Organizar ascendente.");
                     System.out.println("2. Organizar descendente. ");
+                    System.out.println("0. Cancelar. ");
                     String opc = input.readLine();
                     if (opc.equals("1")) {
                         dispositivos.sort(new ComparadorCorrienteNominalDispositivo());
@@ -491,6 +682,10 @@ public class MenuBusquedaDispositivo {
                         }
                         editareliminarlistas(dispositivos);
                         return;
+                    } else if (opc.equals("0")) {
+                        break;
+                    } else {
+                        System.out.println("La opción ingresada no es válida.\n");
                     }
                 }
 
@@ -516,8 +711,12 @@ public class MenuBusquedaDispositivo {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < dispositivos.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1) == i) {
                         editar(dispositivos.get(i));
                         break;
                     }
@@ -527,8 +726,12 @@ public class MenuBusquedaDispositivo {
                 System.out.println("Ingrese el indice del elemento que desea modificar: ");
                 String indice = input.readLine();
                 double indicer = Double.parseDouble(indice);
+                if ((indicer - 1) < 0) {
+                    System.out.println("No se permiten valores negativos.\n");
+                    return;
+                }
                 for (int i = 0; i < dispositivos.size(); i++) {
-                    if (indicer == i) {
+                    if ((indicer - 1)  == i) {
                         eliminar(dispositivos.get(i));
                         break;
                     }
