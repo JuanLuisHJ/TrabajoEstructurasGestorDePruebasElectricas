@@ -551,7 +551,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorReferenciaDispositivo());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -559,7 +559,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorReferenciaDispositivo().reversed());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -581,7 +581,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorNombreDispositivo());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -589,7 +589,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorNombreDispositivo().reversed());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -611,7 +611,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorPotenciaNominalDispositivo());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -619,7 +619,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorPotenciaNominalDispositivo().reversed());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -640,7 +640,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorVoltajeNominalDispositivo());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -648,7 +648,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorVoltajeNominalDispositivo().reversed());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -670,7 +670,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorCorrienteNominalDispositivo());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;
@@ -678,7 +678,7 @@ public class MenuBusquedaDispositivo {
                         dispositivos.sort(new ComparadorCorrienteNominalDispositivo().reversed());
                         for (int i = 0; i < dispositivos.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(dispositivos);
+                            System.out.println(dispositivos.get(i));
                         }
                         editareliminarlistas(dispositivos);
                         return;

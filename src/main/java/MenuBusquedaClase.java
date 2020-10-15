@@ -820,7 +820,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorNombreClase());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -828,7 +828,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorNombreClase().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -851,7 +851,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorNormaClase());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -860,7 +860,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorNormaClase().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -883,7 +883,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorVoltajePrueba());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -891,7 +891,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorVoltajePrueba().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -914,7 +914,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorCorrientePrueba());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -922,7 +922,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorCorrientePrueba().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -945,7 +945,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorVoltajePruebaMax());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -953,7 +953,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorVoltajePruebaMax().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -976,7 +976,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorCorrientePruebaMax());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -984,7 +984,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorCorrientePruebaMax().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -1007,7 +1007,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorTiempoPrueba());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;
@@ -1015,7 +1015,7 @@ public class MenuBusquedaClase {
                         clases.sort(new ComparadorTiempoPrueba().reversed());
                         for (int i = 0; i < clases.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(clases);
+                            System.out.println(clases.get(i));
                         }
                         editareliminarlistas(clases);
                         return;

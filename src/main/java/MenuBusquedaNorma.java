@@ -268,7 +268,7 @@ public class MenuBusquedaNorma {
                         normas.sort(new ComparadorNombreNorma());
                         for (int i = 0; i < normas.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(normas);
+                            System.out.println(normas.get(i));
                         }
                         editareliminarlistas(normas);
                         return;
@@ -277,7 +277,7 @@ public class MenuBusquedaNorma {
                         normas.sort(new ComparadorNombreNorma().reversed());
                         for (int i = 0; i < normas.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(normas);
+                            System.out.println(normas.get(i));
                         }
                         editareliminarlistas(normas);
                         return;
@@ -301,7 +301,7 @@ public class MenuBusquedaNorma {
                         normas.sort(new ComparadorReferenciaNorma());
                         for (int i = 0; i < normas.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(normas);
+                            System.out.println(normas.get(i));
                         }
                         editareliminarlistas(normas);
                         return;
@@ -310,7 +310,7 @@ public class MenuBusquedaNorma {
                         normas.sort(new ComparadorReferenciaNorma().reversed());
                         for (int i = 0; i < normas.size(); i++) {
                             System.out.println("Indice: " + i + ".\n");
-                            System.out.println(normas);
+                            System.out.println(normas.get(i));
                         }
                         editareliminarlistas(normas);
                         return;
